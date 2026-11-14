@@ -358,8 +358,9 @@ are synthesised once and shipped as static files:
 | `scrape_source()` — quiz answers, lesson `audio:` / `audioPrompt:` fields, sample lists, literal `say('…')` calls | — |
 | mission `npcKo:` NPC lines and `goalKo:` goal phrases | 32 |
 | the CS1 dictionary headwords (pp. 189–233), harvested by the same whole-array scrape | 887 |
-| the synonym and antonym tables (pp. 114–126), split into their individual words | 836 |
-| **after dedupe and normalisation** | **3944 clips, 17.4 MB** |
+| the synonym and antonym tables (pp. 114–127), split into their individual words | 836 |
+| the thematic word lists (pp. 128–161), split on `/` and ` - ` the same way | 564 new |
+| **after dedupe and normalisation** | **4508 clips, 20.3 MB** |
 
 Every file is 24 kHz mono 48 kbps MP3, silence-trimmed, peak-normalised to
 −3 dBFS peak in **both** directions, with 30 ms of leading pad so the clip does
@@ -461,7 +462,7 @@ python3 gen_audio.py --source edge   # offline fallback voice
 It is the gate that catches the failure this library exists to prevent: a word
 renders fine but has no clip, so `say()` falls to `/api/tts` (absent on a static
 server), then to `speechSynthesis` (no Korean voice on most Linux installs), and
-the screen is simply silent. 3,944 strings, 17.4 MB.
+the screen is simply silent. 4,508 strings, 20.3 MB.
 
 `scrape_source()` collects the target set from the app source by shape. It reads
 each array literal and keeps **every** Korean field in it, not just the first,
@@ -552,7 +553,7 @@ six-tab reference: **वर्णमाला**, **उच्चारण नि�
 | tag | file | pages | what it gave |
 | --- | --- | --- | --- |
 | `BKL` | Basic Korean Language Book | 83 | letter tables, greetings |
-| `CS1` | CamScanner 07-28-2026 | 239 | pronunciation rules, the whole grammar half (pp. 46–80), the alphabetical dictionary (pp. 189–233) |
+| `CS1` | CamScanner 07-28-2026 | 239 | pronunciation rules, the whole grammar half (pp. 46–80), the synonym and antonym tables (pp. 114–127), the thematic word lists (pp. 128–161), the alphabetical dictionary (pp. 189–233) |
 | `CS2` | CamScanner 03-02-2025 | 245 | counters |
 
 All three are image-only scans — no text layer, and `pdftotext` returns nothing
@@ -647,18 +648,56 @@ which serves a Nepali reader better than `gagi` does:
 collapse to the sound actually pronounced, the same way the book's own
 romanisation does — 닭 is `dak`, not `dalg`.
 
-The same tab carries the two pair tables that sit in front of the dictionary in
-the book — **समानार्थी** (pp. 114–120, 179 rows) and **विपरीत** (pp. 121–126, 154
-pairs). One segmented control switches the list; the search, the row shape and
-the page chips stay identical. The dictionary is the only mode with the initial
-chips, because a synonym row starts with a word, not a letter.
+The same tab carries three more tables. One segmented control switches the
+list; the search and the row shape stay identical, and only the filter changes
+with the mode.
+
+| mode | source | rows | filter |
+| --- | --- | --- | --- |
+| शब्दकोश | pp. 189–233 | 1,121 | initial-consonant chips |
+| उपयोगी शब्द | pp. 128–161 | 834 | topic `<select>` |
+| समानार्थी | pp. 114–120 | 179 | none |
+| विपरीत | pp. 121–127 | 181 | none |
+
+The dictionary is the only mode with the initial chips, because a synonym row
+starts with a word, not a letter.
 
 Pair rows print several words in one field (`곧/바로`, `곧 - 천천히`). Two
 consequences the code has to respect: `bkSpeak()` speaks the **first** word only
 — reading the separator aloud is worse than saying nothing — and `bkDev()` reads
 **every** word in the row, because a row where the second word has no Devanagari
-looks like an omission. `gen_audio.py` splits those fields into their individual
+looks like an omission. Headwords and multi-word entries (`건강 보험`,
+`주사를 맞다`) stay whole in both modes; the splitting applies only to the pair
+tables. `gen_audio.py` splits those fields into their individual
 words before baking, or the tap lands on a clip that was never made.
+
+### उपयोगी शब्द — the thematic word lists
+
+Printed pages 128–161 are 834 words sorted by topic, in 22 groups: home 71,
+place 71, tools 66, health 58, school 53, family 48, job 46, time 44, nature 40,
+post 35, food 34, animal 34, bank 33, religion 31, transport 30, direction 29,
+body 26, sport 25, country 21, drink 17, colour 13, taste 9.
+
+`BK_USE` is `[printed_page, korean, nepali, english, gender, section]` and
+`BK_USE_SEC` is `[key, Nepali heading, Korean heading, first page, last page]`.
+The section key is what the filter reads; the headings are the book's own
+(घरमा प्रयोग हुने सामानहरू / 집에서 쓰는 물건), not a translation of them.
+
+Three decisions worth naming:
+
+- **A `<select>`, not chips.** 22 chips either wrap into a wall that pushes the
+  list off the first screen or scroll sideways and hide the topic the learner
+  wants. A native picker is smaller, opens full-screen on a phone, and states
+  every option. `""` means "all 834" so search spans the whole block by default.
+- **The family table's `*` and `•` survive.** The book marks some kinship terms
+  as what a woman says (시아버지, 언니) and some as what a man says (장인, 형);
+  they are superscript badges with a `title`, not flattened into one gloss.
+  시아버지 and 장인 both mean "father-in-law" and are not interchangeable.
+- **The book's errors are listed, not fixed silently.** Eight grouped lines in a
+  collapsible card at the foot of the tab: 오전/오후 swapped in the Nepali column,
+  내팔 for 네팔, 사위 glossed "Daughter in law", 젓가락 glossed "Fork", 스님 glossed
+  "Father", 주홍색 given as बैजनी, and the rest. Correcting them off-screen would
+  be a quiet lie about the source; copying them would teach the error.
 
 `bkInit()` exists because a Hangul syllable never starts with a jamo:
 `r[1].charAt(0)` returns `갈`, not `ㄱ`, so the initial has to be pulled out of

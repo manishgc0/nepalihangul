@@ -5720,24 +5720,58 @@ html.dark .pdisp-note-name {
 
 .bk-dchips{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 10px}
 
-/* the dictionary, its synonym half and its antonym half are one screen */
+/* the dictionary, its word lists and its two pair tables are one screen */
 .bk-dmodes{
-  display:flex;gap:4px;margin:14px 0 0;padding:4px;
+  display:flex;flex-wrap:wrap;gap:4px;margin:14px 0 0;padding:4px;
   background:var(--cream-2);border:1px solid var(--line);border-radius:var(--r-2);
 }
+/* four labels at 390 px: one row would squeeze समानार्थी past legibility,
+   so they sit two by two until there is room for four. */
 .bk-dmode{
-  flex:1 1 0;min-width:0;padding:9px 4px;
+  flex:1 1 calc(50% - 2px);min-width:0;padding:9px 4px;
   font-family:inherit;font-size:var(--fs-label);font-weight:700;color:var(--ink-2);
   background:none;border:0;border-radius:var(--r-1);cursor:pointer;
   transition:background .12s ease,color .12s ease;
 }
+@media (min-width:560px){ .bk-dmode{flex:1 1 0} }
 .bk-dmode i{
   display:block;font-style:normal;font-size:9px;font-weight:600;
   color:var(--ink-3);line-height:1.2;margin-top:1px;font-variant-numeric:tabular-nums;
 }
 .bk-dmode:hover{background:var(--paper)}
 .bk-dmode.on{background:var(--rose-ink);color:var(--paper)}
-.bk-dmode.on i{color:var(--rose-soft)}.bk-dchip{
+.bk-dmode.on i{color:var(--rose-soft)}
+/* 22 topics do not fit a chip row; a picker is smaller than a scroller that
+   hides half its options. */
+.bk-dsel{
+  display:block;width:100%;margin:0 0 10px;padding:11px 12px;
+  font-family:inherit;font-size:var(--fs-label);font-weight:700;color:var(--ink);
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--r-1);
+  cursor:pointer;appearance:none;
+  background-image:linear-gradient(45deg,transparent 50%,var(--ink-3) 50%),
+                   linear-gradient(135deg,var(--ink-3) 50%,transparent 50%);
+  background-position:calc(100% - 18px) 55%,calc(100% - 13px) 55%;
+  background-size:5px 5px,5px 5px;background-repeat:no-repeat;
+}
+.bk-dsel:focus-visible{outline:2px solid var(--rose-ink);outline-offset:1px}
+/* the book's * and bullet: a woman says this term, a man says that one */
+.bk-d-g{
+  font-style:normal;font-weight:700;font-size:11px;color:var(--rose-ink);
+  margin-left:3px;vertical-align:super;line-height:0;
+}
+/* the corrections card — the book has real errors and they are listed, not
+   silently fixed and not silently copied */
+.bk-fix{
+  margin:16px 0 0;padding:0 14px;border:1px solid var(--line);
+  border-radius:var(--r-2);background:var(--cream-2);
+}
+.bk-fix summary{
+  padding:11px 0;cursor:pointer;font-size:var(--fs-label);font-weight:700;
+  color:var(--ink-2);line-height:1.45;
+}
+.bk-fix summary::marker{color:var(--ink-3)}
+.bk-fix ul{margin:0 0 12px;padding-left:18px}
+.bk-fix li{font-size:var(--fs-small);color:var(--ink-2);line-height:1.6;margin-bottom:7px}.bk-dchip{
   position:relative;min-width:40px;padding:8px 9px 7px;
   font-family:inherit;font-size:16px;font-weight:700;color:var(--ink);
   background:var(--paper);border:1px solid var(--line-2);border-radius:var(--r-1);
@@ -9193,8 +9227,10 @@ const BK_SYN = [
   [120, "무료/공짜", "निशुल्क", "Free"],
 ];
 
-/* CS1 pp.121-126 — विपरीतार्थी शब्दार्थ. The book prints the pair joined by a
-   dash; the dash is kept so the row reads as the page reads. */
+/* CS1 pp.121-127 — विपरीतार्थी शब्दार्थ. The book prints the pair joined by a
+   dash; the dash is kept so the row reads as the page reads. p127 repeats
+   three pairs from earlier pages (수입-지출, 묶다-풀다, 밀다-당기다) — the
+   book prints them twice, so both copies stay. */
 const BK_ANT = [
   [121, "곧 - 천천히", "चाँडै-विस्तारै", "Soon - Slowly"],
   [121, "가난 - 부자", "गरिब-धनी", "Poor - rich"],
@@ -9350,6 +9386,902 @@ const BK_ANT = [
   [126, "일어서다 - 쓰러지다", "उभिनु-लड्नु", "Get up- Lay down"],
   [126, "자연스럽다 - 어색하다", "स्वभाविक-अस्वभाविक", "Natural - be awkward"],
   [126, "켜다 - 잠그다", "अन गर्नु-बन्द गर्नु", "Turn on- Turn off"],
+  [127, "안전한 - 위험한", "सुरक्षित-खतरा हुनु", "Safety - Danger"],
+  [127, "얻다 - 잃다", "हासिल गर्नु-गुमाउनु", "Gain - lose"],
+  [127, "젖다 - 마르다", "भिज्नु-सुक्नु", "Be wet - be dry"],
+  [127, "주의하다 - 방심하다", "होसियार हुनु-बेवास्ता गर्नु", "Be cautious - be careless"],
+  [127, "재미있다 - 지루하다", "रमाइलो हुनु-बोरिङ हुनु", "Interesting - boring"],
+  [127, "수입 - 지출", "आय - व्यय", "Income - expenditure"],
+  [127, "집중하다 - 딴짓하다", "एकाग्र हुनु-अरुतिर ध्यान दिनु", "Concentrate - be distracted"],
+  [127, "참석하다 - 빠지다", "सहभागी हुनु-छुट्नु", "Attend - be absent"],
+  [127, "처음 - 마지막", "पहिलो - अन्तिम", "First time - last"],
+  [127, "최소한 - 최대한", "न्यूनतम - अधिकतम", "Minimum - maximum"],
+  [127, "입구 - 출구", "प्रवेश - निकास", "Entry - exit"],
+  [127, "타다 - 내리다", "चढ्नु - ओर्लनु", "Ride - get off"],
+  [127, "출근하다 - 퇴근하다", "काममा जानु - फर्कनु", "Go to work - come off work"],
+  [127, "특별하다 - 평범하다", "विशेष हुनु - सामान्य हुनु", "Special - ordinary"],
+  [127, "포함 - 제외", "समावेश - बाहेक", "Include - exclude"],
+  [127, "묶다 - 풀다", "कस्नु - फुकाल्नु", "Tie - untie"],
+  [127, "짐을 풀다 - 싸다", "सामान खोल्नु - प्याक गर्नु", "Unpack - pack up"],
+  [127, "합법 - 불법", "वैधानिक - अवैधानिक", "Legal - illegal"],
+  [127, "행운 - 불운", "भाग्य - दुर्भाग्य", "Luck - bad luck"],
+  [127, "담다/넣다 - 꺼내다", "राख्नु - निकाल्नु", "Put in - take out"],
+  [127, "넘다 - 모자라다", "धेरै हुनु - अपुग हुनु", "Exceed - fall short"],
+  [127, "밀다/미루다 - 당기다", "धकेल्नु / सार्नु - तान्नु", "Push / postpone - pull"],
+  [127, "좋다 - 나쁘다", "राम्रो - नराम्रो", "Good - bad"],
+  [127, "주다 - 받다", "दिनु - लिनु", "Give - receive"],
+  [127, "열다 - 닫다/막다", "खोल्नु - बन्द गर्नु", "Open - close"],
+  [127, "나누다 - 모으다", "बाँड्नु - जम्मा गर्नु", "Divide - collect"],
+  [127, "빠르다 - 느리다", "छिटो हुनु - ढिलो हुनु", "Be fast - be slow"],
+];
+
+/* CS1 pp.128-161 — केही उपयोगी शब्दार्थ. [key, Nepali heading, Korean heading,
+   first printed page, last printed page]. */
+const BK_USE_SEC = [
+  ["time", "समय जनाउने शब्दहरू", "시간을 나타내는 말", 128, 129],
+  ["country", "देशका नामहरू", "나라 이름", 129, 130],
+  ["family", "परिवारिक सम्बन्ध", "가족 관계", 130, 132],
+  ["body", "शरीरका अंगहरू", "신체 부분", 132, 133],
+  ["tools", "कार्यक्षेत्रमा प्रयोग हुने सामानहरू", "작업장에서 쓰는 도구", 134, 136],
+  ["home", "घरमा प्रयोग हुने सामानहरू", "집에서 쓰는 물건", 136, 139],
+  ["job", "पेशा तथा पद", "직업과 지위", 139, 141],
+  ["transport", "यातायातका साधन र ट्राफिक संकेत", "교통 수단과 신호표", 141, 142],
+  ["place", "भवन र ठाउँहरू", "건물과 장소", 142, 145],
+  ["health", "स्वास्थ्य र औषधि", "건강과 약", 145, 147],
+  ["school", "विद्यालय र पढाइ", "학교와 독서", 148, 149],
+  ["food", "तरकारी तथा फलफूल", "야채와 과일", 150, 151],
+  ["drink", "पेयपदार्थ", "음료수", 151, 151],
+  ["direction", "दिशा बुझाउने शब्दहरू", "방향", 152, 153],
+  ["animal", "जनावर र चरा", "동물과 새", 153, 154],
+  ["bank", "बैंक", "은행", 154, 155],
+  ["post", "हुलाक", "우체국", 155, 157],
+  ["sport", "खेल र व्यायाम", "게임과 운동", 157, 158],
+  ["nature", "प्रकृति, मौसम र ऋतु", "자연, 계절과 날씨", 158, 159],
+  ["religion", "धर्म सम्बन्धी", "종교", 159, 160],
+  ["color", "रङहरू", "색", 161, 161],
+  ["taste", "स्वाद", "맛", 161, 161],
+];
+
+/* CS1 pp.128-161 — the thematic word lists, typed from the page images.
+   Row shape: [printed_page, korean, nepali, english, gender, section].
+   gender is "" for almost every row; the family table marks a term a
+   woman uses with * and a term a man uses with a bullet, and those two
+   marks are carried here rather than flattened away. */
+const BK_USE = [
+  [128, "시", "बजे", "O'clock", "", "time"],
+  [128, "분", "मिनेट", "Minute", "", "time"],
+  [128, "초", "सेकेन्ड", "Second", "", "time"],
+  [128, "주", "हप्ता", "Week", "", "time"],
+  [128, "년", "वर्ष", "Year", "", "time"],
+  [128, "월", "महिना", "Month", "", "time"],
+  [128, "밤", "राती", "Night", "", "time"],
+  [128, "오전", "पूर्वाह्न", "AM", "", "time"],
+  [128, "오후", "अपराह्न", "PM", "", "time"],
+  [128, "새벽", "सबेरे", "Early dawn", "", "time"],
+  [128, "아침", "बिहान", "Morning", "", "time"],
+  [128, "저녁", "साँझ", "Evening", "", "time"],
+  [128, "그저께", "अस्ति", "The day before yesterday", "", "time"],
+  [128, "어제", "हिजो", "Yesterday", "", "time"],
+  [128, "오늘", "आज", "Today", "", "time"],
+  [128, "내일", "भोलि", "Tomorrow", "", "time"],
+  [128, "모레", "पर्सि", "The day after tomorrow", "", "time"],
+  [128, "글피", "निकपर्सि", "Two days after tomorrow", "", "time"],
+  [128, "시간", "समय / घण्टा", "Time / Hour", "", "time"],
+  [128, "지금/이제", "अहिले", "Now", "", "time"],
+  [128, "전에", "अघि", "Before", "", "time"],
+  [128, "후에", "पछि", "After", "", "time"],
+  [129, "요즘", "आजभोलि", "Nowadays", "", "time"],
+  [129, "자주", "बारम्बार", "Frequently", "", "time"],
+  [129, "보통", "प्रायः", "Usually", "", "time"],
+  [129, "절대", "कहिल्यै (नहुने)", "Never", "", "time"],
+  [129, "항상", "सधैं", "Always", "", "time"],
+  [129, "가끔", "कहिलेकाहीं", "Sometimes", "", "time"],
+  [129, "작년", "गत वर्ष", "Last year", "", "time"],
+  [129, "금년/올해", "यो वर्ष", "This year", "", "time"],
+  [129, "내년", "अर्को वर्ष", "Next year", "", "time"],
+  [129, "지난주", "गत हप्ता", "Last week", "", "time"],
+  [129, "이번 주", "यो हप्ता", "This week", "", "time"],
+  [129, "다음 주", "अर्को हप्ता", "Next week", "", "time"],
+  [129, "지난달", "गत महिना", "Last month", "", "time"],
+  [129, "이번 달", "यो महिना", "This month", "", "time"],
+  [129, "다음 달", "अर्को महिना", "Next month", "", "time"],
+  [129, "하루에", "दैनिक", "Daily", "", "time"],
+  [129, "이틀에", "दुई दिनमा", "In two days", "", "time"],
+  [129, "일주간", "एक हप्ताको लागि", "For one week", "", "time"],
+  [129, "일년간", "एक वर्षको लागि", "For one year", "", "time"],
+  [129, "언제나", "जहिले सुकै", "Anytime", "", "time"],
+  [129, "매일/날마다", "प्रत्येक दिन", "Every day", "", "time"],
+  [129, "잠시/잠깐", "एकछिन", "For a moment", "", "time"],
+  [129, "네팔", "नेपाल", "Nepal", "", "country"],
+  [129, "인도", "भारत", "India", "", "country"],
+  [130, "한국", "दक्षिण कोरिया", "South Korea", "", "country"],
+  [130, "북한", "उत्तर कोरिया", "North Korea", "", "country"],
+  [130, "일본", "जापान", "Japan", "", "country"],
+  [130, "중국", "चीन", "China", "", "country"],
+  [130, "영국", "बेलायत", "United Kingdom", "", "country"],
+  [130, "미국", "अमेरिका", "United States", "", "country"],
+  [130, "독일", "जर्मनी", "Germany", "", "country"],
+  [130, "대만", "ताइवान", "Taiwan", "", "country"],
+  [130, "캄보디아", "कम्बोडिया", "Cambodia", "", "country"],
+  [130, "캐나다", "क्यानडा", "Canada", "", "country"],
+  [130, "호주", "अस्ट्रेलिया", "Australia", "", "country"],
+  [130, "스리랑카", "श्रीलङ्का", "Sri Lanka", "", "country"],
+  [130, "태국", "थाइल्यान्ड", "Thailand", "", "country"],
+  [130, "몽골", "मङ्गोलिया", "Mongolia", "", "country"],
+  [130, "베트남", "भियतनाम", "Vietnam", "", "country"],
+  [130, "프랑스", "फ्रान्स", "France", "", "country"],
+  [130, "파키스탄", "पाकिस्तान", "Pakistan", "", "country"],
+  [130, "동티모르", "पूर्वी टिमोर", "East Timor", "", "country"],
+  [130, "필리핀", "फिलिपिन्स", "Philippines", "", "country"],
+  [130, "할아버지", "हजुरबुबा", "Grandfather", "", "family"],
+  [130, "할머니", "हजुरआमा", "Grandmother", "", "family"],
+  [131, "부모", "बाबुआमा", "Parents", "", "family"],
+  [131, "아버지", "बुबा", "Father", "", "family"],
+  [131, "어머니", "आमा", "Mother", "", "family"],
+  [131, "시아버지", "ससुरा", "Father-in-law (husband's father)", "f", "family"],
+  [131, "시어머니", "सासू", "Mother-in-law (husband's mother)", "f", "family"],
+  [131, "장인", "ससुरा", "Father-in-law (wife's father)", "m", "family"],
+  [131, "장모", "सासू", "Mother-in-law (wife's mother)", "m", "family"],
+  [131, "큰아버지", "ठुलोबुबा", "Elder uncle", "", "family"],
+  [131, "큰어머니", "ठुलीआमा", "Elder aunt", "", "family"],
+  [131, "삼촌", "काका", "Uncle", "", "family"],
+  [131, "숙모", "काकी", "Aunt", "", "family"],
+  [131, "이모", "ठुली/सानी आमा", "Maternal aunt", "", "family"],
+  [131, "이모부", "ठुलो/सानो बुबा", "Mother's sister's husband", "", "family"],
+  [131, "고모", "फुपू", "Father's sister", "", "family"],
+  [131, "고모부", "फुपाजु", "Father's sister's husband", "", "family"],
+  [131, "외삼촌", "मामा", "Maternal uncle", "", "family"],
+  [131, "외숙모", "माइजू", "Maternal uncle's wife", "", "family"],
+  [131, "오빠", "दाइ (दिदीले भन्ने)", "Elder brother", "f", "family"],
+  [131, "형", "दाइ (भाइले भन्ने)", "Elder brother", "m", "family"],
+  [131, "누나", "दिदी (भाइले भन्ने)", "Elder sister", "m", "family"],
+  [131, "언니", "दिदी (बहिनीले भन्ने)", "Elder sister", "f", "family"],
+  [131, "형부", "भिनाजु (दिदीको श्रीमान्)", "Elder sister's husband", "f", "family"],
+  [131, "매형", "भिनाजु (दिदीको श्रीमान्)", "Elder sister's husband", "m", "family"],
+  [131, "처제", "साली (श्रीमतीको बहिनी)", "Wife's younger sister", "", "family"],
+  [131, "처남", "साला (श्रीमतीको भाइ)", "Wife's younger brother", "", "family"],
+  [132, "사위", "ज्वाइँ (छोरीको श्रीमान्)", "Son-in-law", "", "family"],
+  [132, "며느리", "बुहारी (छोराको श्रीमती)", "Daughter-in-law", "", "family"],
+  [132, "매제", "बहिनीको श्रीमान्", "Younger sister's husband", "", "family"],
+  [132, "형수", "भाउजू (दाइको श्रीमती)", "Elder brother's wife", "", "family"],
+  [132, "제수", "भाइबुहारी", "Younger brother's wife", "", "family"],
+  [132, "남동생", "भाइ", "Younger brother", "", "family"],
+  [132, "여동생", "बहिनी", "Younger sister", "", "family"],
+  [132, "시동생", "देवर (श्रीमान्को भाइ)", "Husband's younger brother", "", "family"],
+  [132, "시누이", "नन्द (श्रीमान्को दिदी/बहिनी)", "Husband's sister", "", "family"],
+  [132, "남편", "श्रीमान्", "Husband", "", "family"],
+  [132, "부인", "श्रीमती", "Wife", "", "family"],
+  [132, "아들", "छोरा", "Son", "", "family"],
+  [132, "딸", "छोरी", "Daughter", "", "family"],
+  [132, "동생", "भाइ/बहिनी", "Younger sibling", "", "family"],
+  [132, "형제", "दाजुभाइ", "Brothers", "", "family"],
+  [132, "자매", "दिदीबहिनी", "Sisters", "", "family"],
+  [132, "손자", "नाति", "Grandson", "", "family"],
+  [132, "손녀", "नातिनी", "Granddaughter", "", "family"],
+  [132, "조카", "भतिजो (दाइ/भाइको छोरा)", "Nephew", "", "family"],
+  [132, "조카딸", "भतिजी (दाइ/भाइको छोरी)", "Niece", "", "family"],
+  [132, "생질", "भान्जा/भान्जी", "Nephew / niece (sister's child)", "", "family"],
+  [132, "귀", "कान", "Ear", "", "body"],
+  [132, "간", "कलेजो", "Liver", "", "body"],
+  [133, "눈", "आँखा", "Eye", "", "body"],
+  [133, "이", "दाँत", "Teeth", "", "body"],
+  [133, "목", "घाँटी", "Neck", "", "body"],
+  [133, "몸", "शरीर", "Body", "", "body"],
+  [133, "배", "पेट", "Stomach", "", "body"],
+  [133, "발", "खुट्टा", "Foot / leg", "", "body"],
+  [133, "코", "नाक", "Nose", "", "body"],
+  [133, "혀", "जिब्रो", "Tongue", "", "body"],
+  [133, "뼈", "हाड", "Bone", "", "body"],
+  [133, "머리", "टाउको", "Head", "", "body"],
+  [133, "이마", "निधार", "Forehead", "", "body"],
+  [133, "부분", "अंग", "Part", "", "body"],
+  [133, "머리카락", "कपाल", "Hair", "", "body"],
+  [133, "입술", "ओठ", "Lips", "", "body"],
+  [133, "심장", "मुटु", "Heart", "", "body"],
+  [133, "어깨", "काँध", "Shoulder", "", "body"],
+  [133, "가슴", "छाती", "Chest", "", "body"],
+  [133, "팔", "पाखुरा", "Arm", "", "body"],
+  [133, "팔꿈치", "कुहिनो", "Elbow", "", "body"],
+  [133, "손", "हात", "Hand", "", "body"],
+  [133, "손톱", "हातको नङ", "Nails", "", "body"],
+  [133, "손가락", "हातको औंला", "Finger", "", "body"],
+  [133, "허리", "कम्मर", "Waist", "", "body"],
+  [133, "엉덩이", "पुड्को", "Hip", "", "body"],
+  [134, "나사", "पेच किला", "Screw", "", "tools"],
+  [134, "너트", "नट", "Nut", "", "tools"],
+  [134, "못", "किला", "Nail", "", "tools"],
+  [134, "자", "नाप्ने फित्ता", "Tape measure", "", "tools"],
+  [134, "삽", "बेल्चा", "Shovel", "", "tools"],
+  [134, "낫", "हँसिया", "Sickle", "", "tools"],
+  [134, "줄", "रेती", "File", "", "tools"],
+  [134, "톱", "करौती", "Saw", "", "tools"],
+  [134, "펜치", "पेन्चिस (फलामको तार काट्ने, बङ्याउने)", "Pliers", "", "tools"],
+  [134, "니퍼", "पेन्चिस (विद्युतीय तार काट्ने)", "Nipper", "", "tools"],
+  [134, "플라이어", "चुच्चे पेन्चिस (तार बङ्याउने)", "Long-nose pliers", "", "tools"],
+  [134, "망치", "हथौडा", "Hammer", "", "tools"],
+  [134, "헥소", "हेक्सा", "Hacksaw", "", "tools"],
+  [134, "스패너", "सलाइ रेन्ची", "Spanner", "", "tools"],
+  [134, "장갑", "पन्जा", "Gloves", "", "tools"],
+  [134, "공구", "औजार", "Tool", "", "tools"],
+  [134, "그물", "जाली", "Net", "", "tools"],
+  [134, "볼트", "बोल्ट", "Bolt", "", "tools"],
+  [134, "호미", "कुटो", "Hoe", "", "tools"],
+  [134, "전기 드릴", "विद्युतीय ड्रिल", "Electric drill", "", "tools"],
+  [134, "송곳", "प्वाल पार्ने औजार", "Awl", "", "tools"],
+  [134, "쇠지레", "काँही निकाल्ने औजार", "Crowbar", "", "tools"],
+  [134, "정", "छिनो", "Chisel", "", "tools"],
+  [135, "대패", "रन्दा", "Plane", "", "tools"],
+  [135, "바이스", "च्याप्ने मेसिन", "Vise", "", "tools"],
+  [135, "장도리", "ह्यामर", "Claw hammer", "", "tools"],
+  [135, "사포", "खाक्सी", "Sandpaper", "", "tools"],
+  [135, "파이프 렌치", "पाइप रेन्ची", "Pipe wrench", "", "tools"],
+  [135, "철선", "फलामको तार", "Iron wire", "", "tools"],
+  [135, "통발", "माछा मार्ने जालो (ढडिया)", "Fish trap", "", "tools"],
+  [135, "양망기", "माछा मार्दा प्रयोग गरिने मेसिन", "Fishing machine", "", "tools"],
+  [135, "밧줄", "नाइलन डोरी", "Rope", "", "tools"],
+  [135, "쇠사슬", "फलामको चेन", "Iron chain", "", "tools"],
+  [135, "고리", "अंकुसे", "Hook", "", "tools"],
+  [135, "낚시 바늘", "बल्छी", "Fish hook", "", "tools"],
+  [135, "닻", "अड्याउने औजार", "Anchor", "", "tools"],
+  [135, "도르래", "घिर्नी", "Pulley", "", "tools"],
+  [135, "줄자", "नाप्ने टेप", "Measuring tape", "", "tools"],
+  [135, "전선 릴", "विद्युतीय तारको रोल", "Wire reel", "", "tools"],
+  [135, "밴딩기", "बाँध्ने, कस्ने मेसिन", "Strapping machine", "", "tools"],
+  [135, "절곡기", "बङ्गाउने मेसिन", "Bending machine", "", "tools"],
+  [135, "절단기", "काट्ने मेसिन", "Cutting machine", "", "tools"],
+  [135, "콘센트", "निकासा (प्लग)", "Outlet", "", "tools"],
+  [135, "그라인더/연삭기", "ग्राइन्डर", "Grinder", "", "tools"],
+  [135, "지게차", "भारी उठाउने गाडी", "Forklift", "", "tools"],
+  [135, "경운기", "जोतेल्ने ट्याक्टर", "Cultivator", "", "tools"],
+  [135, "콤바인", "धान काट्ने मेसिन", "Combine harvester", "", "tools"],
+  [136, "농약 분무기", "विषादी छर्ने औजार", "Chemical sprayer", "", "tools"],
+  [136, "양동이", "बाल्टिन", "Bucket", "", "tools"],
+  [136, "손수레", "ठेला", "Handcart", "", "tools"],
+  [136, "사다리", "भर्याङ", "Ladder", "", "tools"],
+  [136, "바인 끈", "प्लास्टिक डोरी", "Plastic strap", "", "tools"],
+  [136, "마대", "थैला", "Gunny sack", "", "tools"],
+  [136, "괭이", "कोदालो", "Mattock", "", "tools"],
+  [136, "곡괭이", "गैंती", "Pickaxe", "", "tools"],
+  [136, "모종삽", "बिरुवा सार्ने बेल्चा", "Trowel", "", "tools"],
+  [136, "갈퀴", "पात सोर्ने औजार", "Rake", "", "tools"],
+  [136, "쇠스랑", "दाते", "Pitchfork", "", "tools"],
+  [136, "파종상자", "बिउ उमार्ने ट्रे", "Seed tray", "", "tools"],
+  [136, "커터", "कटर", "Cutter", "", "tools"],
+  [136, "드라이버", "स्क्रु ड्राइभर", "Screwdriver", "", "tools"],
+  [136, "용접기", "वेल्डिङ मेसिन", "Welding machine", "", "tools"],
+  [136, "용접봉", "वेल्डिङ रड", "Welding rod", "", "tools"],
+  [136, "전기톱", "विद्युतीय आरा", "Electric saw", "", "tools"],
+  [136, "공구함", "औजार बाकस", "Toolbox", "", "tools"],
+  [136, "호이스터", "सामान तलमाथि गराउने साधन", "Hoist", "", "tools"],
+  [136, "빗", "काइयो", "Comb", "", "home"],
+  [136, "순", "भाँडा", "Utensil", "", "home"],
+  [136, "칼", "चक्कु", "Knife", "", "home"],
+  [137, "컵", "कप", "Cup", "", "home"],
+  [137, "물", "पानी", "Water", "", "home"],
+  [137, "부엌", "भान्सा कोठा", "Kitchen", "", "home"],
+  [137, "냄비", "डेक्ची / तावा", "Pot", "", "home"],
+  [137, "앞치마", "एप्रन", "Apron", "", "home"],
+  [137, "책상", "टेबुल", "Table", "", "home"],
+  [137, "식탁", "डाइनिङ टेबुल", "Dining table", "", "home"],
+  [137, "의자", "कुर्सी", "Chair", "", "home"],
+  [137, "접시", "प्लेट", "Plate", "", "home"],
+  [137, "주전자", "केटली", "Kettle", "", "home"],
+  [137, "그릇", "कचौरा", "Bowl", "", "home"],
+  [137, "난로", "हिटर", "Heater", "", "home"],
+  [137, "가스", "ग्यास", "Gas", "", "home"],
+  [137, "소파", "सोफा", "Sofa", "", "home"],
+  [137, "수건", "टावेल", "Towel", "", "home"],
+  [137, "가방", "झोला", "Bag", "", "home"],
+  [137, "카펫", "कार्पेट", "Carpet", "", "home"],
+  [137, "커튼", "पर्दा", "Curtain", "", "home"],
+  [137, "치약", "दाँतको पेस्ट", "Toothpaste", "", "home"],
+  [137, "칫솔", "ब्रस", "Brush", "", "home"],
+  [137, "전화", "फोन", "Phone", "", "home"],
+  [137, "옷", "कपडा", "Clothes", "", "home"],
+  [137, "옷장", "दराज", "Cupboard", "", "home"],
+  [137, "베개", "सिरानी", "Pillow", "", "home"],
+  [137, "이불", "सिरक", "Quilt", "", "home"],
+  [137, "침대", "ओछ्यान", "Bed", "", "home"],
+  [138, "비누", "साबुन", "Soap", "", "home"],
+  [138, "샴푸", "स्याम्पु", "Shampoo", "", "home"],
+  [138, "가위", "कैंची", "Scissors", "", "home"],
+  [138, "거울", "ऐना", "Mirror", "", "home"],
+  [138, "거실", "बैठक कोठा", "Living room", "", "home"],
+  [138, "침실", "सुत्ने कोठा", "Bedroom", "", "home"],
+  [138, "휴지", "ट्वाइलेट पेपर", "Toilet paper", "", "home"],
+  [138, "숟가락", "चम्चा", "Spoon", "", "home"],
+  [138, "젓가락", "चपस्टिक", "Chopsticks", "", "home"],
+  [138, "유리컵", "ग्लास", "Glass", "", "home"],
+  [138, "라디오", "रेडियो", "Radio", "", "home"],
+  [138, "시계", "घडी", "Watch", "", "home"],
+  [138, "벽시계", "भित्ते घडी", "Wall clock", "", "home"],
+  [138, "바구니", "बास्केट", "Basket", "", "home"],
+  [138, "냉장고", "फ्रिज", "Refrigerator", "", "home"],
+  [138, "세탁기", "कपडा धुने मेसिन", "Washing machine", "", "home"],
+  [138, "텔레비전", "टेलिभिजन", "Television", "", "home"],
+  [138, "선풍기", "पङ्खा", "Fan", "", "home"],
+  [138, "에어컨", "एयर कन्डिसनर", "Air conditioner", "", "home"],
+  [138, "컴퓨터", "कम्प्युटर", "Computer", "", "home"],
+  [138, "믹서기", "मिक्सर", "Blender", "", "home"],
+  [138, "보온병", "थर्मस", "Thermos", "", "home"],
+  [138, "다리미", "आइरन", "Iron", "", "home"],
+  [138, "수도", "धारा", "Tap", "", "home"],
+  [138, "화장실", "चर्पी", "Toilet", "", "home"],
+  [138, "전자레인지", "माइक्रोवेभ", "Microwave", "", "home"],
+  [139, "가스레인지", "ग्यास स्टोभ", "Gas stove", "", "home"],
+  [139, "가구", "फर्निचर", "Furniture", "", "home"],
+  [139, "화분", "गमला", "Flower pot", "", "home"],
+  [139, "우산", "छाता", "Umbrella", "", "home"],
+  [139, "책", "पुस्तक", "Book", "", "home"],
+  [139, "책장", "बुककेस", "Book case", "", "home"],
+  [139, "쓰레기통", "डस्टबिन", "Dustbin", "", "home"],
+  [139, "쓰레받기", "फोहोर उठाउने", "Dustpan", "", "home"],
+  [139, "먼지떨이", "धुलो फार्ने", "Duster", "", "home"],
+  [139, "압력솥", "प्रेसर कुकर", "Pressure cooker", "", "home"],
+  [139, "밥솥", "राइस कुकर", "Rice cooker", "", "home"],
+  [139, "청소기", "भ्याकुम क्लिनर", "Vacuum cleaner", "", "home"],
+  [139, "빗자루", "कुचो", "Broom", "", "home"],
+  [139, "구두", "जुत्ता", "Shoe", "", "home"],
+  [139, "신발", "चप्पल", "Sandal", "", "home"],
+  [139, "신발장", "जुत्ता राख्ने याक", "Shoe rack", "", "home"],
+  [139, "사장", "साहु", "Boss", "", "job"],
+  [139, "근로자", "कामदार", "Labourer", "", "job"],
+  [139, "선생", "शिक्षक", "Teacher", "", "job"],
+  [139, "학생", "विद्यार्थी", "Student", "", "job"],
+  [139, "간호사", "नर्स", "Nurse", "", "job"],
+  [139, "의사", "डाक्टर", "Doctor", "", "job"],
+  [139, "약사", "वैद्य", "Chemist", "", "job"],
+  [139, "농부", "किसान", "Farmer", "", "job"],
+  [140, "판사", "न्यायाधीश", "Judge", "", "job"],
+  [140, "안내원", "सूचना कर्ता", "Guide", "", "job"],
+  [140, "선수", "खेलाडी", "Player", "", "job"],
+  [140, "주인", "मालिक", "Owner", "", "job"],
+  [140, "배우", "कलाकार", "Actor", "", "job"],
+  [140, "작가", "लेखक", "Writer", "", "job"],
+  [140, "기자", "पत्रकार", "Reporter", "", "job"],
+  [140, "가수", "गायक", "Singer", "", "job"],
+  [140, "시인", "कवि", "Poet", "", "job"],
+  [140, "군인", "सैनिक", "Soldier", "", "job"],
+  [140, "경찰", "प्रहरी", "Police", "", "job"],
+  [140, "정원사", "माली", "Gardener", "", "job"],
+  [140, "요리사", "भान्से", "Cook", "", "job"],
+  [140, "재봉사", "सूचीकार", "Tailor", "", "job"],
+  [140, "예술가", "चित्रकार", "Artist", "", "job"],
+  [140, "대통령", "राष्ट्रपति", "President", "", "job"],
+  [140, "장관", "मन्त्री", "Minister", "", "job"],
+  [140, "과장", "शाखा प्रमुख", "Section chief", "", "job"],
+  [140, "회계사", "लेखापाल", "Accountant", "", "job"],
+  [140, "공장장", "मेनेजर", "Manager", "", "job"],
+  [140, "청소부", "सफा गर्ने", "Cleaner", "", "job"],
+  [140, "변호사", "वकिल", "Lawyer", "", "job"],
+  [140, "교수", "प्राध्यापक", "Professor", "", "job"],
+  [140, "강사", "प्रशिक्षक", "Instructor", "", "job"],
+  [140, "주부", "गृहिणी", "Housewife", "", "job"],
+  [140, "목수", "सिकर्मी", "Carpenter", "", "job"],
+  [141, "어부", "माछामार", "Fisherman", "", "job"],
+  [141, "정치가", "राजनीतिज्ञ", "Politician", "", "job"],
+  [141, "집배원", "हुलाकी", "Postman", "", "job"],
+  [141, "경호원", "अंगरक्षक", "Bodyguard", "", "job"],
+  [141, "미용사", "साजकर", "Beautician", "", "job"],
+  [141, "은행원", "बैंक कर्मचारी", "Banker", "", "job"],
+  [141, "사업가", "व्यापारी", "Businessman", "", "job"],
+  [141, "승무원", "परिचालक", "Crew member", "", "job"],
+  [141, "기술자", "इन्जिनियर", "Engineer", "", "job"],
+  [141, "운전기사", "गाडी चालक", "Driver", "", "job"],
+  [141, "공무원", "कर्मचारी", "Government staff", "", "job"],
+  [141, "조종사", "विमान चालक", "Pilot", "", "job"],
+  [141, "배", "पानीजहाज", "Ship", "", "transport"],
+  [141, "버스", "बस", "Bus", "", "transport"],
+  [141, "택시", "ट्याक्सी", "Taxi", "", "transport"],
+  [141, "트럭", "ट्रक", "Truck", "", "transport"],
+  [141, "자동차", "कार", "Car", "", "transport"],
+  [141, "화물차", "ढुवानी ट्रक", "Cargo truck", "", "transport"],
+  [141, "지하철", "सब वे", "Subway", "", "transport"],
+  [141, "자전거", "साइकल", "Bicycle", "", "transport"],
+  [141, "오토바이", "मोटर साइकल", "Motorcycle", "", "transport"],
+  [141, "비행기", "हवाइजहाज", "Aeroplane", "", "transport"],
+  [141, "헬리콥터", "हेलिकप्टर", "Helicopter", "", "transport"],
+  [141, "기차/열차", "रेल", "Train", "", "transport"],
+  [142, "시내버스", "नगर बस", "City bus", "", "transport"],
+  [142, "좌석 버스", "भिडियो कोच बस", "Coach bus", "", "transport"],
+  [142, "트랙터", "ट्याक्टर", "Tractor", "", "transport"],
+  [142, "지게차", "भारी उठाउने गाडी", "Forklift", "", "transport"],
+  [142, "불도저", "बुलडोजर", "Bulldozer", "", "transport"],
+  [142, "굴삭기/포고레인", "डोजर", "Excavator", "", "transport"],
+  [142, "역", "स्टेसन", "Station", "", "transport"],
+  [142, "공항", "एयरपोर्ट", "Airport", "", "transport"],
+  [142, "육교", "आकाशेपुल", "Overpass", "", "transport"],
+  [142, "정지", "स्टप", "Stop", "", "transport"],
+  [142, "신호등", "ट्राफिक बत्ती", "Traffic light", "", "transport"],
+  [142, "일방통행", "वन वे", "One way", "", "transport"],
+  [142, "주차", "पार्किङ", "Parking", "", "transport"],
+  [142, "주차금지", "पार्किङ निषेध", "No parking", "", "transport"],
+  [142, "횡단보도", "जेब्राक्रस", "Zebra crossing", "", "transport"],
+  [142, "횡단금지", "पार गर्न नपाइने", "No crossing", "", "transport"],
+  [142, "버스 정류장", "बस स्टप / स्टेशन", "Bus stop / station", "", "transport"],
+  [142, "고속 버스 터미널", "एक्सप्रेस बस टर्मिनल", "Express bus terminal", "", "transport"],
+  [142, "가게", "पसल", "Shop", "", "place"],
+  [142, "경찰서", "प्रहरी कार्यालय", "Police station", "", "place"],
+  [142, "공사장", "निर्माण स्थल", "Construction site", "", "place"],
+  [142, "공원", "पार्क", "Park", "", "place"],
+  [143, "공장", "कारखाना", "Factory", "", "place"],
+  [143, "고향", "जन्मस्थल", "Hometown", "", "place"],
+  [143, "공항", "हवाई मैदान", "Airport", "", "place"],
+  [143, "공중 전화", "सार्वजनिक फोन", "Pay phone", "", "place"],
+  [143, "교회", "चर्च", "Church", "", "place"],
+  [143, "극장", "चलचित्रालय", "Cinema hall", "", "place"],
+  [143, "농장", "कृषि फार्म", "Farm", "", "place"],
+  [143, "기숙사", "होस्टेल कोठा", "Dormitory", "", "place"],
+  [143, "고용 센터", "रोजगार केन्द्र", "Employment center", "", "place"],
+  [143, "관리 사무소", "व्यवस्थापन कार्यालय", "Management office", "", "place"],
+  [143, "꽃집", "फुलपसल", "Flower shop", "", "place"],
+  [143, "노래방", "गीत गाउने कोठा", "Singing room", "", "place"],
+  [143, "대학교", "विश्वविद्यालय", "University", "", "place"],
+  [143, "대사관", "राजदूतावास", "Embassy", "", "place"],
+  [143, "도서관", "पुस्तकालय", "Library", "", "place"],
+  [143, "동물원", "चिडियाखाना", "Zoo", "", "place"],
+  [143, "동사무소", "गा.वि.स. कार्यालय", "Village office", "", "place"],
+  [143, "축사", "गोठ", "Barn", "", "place"],
+  [143, "양식장", "माछा फार्म", "Fish nursery", "", "place"],
+  [143, "양계장", "कुखुरा फार्म", "Poultry farm", "", "place"],
+  [143, "외양간/양우", "गाई फार्म", "Cow house", "", "place"],
+  [143, "돼지우리/양돈", "वंगुर फार्म", "Pigpen", "", "place"],
+  [143, "매표소", "टिकट घर", "Ticket box", "", "place"],
+  [143, "민박", "गेस्ट हाउस", "Guest house", "", "place"],
+  [143, "미용실", "ब्युटी पार्लर", "Beauty parlour", "", "place"],
+  [144, "이발소", "सेलुन", "Barber shop", "", "place"],
+  [144, "목욕탕", "नुहाउने घर", "Bathhouse", "", "place"],
+  [144, "병원", "अस्पताल", "Hospital", "", "place"],
+  [144, "보건소", "स्वास्थ्य चौकी", "Health center", "", "place"],
+  [144, "박물관", "संग्रहालय", "Museum", "", "place"],
+  [144, "복지 센터", "कल्याणकारी केन्द्र", "Welfare center", "", "place"],
+  [144, "부동산", "घर जग्गाको कारोबार कार्यालय", "Real estate agency", "", "place"],
+  [144, "백화점", "डिपार्टमेन्ट स्टोर", "Department store", "", "place"],
+  [144, "분실물 센터", "हराएको सामान खोजी केन्द्र", "Lost & found center", "", "place"],
+  [144, "버스 터미널", "बस पार्क", "Bus terminal", "", "place"],
+  [144, "사무실", "कार्यालय", "Office", "", "place"],
+  [144, "서점", "पुस्तक पसल", "Book store", "", "place"],
+  [144, "문구점", "स्टेशनरी", "Stationery store", "", "place"],
+  [144, "시장", "बजार", "Market", "", "place"],
+  [144, "시청", "जिल्ला कार्यालय", "City hall", "", "place"],
+  [144, "식당", "भोजनालय", "Restaurant", "", "place"],
+  [144, "술집", "रक्सी खाने ठाउँ", "Bar", "", "place"],
+  [144, "수영장", "पौडी खेल्ने ठाउँ", "Swimming pool", "", "place"],
+  [144, "세탁소", "लुगा धुने ठाउँ", "Laundry", "", "place"],
+  [144, "소방서", "दमकल स्टेशन", "Fire station", "", "place"],
+  [144, "상담 센터", "परामर्श केन्द्र", "Counselling center", "", "place"],
+  [144, "서비스 센터", "ग्राहक सेवा", "Customer service", "", "place"],
+  [144, "약국", "औषधि पसल", "Pharmacy", "", "place"],
+  [145, "은행", "बैंक", "Bank", "", "place"],
+  [145, "옷가게", "कपडा पसल", "Cloth shop", "", "place"],
+  [145, "여행사", "ट्राभल एजेन्सी", "Travel agency", "", "place"],
+  [145, "안내소", "सूचना केन्द्र", "Information center", "", "place"],
+  [145, "우체국", "हुलाक कार्यालय", "Post office", "", "place"],
+  [145, "운동장", "खेल मैदान", "Playground", "", "place"],
+  [145, "주차장", "पार्किङ इलाका", "Parking area", "", "place"],
+  [145, "주유소", "पेट्रोल पम्प", "Petrol pump", "", "place"],
+  [145, "정류장", "बस विसौनी", "Bus stop", "", "place"],
+  [145, "작업장", "कार्य स्थल", "Workplace", "", "place"],
+  [145, "재활용 센터", "पुनः प्रयोग केन्द्र", "Recycling center", "", "place"],
+  [145, "취업 교육 기관", "रोजगार परामर्श केन्द्र", "Job training center", "", "place"],
+  [145, "출입국관리사무소", "अध्यागमन कार्यालय", "Immigration office", "", "place"],
+  [145, "커피숍", "कफी पसल", "Cafe", "", "place"],
+  [145, "편의점", "२४ घण्टा बजार", "24-hour shop", "", "place"],
+  [145, "회사", "कम्पनी", "Company", "", "place"],
+  [145, "학교", "विद्यालय", "School", "", "place"],
+  [145, "학원", "निजी संस्थान", "Private institute", "", "place"],
+  [145, "항공사", "विमान सेवा", "Airline", "", "place"],
+  [145, "약", "औषधि", "Medicine", "", "health"],
+  [145, "암", "क्यान्सर", "Cancer", "", "health"],
+  [145, "열", "ज्वरो", "Fever", "", "health"],
+  [146, "환자", "बिरामी", "Patient", "", "health"],
+  [146, "의사", "डाक्टर", "Doctor", "", "health"],
+  [146, "병원", "अस्पताल", "Hospital", "", "health"],
+  [146, "간호사", "नर्स", "Nurse", "", "health"],
+  [146, "치료", "उपचार", "Treatment", "", "health"],
+  [146, "주사", "सुई", "Injection", "", "health"],
+  [146, "주사를 맞다", "सुई लगाउनु", "Get an injection", "", "health"],
+  [146, "수술", "शल्य क्रिया", "Operation", "", "health"],
+  [146, "치통", "दाँत दुख्ने", "Toothache", "", "health"],
+  [146, "외과", "बाहिरङ्ग विभाग", "Surgical ward", "", "health"],
+  [146, "안과", "आँखा विभाग", "Ophthalmology", "", "health"],
+  [146, "치과", "दाँत विभाग", "Dentistry", "", "health"],
+  [146, "내과", "अन्तरङ्ग विभाग", "Internal medicine dept.", "", "health"],
+  [146, "피부과", "चर्म विभाग", "Dermatology", "", "health"],
+  [146, "소아과", "बाल विभाग", "Pediatrics", "", "health"],
+  [146, "산부인과", "प्रसूति तथा स्त्री रोग", "Gynecology", "", "health"],
+  [146, "정형외과", "हड्डी विभाग", "Orthopedic dept.", "", "health"],
+  [146, "방사선과", "एक्स-रे विभाग", "X-ray department", "", "health"],
+  [146, "복용하다", "औषधि लिनु", "Take medicine", "", "health"],
+  [146, "용법", "प्रयोग", "Usage", "", "health"],
+  [146, "내복약", "खाने औषधी", "Oral medicine", "", "health"],
+  [146, "결핵", "क्षयरोग", "Tuberculosis", "", "health"],
+  [146, "감기", "रुघा खोकी", "Cough & cold", "", "health"],
+  [146, "감기약", "रुघाको औषधि", "Cold remedy", "", "health"],
+  [146, "마비", "पक्षघात", "Paralysis", "", "health"],
+  [146, "검사", "जाँच परीक्षण", "Checkup", "", "health"],
+  [146, "진료를 받다", "चेक अप गराउनु", "Get a medical checkup", "", "health"],
+  [146, "두통", "टाउको दुखाइ", "Headache", "", "health"],
+  [147, "두통약", "टाउको दुख्ने औषधि", "Painkiller", "", "health"],
+  [147, "혈압", "रक्तचाप", "Blood pressure", "", "health"],
+  [147, "위장병", "ग्यास्ट्रिक", "Gastric", "", "health"],
+  [147, "당뇨병", "मधुमेह", "Diabetes", "", "health"],
+  [147, "증상", "लक्षण", "Symptom", "", "health"],
+  [147, "낫다", "निको हुनु", "To be cured", "", "health"],
+  [147, "아프다", "बिरामी हुनु", "To be sick", "", "health"],
+  [147, "응급처치", "प्राथमिक उपचार", "First aid", "", "health"],
+  [147, "응급실", "आकस्मिक कक्ष", "Emergency room", "", "health"],
+  [147, "심장병", "मुटु रोग", "Heart disease", "", "health"],
+  [147, "에이즈", "एड्स", "AIDS", "", "health"],
+  [147, "다치다", "चोट लाग्नु", "To be injured", "", "health"],
+  [147, "토하다", "वान्ता गर्नु", "To vomit", "", "health"],
+  [147, "처방전", "डाक्टरको पुर्जी", "Prescription", "", "health"],
+  [147, "설사약", "पखालाको औषधि", "Diarrhoea medicine", "", "health"],
+  [147, "입원", "भर्ना", "Admission", "", "health"],
+  [147, "퇴원", "डिस्चार्ज", "Discharge", "", "health"],
+  [147, "배탈이 나다", "पेट दुख्नु", "To have a stomach ache", "", "health"],
+  [147, "건강 보험증", "स्वास्थ्य बिमा कार्ड", "Health insurance card", "", "health"],
+  [147, "연고", "मलम", "Ointment", "", "health"],
+  [147, "연고를 바르다", "मलम लगाउनु", "To apply ointment", "", "health"],
+  [147, "뼈가 부러지다", "हड्डी भाँचिनु", "To break a bone", "", "health"],
+  [147, "붕대", "पट्टी", "Bandage", "", "health"],
+  [147, "반창고", "प्लास्टर", "Plaster", "", "health"],
+  [147, "소화제", "पाचक", "Digestive", "", "health"],
+  [147, "해열제", "ज्वरोको औषधि", "Fever medicine", "", "health"],
+  [147, "진통제", "दुखाइ कम गर्ने औषधि", "Painkiller", "", "health"],
+  [148, "국어", "मातृभाषा", "National language", "", "school"],
+  [148, "언어", "भाषा", "Language", "", "school"],
+  [148, "외국어", "विदेशी भाषा", "Foreign language", "", "school"],
+  [148, "연습", "अभ्यास", "Exercise", "", "school"],
+  [148, "외다", "घोक्नु", "To memorise", "", "school"],
+  [148, "교실", "कक्षा", "Class", "", "school"],
+  [148, "결석", "अनुपस्थिति", "Absent", "", "school"],
+  [148, "출석", "उपस्थिति", "Present", "", "school"],
+  [148, "휴일", "विदा", "Holiday", "", "school"],
+  [148, "시험", "परीक्षा", "Exam", "", "school"],
+  [148, "독서", "अध्ययन", "Reading", "", "school"],
+  [148, "듣기", "सुनाइ", "Listening", "", "school"],
+  [148, "읽기", "पढाइ", "Reading", "", "school"],
+  [148, "쓰기", "लेखाइ", "Writing", "", "school"],
+  [148, "받아쓰기", "श्रुति लेखन", "Dictation", "", "school"],
+  [148, "말하기", "बोलाइ", "Speaking", "", "school"],
+  [148, "여행", "भ्रमण", "Travel", "", "school"],
+  [148, "학기", "सेमेस्टर", "Semester", "", "school"],
+  [148, "점수", "प्राप्ताङ्क", "Marks", "", "school"],
+  [148, "대답", "उत्तर", "Answer", "", "school"],
+  [148, "교육", "शिक्षा", "Education", "", "school"],
+  [148, "질문", "प्रश्न", "Question", "", "school"],
+  [148, "수학", "गणित", "Mathematics", "", "school"],
+  [148, "입학", "भर्ना", "Admission", "", "school"],
+  [148, "선생", "शिक्षक", "Teacher", "", "school"],
+  [148, "교수", "प्राध्यापक", "Professor", "", "school"],
+  [149, "학생", "विद्यार्थी", "Student", "", "school"],
+  [149, "학교", "विद्यालय", "School", "", "school"],
+  [149, "증명서", "प्रमाण-पत्र", "Certificate", "", "school"],
+  [149, "수수료", "शुल्क", "Fee", "", "school"],
+  [149, "성적표", "लब्धाङ्क पत्र", "Marksheet", "", "school"],
+  [149, "합격하다", "उत्तीर्ण हुनु", "To pass", "", "school"],
+  [149, "불합격하다", "अनुत्तीर्ण हुनु", "To fail", "", "school"],
+  [149, "가방", "झोला", "Bag", "", "school"],
+  [149, "책", "किताब", "Book", "", "school"],
+  [149, "공책", "नोट बुक", "Notebook", "", "school"],
+  [149, "풀", "गम", "Glue stick", "", "school"],
+  [149, "칠판", "ब्ल्याक बोर्ड", "Board", "", "school"],
+  [149, "펜", "कलम", "Pen", "", "school"],
+  [149, "볼펜", "बलपेन", "Ball-point pen", "", "school"],
+  [149, "연필", "पेन्सिल", "Pencil", "", "school"],
+  [149, "지우개", "इरेजर", "Eraser", "", "school"],
+  [149, "연필깎이", "पेन्सिल कटर", "Sharpener", "", "school"],
+  [149, "수첩", "पकेट बुक", "Diary", "", "school"],
+  [149, "사전", "डिक्सनरी", "Dictionary", "", "school"],
+  [149, "잡지", "मासिक / साप्ताहिक पत्रिका", "Magazine", "", "school"],
+  [149, "신문", "पत्रिका", "Newspaper", "", "school"],
+  [149, "기억하다", "सम्झिनु", "To remember", "", "school"],
+  [149, "초등학교", "प्राथमिक विद्यालय", "Primary school", "", "school"],
+  [149, "중학교", "निम्न मा. विद्यालय", "Lower secondary school", "", "school"],
+  [149, "중등학교", "माध्यमिक विद्यालय", "Secondary school", "", "school"],
+  [149, "고등학교", "उच्च मा. वि.", "High school", "", "school"],
+  [149, "대학교", "विश्वविद्यालय", "University", "", "school"],
+  [150, "감", "हलुवाबेद", "Persimmon", "", "food"],
+  [150, "콩", "भटमास", "Soyabean", "", "food"],
+  [150, "귤", "मौसमी", "Orange", "", "food"],
+  [150, "무", "मूला", "Radish", "", "food"],
+  [150, "배", "नासपाती", "Pear", "", "food"],
+  [150, "파", "हरियो प्याज", "Green onion", "", "food"],
+  [150, "감자", "आलु", "Potato", "", "food"],
+  [150, "당근", "गाजर", "Carrot", "", "food"],
+  [150, "마늘", "लसुन", "Garlic", "", "food"],
+  [150, "레몬", "कागती", "Lemon", "", "food"],
+  [150, "배추", "बन्दाकोबी", "Chinese cabbage", "", "food"],
+  [150, "호박", "फर्सी", "Pumpkin", "", "food"],
+  [150, "양파", "प्याज", "Onion", "", "food"],
+  [150, "오이", "काक्रो", "Cucumber", "", "food"],
+  [150, "포도", "अंगुर", "Grapes", "", "food"],
+  [150, "사과", "स्याउ", "Apple", "", "food"],
+  [150, "망고", "आँप", "Mango", "", "food"],
+  [150, "딸기", "स्ट्रबेरी", "Strawberry", "", "food"],
+  [150, "호두", "ओखर", "Walnut", "", "food"],
+  [150, "석류", "अनार", "Pomegranate", "", "food"],
+  [150, "바나나", "केरा", "Banana", "", "food"],
+  [150, "고추", "खुर्सानी", "Chilli", "", "food"],
+  [150, "상추", "सलाद पत्ता", "Lettuce", "", "food"],
+  [150, "버섯", "च्याउ", "Mushroom", "", "food"],
+  [150, "코코넛", "नरिवल", "Coconut", "", "food"],
+  [150, "파파야", "मेवा", "Papaya", "", "food"],
+  [151, "복숭아", "आरु", "Peach", "", "food"],
+  [151, "옥수수", "मकै", "Corn", "", "food"],
+  [151, "양배추", "बन्दाकोबी", "Cabbage", "", "food"],
+  [151, "완두콩", "हरियो केराउ", "Green peas", "", "food"],
+  [151, "오렌지", "सुन्तला", "Orange", "", "food"],
+  [151, "시금치", "पालुङ्गो", "Spinach", "", "food"],
+  [151, "브로콜리", "ब्रोकाउली", "Broccoli", "", "food"],
+  [151, "파인애플", "भुइँकटहर", "Pineapple", "", "food"],
+  [151, "국", "सुप", "Soup", "", "drink"],
+  [151, "물", "पानी", "Water", "", "drink"],
+  [151, "우유", "दूध", "Milk", "", "drink"],
+  [151, "주스", "जुस", "Juice", "", "drink"],
+  [151, "콜라", "कोक", "Coke", "", "drink"],
+  [151, "요구르트", "दही", "Yogurt", "", "drink"],
+  [151, "더운물/온수", "तातो पानी", "Hot water", "", "drink"],
+  [151, "찬물", "चिसो पानी", "Cold water", "", "drink"],
+  [151, "생수", "मिनरल पानी", "Mineral water", "", "drink"],
+  [151, "차", "चिया", "Tea", "", "drink"],
+  [151, "커피", "कफी", "Coffee", "", "drink"],
+  [151, "홍차", "कालो चिया", "Black tea", "", "drink"],
+  [151, "녹차", "हरियो चिया", "Green tea", "", "drink"],
+  [151, "맥주", "बियर", "Beer", "", "drink"],
+  [151, "소주", "कोरियन रक्सी", "Korean liquor", "", "drink"],
+  [151, "막걸리", "छ्याङ", "Rice liquor", "", "drink"],
+  [151, "포도주", "वाइन", "Wine", "", "drink"],
+  [152, "동", "पूर्व", "East", "", "direction"],
+  [152, "서", "पश्चिम", "West", "", "direction"],
+  [152, "북", "उत्तर", "North", "", "direction"],
+  [152, "남", "दक्षिण", "South", "", "direction"],
+  [152, "뒤", "पछाडि", "Back", "", "direction"],
+  [152, "위", "माथि", "Up", "", "direction"],
+  [152, "옆", "छेउ", "Side", "", "direction"],
+  [152, "앞", "अगाडि", "Front", "", "direction"],
+  [152, "왼", "बायाँ", "Left", "", "direction"],
+  [152, "오른", "दायाँ", "Right", "", "direction"],
+  [152, "근처", "नजिक", "Near", "", "direction"],
+  [152, "저기", "त्यहाँ", "There", "", "direction"],
+  [152, "여기", "यहाँ", "Here", "", "direction"],
+  [152, "쪽", "तिर", "Side / direction", "", "direction"],
+  [152, "저쪽", "उतातिर", "That side", "", "direction"],
+  [152, "이쪽", "यतातिर", "This side", "", "direction"],
+  [152, "동쪽", "पूर्वतिर", "East side", "", "direction"],
+  [152, "서쪽", "पश्चिम तिर", "West side", "", "direction"],
+  [152, "북쪽", "उत्तर तिर", "North side", "", "direction"],
+  [152, "남쪽", "दक्षिण तिर", "South side", "", "direction"],
+  [152, "왼쪽", "बायाँ तिर", "Left side", "", "direction"],
+  [152, "오른쪽", "दायाँ तिर", "Right side", "", "direction"],
+  [152, "아래/밑에", "तल", "Down", "", "direction"],
+  [152, "사이에", "बिचमा", "Middle", "", "direction"],
+  [152, "가운데", "केन्द्रमा", "Center", "", "direction"],
+  [152, "똑바로", "सिधै", "Straight", "", "direction"],
+  [153, "건너편", "पारी पट्टि", "Across", "", "direction"],
+  [153, "좌회전", "देब्रे तिरको मोड", "Left turn", "", "direction"],
+  [153, "우회전", "दाहिने तिरको मोड", "Right turn", "", "direction"],
+  [153, "개", "कुकुर", "Dog", "", "animal"],
+  [153, "곰", "भालु", "Bear", "", "animal"],
+  [153, "뱀", "सर्प", "Snake", "", "animal"],
+  [153, "닭", "कुखुरा", "Cock", "", "animal"],
+  [153, "말", "घोडा", "Horse", "", "animal"],
+  [153, "소", "गाई", "Cow", "", "animal"],
+  [153, "양", "भेडा", "Sheep", "", "animal"],
+  [153, "쥐", "मुसा", "Rat", "", "animal"],
+  [153, "개미", "कमिला", "Ant", "", "animal"],
+  [153, "기린", "जिराफ", "Giraffe", "", "animal"],
+  [153, "오리", "हाँस", "Duck", "", "animal"],
+  [153, "여우", "स्याल", "Fox", "", "animal"],
+  [153, "사자", "सिंह", "Lion", "", "animal"],
+  [153, "사슴", "मृग", "Deer", "", "animal"],
+  [153, "낙타", "उँट", "Camel", "", "animal"],
+  [153, "황소", "गोरु", "Ox", "", "animal"],
+  [153, "물소", "भैंसी", "Buffalo", "", "animal"],
+  [153, "돼지", "वंगुर", "Pig", "", "animal"],
+  [153, "악어", "गोही", "Crocodile", "", "animal"],
+  [153, "염소", "खसी", "Goat", "", "animal"],
+  [153, "토끼", "खरायो", "Rabbit", "", "animal"],
+  [153, "하마", "जल गैंडा", "Hippopotamus", "", "animal"],
+  [153, "참새", "भँगेरा", "Sparrow", "", "animal"],
+  [154, "앵무새", "सुगा", "Parrot", "", "animal"],
+  [154, "까마귀", "काग", "Crow", "", "animal"],
+  [154, "코끼리", "हात्ती", "Elephant", "", "animal"],
+  [154, "개구리", "भ्यागुतो", "Frog", "", "animal"],
+  [154, "고양이", "बिरालो", "Cat", "", "animal"],
+  [154, "독수리", "चिल", "Eagle", "", "animal"],
+  [154, "비둘기", "परेवा", "Pigeon", "", "animal"],
+  [154, "원숭이", "बाँदर", "Monkey", "", "animal"],
+  [154, "얼룩말", "जेब्रा", "Zebra", "", "animal"],
+  [154, "코뿔소", "गैंडा", "Rhinoceros", "", "animal"],
+  [154, "호랑이", "बाघ", "Tiger", "", "animal"],
+  [154, "원", "कोरियन पैसाको इकाइ", "Won", "", "bank"],
+  [154, "돈", "पैसा", "Money / cash", "", "bank"],
+  [154, "수표", "चेक", "Cheque", "", "bank"],
+  [154, "은행", "बैंक", "Bank", "", "bank"],
+  [154, "대출", "ऋण", "Loan", "", "bank"],
+  [154, "예금", "निक्षेप", "Deposit", "", "bank"],
+  [154, "세금", "कर", "Tax", "", "bank"],
+  [154, "보험", "बीमा", "Insurance", "", "bank"],
+  [154, "도장", "छाप", "Stamp", "", "bank"],
+  [154, "통장", "बैंक पासबुक", "Bank passbook", "", "bank"],
+  [154, "잔액", "बाँकी रकम", "Balance", "", "bank"],
+  [154, "송금", "पैसा प्रेषण", "Remittance", "", "bank"],
+  [154, "환율", "सटही दर", "Exchange rate", "", "bank"],
+  [154, "환전", "सटही", "Exchange", "", "bank"],
+  [155, "현금", "नगद", "Cash", "", "bank"],
+  [155, "이자", "व्याज", "Interest", "", "bank"],
+  [155, "출금하다", "पैसा निकासी गर्नु", "To withdraw", "", "bank"],
+  [155, "입금하다", "पैसा जम्मा गर्नु", "To deposit", "", "bank"],
+  [155, "수수료", "शुल्क", "Fee", "", "bank"],
+  [155, "예금주", "जम्मा गर्ने व्यक्ति", "Depositor", "", "bank"],
+  [155, "보내는 사람", "पठाउने मान्छे", "Sender", "", "bank"],
+  [155, "받는 사람", "पाउने मान्छे", "Receiver", "", "bank"],
+  [155, "계좌번호", "खाता नम्बर", "Account number", "", "bank"],
+  [155, "신용카드", "क्रेडिट कार्ड", "Credit card", "", "bank"],
+  [155, "현금카드", "नगद कार्ड", "Cash card", "", "bank"],
+  [155, "계좌이체", "अर्को खातामा सार्नु", "Transfer", "", "bank"],
+  [155, "보통예금", "चल्ती खाता", "Current account", "", "bank"],
+  [155, "정기 적금", "मुद्दती खाता", "Fixed account", "", "bank"],
+  [155, "보통적금", "बचत खाता", "Saving account", "", "bank"],
+  [155, "상업 은행", "वाणिज्य बैंक", "Commercial bank", "", "bank"],
+  [155, "외환 은행", "वैदेशिक बैंक", "Foreign bank", "", "bank"],
+  [155, "우리 은행", "उरी बैंक", "Woori bank", "", "bank"],
+  [155, "농협 은행", "कृषि विकास बैंक", "Agricultural development bank", "", "bank"],
+  [155, "편지", "चिठी", "Letter", "", "post"],
+  [155, "봉투", "खाम", "Envelope", "", "post"],
+  [155, "엽서", "पोस्टकार्ड", "Post card", "", "post"],
+  [155, "우표", "हुलाक टिकट", "Postage stamp", "", "post"],
+  [155, "전보", "टेलिग्राम", "Telegram", "", "post"],
+  [156, "소포", "पार्सल", "Parcel", "", "post"],
+  [156, "무게", "तौल", "Weight", "", "post"],
+  [156, "우체통", "पत्र मञ्जुषा", "Letter box", "", "post"],
+  [156, "날짜", "मिति", "Date", "", "post"],
+  [156, "주소", "ठेगाना", "Address", "", "post"],
+  [156, "요금", "भाडा", "Charge", "", "post"],
+  [156, "물품", "सामान", "Goods", "", "post"],
+  [156, "택배", "कुरियर सेवा", "Courier service", "", "post"],
+  [156, "저울", "तराजु", "Scales", "", "post"],
+  [156, "수량", "मात्रा", "Quantity", "", "post"],
+  [156, "우체국", "हुलाक कार्यालय", "Post office", "", "post"],
+  [156, "우체부/집배원", "हुलाकी", "Postman", "", "post"],
+  [156, "우편번호", "पोस्ट नम्बर", "Postal code", "", "post"],
+  [156, "상자/박스", "बाकस", "Box", "", "post"],
+  [156, "보통 우편", "साधारण डाँक सेवा", "Ordinary mail", "", "post"],
+  [156, "빠른 우편", "द्रुत डाँक सेवा", "Express mail", "", "post"],
+  [156, "국내 우편", "स्वदेशी डाँक सेवा", "Domestic mail", "", "post"],
+  [156, "국제 등기", "अन्तर्राष्ट्रिय डाँक सेवा", "International mail", "", "post"],
+  [156, "등기우편", "रजिस्ट्री चिठी", "Registered mail", "", "post"],
+  [156, "배달하다", "डेलिभरी गर्नु", "To deliver", "", "post"],
+  [156, "전달하다", "पुऱ्याउनु", "To hand over", "", "post"],
+  [156, "포장하다", "प्याकिङ गर्नु", "To pack", "", "post"],
+  [156, "보내는 사람", "प्रेषक / पठाउने", "Sender", "", "post"],
+  [156, "받는 사람", "प्रापक / पाउने", "Receiver", "", "post"],
+  [156, "저울에 올려놓다", "तराजुमा राख्नु", "Put on the scale", "", "post"],
+  [156, "우표를 붙이다", "टिकट टाँस्नु", "Stick the stamp", "", "post"],
+  [156, "편지를 부치다", "चिठी पठाउनु", "Send a letter", "", "post"],
+  [157, "분실하다", "सामान हराउनु", "To lose", "", "post"],
+  [157, "걸리다", "लाग्नु (समय)", "To take (time)", "", "post"],
+  [157, "도착하다", "पुग्नु", "To reach", "", "post"],
+  [157, "스키", "स्की", "Ski", "", "sport"],
+  [157, "야구", "बेसबल", "Baseball", "", "sport"],
+  [157, "양궁", "धनुष वाण", "Archery", "", "sport"],
+  [157, "요가", "योग", "Yoga", "", "sport"],
+  [157, "농구", "बास्केटबल", "Basketball", "", "sport"],
+  [157, "탁구", "टेबुल टेनिस", "Table tennis", "", "sport"],
+  [157, "골프", "गल्फ", "Golf", "", "sport"],
+  [157, "유도", "जुडो", "Judo", "", "sport"],
+  [157, "산책", "वाक", "Walk", "", "sport"],
+  [157, "수영", "पौडी", "Swimming", "", "sport"],
+  [157, "헬스", "जिम", "Gym", "", "sport"],
+  [157, "체조", "जिम्नास्टिक", "Gymnastics", "", "sport"],
+  [157, "축구", "फुटबल", "Football", "", "sport"],
+  [157, "족구", "खुट्टाले खेल्ने भलिबल", "Foot volleyball", "", "sport"],
+  [157, "배구", "भलिबल", "Volleyball", "", "sport"],
+  [157, "등산", "पर्वतारोहण", "Mountain climbing", "", "sport"],
+  [157, "스포츠", "खेलकुद", "Sports", "", "sport"],
+  [157, "태권도", "टेक्वान्दो", "Taekwondo", "", "sport"],
+  [157, "마라톤", "म्याराथुन", "Marathon", "", "sport"],
+  [157, "테니스", "टेनिस", "Tennis", "", "sport"],
+  [157, "스케이트", "स्केट", "Skate", "", "sport"],
+  [157, "달리기", "दौड", "Run", "", "sport"],
+  [158, "배드민턴", "ब्याडमिन्टन", "Badminton", "", "sport"],
+  [158, "자전거 타기", "साइक्लिङ", "Cycling", "", "sport"],
+  [158, "컴퓨터 게임 하다", "कम्प्युटरमा गेम खेल्नु", "Play a computer game", "", "sport"],
+  [158, "강", "नदी", "River", "", "nature"],
+  [158, "별", "तारा", "Star", "", "nature"],
+  [158, "바다", "समुद्र", "Ocean", "", "nature"],
+  [158, "산", "पहाड", "Mountain", "", "nature"],
+  [158, "섬", "टापु", "Island", "", "nature"],
+  [158, "호수", "ताल", "Lake", "", "nature"],
+  [158, "자연", "प्रकृति", "Nature", "", "nature"],
+  [158, "비", "वर्षा", "Rain", "", "nature"],
+  [158, "눈", "हिउँ", "Snow", "", "nature"],
+  [158, "달", "चन्द्रमा", "Moon", "", "nature"],
+  [158, "해", "सूर्य", "Sun", "", "nature"],
+  [158, "지구", "पृथ्वी", "Earth", "", "nature"],
+  [158, "서리", "तुसारो", "Frost", "", "nature"],
+  [158, "안개", "तुवाँलो", "Fog", "", "nature"],
+  [158, "태풍", "तुफान", "Storm", "", "nature"],
+  [158, "구름", "बादल", "Cloud", "", "nature"],
+  [158, "바람", "हावा", "Wind", "", "nature"],
+  [158, "우박", "असिना", "Hail", "", "nature"],
+  [158, "봄", "वसन्त", "Spring", "", "nature"],
+  [158, "여름", "ग्रीष्म", "Summer", "", "nature"],
+  [158, "가을", "हेमन्त", "Autumn", "", "nature"],
+  [158, "겨울", "शिशिर", "Winter", "", "nature"],
+  [159, "맑다", "मौसम सफा हुनु", "To be clear", "", "nature"],
+  [159, "덥다", "गर्मी हुनु", "To be hot", "", "nature"],
+  [159, "춥다", "जाडो हुनु", "To be cold", "", "nature"],
+  [159, "흐리다", "बादल लाग्नु", "To be cloudy", "", "nature"],
+  [159, "서늘하다", "सिरेटो चल्नु", "To be cool (air)", "", "nature"],
+  [159, "상쾌하다", "ताजा हावा फिल हुनु", "To feel fresh air", "", "nature"],
+  [159, "화창하다", "मौसम रमाइलो हुनु", "To be sunny", "", "nature"],
+  [159, "비가 오다", "पानी आउनु, पर्नु", "To rain", "", "nature"],
+  [159, "눈이 오다", "हिउँ आउनु, पर्नु", "To snow", "", "nature"],
+  [159, "따뜻하다", "न्यानो हुनु", "To be warm", "", "nature"],
+  [159, "시원하다", "शीतल हुनु", "To be cool", "", "nature"],
+  [159, "날씨가 좋다", "मौसम राम्रो हुनु", "Good weather", "", "nature"],
+  [159, "바람이 불다", "हावा चल्नु", "Wind blows", "", "nature"],
+  [159, "구름이 끼다", "बादल लाग्नु", "To cloud over", "", "nature"],
+  [159, "안개가 끼다", "तुवाँलो लाग्नु", "To be foggy", "", "nature"],
+  [159, "해가 나다/비치다", "घाम लाग्नु", "Sunshine", "", "nature"],
+  [159, "해가 뜨다", "सूर्योदय हुनु", "Sunrise", "", "nature"],
+  [159, "해가 지다", "सूर्यास्त हुनु", "Sunset", "", "nature"],
+  [159, "불경", "बौद्ध ग्रन्थ", "Buddhist scriptures", "", "religion"],
+  [159, "성경", "बाइबल", "Bible", "", "religion"],
+  [159, "코란", "कुरान", "Quran", "", "religion"],
+  [159, "부활절", "जिजस क्राइस्ट पुनर्जन्मको दिन", "Easter", "", "religion"],
+  [159, "예수님", "येशु", "Christ", "", "religion"],
+  [159, "하나님", "परमेश्वर", "God", "", "religion"],
+  [160, "스님", "लामा", "Buddhist monk", "", "religion"],
+  [160, "목사님", "पास्टर", "Pastor", "", "religion"],
+  [160, "신부님", "क्याथोलिक पास्टर", "Catholic priest", "", "religion"],
+  [160, "부처님", "भगवान बुद्ध", "Lord Buddha", "", "religion"],
+  [160, "이맘(다이야)", "इमाम (थाइया)", "Imam", "", "religion"],
+  [160, "수녀님", "क्याथोलिक गुरुआमा", "Catholic nun", "", "religion"],
+  [160, "전하다", "वाचन गर्नु", "To read aloud", "", "religion"],
+  [160, "기도하다", "प्रार्थना गर्नु", "To pray", "", "religion"],
+  [160, "믿다", "विश्वास गर्नु", "To believe", "", "religion"],
+  [160, "불교", "बौद्ध धर्म", "Buddhism", "", "religion"],
+  [160, "이슬람교", "मुश्लिम धर्म", "Islam", "", "religion"],
+  [160, "기독교", "क्रिश्चियन धर्म", "Christianity", "", "religion"],
+  [160, "천주교", "क्याथोलिक धर्म", "Catholicism", "", "religion"],
+  [160, "석가탄신일", "बुद्ध जयन्ती", "Buddha's birthday", "", "religion"],
+  [160, "크리스마스", "क्रिसमस", "Christmas", "", "religion"],
+  [160, "성당", "क्याथोलिक चर्च", "Catholic church", "", "religion"],
+  [160, "절/사찰", "गुम्बा", "Monastery", "", "religion"],
+  [160, "사원/모스크", "मस्जिद, मन्दिर", "Temple / mosque", "", "religion"],
+  [160, "예불을 드리다", "बुद्धलाई ढोग गर्नु", "To bow to Buddha", "", "religion"],
+  [160, "예배를 드리다", "आराधना गर्नु", "To worship", "", "religion"],
+  [160, "미사를 드리다", "क्याथोलिक प्रार्थना गर्नु", "To attend mass", "", "religion"],
+  [160, "신도/신자/교인", "धार्मिक अनुयायी", "Believer", "", "religion"],
+  [160, "불전/헌금을 내다", "भेटी चढाउनु", "To donate", "", "religion"],
+  [160, "성지 순례를 가다", "तीर्थयात्रा जानु", "To go on pilgrimage", "", "religion"],
+  [160, "찬송가를 부르다", "भजन गाउनु", "To sing a hymn", "", "religion"],
+  [161, "갈색", "खैरो रङ", "Brown", "", "color"],
+  [161, "자색", "प्याजी रङ", "Purple", "", "color"],
+  [161, "회색", "खरानी रङ", "Grey", "", "color"],
+  [161, "녹색", "हरियो रङ", "Green", "", "color"],
+  [161, "까만색", "कालो रङ", "Black", "", "color"],
+  [161, "빨간색", "रातो रङ", "Red", "", "color"],
+  [161, "하얀색", "सेतो रङ", "White", "", "color"],
+  [161, "주홍색", "सिन्दुरे रङ", "Scarlet", "", "color"],
+  [161, "노란색", "पहेंलो रङ", "Yellow", "", "color"],
+  [161, "파란색", "नीलो रङ", "Blue", "", "color"],
+  [161, "주황색", "सुन्तला रङ", "Orange", "", "color"],
+  [161, "분홍색", "गुलाबी रङ", "Pink", "", "color"],
+  [161, "하늘색", "आकासे रङ", "Sky blue", "", "color"],
+  [161, "단", "गुलियो", "Sweet", "", "taste"],
+  [161, "신", "अमिलो", "Sour", "", "taste"],
+  [161, "쓴", "तीतो", "Bitter", "", "taste"],
+  [161, "짠", "नुनिलो", "Salty", "", "taste"],
+  [161, "매운", "पिरो", "Spicy", "", "taste"],
+  [161, "떫은", "टर्रो", "Astringent", "", "taste"],
+  [161, "싱거운", "बिलनो", "Not well salted", "", "taste"],
+  [161, "맛있는", "मिठो", "Delicious", "", "taste"],
+  [161, "맛없는", "नमिठो", "Tasteless", "", "taste"],
 ];
 
 /* Final consonant -> Devanagari coda. Cluster finals collapse to the sound
@@ -9437,40 +10369,92 @@ function bkDictClear() {
   bkDictPaint();
 }
 
-/* Three tables share this screen: the dictionary, its synonym half and its
-   antonym half. Same row shape (page, korean, nepali, english), same search,
-   same list — only the source array and the chips change. */
+/* Four tables share this screen: the dictionary, its synonym half, its antonym
+   half, and the thematic word lists. Same row shape (page, korean, nepali,
+   english), same search, same list — only the source array and the filters
+   change. The dictionary filters by initial consonant; the thematic lists
+   filter by section; the pair tables have neither. */
 let BK_DICT_MODE = "word";
+let BK_DICT_SEC = "";
 
 function bkDictRows() {
   if (BK_DICT_MODE === "syn") return BK_SYN;
   if (BK_DICT_MODE === "ant") return BK_ANT;
+  if (BK_DICT_MODE === "use") return BK_USE;
   return BK_DICT;
 }
 
 /* The pair rows print two or more words per line ("곧/바로", "곧 - 천천히").
    Speaking the whole line reads the separator aloud, so the tap speaks the
-   first word only. Dictionary headwords stay whole — 건강 보험 is one word. */
+   first word only. Headwords — 건강 보험, 주사를 맞다 — stay whole. */
 function bkSpeak(r) {
-  if (BK_DICT_MODE === "word") return r[1];
+  if (BK_DICT_MODE === "word" || BK_DICT_MODE === "use") return r[1];
   return r[1].split(/\s+-\s+|\//)[0].replace(/[()]/g, "").trim();
 }
 
 /* The row shows the reading of every word it prints, not just the first one —
    a half-read pair would look like the second word has no pronunciation. */
 function bkDev(s) {
-  if (BK_DICT_MODE === "word") return bkWord(s);
+  if (BK_DICT_MODE === "word" || BK_DICT_MODE === "use") return bkWord(s);
   return s.split(/(\s+-\s+|\/)/).map(function (piece, i) {
     return i % 2 ? piece : bkWord(piece);
   }).join("");
+}
+
+function bkDictHit(r) {
+  if (BK_DICT_MODE === "use") {
+    if (BK_DICT_SEC && r[5] !== BK_DICT_SEC) return false;
+  } else if (BK_DICT_LET && bkInit(r[1]) !== BK_DICT_LET) {
+    return false;
+  }
+  const q = BK_DICT_Q.trim().toLowerCase();
+  if (!q) return true;
+  if (r[1].indexOf(q) >= 0) return true;
+  if (r[2].indexOf(BK_DICT_Q.trim()) >= 0) return true;
+  if (r[3].toLowerCase().indexOf(q) >= 0) return true;
+  if (bkWord(r[1]).indexOf(BK_DICT_Q.trim()) >= 0) return true;
+  return false;
 }
 
 function bkDictSetMode(m) {
   BK_DICT_MODE = m;
   BK_DICT_Q = "";
   BK_DICT_LET = "";
+  BK_DICT_SEC = "";
   BK_DICT_CAP = 60;
   renderApp();
+}
+
+function bkDictSetLet(l) {
+  BK_DICT_MODE = "word";
+  BK_DICT_LET = (BK_DICT_LET === l ? "" : l);
+  BK_DICT_CAP = 60;
+  const chips = document.querySelectorAll(".bk-dchip");
+  for (let i = 0; i < chips.length; i++) {
+    const on = chips[i].textContent.indexOf(BK_DICT_LET) === 0 && BK_DICT_LET !== "";
+    chips[i].classList.toggle("on", on);
+  }
+  bkDictPaint();
+}
+
+function bkDictSetSec(k) {
+  BK_DICT_SEC = k; BK_DICT_CAP = 60;
+  const sel = document.querySelector(".bk-dsel");
+  if (sel && sel.value !== k) sel.value = k;
+  bkDictPaint();
+}
+
+function bkDictSearch(v) { BK_DICT_Q = v; BK_DICT_CAP = 60; bkDictPaint(); }
+
+function bkDictMore() { BK_DICT_CAP += 80; bkDictPaint(); }
+
+function bkDictClear() {
+  BK_DICT_Q = ""; BK_DICT_LET = ""; BK_DICT_CAP = 60;
+  const inp = document.getElementById("bkDictQ");
+  if (inp) inp.value = "";
+  const chips = document.querySelectorAll(".bk-dchip");
+  for (let i = 0; i < chips.length; i++) chips[i].classList.remove("on");
+  bkDictPaint();
 }
 
 function bkDictPaint() {
@@ -9489,7 +10473,12 @@ function bkDictPaint() {
       '<span class="bk-d-ko ko" lang="ko">' + r[1] + '</span>' +
       '<span class="bk-d-dev">' + bkDev(r[1]) + '</span>' +
       '<span class="bk-d-pg">p' + r[0] + '</span>' +
-      '<span class="bk-d-ne">' + r[2] + ' <i>' + r[3] + '</i></span>' +
+      '<span class="bk-d-ne">' + r[2] + ' <i>' + r[3] + '</i>' +
+      (r[4] ? '<b class="bk-d-g" title="' +
+        (r[4] === "f" ? (LANG === "ne" ? "महिलाले भन्ने" : "a woman says this")
+                      : (LANG === "ne" ? "पुरुषले भन्ने" : "a man says this")) +
+        '">' + (r[4] === "f" ? "*" : "•") + '</b>' : "") +
+      '</span>' +
       '</button>';
   }).join("");
 
@@ -9519,8 +10508,20 @@ function bkDict() {
       l + '<i>' + n + '</i></button>';
   }).join("");
 
+  /* 22 sections do not fit a chip row, and a chip row that scrolls sideways
+     hides the one section a learner wants. A picker is smaller and honest. */
+  const secCount = {};
+  BK_USE.forEach(function (r) { secCount[r[5]] = (secCount[r[5]] || 0) + 1; });
+  const secs = '<option value="">' +
+    (LANG === "ne" ? "सबै " + BK_USE.length + " शब्द" : "All " + BK_USE.length + " words") + '</option>' +
+    BK_USE_SEC.map(function (s) {
+      return '<option value="' + s[0] + '"' + (BK_DICT_SEC === s[0] ? " selected" : "") + '>' +
+        s[1] + " (" + (secCount[s[0]] || 0) + ')</option>';
+    }).join("");
+
   const modes = [
     ["word", LANG === "ne" ? "शब्दकोश" : "Dictionary", BK_DICT.length],
+    ["use", LANG === "ne" ? "उपयोगी शब्द" : "Word lists", BK_USE.length],
     ["syn", LANG === "ne" ? "समानार्थी" : "Synonyms", BK_SYN.length],
     ["ant", LANG === "ne" ? "विपरीत" : "Antonyms", BK_ANT.length]
   ].map(function (m) {
@@ -9530,20 +10531,24 @@ function bkDict() {
 
   const HEAD = {
     word: [LANG === "ne" ? "कोरियन–नेपाली शब्दकोश" : "Korean–Nepali dictionary", "CS1 p189–233"],
+    use: [LANG === "ne" ? "केही उपयोगी शब्दार्थ" : "Thematic word lists", "CS1 p128–161"],
     syn: [LANG === "ne" ? "समानार्थी शब्द" : "Synonyms", "CS1 p114–120"],
-    ant: [LANG === "ne" ? "विपरीतार्थी शब्द" : "Antonyms", "CS1 p121–126"]
+    ant: [LANG === "ne" ? "विपरीतार्थी शब्द" : "Antonyms", "CS1 p121–127"]
   }[BK_DICT_MODE];
 
   const NOTE = {
     word: LANG === "ne"
       ? "पुस्तकको आधा भाग व्याकरण होइन — यो शब्दकोश हो। " + BK_DICT.length + " शब्द हातले टाइप गरिएका छन्, छापिएको पृष्ठ नम्बरसहित। जुन अक्षरबाट शब्द सुरु हुन्छ त्यसमा थिच्नुहोस्, वा तल खोज्नुहोस्।"
       : "Half of the 239-page scan is not grammar — it is a dictionary. " + BK_DICT.length + " entries typed by hand, each tagged with its printed page. Tap an initial, or search below.",
+    use: LANG === "ne"
+      ? "पुस्तकको बीचको भाग विषयअनुसार मिलाइएको शब्दभण्डार हो — " + BK_USE_SEC.length + " समूह, " + BK_USE.length + " शब्द, पृष्ठ १२८–१६१। माथिको सूचीबाट विषय छान्नुहोस् वा जहाँसुकै खोज्नुहोस्।"
+      : "The middle of the book is vocabulary sorted by topic — " + BK_USE_SEC.length + " groups, " + BK_USE.length + " words, pp. 128–161. Pick a topic above, or search across all of them.",
     syn: LANG === "ne"
       ? "एउटै अर्थ दिने दुई वा दुईभन्दा बढी शब्द। " + BK_SYN.length + " पङ्क्ति, पृष्ठ ११४–१२० बाट। जहाँ पुस्तकले एउटै शब्द दुईचोटि छापेको छ (p114 को 깎다) त्यो एकचोटि मात्र राखिएको छ।"
       : "Two or more words that mean the same thing. " + BK_SYN.length + " rows from pp. 114–120. Where the book prints the same headword twice in one row (깎다 on p114) it is shown once.",
     ant: LANG === "ne"
-      ? "उल्टो अर्थ दिने शब्दहरूको जोडी। " + BK_ANT.length + " जोडी, पृष्ठ १२१–१२६ बाट। जोडी जस्ताको तस्तै छापिएको छ; थिच्दा पहिलो शब्द मात्र बोलिन्छ।"
-      : "Pairs of words that mean the opposite. " + BK_ANT.length + " pairs from pp. 121–126. The pairs are printed as the book sets them; the tap speaks only the first word."
+      ? "उल्टो अर्थ दिने शब्दहरूको जोडी। " + BK_ANT.length + " जोडी, पृष्ठ १२१–१२७ बाट। जोडी जस्ताको तस्तै छापिएको छ; थिच्दा पहिलो शब्द मात्र बोलिन्छ।"
+      : "Pairs of words that mean the opposite. " + BK_ANT.length + " pairs from pp. 121–127. The pairs are printed as the book sets them; the tap speaks only the first word."
   }[BK_DICT_MODE];
 
   return `
@@ -9561,6 +10566,8 @@ function bkDict() {
     </div>
 
     ${BK_DICT_MODE === "word" ? '<div class="bk-dchips">' + chips + '</div>' : ""}
+    ${BK_DICT_MODE === "use" ? '<select class="bk-dsel" onchange="bkDictSetSec(this.value)" aria-label="' +
+      (LANG === "ne" ? "विषय छान्नुहोस्" : "Pick a topic") + '">' + secs + '</select>' : ""}
 
     <p class="bk-dmeta">
       <span id="bkDictCount"></span>
@@ -9574,6 +10581,44 @@ function bkDict() {
     <p class="bk-note bk-prov">${LANG === "ne"
       ? "पुस्तकको उच्चारण कोलम (रोमन) यहाँ छैन — यसको सट्टा पुस्तककै १९×२१ ग्रिडबाट देवनागरी निकालिएको छ, जुन नेपाली पाठकका लागि बढी काम लाग्छ। अन्त्यको व्यञ्जन पुस्तककै नियमअनुसार (ㅂ→प्, ㅇ→ङ्); 닭 जस्ता जोडा व्यञ्जन बोलिने आवाजमै खुम्च्याइएका छन्।"
       : "The book's romanisation column is deliberately not reproduced; Devanagari is derived from its own 19×21 grid instead, which serves a Nepali reader better. Codas follow the book's rules (ㅂ→प्, ㅇ→ङ्), and cluster finals collapse to the pronounced sound the way 닭 becomes 'dak'."}</p>
+
+    ${BK_DICT_MODE === "use" ? bkUseLegend() : ""}
+  `;
+}
+
+/* The family table marks some terms with a star and some with a bullet, and
+   says on the page that one is what a woman says and the other what a man
+   says. Dropping the marks would flatten 시아버지 and 장인 into one word. */
+function bkUseLegend() {
+  const fixes = LANG === "ne"
+    ? [
+        "p128 — 오전/오후 को नेपाली कोलम उल्टो छापिएको छ (오전 = अपराह्न, 오후 = पूर्वाह्न)। यहाँ सही जोडी राखिएको छ।",
+        "p129 — 내팔 टाइपो हो; सही 네팔 राखिएको छ।",
+        "p132 — 사위 को अंग्रेजी 'Daughter in law' गलत; सही son-in-law। 조카딸 'Nephew' होइन, niece।",
+        "p134 — 헥소 अंग्रेजी hacksaw को ट्रान्सलिटरेशन हो; कोरियनमा 쇠톱 हुन्छ। 정기 드릴 होइन, 전기 드릴।",
+        "p137 — 젓가락 को अंग्रेजी 'Fork' गलत; chopsticks हो। p138 — 믹서기 'Mixture' होइन, blender।",
+        "p139 — 먼지떨이 'Dust hair' होइन, duster। p140 — 작자 होइन, 작가; 과장 को नेपाली निर्देशक होइन, शाखा प्रमुख।",
+        "p145 — 'Istituion' टाइपो; p148 — 여행 'Visit' भन्दा travel; p150 — 파 'Onion' होइन, green onion। p151 — 막걸리 को अंग्रेजीमा 'form' होइन, from।",
+        "p160 — 스님 को अंग्रेजी 'Father' गलत; Buddhist monk हो। p161 — 주홍색 को नेपाली बैजनी (purple) होइन।"
+      ]
+    : [
+        "p128 — the Nepali column has 오전/오후 swapped (오전 printed as अपराह्न, 오후 as पूर्वाह्न). The correct pair is shown here.",
+        "p129 — 내팔 is a typo; 네팔 is used.",
+        "p132 — 사위 is glossed 'Daughter in law'; it is son-in-law. 조카딸 is glossed 'Nephew'; it is niece.",
+        "p134 — 헥소 is a transliteration of 'hacksaw'; the Korean word is 쇠톱. 정기 드릴 should be 전기 드릴.",
+        "p137 — 젓가락 is glossed 'Fork'; it is chopsticks. p138 — 믹서기 is glossed 'Mixture'; it is a blender.",
+        "p139 — 먼지떨이 is glossed 'Dust hair'; it is a duster. p140 — 작자 should be 작가; 과장 is a section chief, not a director.",
+        "p145 — 'Istituion' is a typo. p148 — 여행 is travel rather than 'Visit'. p150 — 파 is a green onion, not an onion. p151 — 막걸리 is glossed 'Liquor made form rice'; from.",
+        "p160 — 스님 is glossed 'Father'; it is a Buddhist monk. p161 — 주홍색 is scarlet, not बैजनी (purple)."
+      ];
+
+  return `
+    <details class="bk-fix">
+      <summary>${LANG === "ne"
+        ? "* = महिलाले भन्ने शब्द, • = पुरुषले भन्ने शब्द · पुस्तकका गल्ती (" + fixes.length + ")"
+        : "* = a woman says it, • = a man says it · corrections (" + fixes.length + ")"}</summary>
+      <ul>${fixes.map(function (f) { return "<li>" + f + "</li>"; }).join("")}</ul>
+    </details>
   `;
 }
 
