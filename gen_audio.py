@@ -62,6 +62,7 @@ FI = ["","ㄱ","ㄲ","ㄳ","ㄴ","ㄵ","ㄶ","ㄷ","ㄹ","ㄺ","ㄻ","ㄼ","ㄽ"
 CONS_BASIC = ["ㄱ","ㄴ","ㄷ","ㄹ","ㅁ","ㅂ","ㅅ","ㅇ","ㅈ","ㅊ","ㅋ","ㅌ","ㅍ","ㅎ"]
 VOWELS_BASIC = ["ㅏ","ㅑ","ㅓ","ㅕ","ㅗ","ㅛ","ㅜ","ㅠ","ㅡ","ㅣ"]
 FINALS = ["ㄱ","ㄴ","ㄷ","ㄹ","ㅁ","ㅂ","ㅇ"]          # the 7 terminal batchim
+VOWELS_COMPOUND = ["ㅐ","ㅒ","ㅔ","ㅖ","ㅘ","ㅙ","ㅚ","ㅝ","ㅞ","ㅟ","ㅢ"]
 
 JAMO_SPOKEN = {
     "ㅏ":"아","ㅑ":"야","ㅓ":"어","ㅕ":"여","ㅗ":"오","ㅛ":"요","ㅜ":"우","ㅠ":"유","ㅡ":"으","ㅣ":"이",
@@ -126,7 +127,13 @@ def scrape_source():
     # including SEJONG_1A's words. Without this rule a whole unit's vocabulary
     # ships silent: no clip, /api/tts absent on a static server, and a Linux
     # speechSynthesis with no Korean voice, which reads to the user as "no sound".
-    for m in re.finditer(r'\[\s*"([\uAC00-\uD7A3][^"]{0,40})"\s*,\s*"[^"]*"\s*\]', src):
+    # The trailing bracket is deliberately not required, so the three-field rows
+    # in the books reference (hangul, devanagari, meaning) are caught as well.
+    for m in re.finditer(r'\[\s*"([\uAC00-\uD7A3][^"]{0,40})"\s*,\s*"', src):
+        found.add(m.group(1))
+    # the counter tables name their unit in a field rather than an array, and a
+    # learner taps the unit itself to hear what 시 or 그릇 sounds like alone
+    for m in re.finditer(r'unit:\s*"([\uAC00-\uD7A3][^"]{0,20})"', src):
         found.add(m.group(1))
     return found
 
@@ -138,6 +145,14 @@ def build_targets():
             t.add(syl(c, v))                                   # step 3: 140
             for f in FINALS:
                 t.add(syl3(c, v, f))                           # step 4: 980
+
+    # The books screen lets a learner compose any consonant against any vowel,
+    # including the tense consonants and the compound vowels, so those blocks
+    # have to be baked too — 19 x 21 = 399 rather than the 140 the assembly
+    # grid shows. A composer whose result is silent is worse than no composer.
+    for c in CONS_BASIC + ["ㄲ", "ㄸ", "ㅃ", "ㅆ", "ㅉ"]:
+        for v in VOWELS_BASIC + VOWELS_COMPOUND:
+            t.add(syl(c, v))
 
     if os.path.exists(SPOKEN):
         for s in json.load(open(SPOKEN, encoding="utf-8")):

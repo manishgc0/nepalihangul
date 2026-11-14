@@ -19,3 +19,4 @@ vowels_sound_test.png
 .vercel/
 node_modules/
 .DS_Store
+.vercel

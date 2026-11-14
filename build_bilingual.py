@@ -30,6 +30,9 @@ html = r'''<!DOCTYPE html>
   --white:#ffffff;
   --ink:#2b2520;
   --ink-2:#6f6557;
+  /* third ink step: captions, provenance, the grey that must still clear
+     4.5:1 on --paper for body-size text */
+  --ink-3:#8a7f6f;
   --line:#e8ddca;
   --line-2:#d8cab2;
 
@@ -93,6 +96,7 @@ html.dark{
   --white:#211b14;
   --ink:#f7efe1;
   --ink-2:#b3a692;
+  --ink-3:#8d8171;
   --line:#362c21;
   --line-2:#493c2d;
   --rose:#e5a0b5;
@@ -5578,6 +5582,159 @@ html.dark .pdisp-note-name {
 .view-tab:hover{color:var(--ink)}
 .view-tab.on{background:var(--paper);color:var(--rose-ink);box-shadow:0 2px 8px -4px rgba(43,37,32,.35)}
 
+/* ============ Books: the Nepali-medium reference shelf ============ */
+.bk-lead{
+  margin:0 0 14px;font-size:var(--fs-body);line-height:1.62;color:var(--ink-2);
+  max-width:62ch;
+}
+.bk-tabs{margin-bottom:18px}
+.bk-h{
+  display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;
+  margin:22px 0 10px;font-size:var(--fs-title);color:var(--ink);font-weight:800;
+}
+.bk-src{
+  font-size:var(--fs-micro);font-weight:700;letter-spacing:.04em;
+  color:var(--ink-3);text-transform:none;
+  padding:2px 7px;border-radius:var(--r-pill);
+  background:var(--cream-2);border:1px solid var(--line);
+}
+.bk-note{
+  margin:12px 0 0;font-size:var(--fs-label);line-height:1.6;color:var(--ink-3);
+  max-width:64ch;
+}
+.bk-prov{margin-top:26px;padding-top:14px;border-top:1px solid var(--line)}
+
+/* home entry — the books screen lives under the पाठ nav group, so without this
+   it is only reachable by finding the tab strip on the Sejong screen */
+.bk-promo{
+  display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:12px;
+  width:100%;margin:0 0 14px;padding:13px 15px;text-align:left;
+  background:var(--paper);border:1px solid var(--line-2);border-radius:var(--r-2);
+  font-family:inherit;cursor:pointer;transition:background .12s ease,border-color .12s ease;
+}
+.bk-promo:hover{background:var(--rose-soft);border-color:var(--rose-line)}
+.bk-promo-k{
+  display:grid;place-items:center;width:38px;height:38px;flex:none;
+  border-radius:var(--r-1);background:var(--cream-2);border:1px solid var(--line);
+  font-size:18px;font-weight:700;color:var(--rose-ink);
+}
+.bk-promo-t{min-width:0}
+.bk-promo-t b{display:block;font-size:var(--fs-label);color:var(--ink);line-height:1.4}
+.bk-promo-t i{display:block;font-style:normal;font-size:var(--fs-micro);color:var(--ink-3);line-height:1.5;margin-top:2px}
+.bk-promo-arrow{color:var(--rose-ink);font-size:16px;font-weight:700}
+
+/* composer */
+.bk-compose{margin:0 0 6px}
+.bk-row{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+.bk-k{
+  min-width:38px;height:38px;padding:0 6px;
+  border:1px solid var(--line-2);border-radius:var(--r-1);
+  background:var(--paper);color:var(--ink);
+  font-family:inherit;font-size:17px;font-weight:700;line-height:1;
+  cursor:pointer;transition:background .12s ease,border-color .12s ease;
+}
+.bk-k:hover{background:var(--cream-2)}
+.bk-k.on{background:var(--rose-soft);border-color:var(--rose-line);color:var(--rose-ink)}
+.bk-k.tense{color:var(--ink-3)}
+.bk-k.tense.on{color:var(--rose-ink)}
+
+.bk-res{
+  display:flex;flex-direction:column;align-items:center;gap:2px;
+  margin:6px 0 4px;padding:18px 14px;
+  background:var(--paper);border:1px solid var(--line-2);border-radius:var(--r-3);
+  cursor:pointer;transition:background .12s ease;
+}
+.bk-res:hover{background:var(--cream-2)}
+.bk-res:focus-visible{outline:2px solid var(--rose-ink);outline-offset:3px}
+.bk-res-j{font-size:52px;font-weight:700;line-height:1.1;color:var(--ink)}
+.bk-res-dev{font-size:26px;font-weight:700;color:var(--rose-ink);line-height:1.3}
+.bk-res-sub{font-size:var(--fs-micro);color:var(--ink-3);letter-spacing:.03em;margin-top:4px}
+
+/* letter tables */
+.bk-table{
+  width:100%;border-collapse:collapse;margin:0 0 4px;
+  font-size:var(--fs-label);background:var(--paper);
+  border:1px solid var(--line);border-radius:var(--r-2);overflow:hidden;
+}
+.bk-table th{
+  text-align:left;padding:7px 8px;font-size:var(--fs-micro);font-weight:800;
+  letter-spacing:.03em;color:var(--ink-3);background:var(--cream-2);
+  border-bottom:1px solid var(--line);white-space:nowrap;
+}
+.bk-table td{padding:7px 8px;border-bottom:1px solid var(--line);color:var(--ink-2);vertical-align:middle}
+.bk-table tr:last-child td{border-bottom:none}
+.bk-table tr.on{background:var(--rose-soft)}
+.bk-td-j{font-size:17px;font-weight:700;color:var(--ink);width:1%}
+.bk-td-dev{font-size:15px;color:var(--ink);width:1%}
+.bk-td-rom{font-size:var(--fs-micro);color:var(--ink-3);width:1%;white-space:nowrap}
+.bk-td-ex{cursor:pointer;white-space:nowrap}
+.bk-td-ex:hover{color:var(--rose-ink)}
+.bk-td-ex em{font-style:normal;font-size:16px;color:var(--rose-ink);margin-left:4px}
+.bk-td-tag{font-size:var(--fs-micro);color:var(--ink-3);width:1%}
+
+/* rule cards */
+.bk-rule{
+  margin:0 0 14px;padding:14px 15px;
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--r-2);
+}
+.bk-rule header{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.bk-rule h3{margin:0 0 6px;font-size:var(--fs-lead);font-weight:800;color:var(--ink)}
+.bk-rule p{margin:0 0 10px;font-size:var(--fs-label);line-height:1.66;color:var(--ink-2)}
+.bk-unit{color:var(--rose-ink)}
+.bk-unit button,button.bk-unit{
+  background:none;border:none;padding:0;font-family:inherit;
+  font-size:inherit;font-weight:800;color:var(--rose-ink);cursor:pointer;
+  border-bottom:1px dotted var(--rose-line);
+}
+button.bk-unit:hover{color:var(--ink)}
+.bk-exs,.bk-crows{display:flex;flex-direction:column;gap:5px}
+.bk-ex,.bk-crow{
+  display:grid;align-items:baseline;gap:8px;
+  padding:7px 9px;text-align:left;width:100%;
+  border:1px solid var(--line);border-radius:var(--r-1);
+  background:var(--cream);color:var(--ink);font-family:inherit;cursor:pointer;
+  transition:background .12s ease,border-color .12s ease;
+}
+.bk-ex{grid-template-columns:auto 1fr}
+.bk-ex:hover,.bk-crow:hover{background:var(--rose-soft);border-color:var(--rose-line)}
+.bk-ex-j{font-size:16px;font-weight:700;white-space:nowrap}
+.bk-ex-dev{font-size:var(--fs-label);color:var(--rose-ink);font-weight:700;white-space:nowrap}
+.bk-ex-ne{grid-column:1 / -1;font-size:var(--fs-micro);color:var(--ink-3);line-height:1.5}
+
+.bk-crow{grid-template-columns:auto auto 1fr auto}
+.bk-c1{font-size:15px;font-weight:700;color:var(--ink)}
+.bk-c2{font-size:var(--fs-label);color:var(--ink-2);white-space:nowrap}
+.bk-c3{font-size:var(--fs-label);color:var(--rose-ink);font-weight:700;white-space:nowrap}
+.bk-c4{font-size:var(--fs-micro);color:var(--ink-3);text-align:right;white-space:nowrap}
+
+/* greetings */
+.bk-greets{display:flex;flex-direction:column;gap:6px}
+.bk-greet{
+  display:grid;grid-template-columns:1fr auto;gap:2px 10px;
+  padding:10px 12px;text-align:left;width:100%;
+  border:1px solid var(--line);border-radius:var(--r-1);
+  background:var(--paper);font-family:inherit;cursor:pointer;
+  transition:background .12s ease,border-color .12s ease;
+}
+.bk-greet:hover{background:var(--rose-soft);border-color:var(--rose-line)}
+.bk-g-j{font-size:16px;font-weight:700;color:var(--ink);line-height:1.5}
+.bk-g-ne{font-size:var(--fs-label);color:var(--ink-2);line-height:1.5;grid-column:1}
+.bk-g-tag{
+  grid-row:1 / 3;grid-column:2;align-self:center;
+  font-size:var(--fs-micro);color:var(--ink-3);white-space:nowrap;
+  padding:2px 7px;border-radius:var(--r-pill);background:var(--cream-2);border:1px solid var(--line);
+}
+
+@media (max-width:420px){
+  .bk-table{font-size:12px}
+  .bk-table th,.bk-table td{padding:6px}
+  .bk-td-rom{display:none}
+  .bk-table thead th:nth-child(3){display:none}
+  .bk-res-j{font-size:44px}
+  .bk-crow{grid-template-columns:auto 1fr auto;row-gap:2px}
+  .bk-c4{grid-column:2 / -1;text-align:left}
+}
+
 .sj-link{
   background:var(--sky-soft);border:1px solid var(--sky-line);
   border-radius:var(--r-2);padding:12px 14px;margin:0 0 14px;
@@ -6725,6 +6882,331 @@ function renderNavHeader(stepNumber, neTitle, enTitle) {
    ======================================================== */
 
 /* ========================================================
+   VIEW: पुस्तक — the Nepali-medium reference shelf
+
+   Three printed Nepali-language Korean textbooks, transcribed by hand. What
+   they carry that nothing else on this site does is the Devanagari reading:
+   every Korean form written the way a Nepali speaker actually writes it,
+   rather than in Revised Romanisation. 아 is आ, not "a". 어 is अ, not "eo".
+   That mapping is the reason this screen exists — it is the pronunciation
+   the audio library was built for, finally spelled out on screen.
+
+   Provenance is per-section, because a reference you cannot check is a
+   rumour. BKL = "Basic Korean Language Book" (83 pp), CS1 = the 239-page
+   scan, CS2 = the 245-page scan. Page numbers are the printed ones.
+   ======================================================== */
+const BOOK_SOURCES = {
+  BKL: { ne: "आधारभूत कोरियन भाषा पुस्तक", en: "Basic Korean Language Book", pages: 83 },
+  CS1: { ne: "कोरियन भाषा (नेपाली माध्यम)", en: "Korean Language, Nepali medium", pages: 239 },
+  CS2: { ne: "आधारभूत कोरियन भाषा", en: "Basic Korean, Nepali medium", pages: 245 }
+};
+
+/* Consonant -> the Devanagari letter that carries it. The last field marks the
+   tense (कठोर) consonants: 된소리 has no separate Devanagari letter, so ㄲ is
+   written क and marked, which is honest — inventing a glyph would be a lie the
+   learner cannot unlearn. */
+const BOOK_CONS = [
+  ["ㄱ", "g",  "ग", 0], ["ㄴ", "n",  "न", 0], ["ㄷ", "d",  "द", 0],
+  ["ㄹ", "r/l","र", 0], ["ㅁ", "m",  "म", 0], ["ㅂ", "b",  "ब", 0],
+  ["ㅅ", "s",  "स", 0], ["ㅇ", "—",  "",  0], ["ㅈ", "j",  "ज", 0],
+  ["ㅊ", "chh","छ", 0], ["ㅋ", "kh", "ख", 0], ["ㅌ", "th", "थ", 0],
+  ["ㅍ", "ph", "फ", 0], ["ㅎ", "h",  "ह", 0],
+  ["ㄲ", "kk", "क", 1], ["ㄸ", "tt", "ट", 1], ["ㅃ", "pp", "प", 1],
+  ["ㅆ", "ss", "स", 1], ["ㅉ", "jj", "च", 1]
+];
+
+/* Vowel -> [standalone Devanagari, matra to hang on a consonant].
+   ㅓ is the interesting one: it takes no matra at all, so 거 is simply ग.
+   Korean ㅓ sits where Nepali अ sits, and Korean ㅏ where Nepali आ sits. */
+const BOOK_VOWEL = {
+  "ㅏ": ["आ",  "ा"],  "ㅑ": ["या",  "्या"], "ㅓ": ["अ",   ""],   "ㅕ": ["य",   "्य"],
+  "ㅗ": ["ओ",  "ो"],  "ㅛ": ["यो",  "्यो"], "ㅜ": ["उ",   "ु"],  "ㅠ": ["यु",  "्यु"],
+  "ㅡ": ["उ",  "्"],  "ㅣ": ["ई",  "ि"],
+  "ㅐ": ["ए",  "े"],  "ㅒ": ["ये",  "्ये"], "ㅔ": ["ए",   "े"],  "ㅖ": ["ये",  "्ये"],
+  "ㅘ": ["वा", "्वा"], "ㅙ": ["वे", "्वे"], "ㅚ": ["वे",  "्वे"], "ㅝ": ["व",   "्व"],
+  "ㅞ": ["वे", "्वे"], "ㅟ": ["वइ", "्वइ"], "ㅢ": ["वइ", "्वइ"]
+};
+
+const BOOK_VOWEL_ORDER = ["ㅏ","ㅑ","ㅓ","ㅕ","ㅗ","ㅛ","ㅜ","ㅠ","ㅡ","ㅣ",
+                          "ㅐ","ㅒ","ㅔ","ㅖ","ㅘ","ㅙ","ㅚ","ㅝ","ㅞ","ㅟ","ㅢ"];
+
+/* The letter, composed. This is the same arithmetic the books print as a grid:
+   consonant shape + vowel matra = syllable. ㅇ is the null initial, so it takes
+   the vowel's standalone form. */
+function bkRead(cons, vowel) {
+  const v = BOOK_VOWEL[vowel];
+  const c = BOOK_CONS.find(function (r) { return r[0] === cons; });
+  if (!v || !c) return "";
+  if (cons === "ㅇ") return v[0];
+  return c[2] + v[1];
+}
+
+let BOOK_TAB = "letters";
+let BK_CONS = "ㄱ";
+let BK_VOWEL = "ㅏ";
+
+function bkSetTab(t) { BOOK_TAB = t; renderApp(); }
+function bkSetCons(c) { BK_CONS = c; renderApp(); }
+function bkSetVowel(v) { BK_VOWEL = v; renderApp(); }
+
+/* ---- section 1: the composer and the two letter tables ---- */
+function bkLetters() {
+  const sylNow = syl(BK_CONS, BK_VOWEL);
+  const read = bkRead(BK_CONS, BK_VOWEL);
+  const tense = (BOOK_CONS.find(function (r) { return r[0] === BK_CONS; }) || [])[3];
+
+  const consChips = BOOK_CONS.map(function (r) {
+    const on = r[0] === BK_CONS;
+    return '<button type="button" class="bk-k' + (on ? ' on' : '') + (r[3] ? ' tense' : '') +
+      '" onclick="bkSetCons(\'' + r[0] + '\')" title="' + r[1] + '">' + r[0] + '</button>';
+  }).join("");
+
+  const vowelChips = BOOK_VOWEL_ORDER.map(function (v) {
+    const on = v === BK_VOWEL;
+    return '<button type="button" class="bk-k' + (on ? ' on' : '') +
+      '" onclick="bkSetVowel(\'' + v + '\')">' + v + '</button>';
+  }).join("");
+
+  const table = BOOK_CONS.map(function (r) {
+    const ex = bkRead(r[0], "ㅏ");
+    return '<tr class="' + (r[0] === BK_CONS ? 'on' : '') + '">' +
+      '<td class="bk-td-j">' + r[0] + '</td>' +
+      '<td class="bk-td-dev">' + (r[2] ? r[2] + '्' : '—') + '</td>' +
+      '<td class="bk-td-rom">' + r[1] + '</td>' +
+      '<td class="bk-td-ex" onclick="say(\'' + syl(r[0], "ㅏ") + '\', this)">' +
+        syl(r[0], "ㅏ") + ' <em>' + ex + '</em></td>' +
+      '<td class="bk-td-tag">' + (r[3] ? (LANG === 'ne' ? 'कठोर' : 'tense') : '') + '</td>' +
+      '</tr>';
+  }).join("");
+
+  const vtable = BOOK_VOWEL_ORDER.map(function (v) {
+    const pair = BOOK_VOWEL[v];
+    const full = bkRead("ㅇ", v);
+    return '<tr class="' + (v === BK_VOWEL ? 'on' : '') + '">' +
+      '<td class="bk-td-j">' + v + '</td>' +
+      '<td class="bk-td-dev">' + pair[0] + '</td>' +
+      '<td class="bk-td-ex" onclick="say(\'' + full + '\', this)">' + full + '</td>' +
+      '<td class="bk-td-rom">' + (pair[1] ? 'ग' + pair[1] : 'ग') + '</td>' +
+      '</tr>';
+  }).join("");
+
+  return `
+    <div class="bk-compose">
+      <div class="bk-row">${consChips}</div>
+      <div class="bk-row">${vowelChips}</div>
+      <div class="bk-res" onclick="say('${sylNow}', this)" role="button" tabindex="0"
+           aria-label="${LANG === 'ne' ? 'उच्चारण सुन्नुहोस्' : 'Hear it'}">
+        <span class="bk-res-j">${sylNow}</span>
+        <span class="bk-res-dev">${read}</span>
+        <span class="bk-res-sub">${BK_CONS} + ${BK_VOWEL}${tense ? ' · ' + (LANG === 'ne' ? 'कठोर' : 'tense') : ''}</span>
+      </div>
+    </div>
+
+    <h3 class="bk-h">${LANG === "ne" ? "व्यञ्जन" : "Consonants"} <span class="bk-src">BKL p3 · CS2 p4</span></h3>
+    <table class="bk-table">
+      <thead><tr>
+        <th>${LANG === "ne" ? "अक्षर" : "Letter"}</th>
+        <th>${LANG === "ne" ? "देवनागरी" : "Devanagari"}</th>
+        <th>${LANG === "ne" ? "अङ्ग्रेजी" : "English"}</th>
+        <th>${LANG === "ne" ? "उदाहरण" : "Example"}</th>
+        <th></th>
+      </tr></thead>
+      <tbody>${table}</tbody>
+    </table>
+
+    <h3 class="bk-h">${LANG === "ne" ? "स्वर" : "Vowels"} <span class="bk-src">BKL p4 · CS2 p5</span></h3>
+    <table class="bk-table">
+      <thead><tr>
+        <th>${LANG === "ne" ? "स्वर" : "Vowel"}</th>
+        <th>${LANG === "ne" ? "देवनागरी" : "Devanagari"}</th>
+        <th>${LANG === "ne" ? "पूर्ण अक्षर" : "Full letter"}</th>
+        <th>${LANG === "ne" ? "संयोजन" : "Composed"}</th>
+      </tr></thead>
+      <tbody>${vtable}</tbody>
+    </table>
+    <p class="bk-note">${LANG === "ne"
+      ? "ㅐ र ㅔ दुवैलाई पुस्तकमा ए लेखिएको छ — आधुनिक कोरियनमा यी दुईको उच्चारण लगभग एउटै भइसकेको छ। ㅚ, ㅟ, ㅢ को संयोजन पुस्तकअनुसार वे/वइ राखिएको छ।"
+      : "Both ㅐ and ㅔ are written ए in these books — in modern Korean the two have merged in pronunciation. ㅚ, ㅟ and ㅢ follow the books' वे/वइ convention."}</p>
+  `;
+}
+
+/* ---- section 2: the pronunciation rules ---- */
+const BOOK_RULES = [
+  {
+    h: "ㅂ + ㅂ → ㅃ · प्",
+    ne: "कुनै अक्षरको तल ㅂ र लगत्तै आउने अक्षर पनि ㅂ भएमा दुवै ㅂ 'प्' उच्चारण हुन्छ। अन्य अवस्थामा 'ब्' नै उच्चारण हुन्छ।",
+    src: "CS1 p11",
+    ex: [["잡부", "खाप्पु", "धेरै धनी मान्छे"],
+         ["잡비", "छाप्पी", "विविध"],
+         ["담배", "थाम्बे", "चुरोट"],
+         ["공부하다", "खोङ्बुहादा", "अध्ययन गर्नु"]]
+  },
+  {
+    h: "ㅇ · ङ् / अ",
+    ne: "कुनै अक्षरको तल आएमा ㅇ को उच्चारण 'ङ्' हुन्छ। पूरा अक्षरको रूपमा माथि आएमा 'अ' हुन्छ।",
+    src: "CS1 p11",
+    ex: [["방", "थाङ्", "सुप"],
+         ["병", "फ्याङ्", "बोतल"],
+         ["아다", "आदा", "कहाँ"],
+         ["엄마", "अम्मा", "आमा"]]
+  },
+  {
+    h: "ㅈ · छ् / च् / द् / ज्",
+    ne: "शब्दको सुरुमा आएको ㅈ जहिले पनि 'छ्' हुन्छ। तल ㅈ र लगत्तै ㅈ भएमा ㅉ 'च्' हुन्छ। अक्षरको तल आएको ㅈ 'द्' हुन्छ। अन्य अवस्थामा 'ज्' नै।",
+    src: "CS1 p11",
+    ex: [["자", "छ", "म"],
+         ["지도", "छिदो", "नक्सा"],
+         ["낮잠", "नाच्चाम", "दिउँसोको सुताइ"],
+         ["맞잡다", "माच्चाप्ता", "सहकार्य गर्नु"],
+         ["낮다", "नात्ता", "दिलो हुनु"],
+         ["낮", "नात्", "दिउँसो"],
+         ["아버지", "आबजी", "बाबा"],
+         ["기자", "खिजा", "पत्रकार"]]
+  }
+];
+
+function bkRules() {
+  return BOOK_RULES.map(function (r) {
+    const rows = r.ex.map(function (e) {
+      return '<button type="button" class="bk-ex" onclick="say(\'' + e[0] + '\', this)">' +
+        '<span class="bk-ex-j">' + e[0] + '</span>' +
+        '<span class="bk-ex-dev">' + e[1] + '</span>' +
+        '<span class="bk-ex-ne">' + e[2] + '</span></button>';
+    }).join("");
+    return `
+      <section class="bk-rule">
+        <header>
+          <h3>${r.h}</h3>
+          <span class="bk-src">${r.src}</span>
+        </header>
+        <p>${r.ne}</p>
+        <div class="bk-exs">${rows}</div>
+      </section>`;
+  }).join("");
+}
+
+/* ---- section 3: counters ---- */
+const BOOK_COUNTERS = [
+  { unit: "시", ne: "बजे", rows: [
+    ["4시", "네시", "नेसी", "४ बजे"],
+    ["10시", "열시", "यल्सी", "१० बजे"],
+    ["12시", "열두시", "यल्दुसी", "१२ बजे"]
+  ]},
+  { unit: "그릇", ne: "कचौरा", rows: [
+    ["2그릇", "두 그릇", "थु खुरुत्", "२ कचौरा"],
+    ["3그릇", "세 그릇", "से खुरुत्", "३ कचौरा"]
+  ]},
+  { unit: "송이", ne: "फूलको थुङ्गा, काइयो", rows: [
+    ["1송이", "한 송이", "हान्सोडी", "१ काइयो"],
+    ["3송이", "세 송이", "सेसोडी", "३ भुप्पा"],
+    ["5송이", "다섯 송이", "थासत्सोडी", "५ थुङ्गा"]
+  ]},
+  { unit: "갑", ne: "चुरोटको बट्टा", rows: [
+    ["1갑", "한 갑", "हान् खाप्", "१ बट्टा"],
+    ["2갑", "두 갑", "थु खाप्", "२ बट्टा"]
+  ]},
+  { unit: "마리", ne: "जनावर गन्ने", rows: [
+    ["2마리", "두 마리", "थु मारी", "२ वटा"],
+    ["3마리", "세 마리", "से मारी", "३ वटा"]
+  ]}
+];
+
+function bkCounters() {
+  return BOOK_COUNTERS.map(function (c) {
+    const rows = c.rows.map(function (r) {
+      return '<button type="button" class="bk-crow" onclick="say(\'' + r[1] + '\', this)">' +
+        '<span class="bk-c1">' + r[0] + '</span>' +
+        '<span class="bk-c2">' + r[1] + '</span>' +
+        '<span class="bk-c3">' + r[2] + '</span>' +
+        '<span class="bk-c4">' + r[3] + '</span></button>';
+    }).join("");
+    return `
+      <section class="bk-rule">
+        <header>
+          <h3><button type="button" class="bk-unit" onclick="say('${c.unit}', this)">${c.unit}</button> ${c.ne}</h3>
+          <span class="bk-src">CS2 p46</span>
+        </header>
+        <div class="bk-crows">${rows}</div>
+      </section>`;
+  }).join("");
+}
+
+/* ---- section 4: greetings ---- */
+const BOOK_GREET = [
+  ["안녕하십니까?", "नमस्कार, वा कुशलै हुनुहुन्छ?", "औपचारिक"],
+  ["안녕하세요", "नमस्कार", "आदर"],
+  ["감사합니다", "धन्यवाद", ""],
+  ["고맙습니다", "धन्यवाद", ""],
+  ["천만에요", "तपाईंलाई स्वागत छ", ""],
+  ["미안합니다", "माफ गर्नुहोला", ""],
+  ["죄송합니다", "माफ गर्नुहोला", "औपचारिक"],
+  ["실례합니다", "माफ पार्नु", ""],
+  ["괜찮습니다", "केही छैन", ""],
+  ["안녕히 계세요", "राम्रोसँग बस्नुहोस्", "जानेले भन्ने"],
+  ["안녕히 가세요", "राम्रोसँग जानुहोस्", "बस्नेले भन्ने"],
+  ["또 만나요", "फेरि भेटौँला", ""],
+  ["내일 만나요", "भोलि भेटौँला", ""],
+  ["만나서 반갑습니다", "भेटेर खुसी लाग्यो", ""],
+  ["잘 지내셨습니까?", "सञ्चै हुनुहुन्छ?", ""],
+  ["잘 지냅니다", "सञ्चै छु", ""],
+  ["도와 주십시오", "सहयोग गरिदिनुहोस्", ""],
+  ["오래간만입니다", "लामो समयपछि भेट भयो", ""],
+  ["새해 복 많이 받으십시오", "नयाँ सालको शुभकामना", ""]
+];
+
+function bkGreetings() {
+  return '<div class="bk-greets">' + BOOK_GREET.map(function (g) {
+    return '<button type="button" class="bk-greet" onclick="say(\'' + g[0] + '\', this)">' +
+      '<span class="bk-g-j">' + g[0] + '</span>' +
+      '<span class="bk-g-ne">' + g[1] + '</span>' +
+      (g[2] ? '<span class="bk-g-tag">' + g[2] + '</span>' : '') +
+      '</button>';
+  }).join("") + '</div>';
+}
+
+function viewBooks() {
+  const tabs = [
+    ["letters", LANG === "ne" ? "वर्णमाला" : "Alphabet"],
+    ["rules",   LANG === "ne" ? "उच्चारण नियम" : "Sound rules"],
+    ["counters",LANG === "ne" ? "गणना" : "Counters"],
+    ["greet",   LANG === "ne" ? "अभिवादन" : "Greetings"]
+  ];
+
+  const body =
+    BOOK_TAB === "rules" ? bkRules() :
+    BOOK_TAB === "counters" ? bkCounters() :
+    BOOK_TAB === "greet" ? bkGreetings() :
+    bkLetters();
+
+  const src = BOOK_TAB === "letters" ? "BKL p2–8" :
+              BOOK_TAB === "rules" ? "CS1 p11" :
+              BOOK_TAB === "counters" ? "CS2 p46" : "BKL p1";
+
+  return `
+    ${renderLessonTabs("books")}
+    ${renderNavHeader(LANG === "ne" ? "पुस्तक" : "Books", LANG === "ne" ? "पुस्तक" : "Books")}
+
+    <p class="bk-lead">${LANG === "ne"
+      ? "तीनवटा नेपाली माध्यमका कोरियन पाठ्यपुस्तकबाट हातले टाइप गरिएको सन्दर्भ। यहाँ हरेक कोरियन अक्षरको देवनागरी उच्चारण छ — त्यही कुरा जो अरू कुनै पर्दामा छैन।"
+      : "Reference typed by hand from three Nepali-medium Korean textbooks. Every Korean form carries its Devanagari reading — the one thing no other screen on this site has."}</p>
+
+    <div class="view-tabs bk-tabs" role="tablist">
+      ${tabs.map(function (t) {
+        return '<button type="button" role="tab" aria-selected="' + (BOOK_TAB === t[0]) + '" ' +
+          'class="view-tab' + (BOOK_TAB === t[0] ? ' on' : '') + '" onclick="bkSetTab(\'' + t[0] + '\')">' +
+          t[1] + '</button>';
+      }).join("")}
+    </div>
+
+    ${body}
+
+    <p class="bk-note bk-prov">${LANG === "ne"
+      ? "स्रोत: " + src + " — तीनवटा स्क्यान गरिएका पुस्तकबाट पृष्ठअनुसार। स्क्यान भएका सबै ५६७ पृष्ठ अझै टाइप भएका छैनन्; यहाँ जे छ त्यो जाँचिएको छ, अनुमान गरिएको छैन।"
+      : "Source: " + src + " — page by page from the three scans. Not all 567 scanned pages are typed up yet; what is here is checked, not guessed."}</p>
+  `;
+}
+
+/* ========================================================
    VIEW: 세종한국어 1A — the curriculum spine
    Everything on this screen is a door. A unit's words open the arcade and the
    lesson quiz; its grammar opens the grammar bridge; its task opens the scene
@@ -6966,6 +7448,15 @@ function viewHome() {
     </div>
 
     ${renderSejongToday()}
+
+    <button type="button" class="bk-promo" onclick="navigateTo('books')">
+      <span class="bk-promo-k">가</span>
+      <span class="bk-promo-t">
+        <b>${LANG === "ne" ? "पुस्तक · देवनागरी सन्दर्भ" : "Books · Devanagari reference"}</b>
+        <i>${LANG === "ne" ? "तीन नेपाली पाठ्यपुस्तकबाट वर्णमाला, उच्चारण नियम, गणना र अभिवादन" : "Letters, sound rules, counters and greetings from three Nepali-medium textbooks"}</i>
+      </span>
+      <span class="bk-promo-arrow">→</span>
+    </button>
 
     ${renderGameHud(true)}
 
@@ -9260,7 +9751,7 @@ function renderBottomNav() {
     writing_studio: "vowels",
     reading_rules: "reading_rules", numbers: "reading_rules", grammar: "reading_rules",
     vocabulary: "vocabulary", quiz: "quiz", game: "game", runner: "game", mission: "game",
-    arcade: "game", course: "sejong", sejong: "sejong"
+    arcade: "game", course: "sejong", sejong: "sejong", books: "sejong"
   };
   const active = group[s] || s;
   const items = [
@@ -12752,6 +13243,9 @@ function renderLessonTabs(active) {
       <button type="button" role="tab" aria-selected="${active === "course"}" class="view-tab${active === "course" ? " on" : ""}" onclick="navigateTo('course')">
         ${LANG === "ne" ? "४४ दिने भिडियो पाठ" : "44-day video course"}
       </button>
+      <button type="button" role="tab" aria-selected="${active === "books"}" class="view-tab${active === "books" ? " on" : ""}" onclick="navigateTo('books')">
+        ${LANG === "ne" ? "पुस्तक · देवनागरी" : "Books · Devanagari"}
+      </button>
     </div>
   `;
 }
@@ -15198,6 +15692,7 @@ function renderApp() {
 
   if (s === "home") app.innerHTML = viewHome();
   else if (s === "sejong") app.innerHTML = viewSejong();
+  else if (s === "books") app.innerHTML = viewBooks();
   else if (s === "course" || s === "course_44") app.innerHTML = viewCourse44();
   else if (s === "vowels") app.innerHTML = viewVowels();
   else if (s === "vowels_compound") app.innerHTML = viewVowelsCompound();
@@ -15396,7 +15891,7 @@ SW_TEMPLATE = r'''/* नेपालीमा हाङ्गुल — service 
  *   audio/ images/ icons/ fonts -> stale-while-revalidate
  *   /api/tts        -> never intercepted (per-request audio, app falls back to Web Speech)
  */
-const VERSION = "v30";
+const VERSION = "v31";
 const CACHE = "nepalihangul-" + VERSION;
 
 const QUIZ_IMAGES = %%IMAGES%%;
