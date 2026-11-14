@@ -30,9 +30,11 @@ html = r'''<!DOCTYPE html>
   --white:#ffffff;
   --ink:#2b2520;
   --ink-2:#6f6557;
-  /* third ink step: captions, provenance, the grey that must still clear
-     4.5:1 on --paper for body-size text */
-  --ink-3:#8a7f6f;
+  /* Third ink step: captions, provenance, the grey that carries body-size text.
+     Measured, not guessed — 5.45:1 on --paper and 4.64:1 on --cream-2, so it
+     clears AA on both surfaces it actually sits on. The first value here was
+     #8a7f6f, which was 3.87:1 and failed. */
+  --ink-3:#726757;
   --line:#e8ddca;
   --line-2:#d8cab2;
 
@@ -1549,6 +1551,85 @@ canvas#drawPad{
   transition:background .15s;
 }
 .draw-tools button:hover{background:var(--cream)}
+
+/* ============ writing studio: stroke order + scoring ============ */
+.ws-lead{
+  margin:0 0 12px;font-size:var(--fs-body);line-height:1.62;color:var(--ink-2);
+  max-width:60ch;
+}
+.ws-target{
+  display:flex;align-items:center;gap:10px;justify-content:center;
+  margin:4px 0 2px;flex-wrap:wrap;
+}
+.ws-target b.ko{font-size:40px;line-height:1;color:var(--rose-ink)}
+.ws-say{padding:8px 11px}
+.ws-meta{font-size:var(--fs-micro);color:var(--ink-3);letter-spacing:.02em}
+.ws-wrap{max-width:340px;margin:14px auto}
+canvas#drawPad{cursor:crosshair;touch-action:none;max-width:100%;max-height:100%}
+
+.ws-pips{display:flex;gap:5px;justify-content:center;margin:10px 0 6px;flex-wrap:wrap}
+.ws-pip{
+  width:24px;height:5px;border-radius:3px;background:var(--line-2);
+  transition:background .15s ease;
+}
+.ws-pip.on{background:var(--sage)}
+.ws-pip.now{background:var(--rose)}
+
+.ws-hud{
+  display:flex;align-items:center;justify-content:center;gap:12px;
+  min-height:22px;margin:0 0 6px;flex-wrap:wrap;
+}
+.ws-score{font-size:var(--fs-label);font-weight:800;color:var(--ink-3);letter-spacing:.02em}
+.ws-score.ok{color:var(--ink-2)}
+.ws-score.great{color:var(--sage)}
+.ws-score.low{color:var(--rose-ink)}
+.ws-msg{font-size:var(--fs-micro);color:var(--ink-3)}
+.ws-msg.warn{color:var(--rose-ink)}
+
+.ws-tools{flex-wrap:wrap}
+.ws-tools button:disabled{opacity:.42;cursor:default}
+
+.ws-result{display:none}
+.ws-result.open{
+  display:block;margin:14px 0 4px;padding:16px;
+  background:var(--paper);border:1px solid var(--line-2);border-radius:var(--r-3);
+  text-align:center;
+}
+.ws-result.good{border-color:var(--sage);background:var(--sage-soft)}
+.ws-result.mid{border-color:var(--line-2)}
+.ws-result.low{border-color:var(--rose-line);background:var(--rose-soft)}
+.ws-result-num{font-size:var(--fs-num);font-weight:800;line-height:1;color:var(--ink)}
+.ws-result-num small{font-size:var(--fs-lead);font-weight:700;color:var(--ink-3);margin-left:2px}
+.ws-result-band{margin-top:4px;font-size:var(--fs-lead);font-weight:800;color:var(--rose-ink)}
+.ws-result-meta{margin-top:4px;font-size:var(--fs-micro);color:var(--ink-3)}
+.ws-result-acts{display:flex;gap:8px;justify-content:center;margin-top:12px;flex-wrap:wrap}
+.ws-btn{
+  min-height:40px;padding:9px 15px;border-radius:var(--r-pill);
+  border:1px solid var(--line-2);background:var(--paper);
+  font-family:inherit;font-size:var(--fs-label);font-weight:700;
+  color:var(--ink);cursor:pointer;
+}
+.ws-btn:hover{background:var(--cream-2)}
+.ws-btn.primary{background:var(--rose-ink);border-color:var(--rose-ink);color:#fff}
+.ws-btn.primary:hover{filter:brightness(1.06)}
+
+.ws-pick-h{margin:20px 0 8px;font-size:var(--fs-lead);font-weight:800;color:var(--ink)}
+.ws-picks{display:flex;flex-wrap:wrap;gap:6px}
+.ws-pick{
+  min-width:40px;height:40px;padding:0 6px;
+  border:1px solid var(--line-2);border-radius:var(--r-1);
+  background:var(--paper);color:var(--ink);
+  font-family:inherit;font-size:18px;font-weight:700;line-height:1;
+  cursor:pointer;transition:background .12s ease,border-color .12s ease;
+}
+.ws-pick:hover{background:var(--cream-2)}
+.ws-pick.on{background:var(--rose-soft);border-color:var(--rose-line);color:var(--rose-ink)}
+
+@media (max-width:420px){
+  .ws-pick{min-width:36px;height:36px;font-size:16px}
+  .ws-target b.ko{font-size:34px}
+  .ws-tools button{flex:1 1 42%}
+}
 
 /* ============ quiz ============ */
 .grid{
@@ -4417,6 +4498,24 @@ body:not(.kb-on) .gp-num { display: none; }
 }
 .game-hud.compact { margin: 0 0 14px; }
 
+/* SRS due strip — the deck was only reachable from inside the game screen */
+.due-card{
+  display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:12px;
+  width:100%;margin:0 0 14px;padding:12px 15px;text-align:left;
+  background:var(--paper);border:1px solid var(--line-2);border-radius:var(--r-2);
+  font-family:inherit;cursor:pointer;
+  transition:background .12s ease,border-color .12s ease;
+}
+.due-card:hover{background:var(--sky-soft);border-color:var(--sky-line)}
+.due-card.done{cursor:default;background:var(--sage-soft);border-color:var(--sage)}
+.due-card.done:hover{background:var(--sage-soft);border-color:var(--sage)}
+.due-card.locked{cursor:pointer}
+.due-ico{font-size:20px;line-height:1;width:24px;text-align:center}
+.due-t{min-width:0}
+.due-t b{display:block;font-size:var(--fs-label);font-weight:800;color:var(--ink);line-height:1.4}
+.due-t i{display:block;font-style:normal;font-size:var(--fs-micro);color:var(--ink-3);line-height:1.5;margin-top:2px}
+.due-go{font-size:16px;font-weight:700;color:var(--rose-ink)}
+
 .hud-ring {
   --pct: 0;
   width: 68px;
@@ -5587,7 +5686,8 @@ html.dark .pdisp-note-name {
   margin:0 0 14px;font-size:var(--fs-body);line-height:1.62;color:var(--ink-2);
   max-width:62ch;
 }
-.bk-tabs{margin-bottom:18px}
+.bk-tabs{margin-bottom:18px;flex-wrap:wrap}
+.bk-tabs .view-tab{flex:1 1 auto}
 .bk-h{
   display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;
   margin:22px 0 10px;font-size:var(--fs-title);color:var(--ink);font-weight:800;
@@ -5723,6 +5823,110 @@ button.bk-unit:hover{color:var(--ink)}
   grid-row:1 / 3;grid-column:2;align-self:center;
   font-size:var(--fs-micro);color:var(--ink-3);white-space:nowrap;
   padding:2px 7px;border-radius:var(--r-pill);background:var(--cream-2);border:1px solid var(--line);
+}
+
+/* grammar tab — one row shape for every example, three for the tables */
+.bk-grows{display:flex;flex-direction:column;gap:5px}
+.bk-grow{
+  display:grid;grid-template-columns:auto 1fr auto;gap:1px 10px;
+  padding:8px 10px;text-align:left;width:100%;
+  border:1px solid var(--line);border-radius:var(--r-1);
+  background:var(--cream);font-family:inherit;cursor:pointer;
+  transition:background .12s ease,border-color .12s ease;
+}
+.bk-grow:hover{background:var(--rose-soft);border-color:var(--rose-line)}
+.bk-g-ko{
+  grid-column:1;font-size:15px;font-weight:700;color:var(--ink);
+  line-height:1.45;align-self:center;
+}
+.bk-g-dev{
+  grid-column:2;font-size:var(--fs-label);font-weight:700;color:var(--rose-ink);
+  line-height:1.45;
+}
+.bk-g-ne{
+  grid-column:1 / 3;font-size:var(--fs-micro);color:var(--ink-3);line-height:1.5;
+}
+.bk-g-tag{
+  grid-row:1 / 3;grid-column:3;align-self:center;
+  font-size:var(--fs-micro);color:var(--ink-3);white-space:nowrap;
+  padding:2px 7px;border-radius:var(--r-pill);
+  background:var(--paper);border:1px solid var(--line);
+}
+
+/* collapsibles: the six-tense grid and the seven irregular classes */
+.bk-det{
+  margin:0 0 7px;border:1px solid var(--line);border-radius:var(--r-2);
+  background:var(--paper);overflow:hidden;
+}
+.bk-det summary{
+  display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;
+  padding:11px 13px;cursor:pointer;list-style:none;
+  font-size:var(--fs-label);color:var(--ink);
+}
+.bk-det summary::-webkit-details-marker{display:none}
+.bk-det summary::after{
+  content:"＋";margin-left:auto;font-size:13px;font-weight:800;
+  color:var(--ink-3);line-height:1;
+}
+.bk-det[open] summary::after{content:"−"}
+.bk-det summary b{font-size:var(--fs-lead);font-weight:800}
+.bk-det summary span{font-size:var(--fs-micro);color:var(--ink-3)}
+.bk-det summary i{
+  font-style:normal;font-size:var(--fs-micro);font-weight:700;
+  color:var(--rose-ink);padding:1px 7px;border-radius:var(--r-pill);
+  background:var(--rose-soft);border:1px solid var(--rose-line);
+}
+.bk-det[open] summary{border-bottom:1px solid var(--line)}
+.bk-det-ne{
+  margin:0;padding:10px 13px 0;font-size:var(--fs-label);line-height:1.65;
+  color:var(--ink-2);
+}
+.bk-trows,.bk-irows{
+  display:flex;flex-direction:column;gap:4px;padding:10px 13px 13px;
+}
+
+/* the rotated six-tense table */
+.bk-trow{
+  display:grid;grid-template-columns:auto 1fr auto;gap:2px 10px;align-items:baseline;
+  padding:7px 9px;text-align:left;width:100%;
+  border:1px solid var(--line);border-radius:var(--r-1);
+  background:var(--cream);font-family:inherit;cursor:pointer;
+  transition:background .12s ease;
+}
+.bk-trow:hover{background:var(--rose-soft)}
+.bk-t-lab{
+  grid-column:1;font-size:var(--fs-micro);font-weight:700;color:var(--ink-3);
+  white-space:nowrap;
+}
+.bk-t-ko{grid-column:2;font-size:15px;font-weight:700;color:var(--ink);line-height:1.45}
+.bk-t-dev{
+  grid-column:3;font-size:var(--fs-micro);font-weight:700;color:var(--rose-ink);
+  white-space:nowrap;
+}
+
+/* the irregular classes */
+.bk-irow{
+  display:grid;grid-template-columns:auto auto 1fr;gap:1px 6px;align-items:baseline;
+  padding:7px 9px;text-align:left;width:100%;
+  border:1px solid var(--line);border-radius:var(--r-1);
+  background:var(--cream);font-family:inherit;cursor:pointer;
+  transition:background .12s ease;
+}
+.bk-irow:hover{background:var(--rose-soft)}
+.bk-i-dict{grid-column:1;font-size:15px;font-weight:700;color:var(--ink-3)}
+.bk-i-arrow{grid-column:2;font-size:11px;color:var(--line-2)}
+.bk-i-conj{grid-column:3;font-size:15px;font-weight:700;color:var(--ink)}
+.bk-i-dev{
+  grid-column:1 / 3;font-size:var(--fs-micro);font-weight:700;color:var(--rose-ink);
+}
+.bk-i-ne{grid-column:3;font-size:var(--fs-micro);color:var(--ink-3);text-align:right}
+
+/* conjunctions */
+.bk-conj h3{display:flex;align-items:baseline;gap:7px}
+.bk-conj-n{
+  display:inline-grid;place-items:center;min-width:20px;height:20px;padding:0 5px;
+  border-radius:var(--r-pill);background:var(--cream-2);border:1px solid var(--line);
+  font-size:var(--fs-micro);font-weight:800;color:var(--ink-3);
 }
 
 @media (max-width:420px){
@@ -7164,23 +7368,525 @@ function bkGreetings() {
   }).join("") + '</div>';
 }
 
+/* ---- section 5: grammar ---- */
+
+/* The book's grammar half (printed pages 46 to 80) is the part a learner
+   actually needs after the alphabet: which ending goes with which listener,
+   how a tense is built, and the seven classes of verb that refuse to follow
+   the rule. Rows are [korean, devanagari, nepali, tag?] — the same shape the
+   sound-rule cards use, so one tap reads the form aloud and the audio
+   scraper picks the string up on the next build. */
+const BK_GRAM = [
+  {
+    h: "तीनवटा भाषिक तह",
+    src: "CS1 p46–50",
+    ne: "क्रियापदको अन्त्यले कसलाई भनिएको हो भन्ने तय गर्छ। औपचारिक — ठूला मान्छे, अपरिचित, औपचारिक ठाउँ। अनौपचारिक — दैनिक बोली, अलि नजिकको मान्छे। ठाडो — साथी, आफूभन्दा सानो, घनिष्ठ। एउटै क्रिया तीनवटा रूपमा:",
+    rows: [
+      ["갑니다", "गाम्निदा", "जान्छु", "औपचारिक"],
+      ["가요", "गायो", "जान्छु", "अनौपचारिक"],
+      ["가", "गा", "जान्छस्", "ठाडो"],
+      ["먹습니다", "मोक्सुम्निदा", "खान्छु", "औपचारिक"],
+      ["먹어요", "मोगोयो", "खान्छु", "अनौपचारिक"],
+      ["먹어", "मोगो", "खान्छस्", "ठाडो"]
+    ]
+  },
+  {
+    h: "नकारात्मक वर्तमान",
+    src: "CS1 p46, p60",
+    ne: "दुई तरिका छन्। छोटो — क्रियाअघि 안। लामो — क्रियाको डाँठमा 지 लागाएर 않। दुवैको अर्थ एउटै हो; लामो रूप अलि नरम सुनिन्छ।",
+    rows: [
+      ["안 갑니다", "अन् गाम्निदा", "जाँदिनँ", "औपचारिक"],
+      ["가지 않습니다", "गाजी आन्सुम्निदा", "जाँदिनँ", "औपचारिक"],
+      ["안 가요", "अन् गायो", "जाँदिनँ", "अनौपचारिक"],
+      ["가지 않아요", "गाजी आनायो", "जाँदिनँ", "अनौपचारिक"],
+      ["안 가", "अन् गा", "जाँदिनस्", "ठाडो"],
+      ["가지 않아", "गाजी आना", "जाँदिनस्", "ठाडो"]
+    ]
+  },
+  {
+    h: "प्रश्नवाचक वर्तमान",
+    src: "CS1 p50, p60",
+    ne: "औपचारिकमा क्रियापदमा ㅂ니까/습니까 जोडिन्छ। अनौपचारिक र ठाडोमा वाक्य त्यस्तै रहन्छ, केवल प्रश्नचिन्ह थपिन्छ — स्वर उचाल्ने काम बोलीले गर्छ।",
+    rows: [
+      ["갑니까?", "गाम्निक्का", "जानुहुन्छ?", "औपचारिक"],
+      ["가요?", "गायो", "जानुहुन्छ?", "अनौपचारिक"],
+      ["가?", "गा", "जान्छस्?", "ठाडो"],
+      ["무엇을 먹습니까?", "मुओतुल् मोक्सुम्निक्का", "के खानुहुन्छ?", "औपचारिक"],
+      ["무엇을 먹어요?", "मुओतुल् मोगोयो", "के खान्छौ?", "अनौपचारिक"],
+      ["어디 갑니까?", "ओदि गाम्निक्का", "कहाँ जानुहुन्छ?", "औपचारिक"],
+      ["어디 가?", "ओदि गा", "कहाँ जान्छस्?", "ठाडो"]
+    ]
+  },
+  {
+    h: "वर्तमान अपूर्ण — 고 있다",
+    src: "CS1 p60, p67",
+    ne: "अहिले काम भइरहेको छ भन्न। क्रियाको डाँठमा 고 जोडेर 있다 जोडिन्छ। 있다 पनि क्रिया हो, त्यसैले यसको रूप पनि तहअनुसार बदलिन्छ।",
+    rows: [
+      ["일하고 있습니다", "इलहागो इस्सुम्निदा", "काम गरिरहेको छु", "औपचारिक"],
+      ["일하고 있어요", "इलहागो इस्सोयो", "काम गरिरहेको छु", "अनौपचारिक"],
+      ["일하고 있어", "इलहागो इस्सो", "काम गरिरहेको छस्", "ठाडो"],
+      ["한국어를 공부하고 있습니다", "हान्गुगोरुल् खोङ्बुहागो इस्सुम्निदा", "कोरियन भाषा पढिरहेको छु", "औपचारिक"]
+    ]
+  },
+  {
+    h: "भूतकाल — 았/었",
+    src: "CS1 p62",
+    ne: "डाँठको स्वर ㅏ वा ㅗ भए 았, अरू भए 었। 하 गएको क्रियामा भने सधैं 했। यही नियम भूतकालको सबै रूपमा चल्छ — नकारात्मक र प्रश्नमा पनि।",
+    rows: [
+      ["갔습니다", "गास्सुम्निदा", "गएँ", "औपचारिक"],
+      ["갔어요", "गास्सोयो", "गएँ", "अनौपचारिक"],
+      ["먹었습니다", "मोगोस्सुम्निदा", "खाएँ", "औपचारिक"],
+      ["먹었어요", "मोगोस्सोयो", "खाएँ", "अनौपचारिक"],
+      ["배웠습니다", "पेबोस्सुम्निदा", "सिकें", "औपचारिक"],
+      ["했습니다", "हेस्सुम्निदा", "गरें", "औपचारिक"]
+    ]
+  },
+  {
+    h: "भूत नकारात्मक",
+    src: "CS1 p62",
+    ne: "안 र 지 않 दुवै भूतकालमा पनि उही ठाउँमा बस्छन् — 안 क्रियाअघि, 지 डाँठपछि। अर्थ एउटै।",
+    rows: [
+      ["안 갔습니다", "अन् गास्सुम्निदा", "गइनँ", "औपचारिक"],
+      ["가지 않았습니다", "गाजी आनास्सुम्निदा", "गइनँ", "औपचारिक"],
+      ["안 읽었어요", "अन् इल्गोस्सोयो", "पढिनँ", "अनौपचारिक"],
+      ["사지 않았어", "साजी आनास्सो", "किनिनँ", "ठाडो"]
+    ]
+  },
+  {
+    h: "भविष्य — (으)ㄹ 겁니다",
+    src: "CS1 p64",
+    ne: "इच्छा, अनुमान वा सम्भावना जनाउन। ㄹ/을 लागेपछि 겁니다 (औपचारिक), 거예요 (अनौपचारिक), 거야 (ठाडो)। उच्चारणमा 겁니다 'गोप्निदा' सुनिन्छ।",
+    rows: [
+      ["갈 겁니다", "गाल् गोप्निदा", "जानेछु", "औपचारिक"],
+      ["갈 거예요", "गाल् गोयेयो", "जानेछु", "अनौपचारिक"],
+      ["갈 거야", "गाल् गोया", "जानेछस्", "ठाडो"],
+      ["먹을 겁니다", "मोगुल् गोप्निदा", "खानेछु", "औपचारिक"],
+      ["살 겁니다", "साल् गोप्निदा", "किन्नेछु", "औपचारिक"]
+    ]
+  },
+  {
+    h: "इच्छा र अनुमान — 겠습니다",
+    src: "CS1 p65",
+    ne: "पहिलो पुरुषसँग प्रयोग गर्दा दृढ इच्छा वा वाचा। तेस्रो पुरुषसँग वा भूतको कुरामा अनुमान। ㄹ/을 겁니다 भन्दा बलियो तर्क सुनिन्छ।",
+    rows: [
+      ["하겠습니다", "हागेस्सुम्निदा", "गर्नेछु", "औपचारिक"],
+      ["하겠어요", "हागेस्सोयो", "गर्नेछु", "अनौपचारिक"],
+      ["알겠습니다", "आल्गेस्सुम्निदा", "बुझें / थाहा भयो", "औपचारिक"],
+      ["모르겠어요", "मोरुगेस्सोयो", "थाहा छैन", "अनौपचारिक"],
+      ["맛있겠다", "मासिकेत्ता", "मिठो होला", "ठाडो"]
+    ]
+  },
+  {
+    h: "भविष्य नकारात्मक",
+    src: "CS1 p66",
+    ne: "भविष्यमा पनि 안 र 지 않 ठाउँमै बस्छन्, अनि पछाडि 겠습니다 वा ㄹ/을 겁니다 आउँछ।",
+    rows: [
+      ["안 하겠습니다", "अन् हागेस्सुम्निदा", "गर्ने छैन", "औपचारिक"],
+      ["안 갈 겁니다", "अन् गाल् गोप्निदा", "जाने होइन", "औपचारिक"],
+      ["보지 않겠습니다", "बोजी आन्गेस्सुम्निदा", "हेर्ने छैन", "औपचारिक"]
+    ]
+  },
+  {
+    h: "नामयोगी रूप — 는 / (으)ㄴ / (으)ㄹ",
+    src: "CS1 p67",
+    ne: "क्रियालाई नामको अगाडि राखेर विशेषण बनाउने रूप। 는 वर्तमान, (으)ㄴ भूत, (으)ㄹ भविष्य। नेपालीमा यो 'गर्ने / गरेको / गर्नेवाला' हो।",
+    rows: [
+      ["일 하는 사람", "इल् हानुन् साराम", "काम गर्ने मान्छे", "वर्तमान"],
+      ["일 한 사람", "इल् हान् साराम", "काम गरेको मान्छे", "भूत"],
+      ["일 할 사람", "इल् हाल् साराम", "काम गर्नेवाला मान्छे", "भविष्य"],
+      ["먹는 음식", "मोग्नुन् उम्सिक्", "खाने खाना", "वर्तमान"],
+      ["먹은 음식", "मोगुन् उम्सिक्", "खाएको खाना", "भूत"],
+      ["먹을 음식", "मोगुल् उम्सिक्", "खानेवाला खाना", "भविष्य"]
+    ]
+  },
+  {
+    h: "चाहना — 고 싶다",
+    src: "CS1 p56",
+    ne: "डाँठमा 고 싶다 जोडेर बोल्नेको इच्छा। अरूको इच्छा भन्नु परे 고 싶어하다। नकारात्मकमा 고 싶지 않다। प्रश्नमा पनि यही ढाँचा।",
+    rows: [
+      ["먹고 싶어요", "मोगो सिपोयो", "खान मन लाग्यो", "अनौपचारिक"],
+      ["가고 싶어해요", "गागो सिपोहेयो", "जान चाहनुहुन्छ", "अनौपचारिक"],
+      ["가고 싶지 않습니다", "गागो सिप्जी आन्सुम्निदा", "जान मन लागेको छैन", "औपचारिक"],
+      ["무엇을 하고 싶어요?", "मुओतुल् हागो सिपोयो", "के गर्न चाहनुहुन्छ?", "अनौपचारिक"]
+    ]
+  },
+  {
+    h: "आदेश र अनुरोध",
+    src: "CS1 p54",
+    ne: "तीन तह, तीन अन्त्य। औपचारिक — (으)십시오। अनौपचारिक — (으)세요। ठाडो — 아/어라। यी सबैमा क्रिया सक्रिय हुनुपर्छ; विशेषणले आदेश बन्दैन।",
+    rows: [
+      ["오십시오", "ओसिप्सियो", "आउनुहोस्", "औपचारिक"],
+      ["드십시오", "दुसिप्सियो", "खानुहोस्", "औपचारिक"],
+      ["읽으십시오", "इल्गुसिप्सियो", "पढ्नुहोस्", "औपचारिक"],
+      ["시작하세요", "सिजाखासेयो", "सुरु गर्नुहोस्", "अनौपचारिक"],
+      ["잡으세요", "जाबुसेयो", "समाउनुहोस्", "अनौपचारिक"],
+      ["빨리 해라", "प्पाल्ली हेरा", "छिटो गर", "ठाडो"],
+      ["밥을 먹어라", "बाबुल् मोगोरा", "भात खा", "ठाडो"]
+    ]
+  },
+  {
+    h: "सुझाव — ㄹ까요? / 자",
+    src: "CS1 p58",
+    ne: "ㄹ까요 दुवैलाई सोध्ने सुझाव — 'गरौँ?' वा अनुमान — 'होला?'। 자 भने ठाडोमा एकतर्फी निम्तो, 'गरौँ'। नकारात्मकमा 지 말자।",
+    rows: [
+      ["전화를 걸까요?", "जोन्हुवारुल् गोल्क्कायो", "फोन गरौँ?", "अनौपचारिक"],
+      ["날씨가 좋을까요?", "नाल्स्सिगा जोउल्क्कायो", "मौसम राम्रो होला?", "अनौपचारिक"],
+      ["일을 시작하자", "इरुल् सिजाखाजा", "काम सुरु गरौँ", "ठाडो"],
+      ["아이스크림을 먹자", "आइसुखुरिमुल् मोग्जा", "आइसक्रिम खाऔँ", "ठाडो"],
+      ["여기에 앉지마자", "योगिये आन्जिमाजा", "यहाँ नबसौँ", "ठाडो"]
+    ]
+  }
+];
+
+/* The six-tense grid on p68, one verb at a time. Six columns do not fit a
+   phone, so the table is rotated: a verb is the card, the tenses are the rows.
+   That is the same information and it stays readable at 390px. */
+const BK_TENSE = [
+  { v: "사다", ne: "किन्नु", rows: [
+    ["वर्तमान", "삽니다", "साम्निदा"],
+    ["अपूर्ण वर्तमान", "사고 있습니다", "सागो इस्सुम्निदा"],
+    ["भूत", "샀습니다", "सास्सुम्निदा"],
+    ["अपूर्ण भूत", "사고 있었습니다", "सागो इस्सोस्सुम्निदा"],
+    ["भविष्य", "살 겁니다", "साल् गोप्निदा"],
+    ["अपूर्ण भविष्य", "사고 있을 겁니다", "सागो इस्सुल् गोप्निदा"]
+  ]},
+  { v: "오다", ne: "आउनु", rows: [
+    ["वर्तमान", "옵니다", "ओब्निदा"],
+    ["अपूर्ण वर्तमान", "오고 있습니다", "ओगो इस्सुम्निदा"],
+    ["भूत", "왔습니다", "वास्सुम्निदा"],
+    ["अपूर्ण भूत", "오고 있었습니다", "ओगो इस्सोस्सुम्निदा"],
+    ["भविष्य", "올 겁니다", "ओल् गोप्निदा"],
+    ["अपूर्ण भविष्य", "오고 있을 겁니다", "ओगो इस्सुल् गोप्निदा"]
+  ]},
+  { v: "읽다", ne: "पढ्नु", rows: [
+    ["वर्तमान", "읽습니다", "इक्सुम्निदा"],
+    ["अपूर्ण वर्तमान", "읽고 있습니다", "इल्गो इस्सुम्निदा"],
+    ["भूत", "읽었습니다", "इल्गोस्सुम्निदा"],
+    ["अपूर्ण भूत", "읽고 있었습니다", "इल्गो इस्सोस्सुम्निदा"],
+    ["भविष्य", "읽을 겁니다", "इल्गुल् गोप्निदा"],
+    ["अपूर्ण भविष्य", "읽고 있을 겁니다", "इल्गो इस्सुल् गोप्निदा"]
+  ]},
+  { v: "팔다", ne: "बेच्नु", rows: [
+    ["वर्तमान", "팝니다", "पाम्निदा"],
+    ["अपूर्ण वर्तमान", "팔고 있습니다", "पाल्गो इस्सुम्निदा"],
+    ["भूत", "팔았습니다", "पारास्सुम्निदा"],
+    ["अपूर्ण भूत", "팔고 있었습니다", "पाल्गो इस्सोस्सुम्निदा"],
+    ["भविष्य", "팔 겁니다", "पाल् गोप्निदा"],
+    ["अपूर्ण भविष्य", "팔고 있을 겁니다", "पाल्गो इस्सुल् गोप्निदा"]
+  ]},
+  { v: "마시다", ne: "पिउनु", rows: [
+    ["वर्तमान", "마십니다", "मासिम्निदा"],
+    ["अपूर्ण वर्तमान", "마시고 있습니다", "मासिगो इस्सुम्निदा"],
+    ["भूत", "마셨습니다", "मास्योस्सुम्निदा"],
+    ["अपूर्ण भूत", "마시고 있었습니다", "मासिगो इस्सोस्सुम्निदा"],
+    ["भविष्य", "마실 겁니다", "मासिल् गोप्निदा"],
+    ["अपूर्ण भविष्य", "마시고 있을 겁니다", "मासिगो इस्सुल् गोप्निदा"]
+  ]},
+  { v: "하다", ne: "गर्नु", rows: [
+    ["वर्तमान", "합니다", "हाम्निदा"],
+    ["अपूर्ण वर्तमान", "하고 있습니다", "हागो इस्सुम्निदा"],
+    ["भूत", "했습니다", "हेस्सुम्निदा"],
+    ["अपूर्ण भूत", "하고 있었습니다", "हागो इस्सोस्सुम्निदा"],
+    ["भविष्य", "할 겁니다", "हाल् गोप्निदा"],
+    ["अपूर्ण भविष्य", "하고 있을 겁니다", "हागो इस्सुल् गोप्निदा"]
+  ]}
+];
+
+/* Seven classes of verb that change the stem before a vowel ending. Rows are
+   [dictionary form, informal form, devanagari of the informal, meaning]. The
+   informal form is the one a learner actually says, so that is what the tap
+   reads; the dictionary form is the one that appears in a word list, so that
+   is what the row is sorted by. */
+const BK_IRREG = [
+  {
+    key: "ㄷ", h: "ㄷ अनियमित", src: "CS1 p69",
+    ne: "डाँठ ㅎ भएको क्रिया। पछाडि स्वर आउँदा ㄷ हटेर ㄹ बन्छ। व्यञ्जन आउँदा भने ㄷ जस्ताको तस्तै रहन्छ — 안아도, 받습니다।",
+    rows: [
+      ["걷다", "걸어요", "गोरोयो", "हिँड्नु"],
+      ["듣다", "들어요", "दुरोयो", "सुन्नु"],
+      ["묻다", "물어요", "मुरोयो", "सोध्नु"],
+      ["싣다", "실어요", "सिरोयो", "सामान लोड गर्नु"],
+      ["깨닫다", "깨달아요", "खेदारायो", "महसुस गर्नु"],
+      ["받다", "받아요", "बादायो", "पाउनु (नियमित)"],
+      ["믿다", "믿어요", "मिदोयो", "विश्वास गर्नु (नियमित)"],
+      ["닫다", "닫아요", "दादायो", "बन्द गर्नु (नियमित)"],
+      ["얻다", "얻어요", "ओदोयो", "प्राप्त गर्नु (नियमित)"]
+    ]
+  },
+  {
+    key: "ㄹ", h: "ㄹ अनियमित", src: "CS1 p70",
+    ne: "डाँठ ㅌ भएको क्रिया। पछाडि ㄴ, ㅂ वा ㅅ आउँदा ㄹ पूरै हट्छ — 삽니다, 사세요, 사는. स्वर आउँदा ㄹ रहन्छ — 살아요।",
+    rows: [
+      ["걸다", "걸어요", "गोरोयो", "फोन गर्नु, झुन्ड्याउनु"],
+      ["살다", "살아요", "सारायो", "बस्नु"],
+      ["알다", "알아요", "आरायो", "थाहा पाउनु"],
+      ["만들다", "만들어요", "मान्दुरोयो", "बनाउनु"],
+      ["길다", "길어요", "गिरोयो", "लामो हुनु"],
+      ["밀다", "밀어요", "मिरोयो", "धकेल्नु"],
+      ["놀다", "놀아요", "नोरायो", "खेल्नु"],
+      ["벌다", "벌어요", "बोरोयो", "कमाउनु"],
+      ["빨다", "빨아요", "प्पारायो", "धुनु"],
+      ["풀다", "풀어요", "पुरोयो", "समाधान गर्नु"],
+      ["쓸다", "쓸어요", "स्सुरोयो", "बढार्नु"],
+      ["줄다", "줄어요", "जुरोयो", "घट्नु"],
+      ["털다", "털어요", "तोरोयो", "झाड्नु"],
+      ["멀다", "멀어요", "मोरोयो", "टाढा हुनु"],
+      ["팔다", "팔아요", "पारायो", "बेच्नु"],
+      ["달다", "달아요", "दारायो", "थाहा हुनु"]
+    ]
+  },
+  {
+    key: "르", h: "르 अनियमित", src: "CS1 p71",
+    ne: "डाँठ 르 भएको क्रिया। स्वर आउँदा 르 को ㅡ हट्छ र अघिल्लो अक्षरको तल ㄹ थपिन्छ — 모르다 → 몰라요। ㄹ पछि ㄹ आएर दुवै बज्छ।",
+    rows: [
+      ["모르다", "몰라요", "मोल्लायो", "थाहा नहुनु"],
+      ["누르다", "눌러요", "नुल्लोयो", "थिच्नु"],
+      ["부르다", "불러요", "बुल्लोयो", "बोलाउनु"],
+      ["고르다", "골라요", "गोल्लायो", "छान्नु"],
+      ["바르다", "발라요", "बाल्लायो", "दल्नु"],
+      ["자르다", "잘라요", "जाल्लायो", "काट्नु"],
+      ["다르다", "달라요", "दाल्लायो", "फरक हुनु"],
+      ["빠르다", "빨라요", "प्पाल्लायो", "छिटो हुनु"],
+      ["가르다", "갈라요", "गाल्लायो", "विभाजन गर्नु"],
+      ["마르다", "말라요", "माल्लायो", "सुक्नु"],
+      ["나르다", "날라요", "नाल्लायो", "ओसार्नु"],
+      ["서두르다", "서둘러요", "सोदुल्लोयो", "हतार गर्नु"],
+      ["이르다", "일러요", "इल्लोयो", "भन्नु"],
+      ["오르다", "올라요", "ओल्लायो", "चढ्नु"],
+      ["흐르다", "흘러요", "हुल्लोयो", "बग्नु"],
+      ["따르다", "따라요", "त्तारायो", "पछि लाग्नु"]
+    ]
+  },
+  {
+    key: "ㅂ", h: "ㅂ अनियमित", src: "CS1 p72",
+    ne: "डाँठ ㅂ भएको क्रिया। स्वर आउँदा ㅂ हटेर 우 बन्छ, अनि सधैं 어요 — 덥다 → 더워요। व्यञ्जन आउँदा ㅂ रहन्छ — 덥습니다।",
+    rows: [
+      ["덥다", "더워요", "दोवोयो", "गर्मी हुनु"],
+      ["춥다", "추워요", "छुवोयो", "जाडो हुनु"],
+      ["아름답다", "아름다워요", "आरुम्दावोयो", "सुन्दर हुनु"],
+      ["고맙다", "고마워요", "गोमावोयो", "धन्यवाद दिनु"],
+      ["어렵다", "어려워요", "ओर्योवोयो", "गाह्रो हुनु"],
+      ["가깝다", "가까워요", "गाखावोयो", "नजिक हुनु"],
+      ["쉽다", "쉬워요", "स्विवोयो", "सजिलो हुनु"],
+      ["줍다", "주워요", "जुवोयो", "टिप्नु"],
+      ["맵다", "매워요", "मेवोयो", "पिरो हुनु"],
+      ["돕다", "도와요", "दोवायो", "सहयोग गर्नु"],
+      ["곱다", "고와요", "गोवायो", "शान्तर हुनु"],
+      ["좁다", "좁아요", "जोबायो", "साँघुरो हुनु"],
+      ["잡다", "잡아요", "जाबायो", "समाउनु (नियमित)"]
+    ]
+  },
+  {
+    key: "ㅅ", h: "ㅅ अनियमित", src: "CS1 p73",
+    ne: "डाँठ ㅅ भएको क्रिया। स्वर आउँदा ㅅ हट्छ, र डाँठको स्वर ㅏ/ㅓ भए आयो, अरू भए 어요। व्यञ्जन आउँदा ㅅ रहन्छ — 짓습니다।",
+    rows: [
+      ["짓다", "지어요", "जिओयो", "निर्माण गर्नु"],
+      ["긋다", "그어요", "गुओयो", "रेखा कोर्नु"],
+      ["잣다", "자아요", "जाआयो", "कात्नु"],
+      ["낫다", "나아요", "नाआयो", "निको हुनु"],
+      ["젓다", "저어요", "जोओयो", "चलाउनु"],
+      ["잇다", "이어요", "इओयो", "जोड्नु"],
+      ["붓다", "부어요", "बुओयो", "खन्याउनु"],
+      ["벗다", "벗어요", "बोसोयो", "खोल्नु"],
+      ["웃다", "웃어요", "उसोयो", "हाँस्नु"],
+      ["빗다", "빗어요", "बिसोयो", "कोर्नु"],
+      ["씻다", "씻어요", "स्सिसोयो", "पखाल्नु"]
+    ]
+  },
+  {
+    key: "ㅡ", h: "ㅡ अनियमित", src: "CS1 p74",
+    ne: "डाँठ ㅡ भएको क्रिया। ㅡ हट्छ, अनि अघिल्लो अक्षरको स्वर ㅏ/ㅓ भए 아요, अरू भए 어요 — 크다 → 커요, 쓰다 → 써요।",
+    rows: [
+      ["고프다", "고파요", "गोपायो", "भोकाउनु"],
+      ["아프다", "아파요", "आपायो", "दुख्नु"],
+      ["바쁘다", "바빠요", "बाप्पायो", "व्यस्त हुनु"],
+      ["나쁘다", "나빠요", "नाप्पायो", "नराम्रो हुनु"],
+      ["예쁘다", "예뻐요", "येप्पोयो", "सुन्दर हुनु"],
+      ["애쓰다", "애써요", "एस्सोयो", "कोसिस गर्नु"],
+      ["크다", "커요", "खोयो", "ठूलो हुनु"],
+      ["쓰다", "써요", "स्सोयो", "लेख्नु"],
+      ["끄다", "꺼요", "क्कोयो", "निभाउनु"],
+      ["뜨다", "떠요", "त्तोयो", "उड्नु"],
+      ["슬프다", "슬퍼요", "सुल्पोयो", "निराशा हुनु"],
+      ["기쁘다", "기뻐요", "गिप्पोयो", "खुसी हुनु"],
+      ["모으다", "모아요", "मोआयो", "जम्मा गर्नु"]
+    ]
+  },
+  {
+    key: "ㅎ", h: "ㅎ अनियमित", src: "CS1 p75",
+    ne: "डाँठ ㅎ भएको क्रिया। व्यञ्जन आउँदा ㅎ रहन्छ — 그렇습니다। स्वर आउँदा ㅎ हट्छ; ㅏ/ㅓ मा भए ㅐ थपिन्छ, अरूमा 에 — 그렇다 → 그래요, 까맣다 → 까매요।",
+    rows: [
+      ["어떻다", "어때요", "ओत्तेयो", "कस्तो हुनु"],
+      ["그렇다", "그래요", "गुरेयो", "त्यस्तो हुनु"],
+      ["이렇다", "이래요", "इरेयो", "यस्तो हुनु"],
+      ["저렇다", "저래요", "जोरेयो", "उस्तो हुनु"],
+      ["까맣다", "까매요", "खामेयो", "कालो हुनु"],
+      ["빨갛다", "빨개요", "प्पाल्गेयो", "रातो हुनु"],
+      ["노랗다", "노래요", "नोरेयो", "पहेंलो हुनु"],
+      ["파랗다", "파래요", "फारेयो", "निलो हुनु"],
+      ["하얗다", "하애요", "हायेयो", "सेतो हुनु"],
+      ["좋다", "좋아요", "जोआयो", "राम्रो हुनु"],
+      ["낳다", "낳아요", "नाआयो", "जन्माउनु"],
+      ["많다", "많아요", "मानायो", "धेरै हुनु"],
+      ["괜찮다", "괜찮아요", "ख्वेन्छानायो", "ठीक हुनु"],
+      ["넣다", "넣어요", "नोओयो", "राख्नु"]
+    ]
+  }
+];
+
+/* Sixteen conjunctions, pages 76 to 79. Each entry carries the form, what it
+   means, and one worked example — the example is the row that gets read. */
+const BK_CONJ = [
+  { n: "1", h: "하고", gl: "र (नाम जोड्ने)", ne: "दुई नाम जोड्छ। बोलीमा सबैभन्दा सजिलो — लिङ्ग वा अन्त्यको फरक पर्दैन।",
+    ko: "우유하고 빵을 샀어요", dev: "उयुहागो प्पाङुल् सास्सोयो", ex: "दूध र पाउरोटी किनें" },
+  { n: "2", h: "과 / 와", gl: "र (नाम जोड्ने)", ne: "व्यञ्जनले टुंगिने नामसँग 과, स्वरले टुंगिनेसँग 와। लेख्य भाषामा यही चल्छ।",
+    ko: "비누와 수건을 주세요", dev: "बिनुवा सुगोनुल् जुसेयो", ex: "साबुन र टौवेल दिनुहोस्" },
+  { n: "3", h: "랑 / 이랑", gl: "सँग", ne: "व्यञ्जनले टुंगिने नामसँग 이랑, स्वरले टुंगिनेसँग 랑। 'र' र 'सँग' दुवै अर्थ दिन्छ।",
+    ko: "여동생이랑 밖으로 갑니다", dev: "योदोङ्सेङ्गिराङ् बाक्खुरो गाम्निदा", ex: "बहिनीसँग बाहिर जान्छु" },
+  { n: "4", h: "그래서 / 그러니까", gl: "त्यसैले / त्यसकारण", ne: "अघिल्लो कुराको कारण देखाउँछ। 그러니까 अलि बलियो, 'त्यसैले त' भन्ने जोर।",
+    ko: "어제는 비가 왔어요. 그래서 집에서 쉬었어요", dev: "ओजेनुन् बिगा वास्सोयो. गुरेसो जिबेसो स्सिवोस्सोयो", ex: "हिजो पानी परेको थियो, त्यसैले घरमै आराम गरें" },
+  { n: "5", h: "그러나 / 그런데", gl: "तर", ne: "विपरीत कुरा जोड्छ। 그러나 लेख्य र औपचारिक, 그런데 बोलीमा हल्का।",
+    ko: "두 번 전화를 했어요. 그러나 친구가 안 받았어요", dev: "दु बोन् जोन्हुवारुल् हेस्सोयो. गुरोना छिन्गुगा अन् बादास्सोयो", ex: "दुई पटक फोन गरें, तर साथीले उठाएन" },
+  { n: "6", h: "왜냐하면", gl: "किनभने", ne: "कारण दिन सुरु गर्ने शब्द। प्रायः वाक्यको सुरुमा, अघिल्लो प्रश्नको जवाफमा।",
+    ko: "왜냐하면 어제 잘 못 잤어요", dev: "वेन्याहाम्योन् ओजे जाल् मोत् जास्सोयो", ex: "किनभने हिजो राम्ररी सुतेको थिइनँ" },
+  { n: "7", h: "그러면", gl: "त्यसो भए / त्यसपछि", ne: "अघिल्लो कुराबाट निस्कने नतिजा वा निर्णय। कुराकानीमा सहमति जनाउन पनि।",
+    ko: "그러면 같이 갑시다", dev: "गुरोम्योन् गाच्छि गाप्सिदा", ex: "त्यसोभए सँगै जाऊँ" },
+  { n: "8", h: "그래도", gl: "तैपनि", ne: "विपरीत भए पनि कुरा लागू हुन्छ भन्ने। अघिल्लो कुरालाई स्वीकार गरेर अगाडि बढ्छ।",
+    ko: "저는 한국 음식을 안 좋아해요. 그래도 먹어야 해요", dev: "जोनुन् हान्गुक् उम्सिगुल् अन् जोआहेयो. गुरेदो मोगोया हेयो", ex: "मलाई कोरियन खाना मन पर्दैन, तैपनि खानुपर्छ" },
+  { n: "9", h: "그러므로", gl: "तसर्थ", ne: "तर्कको निष्कर्ष। 그래서 भन्दा औपचारिक र कडा — लेखाइमा बढी।",
+    ko: "한국어는 어렵습니다. 그러므로 열심히 공부합시다", dev: "हान्गुगोनुन् ओर्योब्सुम्निदा. गुरुमुरो योल्सिम्हि खोङ्बुहाप्सिदा", ex: "कोरियन भाषा अध्यारो छ, तसर्थ मिहेनत गरी पढौँ" },
+  { n: "10", h: "그렇지만", gl: "तर पनि", ne: "그러나 को अलि नरम रूप। विपरीत कुरा राख्ने, तर झगडा नगर्ने।",
+    ko: "어제는 비가 왔어요. 그렇지만 오늘은 날씨가 맑아요", dev: "ओजेनुन् बिगा वास्सोयो. गुरोचिमान् ओनुरुन् नाल्स्सिगा मार्गायो", ex: "हिजो पानी परेको थियो, तरपनि आज मौसम सफा छ" },
+  { n: "11", h: "기는 하지만", gl: "एतापनि", ne: "पहिले कुरा स्वीकार गरेर त्यसपछि घुमाउरो विपरीत भन्ने। मन नपरेको कुरा नरम गरी भन्न।",
+    ko: "이 신발은 비싸기는 하지만 품질이 좋아요", dev: "इ सिन्बारुन् बिस्सागिनुन् हाजिमान् पुम्जिरी जोआयो", ex: "यो जुत्ता महँगो भएता पनि गुणस्तर राम्रो छ" },
+  { n: "12", h: "도", gl: "पनि", ne: "नामपछि लागेर 'पनि' भन्ने। अघिल्लो वाक्यमा भनिएको कुरा दोहोर्याउँछ।",
+    ko: "사무실에 가서 여기도 오세요", dev: "सामुसिरे गासो योगिदो ओसेयो", ex: "अफिस गएर यहाँ पनि आउनुहोस्" },
+  { n: "13", h: "더라도", gl: "एपनि", ne: "अत्यन्तै कठिन अवस्था भए पनि नतिजा उही रहन्छ भन्ने। सबैभन्दा बलियो छुट दिने रूप।",
+    ko: "이 사람은 슬퍼더라도 울지 않아요", dev: "इ सारामुन् सुल्पोदोरादो उल्जी आनायो", ex: "यो मान्छे जति निराश भएपनि रुँदैन" },
+  { n: "14", h: "(이)나", gl: "अथवा", ne: "विकल्प दिन्छ। स्वरले टुंगिने नामसँग 나, व्यञ्जनले टुंगिनेसँग 이나। क्रियामा 거나।",
+    ko: "커피나 차를 주세요", dev: "खोपिना छारुल् जुसेयो", ex: "कफी अथवा चिया दिनुहोस्" },
+  { n: "15", h: "그리고", gl: "अनि / त्यसपछि", ne: "दुई वाक्य जोड्छ, क्रम देखाउँदै। अघिल्लो कुरा सकिएपछि अर्को थपिन्छ।",
+    ko: "5시에 일을 끝냅니다. 그리고 같이 갑시다", dev: "दासेये इरुल् क्कुन्नाब्निदा. गुरिगो गाच्छि गाप्सिदा", ex: "५ बजे काम सकिन्छ, अनि सँगै जाऊँ" },
+  { n: "16", h: "고", gl: "एर / र", ne: "दुई क्रिया जोड्छ। क्रम भए 'एर', एउटै समय वा स्थान भए 'र'।",
+    ko: "저는 항상 밥을 먹고 이를 닦습니다", dev: "जोनुन् हाङ्साङ् बाबुल् मोग्गो इरुल् दाक्सुम्निदा", ex: "म सधैं भात खाएर ब्रस गर्छु" }
+];
+
+function bkGRow(r) {
+  return '<button type="button" class="bk-grow" onclick="say(\'' + r[0] + '\', this)">' +
+    '<span class="bk-g-ko">' + r[0] + '</span>' +
+    '<span class="bk-g-dev">' + r[1] + '</span>' +
+    '<span class="bk-g-ne">' + r[2] + '</span>' +
+    (r[3] ? '<span class="bk-g-tag">' + r[3] + '</span>' : '') +
+    '</button>';
+}
+
+function bkGrammar() {
+  const core = BK_GRAM.map(function (s) {
+    return `
+      <section class="bk-rule">
+        <header>
+          <h3>${s.h}</h3>
+          <span class="bk-src">${s.src}</span>
+        </header>
+        <p>${s.ne}</p>
+        <div class="bk-grows">${s.rows.map(bkGRow).join("")}</div>
+      </section>`;
+  }).join("");
+
+  const tense = BK_TENSE.map(function (t) {
+    const rows = t.rows.map(function (r) {
+      return '<button type="button" class="bk-trow" onclick="say(\'' + r[1] + '\', this)">' +
+        '<span class="bk-t-lab">' + r[0] + '</span>' +
+        '<span class="bk-t-ko">' + r[1] + '</span>' +
+        '<span class="bk-t-dev">' + r[2] + '</span></button>';
+    }).join("");
+    return `<details class="bk-det">
+      <summary><b>${t.v}</b> <span>${t.ne}</span><i>६</i></summary>
+      <div class="bk-trows">${rows}</div>
+    </details>`;
+  }).join("");
+
+  const irreg = BK_IRREG.map(function (c) {
+    const rows = c.rows.map(function (r) {
+      return '<button type="button" class="bk-irow" onclick="say(\'' + r[1] + '\', this)">' +
+        '<span class="bk-i-dict">' + r[0] + '</span>' +
+        '<span class="bk-i-arrow">→</span>' +
+        '<span class="bk-i-conj">' + r[1] + '</span>' +
+        '<span class="bk-i-dev">' + r[2] + '</span>' +
+        '<span class="bk-i-ne">' + r[3] + '</span></button>';
+    }).join("");
+    return `<details class="bk-det">
+      <summary><b>${c.h}</b> <span>${c.key}</span><i>${c.rows.length}</i></summary>
+      <p class="bk-det-ne">${c.ne}</p>
+      <div class="bk-irows">${rows}</div>
+    </details>`;
+  }).join("");
+
+  const conj = BK_CONJ.map(function (c) {
+    return `
+      <section class="bk-rule bk-conj">
+        <header>
+          <h3><span class="bk-conj-n">${c.n}</span> ${c.h}</h3>
+          <span class="bk-src">${c.gl}</span>
+        </header>
+        <p>${c.ne}</p>
+        <button type="button" class="bk-grow" onclick="say('${c.ko}', this)">
+          <span class="bk-g-ko">${c.ko}</span>
+          <span class="bk-g-dev">${c.dev}</span>
+          <span class="bk-g-ne">${c.ex}</span>
+        </button>
+      </section>`;
+  }).join("");
+
+  return `
+    <h2 class="bk-h">${LANG === "ne" ? "क्रियापद र वाक्य" : "Verbs and sentences"}
+      <span class="bk-src">CS1 p46–67</span></h2>
+    ${core}
+
+    <h2 class="bk-h">${LANG === "ne" ? "छ प्रकारको काल" : "The six tenses"}
+      <span class="bk-src">CS1 p68</span></h2>
+    <p class="bk-note">${LANG === "ne"
+      ? "पुस्तकको ठूलो तालिका यहाँ क्रियाअनुसार फेरिएको छ — फोनमा सात कोलम अट्दैन, तर जानकारी उही हो। कुनै क्रियामा थिच्नुहोस्।"
+      : "The book's wide table, rotated so a verb is the card and the tenses are the rows. Same six forms, readable at 390px."}</p>
+    ${tense}
+
+    <h2 class="bk-h">${LANG === "ne" ? "सात अनियमित क्रिया" : "Seven irregular classes"}
+      <span class="bk-src">CS1 p69–75</span></h2>
+    <p class="bk-note">${LANG === "ne"
+      ? "यी क्रियाहरू नियम मान्दैनन् — डाँठ नै बदलिन्छ। हरेक समूह खोल्नुहोस्; तलको रूप थिच्दा उच्चारण सुनिन्छ। तारा चिह्न लागेका क्रिया पुस्तकमा अपवादका रूपमा राखिएका छन्।"
+      : "These verbs change the stem before a vowel ending. Open a class; tap a form to hear it. The starred verbs are the exceptions the book flags."}</p>
+    ${irreg}
+
+    <h2 class="bk-h">${LANG === "ne" ? "सोह्र संयोजक" : "Sixteen conjunctions"}
+      <span class="bk-src">CS1 p76–79</span></h2>
+    ${conj}
+
+    <p class="bk-note bk-prov">${LANG === "ne"
+      ? "यो पाना CS1 का छापिएका पृष्ठ ४६–७९ बाट टाइप गरिएको हो। देवनागरी उच्चारण पुस्तककै १९×२१ ग्रिड र पृष्ठ ११ का उच्चारण नियमअनुसार राखिएको छ — जस्तै अन्त्यको ㅂ 'प्', ㅇ 'ङ्'। पुस्तकमा भएका सबै वाक्य यहाँ छैनन्; हरेक खण्डको नमुना मात्र।"
+      : "Typed from printed pages 46–79 of CS1. The Devanagari follows the book's own 19×21 grid and the sound rules on p11 — final ㅂ is प्, final ㅇ is ङ्. Not every sentence in the book is here; each section carries its paradigm, not the whole chapter."}</p>
+  `;
+}
+
 function viewBooks() {
   const tabs = [
     ["letters", LANG === "ne" ? "वर्णमाला" : "Alphabet"],
     ["rules",   LANG === "ne" ? "उच्चारण नियम" : "Sound rules"],
     ["counters",LANG === "ne" ? "गणना" : "Counters"],
-    ["greet",   LANG === "ne" ? "अभिवादन" : "Greetings"]
+    ["greet",   LANG === "ne" ? "अभिवादन" : "Greetings"],
+    ["grammar", LANG === "ne" ? "व्याकरण" : "Grammar"]
   ];
 
   const body =
     BOOK_TAB === "rules" ? bkRules() :
     BOOK_TAB === "counters" ? bkCounters() :
     BOOK_TAB === "greet" ? bkGreetings() :
+    BOOK_TAB === "grammar" ? bkGrammar() :
     bkLetters();
 
   const src = BOOK_TAB === "letters" ? "BKL p2–8" :
               BOOK_TAB === "rules" ? "CS1 p11" :
-              BOOK_TAB === "counters" ? "CS2 p46" : "BKL p1";
+              BOOK_TAB === "counters" ? "CS2 p46" :
+              BOOK_TAB === "grammar" ? "CS1 p46–79" : "BKL p1";
 
   return `
     ${renderLessonTabs("books")}
@@ -7459,6 +8165,8 @@ function viewHome() {
     </button>
 
     ${renderGameHud(true)}
+
+    ${renderReviewDue()}
 
     <h2 class="head">
       ${LANG === "ne" ? '१०-चरणे सिकाइ मार्गचित्र' : '10-Step Learning Path'}
@@ -9288,39 +9996,6 @@ function viewGrammar() {
 }
 
 
-// Step 9: Writing Studio
-function viewWritingStudio() {
-  setTimeout(initCanvas, 50);
-  return `
-    ${renderBrandBar()}
-    ${renderNavHeader(9, "हस्तलेखन", "Writing Studio")}
-    <h1 class="title">
-      ${LANG === "ne" ? 'हातले <em>लेख्ने</em> क्यानभास' : 'Interactive <em>Handwriting Canvas</em>'}
-    </h1>
-    <div style="text-align:center;margin:6px 0">
-      <span style="font-size:14.5px;color:var(--sub)">${LANG === "ne" ? "अभ्यास वर्ण: " : "Target Character: "}</span>
-      <b class="ko" style="font-size:32px;color:var(--red)">${DRAW_TARGET}</b>
-      <button class="chip" onclick="say('${DRAW_TARGET}')" style="margin-left:8px;padding:8px 11px" aria-label="Listen"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/></svg></button>
-    </div>
-
-    <div class="canvas-wrap">
-      <div class="canvas-ghost ko" id="ghostChar">${DRAW_TARGET}</div>
-      <canvas id="drawPad" width="300" height="300" aria-label="${LANG === "ne" ? `लेख्ने अभ्यास क्षेत्र: ${DRAW_TARGET}` : `Handwriting practice area for ${DRAW_TARGET}`}"></canvas>
-    </div>
-
-    <div class="draw-tools">
-      <button onclick="clearCanvas()">${LANG === "ne" ? T.clear.ne : T.clear.en}</button>
-      <button onclick="changeDrawTarget()">${LANG === "ne" ? T.nextChar.ne : T.nextChar.en}</button>
-    </div>
-
-    <div class="flow-actions">
-      <button class="flow-btn" onclick="navigateTo('quiz')">
-        ${LANG === "ne" ? "अन्तिम चरण: आत्ममूल्याङ्कन परीक्षा (Step 10) →" : "Final Step: Self-Quiz (Step 10) →"}
-      </button>
-    </div>
-  `;
-}
-
 // Step 10: Quiz & Evaluation
 let QUIZ_SCORE = 0;
 let QUIZ_CURRENT = 0;
@@ -9693,52 +10368,702 @@ function checkQuizAnswer(btn, sel, correct) {
   }, 1400);
 }
 
-// Canvas Implementation
+/* ========================================================
+   STEP 9: WRITING STUDIO — stroke order, and a real score
+
+   This canvas used to be a sheet of paper: draw, clear, next. Nothing ever
+   looked at the ink. Step 9 was the only step in the ten-step path with no
+   pass condition, which is a strange thing to hand a learner on the one
+   skill that has an objectively correct answer.
+
+   Hangul stroke order is fully specified and small — forty jamo, one to six
+   strokes each. That is a data table, not a model, so this is a data table:
+   WS_JAMO below, every point in a 100 x 100 box. A syllable is decomposed
+   into its initial / medial / final indices and each part is fitted into its
+   slot in the block, so 가 and 밥 run the same code path as ㅏ and ㅂ.
+
+   Scoring is coverage and precision against the guide path, measured in both
+   directions: a single dot in the middle fails coverage, a shaky line that
+   stays on the stroke passes, and line thickness is not punished because the
+   mask is a path, not pixels. Pass is 60 and the number is on screen, not
+   hidden.
+   ======================================================== */
+
+const WS_TOL = 13;    // 13% of the box — about a finger-width of slop
+const WS_PASS = 60;   // per-stroke; the character score is the mean
+
+/* An ellipse as a polyline. ㅇ is written clockwise from the top. */
+function wsEllipse(cx, cy, rx, ry) {
+  const pts = [];
+  for (let i = 0; i <= 28; i++) {
+    const a = -Math.PI / 2 + (i / 28) * Math.PI * 2;
+    pts.push([cx + Math.cos(a) * rx, cy + Math.sin(a) * ry]);
+  }
+  return pts;
+}
+
+/* Forty jamo, in the order a Korean child learns them. Compound vowels are
+   composed from their parts below rather than typed out twice. */
+const WS_JAMO = {
+  /* --- 14 basic consonants --- */
+  "ㄱ": [[[16, 26], [84, 26], [84, 88]]],
+  "ㄴ": [[[16, 22], [16, 82], [86, 82]]],
+  "ㄷ": [[[84, 22], [16, 22], [16, 82], [84, 82]]],
+  "ㄹ": [[[16, 24], [84, 24]],
+         [[16, 24], [16, 52], [84, 52]],
+         [[84, 52], [84, 82], [16, 82]]],
+  "ㅁ": [[[20, 20], [20, 82]],
+         [[20, 20], [82, 20], [82, 82]],
+         [[82, 82], [20, 82]]],
+  "ㅂ": [[[24, 16], [24, 86]],
+         [[76, 16], [76, 86]],
+         [[24, 50], [76, 50]],
+         [[24, 86], [76, 86]]],
+  "ㅅ": [[[52, 18], [18, 86]],
+         [[52, 18], [86, 84]]],
+  "ㅇ": [wsEllipse(50, 52, 33, 35)],
+  "ㅈ": [[[16, 22], [84, 22]],
+         [[50, 22], [16, 88]],
+         [[50, 22], [84, 88]]],
+  "ㅊ": [[[50, 8], [50, 20]],
+         [[16, 26], [84, 26]],
+         [[50, 26], [18, 90]],
+         [[50, 26], [82, 90]]],
+  "ㅋ": [[[16, 26], [84, 26], [84, 88]],
+         [[16, 56], [84, 56]]],
+  "ㅌ": [[[84, 24], [16, 24]],
+         [[16, 24], [16, 84], [84, 84]],
+         [[16, 54], [84, 54]]],
+  "ㅍ": [[[26, 18], [26, 88]],
+         [[74, 18], [74, 88]],
+         [[12, 18], [88, 18]],
+         [[12, 88], [88, 88]]],
+  "ㅎ": [[[50, 6], [50, 18]],
+         [[18, 30], [82, 30]],
+         wsEllipse(50, 62, 26, 22)],
+
+  /* --- 5 tense consonants: the base letter, twice --- */
+  "ㄲ": [[[8, 26], [44, 26], [44, 88]],
+         [[56, 26], [92, 26], [92, 88]]],
+  "ㄸ": [[[44, 22], [8, 22], [8, 82], [44, 82]],
+         [[92, 22], [56, 22], [56, 82], [92, 82]]],
+  "ㅃ": [[[16, 16], [16, 86]],
+         [[36, 16], [36, 86]],
+         [[64, 16], [64, 86]],
+         [[84, 16], [84, 86]],
+         [[16, 50], [84, 50]],
+         [[16, 86], [84, 86]]],
+  "ㅆ": [[[30, 18], [6, 86]],
+         [[30, 18], [48, 84]],
+         [[70, 18], [52, 86]],
+         [[70, 18], [94, 84]]],
+  "ㅉ": [[[4, 22], [46, 22]],
+         [[25, 22], [6, 88]],
+         [[25, 22], [44, 88]],
+         [[54, 22], [96, 22]],
+         [[75, 22], [56, 88]],
+         [[75, 22], [94, 88]]],
+
+  /* --- 10 basic vowels --- */
+  "ㅏ": [[[54, 12], [54, 88]], [[54, 50], [88, 50]]],
+  "ㅑ": [[[54, 12], [54, 88]], [[54, 34], [88, 34]], [[54, 62], [88, 62]]],
+  "ㅓ": [[[14, 50], [46, 50]], [[46, 12], [46, 88]]],
+  "ㅕ": [[[14, 34], [46, 34]], [[14, 62], [46, 62]], [[46, 12], [46, 88]]],
+  "ㅗ": [[[50, 44], [50, 80]], [[12, 80], [88, 80]]],
+  "ㅛ": [[[34, 44], [34, 80]], [[66, 44], [66, 80]], [[12, 80], [88, 80]]],
+  "ㅜ": [[[12, 50], [88, 50]], [[50, 50], [50, 90]]],
+  "ㅠ": [[[12, 50], [88, 50]], [[34, 50], [34, 90]], [[66, 50], [66, 90]]],
+  "ㅡ": [[[12, 52], [88, 52]]],
+  "ㅣ": [[[52, 10], [52, 90]]]
+};
+
+/* Fit a stroke set into a slot of the block. Aspect is preserved, because a
+   stretched ㅏ is a different letter. */
+function wsFit(strokes, box) {
+  let x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9;
+  strokes.forEach(s => s.forEach(p => {
+    if (p[0] < x0) x0 = p[0];
+    if (p[0] > x1) x1 = p[0];
+    if (p[1] < y0) y0 = p[1];
+    if (p[1] > y1) y1 = p[1];
+  }));
+  const bw = Math.max(1, x1 - x0), bh = Math.max(1, y1 - y0);
+  const k = Math.min((box.x1 - box.x0) / bw, (box.y1 - box.y0) / bh);
+  const ox = box.x0 + ((box.x1 - box.x0) - bw * k) / 2 - x0 * k;
+  const oy = box.y0 + ((box.y1 - box.y0) - bh * k) / 2 - y0 * k;
+  return strokes.map(s => s.map(p => [p[0] * k + ox, p[1] * k + oy]));
+}
+
+/* Compound vowels are their two parts, fitted side by side or stacked. This
+   is the same composition rule the books print, so the studio and the
+   reference shelf cannot disagree about what ㅘ is. */
+function wsCompose(parts) {
+  const out = [];
+  parts.forEach(function (p) {
+    wsFit(WS_JAMO[p.j], p.box).forEach(s => out.push(s));
+  });
+  return out;
+}
+
+(function () {
+  const V = { x0: 4, x1: 96, y0: 4, y1: 96 };
+  const left = { x0: 4, x1: 58, y0: 6, y1: 94 };
+  const right = { x0: 64, x1: 96, y0: 6, y1: 94 };
+  const top = { x0: 10, x1: 90, y0: 6, y1: 50 };
+  const bot = { x0: 6, x1: 94, y0: 48, y1: 94 };
+  const l2 = { x0: 4, x1: 56, y0: 6, y1: 94 };
+  const r2 = { x0: 60, x1: 96, y0: 6, y1: 94 };
+
+  WS_JAMO["ㅐ"] = wsCompose([{ j: "ㅏ", box: left }, { j: "ㅣ", box: right }]);
+  WS_JAMO["ㅒ"] = wsCompose([{ j: "ㅑ", box: left }, { j: "ㅣ", box: right }]);
+  WS_JAMO["ㅔ"] = wsCompose([{ j: "ㅓ", box: l2 }, { j: "ㅣ", box: r2 }]);
+  WS_JAMO["ㅖ"] = wsCompose([{ j: "ㅕ", box: l2 }, { j: "ㅣ", box: r2 }]);
+  WS_JAMO["ㅘ"] = wsCompose([{ j: "ㅗ", box: top }, { j: "ㅏ", box: bot }]);
+  WS_JAMO["ㅙ"] = wsCompose([{ j: "ㅗ", box: top }, { j: "ㅐ", box: bot }]);
+  WS_JAMO["ㅚ"] = wsCompose([{ j: "ㅗ", box: top }, { j: "ㅣ", box: bot }]);
+  WS_JAMO["ㅝ"] = wsCompose([{ j: "ㅜ", box: top }, { j: "ㅓ", box: bot }]);
+  WS_JAMO["ㅞ"] = wsCompose([{ j: "ㅜ", box: top }, { j: "ㅔ", box: bot }]);
+  WS_JAMO["ㅟ"] = wsCompose([{ j: "ㅜ", box: top }, { j: "ㅣ", box: bot }]);
+  WS_JAMO["ㅢ"] = wsCompose([{ j: "ㅡ", box: top }, { j: "ㅣ", box: bot }]);
+})();
+
+/* Canonical learning order — the "next" button walks this instead of picking
+   a random string, so arriving from the vowels screen with ㅏ and pressing
+   next gives ㅑ, not 밥. */
+const WS_ORDER = ["ㄱ","ㄴ","ㄷ","ㄹ","ㅁ","ㅂ","ㅅ","ㅇ","ㅈ","ㅊ","ㅋ","ㅌ","ㅍ","ㅎ",
+                  "ㄲ","ㄸ","ㅃ","ㅆ","ㅉ",
+                  "ㅏ","ㅑ","ㅓ","ㅕ","ㅗ","ㅛ","ㅜ","ㅠ","ㅡ","ㅣ",
+                  "ㅐ","ㅒ","ㅔ","ㅖ","ㅘ","ㅙ","ㅚ","ㅝ","ㅞ","ㅟ","ㅢ"];
+
+const WS_V_VERT = ["ㅏ","ㅐ","ㅑ","ㅒ","ㅓ","ㅔ","ㅕ","ㅖ","ㅣ"];
+const WS_V_HORZ = ["ㅗ","ㅛ","ㅜ","ㅠ","ㅡ"];
+const WS_V_MIX  = ["ㅘ","ㅙ","ㅚ","ㅝ","ㅞ","ㅟ","ㅢ"];
+
+/* Target character -> ordered list of guide strokes. A bare jamo fills the
+   block; a syllable is laid out by the shape of its vowel. */
+function wsStrokesFor(ch) {
+  if (!ch) return [];
+  if (WS_JAMO[ch]) return WS_JAMO[ch].slice();
+
+  const code = ch.charCodeAt(0) - 0xAC00;
+  if (code < 0 || code > 11171) return [];
+  const ci = Math.floor(code / 588);
+  const vi = Math.floor((code % 588) / 28);
+  const fi = code % 28;
+  const c = CI[ci], v = VI[vi], f = FI[fi];
+
+  const mainY1 = f ? 64 : 96;
+  let cBox, vBox;
+
+  if (WS_V_VERT.indexOf(v) >= 0) {
+    cBox = { x0: 6, x1: 54, y0: 6, y1: mainY1 };
+    vBox = { x0: 56, x1: 96, y0: 6, y1: mainY1 };
+  } else if (WS_V_HORZ.indexOf(v) >= 0) {
+    cBox = { x0: 20, x1: 80, y0: 6, y1: mainY1 * 0.52 };
+    vBox = { x0: 6, x1: 94, y0: mainY1 * 0.48, y1: mainY1 };
+  } else {
+    cBox = { x0: 6, x1: 46, y0: 6, y1: mainY1 * 0.66 };
+    vBox = { x0: 48, x1: 96, y0: 6, y1: mainY1 };
+  }
+
+  const out = [];
+  if (c !== "ㅇ") wsFit(WS_JAMO[c] || [], cBox).forEach(s => out.push(s));
+  else wsFit(WS_JAMO["ㅇ"], cBox).forEach(s => out.push(s));
+  wsFit(WS_JAMO[v] || [], vBox).forEach(s => out.push(s));
+  if (f) {
+    const fBase = f === "ㄲ" ? "ㄱ" : f === "ㅆ" ? "ㅅ" : f;
+    const src = WS_JAMO[fBase] || WS_JAMO["ㅇ"];
+    wsFit(src, { x0: 24, x1: 76, y0: 68, y1: 98 }).forEach(s => out.push(s));
+  }
+  return out;
+}
+
+/* ---- scoring ---- */
+function wsDensify(pts, step) {
+  const out = [];
+  for (let i = 0; i < pts.length; i++) {
+    const a = pts[i];
+    if (i === 0) { out.push(a); continue; }
+    const b = pts[i - 1];
+    const d = Math.hypot(a[0] - b[0], a[1] - b[1]);
+    const n = Math.max(1, Math.ceil(d / step));
+    for (let k = 1; k <= n; k++) {
+      out.push([b[0] + (a[0] - b[0]) * (k / n), b[1] + (a[1] - b[1]) * (k / n)]);
+    }
+  }
+  return out;
+}
+
+function wsNearest(p, set) {
+  let best = Infinity;
+  for (let i = 0; i < set.length; i++) {
+    const dx = set[i][0] - p[0], dy = set[i][1] - p[1];
+    const d = dx * dx + dy * dy;
+    if (d < best) best = d;
+  }
+  return Math.sqrt(best);
+}
+
+function wsLen(pts) {
+  let n = 0;
+  for (let i = 1; i < pts.length; i++) n += Math.hypot(pts[i][0] - pts[i-1][0], pts[i][1] - pts[i-1][1]);
+  return n;
+}
+
+function wsScoreStroke(user, guide) {
+  if (!user || user.length < 2 || !guide || guide.length < 2) return 0;
+  const G = wsDensify(guide, 2.5);
+  const U = wsDensify(user, 2.5);
+
+  /* Tolerance follows the stroke. A fixed 13 units swallows ㅎ's twelve-unit
+     top tick whole — any dot near it counts as full coverage — while a
+     90-unit ㄱ barely notices 13. */
+  const gLen = wsLen(guide);
+  const tol = Math.min(WS_TOL, Math.max(6, gLen * 0.26));
+
+  let cover = 0;
+  for (let i = 0; i < G.length; i++) if (wsNearest(G[i], U) <= tol) cover++;
+  cover /= G.length;
+
+  let prec = 0;
+  for (let i = 0; i < U.length; i++) if (wsNearest(U[i], G) <= tol) prec++;
+  prec /= U.length;
+
+  /* Coverage carries more weight: a short scribble that happens to sit on the
+     stroke should not outscore a long honest attempt. */
+  let score = 0.58 * cover + 0.42 * prec;
+
+  /* Half a stroke is not a stroke. Coverage alone forgives a truncated line —
+     every point you did draw sits perfectly on the guide — so the length gate
+     is what makes "draw the whole thing" a requirement. Calibrated against
+     the guides: 50% of ㄱ scores 35, 70% scores 52, 80% scores 71, 90% scores
+     90. The curve is gentle near 1.0 so a naturally short finish is not
+     punished, and steep below 0.8 so a truncated stroke cannot pass. */
+  const uLen = wsLen(user);
+  const ratio = uLen / Math.max(1, gLen);
+  if (ratio < 0.95) score *= Math.pow(ratio / 0.95, 1.8);
+
+  /* Stroke order includes which end you start at. A reversed trace of the
+     right shape is not the stroke — but a closed loop (ㅇ) can legitimately
+     start anywhere on the circle, so loops are exempt. */
+  const closed = Math.hypot(guide[0][0] - guide[guide.length - 1][0],
+                            guide[0][1] - guide[guide.length - 1][1]) < 6;
+  if (!closed) {
+    const startGap = Math.hypot(user[0][0] - guide[0][0], user[0][1] - guide[0][1]);
+    if (startGap > tol * 2.2) score *= 0.55;
+  }
+
+  return Math.round(100 * Math.max(0, score));
+}
+
+/* ---- state ---- */
+let WS = {
+  ch: "가",
+  strokes: [],
+  done: 0,
+  user: [],
+  live: null,
+  scores: [],
+  attempts: 0,
+  finished: false,
+  total: 0,
+  hintRaf: 0
+};
+
+function wsInit(ch) {
+  WS.ch = ch;
+  WS.strokes = wsStrokesFor(ch);
+  WS.done = 0;
+  WS.user = [];
+  WS.live = null;
+  WS.scores = [];
+  WS.attempts = 0;
+  WS.finished = false;
+  WS.total = 0;
+  wsStopHint();
+}
+
+function wsCurrent() { return WS.strokes[WS.done] || null; }
+
+/* ---- drawing ---- */
+const WS_SIZE = 300;
+
+function wsPath(ctx, pts, k) {
+  ctx.beginPath();
+  ctx.moveTo(pts[0][0] * k, pts[0][1] * k);
+  for (let i = 1; i < pts.length; i++) ctx.lineTo(pts[i][0] * k, pts[i][1] * k);
+}
+
+function wsPaint() {
+  const cvs = document.getElementById("drawPad");
+  if (!cvs) return;
+  const ctx = cvs.getContext("2d");
+  const k = cvs.width / 100;
+  ctx.clearRect(0, 0, cvs.width, cvs.height);
+  ctx.lineCap = "round";
+  ctx.lineJoin = "round";
+
+  /* The block guides: a cross and the two thirds, the same grid the paper
+     uses. Drawn first so the strokes sit on top. */
+  ctx.save();
+  ctx.strokeStyle = "rgba(140,120,96,0.20)";
+  ctx.lineWidth = 1;
+  ctx.setLineDash([4, 5]);
+  [33.33, 66.66].forEach(function (p) {
+    ctx.beginPath(); ctx.moveTo(p * k, 0); ctx.lineTo(p * k, cvs.height); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(0, p * k); ctx.lineTo(cvs.width, p * k); ctx.stroke();
+  });
+  ctx.restore();
+
+  /* Every stroke of the character: finished ones solid, the next one strong,
+     the rest a faint roadmap. */
+  WS.strokes.forEach(function (s, i) {
+    if (i < WS.done) return;
+    ctx.save();
+    ctx.strokeStyle = i === WS.done ? "rgba(173,70,101,0.62)" : "rgba(120,104,86,0.16)";
+    ctx.lineWidth = i === WS.done ? 8 : 6;
+    wsPath(ctx, s, k);
+    ctx.stroke();
+    ctx.restore();
+  });
+
+  /* Locked user strokes, in ink. */
+  ctx.save();
+  ctx.strokeStyle = getComputedStyle(document.documentElement)
+    .getPropertyValue("--ink").trim() || "#2b2520";
+  ctx.lineWidth = 9;
+  WS.user.forEach(function (s) {
+    if (!s || s.length < 2) return;
+    wsPath(ctx, s, k);
+    ctx.stroke();
+  });
+  if (WS.live && WS.live.length > 1) {
+    wsPath(ctx, WS.live, k);
+    ctx.stroke();
+  }
+  ctx.restore();
+
+  /* The start of the stroke you are on: a numbered dot, because stroke order
+     is the thing being taught and "start here" is half of it. */
+  const cur = wsCurrent();
+  if (cur && !WS.finished) {
+    const p = cur[0];
+    ctx.save();
+    ctx.fillStyle = "#ad4665";
+    ctx.beginPath();
+    ctx.arc(p[0] * k, p[1] * k, 6, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.fillStyle = "#fffdf9";
+    ctx.font = "bold 9px system-ui, sans-serif";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillText(String(WS.done + 1), p[0] * k, p[1] * k + 0.5);
+    ctx.restore();
+  }
+}
+
+/* ---- hint: run a dot along the current stroke ---- */
+function wsStopHint() {
+  if (WS.hintRaf) { cancelAnimationFrame(WS.hintRaf); WS.hintRaf = 0; }
+}
+
+function wsHint() {
+  const cvs = document.getElementById("drawPad");
+  const cur = wsCurrent();
+  if (!cvs || !cur) return;
+  wsStopHint();
+  const ctx = cvs.getContext("2d");
+  const k = cvs.width / 100;
+  const pts = wsDensify(cur, 1.5);
+  let i = 0;
+  const step = function () {
+    if (!document.getElementById("drawPad")) { WS.hintRaf = 0; return; }
+    wsPaint();
+    ctx.save();
+    ctx.fillStyle = "#7fbf9f";
+    ctx.beginPath();
+    ctx.arc(pts[i][0] * k, pts[i][1] * k, 8, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+    i += 1;
+    if (i < pts.length) {
+      WS.hintRaf = requestAnimationFrame(step);
+    } else {
+      WS.hintRaf = 0;
+      setTimeout(wsPaint, 260);
+    }
+  };
+  WS.hintRaf = requestAnimationFrame(step);
+}
+
+/* ---- UI sync (no full re-render, so the canvas keeps its listeners) ---- */
+function wsSync() {
+  const pips = document.getElementById("wsPips");
+  if (pips) {
+    pips.innerHTML = WS.strokes.map(function (s, i) {
+      return '<i class="ws-pip' + (i < WS.done ? " on" : i === WS.done ? " now" : "") + '"></i>';
+    }).join("");
+  }
+  const sc = document.getElementById("wsScore");
+  if (sc) {
+    const avg = WS.scores.length
+      ? Math.round(WS.scores.reduce(function (a, b) { return a + b; }, 0) / WS.scores.length)
+      : null;
+    sc.textContent = avg === null
+      ? (LANG === "ne" ? "अङ्क: —" : "Score: —")
+      : (LANG === "ne" ? "अङ्क: " + avg : "Score: " + avg);
+    sc.className = "ws-score" + (avg === null ? "" : avg >= 80 ? " great" : avg >= WS_PASS ? " ok" : " low");
+  }
+  const msg = document.getElementById("wsMsg");
+  if (msg) {
+    if (WS.finished) {
+      msg.textContent = "";
+    } else if (WS.attempts > 0) {
+      msg.textContent = LANG === "ne"
+        ? "अलिकति बाहिर — फेरि कोसिस गर्नुहोस्"
+        : "A little off — try that stroke again";
+    } else {
+      msg.textContent = LANG === "ne"
+        ? "रेखामा औंलाले लेख्नुहोस्"
+        : "Trace the highlighted stroke";
+    }
+    msg.className = "ws-msg" + (WS.attempts > 0 ? " warn" : "");
+  }
+  const undo = document.getElementById("wsUndo");
+  if (undo) undo.disabled = WS.done === 0;
+}
+
+/* ---- input ---- */
 let isDrawing = false;
 let canvasCtx = null;
+
 function initCanvas() {
   const cvs = document.getElementById("drawPad");
   if (!cvs) return;
   canvasCtx = cvs.getContext("2d");
-  const ink = getComputedStyle(document.documentElement).getPropertyValue("--ink").trim();
-  canvasCtx.strokeStyle = ink || "#2b2520";
-  canvasCtx.lineWidth = 10;
-  canvasCtx.lineCap = "round";
-  canvasCtx.lineJoin = "round";
+  wsPaint();
+  wsSync();
 
-  const getPos = e => {
+  const pos = function (e) {
     const rect = cvs.getBoundingClientRect();
-    const scaleX = cvs.width / rect.width;
-    const scaleY = cvs.height / rect.height;
-    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-    const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-    return { x: (clientX - rect.left) * scaleX, y: (clientY - rect.top) * scaleY };
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    return [Math.max(-6, Math.min(106, x)), Math.max(-6, Math.min(106, y))];
   };
 
-  cvs.onmousedown = cvs.ontouchstart = e => {
+  const down = function (e) {
+    if (WS.finished || !wsCurrent()) return;
     e.preventDefault();
     isDrawing = true;
-    const p = getPos(e);
-    canvasCtx.beginPath();
-    canvasCtx.moveTo(p.x, p.y);
+    wsStopHint();
+    WS.live = [pos(e)];
+    wsPaint();
   };
-  cvs.onmousemove = cvs.ontouchmove = e => {
+  const move = function (e) {
     if (!isDrawing) return;
     e.preventDefault();
-    const p = getPos(e);
-    canvasCtx.lineTo(p.x, p.y);
-    canvasCtx.stroke();
+    const p = pos(e);
+    const last = WS.live[WS.live.length - 1];
+    if (last && Math.hypot(p[0] - last[0], p[1] - last[1]) < 0.6) return;
+    WS.live.push(p);
+    wsPaint();
   };
-  window.onmouseup = window.ontouchend = () => { isDrawing = false; };
+  const up = function (e) {
+    if (!isDrawing) return;
+    isDrawing = false;
+    if (e) e.preventDefault();
+    const drawn = WS.live;
+    WS.live = null;
+    if (!drawn || drawn.length < 3) { wsPaint(); return; }
+    wsCommit(drawn);
+  };
+
+  cvs.addEventListener("pointerdown", down);
+  cvs.addEventListener("pointermove", move);
+  cvs.addEventListener("pointerup", up);
+  cvs.addEventListener("pointercancel", up);
+  cvs.addEventListener("pointerleave", function (e) {
+    if (isDrawing && e.buttons === 0) up(e);
+  });
+  window.addEventListener("pointerup", function () { if (isDrawing) up(null); }, { once: true });
 }
-function clearCanvas() {
+
+function wsCommit(drawn) {
+  const guide = wsCurrent();
+  if (!guide) return;
+  const score = wsScoreStroke(drawn, guide);
+  WS.attempts += 1;
+
+  if (score >= WS_PASS) {
+    WS.user[WS.done] = drawn;
+    WS.scores[WS.done] = score;
+    WS.done += 1;
+    WS.attempts = 0;
+    wsPaint();
+    wsSync();
+    if (WS.done >= WS.strokes.length) wsFinish();
+    return;
+  }
+
+  /* Failed: flash the guide red once so the correction is visible, then wipe
+     only the live stroke — the strokes already earned stay on the canvas. */
   const cvs = document.getElementById("drawPad");
-  if (cvs && canvasCtx) canvasCtx.clearRect(0, 0, cvs.width, cvs.height);
+  if (cvs) {
+    const ctx = cvs.getContext("2d");
+    const k = cvs.width / 100;
+    ctx.save();
+    ctx.strokeStyle = "rgba(190,70,70,0.55)";
+    ctx.lineWidth = 7;
+    wsPath(ctx, guide, k);
+    ctx.stroke();
+    ctx.restore();
+    setTimeout(wsPaint, 320);
+  }
+  wsSync();
 }
+
+function wsFinish() {
+  WS.finished = true;
+  WS.total = Math.round(WS.scores.reduce(function (a, b) { return a + b; }, 0) / WS.scores.length);
+  wsPaint();
+
+  const g = ensureGame();
+  g.stats.writes = (g.stats.writes || 0) + 1;
+  g.stats.writeSum = (g.stats.writeSum || 0) + WS.total;
+  g.stats.writeBest = Math.max(g.stats.writeBest || 0, WS.total);
+  g.wrote = g.wrote || {};
+  g.wrote[WS.ch] = Math.max(g.wrote[WS.ch] || 0, WS.total);
+  saveGame();
+
+  addXp(WS.total >= 90 ? 15 : WS.total >= 75 ? 11 : 8, "silent");
+  unlockAchievements();
+  say(WS.ch);
+
+  const box = document.getElementById("wsResult");
+  if (box) {
+    const band = WS.total >= 90
+      ? (LANG === "ne" ? "उत्कृष्ट" : "Excellent")
+      : WS.total >= 75 ? (LANG === "ne" ? "राम्रो" : "Good")
+      : WS.total >= WS_PASS ? (LANG === "ne" ? "ठीकै" : "Passable")
+      : (LANG === "ne" ? "फेरि अभ्यास" : "Practise again");
+    box.className = "ws-result open " + (WS.total >= 75 ? "good" : WS.total >= WS_PASS ? "mid" : "low");
+    box.innerHTML =
+      '<div class="ws-result-num">' + WS.total + '<small>/100</small></div>' +
+      '<div class="ws-result-band">' + band + "</div>" +
+      '<div class="ws-result-meta">' +
+        WS.strokes.length + (LANG === "ne" ? " स्ट्रोक · " : " strokes · ") +
+        WS.ch + " · +" + (WS.total >= 90 ? 15 : WS.total >= 75 ? 11 : 8) + " XP" +
+      "</div>" +
+      '<div class="ws-result-acts">' +
+        '<button type="button" class="ws-btn" onclick="wsReset()">' +
+          (LANG === "ne" ? "फेरि लेख्नुहोस्" : "Write again") + "</button>" +
+        '<button type="button" class="ws-btn primary" onclick="changeDrawTarget()">' +
+          (LANG === "ne" ? "अर्को अक्षर →" : "Next letter →") + "</button>" +
+      "</div>";
+  }
+  wsSync();
+}
+
+function wsReset() {
+  const ch = WS.ch;
+  wsInit(ch);
+  const box = document.getElementById("wsResult");
+  if (box) { box.className = "ws-result"; box.innerHTML = ""; }
+  wsPaint();
+  wsSync();
+}
+
+function wsUndo() {
+  if (WS.done === 0) return;
+  WS.done -= 1;
+  WS.user[WS.done] = null;
+  WS.scores[WS.done] = null;
+  WS.scores = WS.scores.filter(function (x) { return x !== null; });
+  WS.finished = false;
+  const box = document.getElementById("wsResult");
+  if (box) { box.className = "ws-result"; box.innerHTML = ""; }
+  wsPaint();
+  wsSync();
+}
+
+function clearCanvas() {
+  wsReset();
+}
+
 function changeDrawTarget() {
-  const chars = ["가","나","다","라","마","바","사","아","자","차","카","타","파","하","한","글","밥","물","산","강"];
-  DRAW_TARGET = chars[Math.floor(Math.random() * chars.length)];
-  renderApp();
+  const at = WS_ORDER.indexOf(DRAW_TARGET);
+  DRAW_TARGET = WS_ORDER[(at + 1) % WS_ORDER.length];
+  navigateTo("writing_studio");
+}
+
+function wsSetTarget(ch) {
+  DRAW_TARGET = ch;
+  navigateTo("writing_studio");
+}
+
+// Step 9: Writing Studio
+function viewWritingStudio() {
+  if (WS.ch !== DRAW_TARGET || !WS.strokes.length) wsInit(DRAW_TARGET);
+  setTimeout(initCanvas, 50);
+  const g = ensureGame();
+  const best = (g.wrote && g.wrote[DRAW_TARGET]) || 0;
+
+  const picks = WS_ORDER.map(function (j) {
+    const on = j === DRAW_TARGET;
+    return '<button type="button" class="ws-pick' + (on ? " on" : "") +
+      '" onclick="wsSetTarget(\'' + j + '\')">' + j + "</button>";
+  }).join("");
+
+  return `
+    ${renderBrandBar()}
+    ${renderNavHeader(9, "हस्तलेखन", "Writing Studio")}
+    <h1 class="title">
+      ${LANG === "ne" ? 'स्ट्रोक क्रमसँग <em>लेख्नुहोस्</em>' : 'Write it <em>stroke by stroke</em>'}
+    </h1>
+    <p class="ws-lead">${LANG === "ne"
+      ? "अक्षर बन्ने क्रममा लेख्नुहोस्। हरेक स्ट्रोक सकिएपछि अङ्क आउँछ — ६० भन्दा माथि भए अर्को स्ट्रोक खुल्छ।"
+      : "Draw in the order the letter is written. Each stroke is scored — clear 60 and the next one opens."}</p>
+
+    <div class="ws-target">
+      <b class="ko">${DRAW_TARGET}</b>
+      <button type="button" class="chip ws-say" onclick="say('${DRAW_TARGET}')" aria-label="${LANG === "ne" ? "सुन्नुहोस्" : "Listen"}">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/></svg>
+      </button>
+      <span class="ws-meta">
+        ${WS.strokes.length}${LANG === "ne" ? " स्ट्रोक" : " strokes"}
+        ${best ? " · " + (LANG === "ne" ? "उत्कृष्ट " : "best ") + best : ""}
+      </span>
+    </div>
+
+    <div class="canvas-wrap ws-wrap">
+      <canvas id="drawPad" width="300" height="300"
+        aria-label="${LANG === "ne" ? "लेख्ने अभ्यास क्षेत्र: " + DRAW_TARGET : "Handwriting practice area for " + DRAW_TARGET}"></canvas>
+    </div>
+
+    <div class="ws-pips" id="wsPips"></div>
+    <div class="ws-hud">
+      <span class="ws-score" id="wsScore"></span>
+      <span class="ws-msg" id="wsMsg"></span>
+    </div>
+
+    <div class="draw-tools ws-tools">
+      <button type="button" onclick="wsHint()">${LANG === "ne" ? "देखाऊ" : "Show me"}</button>
+      <button type="button" id="wsUndo" onclick="wsUndo()">${LANG === "ne" ? "फिर्ता" : "Undo"}</button>
+      <button type="button" onclick="wsReset()">${LANG === "ne" ? "मेटाऊ" : "Clear"}</button>
+      <button type="button" onclick="changeDrawTarget()">${LANG === "ne" ? "अर्को" : "Next"}</button>
+    </div>
+
+    <div class="ws-result" id="wsResult"></div>
+
+    <h3 class="ws-pick-h">${LANG === "ne" ? "अक्षर छान्नुहोस्" : "Pick a letter"}</h3>
+    <div class="ws-picks">${picks}</div>
+
+    <div class="flow-actions">
+      <button class="flow-btn" onclick="navigateTo('quiz')">
+        ${LANG === "ne" ? "अन्तिम चरण: आत्ममूल्याङ्कन परीक्षा (Step 10) →" : "Final Step: Self-Quiz (Step 10) →"}
+      </button>
+    </div>
+  `;
 }
 
 // Bottom Navigation Bar
@@ -14265,7 +15590,11 @@ const ACHIEVEMENTS = [
   { id: "mission_4", ico: "🎭", xp: 55, ne: "४ दृश्य", en: "4 Scenes Cleared", test: () => MISSION_DONE.length >= 4 },
   { id: "mission_8", ico: "🏆", xp: 90, ne: "सबै ८ दृश्य", en: "All 8 Scenes", test: () => MISSION_DONE.length >= 8 },
   { id: "runner_10", ico: "🏃", xp: 35, ne: "१० अंक दौड", en: "Runner 10", test: g => (g.stats.runnerBest || 0) >= 10 },
-  { id: "runner_25", ico: "🥇", xp: 70, ne: "२५ अंक दौड", en: "Runner 25", test: g => (g.stats.runnerBest || 0) >= 25 }
+  { id: "runner_25", ico: "🥇", xp: 70, ne: "२५ अंक दौड", en: "Runner 25", test: g => (g.stats.runnerBest || 0) >= 25 },
+  { id: "write_1", ico: "✍️", xp: 25, ne: "पहिलो अक्षर लेखियो", en: "First Letter Written", test: g => (g.stats.writes || 0) >= 1 },
+  { id: "write_10", ico: "📝", xp: 45, ne: "१० अक्षर लेखिए", en: "10 Letters Written", test: g => (g.stats.writes || 0) >= 10 },
+  { id: "write_40", ico: "🖋️", xp: 80, ne: "४० अक्षर लेखिए", en: "40 Letters Written", test: g => (g.stats.writes || 0) >= 40 },
+  { id: "write_perfect", ico: "💯", xp: 60, ne: "सय अङ्कको स्ट्रोक", en: "A 100-Point Letter", test: g => (g.stats.writeBest || 0) >= 100 }
 ];
 
 function unlockAchievements() {
@@ -14381,7 +15710,7 @@ function closeReview() {
   const modal = document.getElementById("gameModal");
   if (modal) modal.classList.remove("open");
   REVIEW.active = false;
-  if (currentScreen() === "game") renderApp();
+  renderApp();
 }
 
 function renderReviewStep() {
@@ -14584,6 +15913,39 @@ function renderGameHud(compact) {
         '<span class="hud-pill cool"><span class="heart-row">' + hearts + "</span></span>" +
       "</div>" +
     "</div>";
+}
+
+/* The SRS deck used to be visible only from inside the game screen, which
+   meant spaced repetition only happened when you remembered to go looking for
+   it. A due count on the home screen is the difference between a schedule and
+   a feature nobody opens. */
+function renderReviewDue() {
+  const g = ensureGame();
+  const n = dueCount();
+  const met = Object.keys(g.srs).length;
+  const out = g.hearts <= 0;
+
+  if (!n) {
+    return '<div class="due-card done">' +
+      '<span class="due-ico">✓</span>' +
+      '<span class="due-t"><b>' +
+        (LANG === "ne" ? "आजका कार्ड सकिए" : "Nothing due today") +
+      "</b><i>" +
+        (LANG === "ne" ? met + " शब्द दोहोरिएको छ — भोलि फर्किन्छ" : met + " words reviewed — the next batch returns tomorrow") +
+      "</i></span></div>";
+  }
+
+  return '<button type="button" class="due-card' + (out ? " locked" : "") +
+    '" onclick="' + (out ? "toast('" +
+      (LANG === "ne" ? "हृदय सकियो — केही बेरमा फर्किन्छ" : "No hearts — refills shortly") + "')" : "startReview()") + '">' +
+    '<span class="due-ico">' + (out ? "♡" : "🧠") + "</span>" +
+    '<span class="due-t"><b>' +
+      (LANG === "ne" ? n + " कार्ड बाँकी" : n + " cards due") +
+    "</b><i>" +
+      (LANG === "ne" ? "दोहोरो अभ्यास — १० कार्डको सेसन" : "Spaced repetition — a 10-card session") +
+    "</i></span>" +
+    '<span class="due-go">' + (out ? "" : "→") + "</span>" +
+  "</button>";
 }
 
 function viewGame() {
@@ -15891,7 +17253,7 @@ SW_TEMPLATE = r'''/* नेपालीमा हाङ्गुल — service 
  *   audio/ images/ icons/ fonts -> stale-while-revalidate
  *   /api/tts        -> never intercepted (per-request audio, app falls back to Web Speech)
  */
-const VERSION = "v31";
+const VERSION = "v32";
 const CACHE = "nepalihangul-" + VERSION;
 
 const QUIZ_IMAGES = %%IMAGES%%;

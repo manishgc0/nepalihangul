@@ -357,7 +357,7 @@ are synthesised once and shipped as static files:
 | runtime harvest of everything the UI actually says (`/tmp/opencode/spoken.json`) | 430 |
 | `scrape_source()` — quiz answers, lesson `audio:` / `audioPrompt:` fields, sample lists, literal `say('…')` calls | — |
 | mission `npcKo:` NPC lines and `goalKo:` goal phrases | 32 |
-| **after dedupe and normalisation** | **1481 clips, 5.35 MB** |
+| **after dedupe and normalisation** | **2221 clips, 8.75 MB** |
 
 Every file is 24 kHz mono 48 kbps MP3, silence-trimmed, peak-normalised to
 −3 dBFS peak in **both** directions, with 30 ms of leading pad so the clip does
@@ -459,11 +459,15 @@ python3 gen_audio.py --source edge   # offline fallback voice
 It is the gate that catches the failure this library exists to prevent: a word
 renders fine but has no clip, so `say()` falls to `/api/tts` (absent on a static
 server), then to `speechSynthesis` (no Korean voice on most Linux installs), and
-the screen is simply silent. 1,608 strings, 6.03 MB.
+the screen is simply silent. 2,221 strings, 8.75 MB.
 
-`scrape_source()` collects the target set from the app source by shape. If a new
-vocabulary table uses a shape no pattern recognises — a unit's `["한글", "gloss"]`
-pairs were exactly that — the words ship silent. `--verify` is what notices.
+`scrape_source()` collects the target set from the app source by shape. It reads
+each array literal and keeps **every** Korean field in it, not just the first,
+because the fields are not in a fixed order: a vocabulary row starts with the
+Hangul, a tense row starts with a Nepali label and puts the Korean second. The
+old first-field-only rule baked `걷다` but not `걸어요`, which is the form a
+learner actually taps. If a new table uses a shape no rule recognises, the words
+ship silent — `--verify` is what notices.
 
 Raw WAVs cache in the gitignored `audio/lib_raw/`, so a re-run after adding one
 string fetches one string. `normalize()` in `gen_audio.py` must stay in lockstep
@@ -540,12 +544,13 @@ it up on the next build.
 ## Books — the Nepali-medium reference shelf (`books` screen)
 
 Three printed Nepali-language Korean textbooks, transcribed by hand into a
-four-tab reference: **वर्णमाला**, **उच्चारण नियम**, **गणना**, **अभिवादन**.
+five-tab reference: **वर्णमाला**, **उच्चारण नियम**, **गणना**, **अभिवादन**,
+**व्याकरण**.
 
 | tag | file | pages | what it gave |
 | --- | --- | --- | --- |
 | `BKL` | Basic Korean Language Book | 83 | letter tables, greetings |
-| `CS1` | CamScanner 07-28-2026 | 239 | pronunciation rules |
+| `CS1` | CamScanner 07-28-2026 | 239 | pronunciation rules, the whole grammar half (pp. 46–80) |
 | `CS2` | CamScanner 03-02-2025 | 245 | counters |
 
 All three are image-only scans — no text layer, and `pdftotext` returns nothing
@@ -573,6 +578,36 @@ modern Korean has merged them.
 **Provenance is per-section** (`BKL p3 · CS2 p4`, `CS1 p11`, `CS2 p46`), and the
 screen says plainly that 567 scanned pages are not all typed up yet. A reference
 you cannot check is a rumour.
+
+### व्याकरण — the grammar half
+
+CS1 pages 46–80 are one continuous grammar course, and it is the part a learner
+needs the moment the alphabet is done: which ending goes with which listener,
+how each tense is built, and the seven classes of verb that refuse to follow the
+rule. The tab is four blocks:
+
+| block | source | shape |
+| --- | --- | --- |
+| registers, negation, questions, tense, `-고 있다`, adnominal, `-고 싶다`, orders, suggestions | p46–67 | 13 cards, `[korean, devanagari, nepali, tag]` rows |
+| the six-tense grid | p68 | one `<details>` per verb, six rows inside |
+| seven irregular classes | p69–75 | one `<details>` per class, 92 forms total |
+| sixteen conjunctions | p76–79 | one card each, form + worked example |
+
+The six-tense table on p68 is seven columns wide. On a 390 px phone that is
+unreadable, so the table is **rotated** rather than truncated: the verb is the
+card, the tenses are the rows. Same six forms, same order.
+
+Irregular rows are `[dictionary form, informal form, devanagari, meaning]` and
+the tap speaks the **informal** form, because that is the one a learner says
+out loud; the dictionary form is the one that appears in a word list, so that is
+what the row sorts by. Starred verbs in the book are marked in the meaning
+column as regular exceptions (`받다`, `믿다`, `닫다`, `얻다` and friends).
+
+Devanagari here follows the same grid as the alphabet tab plus the sound rules
+on p11 — final `ㅂ` is प्, final `ㅇ` is ङ्, `ㅂ + ㄴ` is म्न् — so `갑니다` reads
+गाम्निदा and not गाब्निदा. Each block states its printed page range, and the
+footer says the same thing the other tabs say: this is a sample of the chapter,
+not the whole chapter.
 
 The composer composes any of 19 consonants against any of 21 vowels, so
 `build_targets()` in `gen_audio.py` bakes all 399 — 140 (the assembly grid) plus

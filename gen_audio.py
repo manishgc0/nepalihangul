@@ -123,14 +123,22 @@ def scrape_source():
         piece = m.group(1)
         if HANGUL.search(piece) and not DEVANAGARI.search(piece) and "$" not in piece:
             found.add(piece)
-    # [ "한글", "gloss" ] pairs — every vocabulary table in the app is this shape,
-    # including SEJONG_1A's words. Without this rule a whole unit's vocabulary
-    # ships silent: no clip, /api/tts absent on a static server, and a Linux
-    # speechSynthesis with no Korean voice, which reads to the user as "no sound".
-    # The trailing bracket is deliberately not required, so the three-field rows
-    # in the books reference (hangul, devanagari, meaning) are caught as well.
-    for m in re.finditer(r'\[\s*"([\uAC00-\uD7A3][^"]{0,40})"\s*,\s*"', src):
-        found.add(m.group(1))
+    # Any array literal that holds Korean text. Every table in the app is a list
+    # of rows of quoted strings, but the fields are not in a fixed order: a
+    # vocabulary row starts with the Hangul, while a tense row starts with a
+    # Nepali label and puts the Korean second. Matching only "the first field is
+    # Hangul" silently dropped every conjugated form in the grammar tables — the
+    # clip simply was not baked, /api/tts is absent on a static server, and a
+    # Linux speechSynthesis with no Korean voice reads that as "no sound".
+    # So: take each row, and if it contains Korean at all, keep every Korean
+    # field in it.
+    for m in re.finditer(r'\[([^\[\]]{1,600})\]', src):
+        pieces = re.findall(r'"([^"]{1,80})"', m.group(1))
+        if not any(HANGUL.search(p) and not DEVANAGARI.search(p) for p in pieces):
+            continue
+        for p in pieces:
+            if HANGUL.search(p) and not DEVANAGARI.search(p) and "$" not in p:
+                found.add(p)
     # the counter tables name their unit in a field rather than an array, and a
     # learner taps the unit itself to hear what 시 or 그릇 sounds like alone
     for m in re.finditer(r'unit:\s*"([\uAC00-\uD7A3][^"]{0,20})"', src):
