@@ -5687,7 +5687,9 @@ html.dark .pdisp-note-name {
   max-width:62ch;
 }
 .bk-tabs{margin-bottom:18px;flex-wrap:wrap}
-.bk-tabs .view-tab{flex:1 1 auto}
+/* six tabs at 390 px: five fit and the sixth wraps to a full-width bar, which
+   reads like a heading. An even 3 × 2 keeps every tab the same weight. */
+.bk-tabs .view-tab{flex:1 1 calc(33.333% - 8px);min-width:0}
 .bk-h{
   display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;
   margin:22px 0 10px;font-size:var(--fs-title);color:var(--ink);font-weight:800;
