@@ -1,0 +1,17 @@
+# What Vercel uploads. The site is the repo root — no build step, no framework.
+# Excluded here rather than only in .gitignore because `vercel` uploads the
+# working tree, not the commit, so an ignored-but-present 190 MB scratch folder
+# still goes over the wire.
+audio/lib_raw/
+audio/lib_ne_raw/
+audio/pron_raw/
+audio/pron_ne_raw/
+yt_audio/
+yt_source_audio/
+__pycache__/
+*.pyc
+*.bak
+speed_controls_test.png
+vowels_sound_test.png
+.vercel/
+node_modules/

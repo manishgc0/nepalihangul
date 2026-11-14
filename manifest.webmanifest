@@ -1,0 +1,43 @@
+{
+  "id": "./",
+  "name": "नेपालीमा हाङ्गुल - Nepali Hangul",
+  "short_name": "Nepali Hangul",
+  "description": "नेपाली भाषामा सजिलैसँग कोरियन हाङ्गुल, उच्चारण, शब्दार्थ, वाक्य, गन्ती र परीक्षा सिक्नुहोस्।",
+  "lang": "ne",
+  "dir": "ltr",
+  "start_url": "./?source=pwa",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#faf5ec",
+  "theme_color": "#faf5ec",
+  "categories": [
+    "education"
+  ],
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

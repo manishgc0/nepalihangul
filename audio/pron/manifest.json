@@ -1,0 +1,126 @@
+{
+  "source": "edge-nepali",
+  "voice": "ne-NP-SagarNeural (Nepali Accent)",
+  "clips": {
+    "j": {
+      "duration": 0.385
+    },
+    "eu": {
+      "duration": 0.307
+    },
+    "oe": {
+      "duration": 0.381
+    },
+    "pp": {
+      "duration": 0.306
+    },
+    "ss": {
+      "duration": 0.259
+    },
+    "yo": {
+      "duration": 0.349
+    },
+    "p": {
+      "duration": 0.253
+    },
+    "yu": {
+      "duration": 0.335
+    },
+    "wo": {
+      "duration": 0.369
+    },
+    "g": {
+      "duration": 0.304
+    },
+    "i": {
+      "duration": 0.32
+    },
+    "jj": {
+      "duration": 0.336
+    },
+    "b": {
+      "duration": 0.253
+    },
+    "we": {
+      "duration": 0.381
+    },
+    "ye": {
+      "duration": 0.368
+    },
+    "wae": {
+      "duration": 0.381
+    },
+    "o": {
+      "duration": 0.327
+    },
+    "ya": {
+      "duration": 0.352
+    },
+    "kk": {
+      "duration": 0.303
+    },
+    "ch": {
+      "duration": 0.385
+    },
+    "ae": {
+      "duration": 0.32
+    },
+    "m": {
+      "duration": 0.388
+    },
+    "a": {
+      "duration": 0.328
+    },
+    "k": {
+      "duration": 0.304
+    },
+    "tt": {
+      "duration": 0.328
+    },
+    "wa": {
+      "duration": 0.355
+    },
+    "t": {
+      "duration": 0.333
+    },
+    "yae": {
+      "duration": 0.368
+    },
+    "ng": {
+      "duration": 0.381
+    },
+    "e": {
+      "duration": 0.32
+    },
+    "u": {
+      "duration": 0.307
+    },
+    "eo": {
+      "duration": 0.323
+    },
+    "r": {
+      "duration": 0.35
+    },
+    "ui": {
+      "duration": 0.376
+    },
+    "d": {
+      "duration": 0.333
+    },
+    "n": {
+      "duration": 0.42
+    },
+    "s": {
+      "duration": 0.259
+    },
+    "h": {
+      "duration": 0.333
+    },
+    "wi": {
+      "duration": 0.368
+    },
+    "yeo": {
+      "duration": 0.336
+    }
+  }
+}

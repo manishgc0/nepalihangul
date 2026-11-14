@@ -1,0 +1,166 @@
+{
+ "source": "bunpo",
+ "voice": "bunpo/v3/text_to_speech (model=standard)",
+ "clips": {
+  "a": {
+   "syllable": "아",
+   "duration": 0.353
+  },
+  "ya": {
+   "syllable": "야",
+   "duration": 0.391
+  },
+  "eo": {
+   "syllable": "어",
+   "duration": 0.387
+  },
+  "yeo": {
+   "syllable": "여",
+   "duration": 0.404
+  },
+  "o": {
+   "syllable": "오",
+   "duration": 0.381
+  },
+  "yo": {
+   "syllable": "요",
+   "duration": 0.42
+  },
+  "u": {
+   "syllable": "우",
+   "duration": 0.376
+  },
+  "yu": {
+   "syllable": "유",
+   "duration": 0.433
+  },
+  "eu": {
+   "syllable": "으",
+   "duration": 0.376
+  },
+  "i": {
+   "syllable": "이",
+   "duration": 0.402
+  },
+  "ae": {
+   "syllable": "애",
+   "duration": 0.398
+  },
+  "yae": {
+   "syllable": "얘",
+   "duration": 0.458
+  },
+  "e": {
+   "syllable": "에",
+   "duration": 0.387
+  },
+  "ye": {
+   "syllable": "예",
+   "duration": 0.428
+  },
+  "wa": {
+   "syllable": "와",
+   "duration": 0.403
+  },
+  "wae": {
+   "syllable": "왜",
+   "duration": 0.438
+  },
+  "oe": {
+   "syllable": "외",
+   "duration": 0.435
+  },
+  "wo": {
+   "syllable": "워",
+   "duration": 0.414
+  },
+  "we": {
+   "syllable": "웨",
+   "duration": 0.433
+  },
+  "wi": {
+   "syllable": "위",
+   "duration": 0.447
+  },
+  "ui": {
+   "syllable": "의",
+   "duration": 0.441
+  },
+  "g": {
+   "syllable": "가",
+   "duration": 0.36
+  },
+  "n": {
+   "syllable": "나",
+   "duration": 0.396
+  },
+  "d": {
+   "syllable": "다",
+   "duration": 0.373
+  },
+  "r": {
+   "syllable": "라",
+   "duration": 0.404
+  },
+  "m": {
+   "syllable": "마",
+   "duration": 0.406
+  },
+  "b": {
+   "syllable": "바",
+   "duration": 0.361
+  },
+  "s": {
+   "syllable": "사",
+   "duration": 0.412
+  },
+  "ng": {
+   "syllable": "아",
+   "duration": 0.353
+  },
+  "j": {
+   "syllable": "자",
+   "duration": 0.406
+  },
+  "ch": {
+   "syllable": "차",
+   "duration": 0.394
+  },
+  "k": {
+   "syllable": "카",
+   "duration": 0.376
+  },
+  "t": {
+   "syllable": "타",
+   "duration": 0.37
+  },
+  "p": {
+   "syllable": "파",
+   "duration": 0.361
+  },
+  "h": {
+   "syllable": "하",
+   "duration": 0.371
+  },
+  "kk": {
+   "syllable": "까",
+   "duration": 0.34
+  },
+  "tt": {
+   "syllable": "따",
+   "duration": 0.353
+  },
+  "pp": {
+   "syllable": "빠",
+   "duration": 0.346
+  },
+  "ss": {
+   "syllable": "싸",
+   "duration": 0.448
+  },
+  "jj": {
+   "syllable": "짜",
+   "duration": 0.39
+  }
+ }
+}
