@@ -358,7 +358,8 @@ are synthesised once and shipped as static files:
 | `scrape_source()` — quiz answers, lesson `audio:` / `audioPrompt:` fields, sample lists, literal `say('…')` calls | — |
 | mission `npcKo:` NPC lines and `goalKo:` goal phrases | 32 |
 | the CS1 dictionary headwords (pp. 189–233), harvested by the same whole-array scrape | 887 |
-| **after dedupe and normalisation** | **3108 clips, 12.4 MB** |
+| the synonym and antonym tables (pp. 114–126), split into their individual words | 836 |
+| **after dedupe and normalisation** | **3944 clips, 17.4 MB** |
 
 Every file is 24 kHz mono 48 kbps MP3, silence-trimmed, peak-normalised to
 −3 dBFS peak in **both** directions, with 30 ms of leading pad so the clip does
@@ -460,7 +461,7 @@ python3 gen_audio.py --source edge   # offline fallback voice
 It is the gate that catches the failure this library exists to prevent: a word
 renders fine but has no clip, so `say()` falls to `/api/tts` (absent on a static
 server), then to `speechSynthesis` (no Korean voice on most Linux installs), and
-the screen is simply silent. 3,108 strings, 12.4 MB.
+the screen is simply silent. 3,944 strings, 17.4 MB.
 
 `scrape_source()` collects the target set from the app source by shape. It reads
 each array literal and keeps **every** Korean field in it, not just the first,
@@ -645,6 +646,19 @@ which serves a Nepali reader better than `gagi` does:
 `bkRead()`, then hangs the coda off the end from `BOOK_FIN`. Cluster finals
 collapse to the sound actually pronounced, the same way the book's own
 romanisation does — 닭 is `dak`, not `dalg`.
+
+The same tab carries the two pair tables that sit in front of the dictionary in
+the book — **समानार्थी** (pp. 114–120, 179 rows) and **विपरीत** (pp. 121–126, 154
+pairs). One segmented control switches the list; the search, the row shape and
+the page chips stay identical. The dictionary is the only mode with the initial
+chips, because a synonym row starts with a word, not a letter.
+
+Pair rows print several words in one field (`곧/바로`, `곧 - 천천히`). Two
+consequences the code has to respect: `bkSpeak()` speaks the **first** word only
+— reading the separator aloud is worse than saying nothing — and `bkDev()` reads
+**every** word in the row, because a row where the second word has no Devanagari
+looks like an omission. `gen_audio.py` splits those fields into their individual
+words before baking, or the tap lands on a clip that was never made.
 
 `bkInit()` exists because a Hangul syllable never starts with a jamo:
 `r[1].charAt(0)` returns `갈`, not `ㄱ`, so the initial has to be pulled out of

@@ -139,6 +139,18 @@ def scrape_source():
         for p in pieces:
             if HANGUL.search(p) and not DEVANAGARI.search(p) and "$" not in p:
                 found.add(p)
+    # A field can hold several Korean words at once: the synonym table writes
+    # "곧/바로", the antonym table writes "곧 - 천천히". The screen speaks the
+    # first word of the pair, so the joined string alone is not enough — each
+    # piece needs its own clip or that tap lands on a tier that is silent on a
+    # static host.
+    for piece in list(found):
+        if "/" in piece or " - " in piece:
+            for part in re.split(r"\s+-\s+|/", piece):
+                part = part.strip().strip("()")
+                if part and HANGUL.search(part) and not DEVANAGARI.search(part):
+                    found.add(part)
+
     # the counter tables name their unit in a field rather than an array, and a
     # learner taps the unit itself to hear what 시 or 그릇 sounds like alone
     for m in re.finditer(r'unit:\s*"([\uAC00-\uD7A3][^"]{0,20})"', src):

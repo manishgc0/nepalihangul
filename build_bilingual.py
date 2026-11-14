@@ -5725,7 +5725,25 @@ html.dark .pdisp-note-name {
 .bk-dclear:hover{background:var(--cream-2);color:var(--ink)}
 
 .bk-dchips{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 10px}
-.bk-dchip{
+
+/* the dictionary, its synonym half and its antonym half are one screen */
+.bk-dmodes{
+  display:flex;gap:4px;margin:14px 0 0;padding:4px;
+  background:var(--cream-2);border:1px solid var(--line);border-radius:var(--r-2);
+}
+.bk-dmode{
+  flex:1 1 0;min-width:0;padding:9px 4px;
+  font-family:inherit;font-size:var(--fs-label);font-weight:700;color:var(--ink-2);
+  background:none;border:0;border-radius:var(--r-1);cursor:pointer;
+  transition:background .12s ease,color .12s ease;
+}
+.bk-dmode i{
+  display:block;font-style:normal;font-size:9px;font-weight:600;
+  color:var(--ink-3);line-height:1.2;margin-top:1px;font-variant-numeric:tabular-nums;
+}
+.bk-dmode:hover{background:var(--paper)}
+.bk-dmode.on{background:var(--rose-ink);color:var(--paper)}
+.bk-dmode.on i{color:var(--rose-soft)}.bk-dchip{
   position:relative;min-width:40px;padding:8px 9px 7px;
   font-family:inherit;font-size:16px;font-weight:700;color:var(--ink);
   background:var(--paper);border:1px solid var(--line-2);border-radius:var(--r-1);
@@ -8997,6 +9015,349 @@ const BK_DICT = [
    grid — which is strictly more useful to a Nepali reader than "gagi".
    ======================================================== */
 
+/* CS1 pp.114-120 — समानार्थी शब्दार्थ. Two or more Korean words that the book
+   groups under one meaning, then its Nepali gloss and English gloss. */
+const BK_SYN = [
+  [114, "곧/바로", "चाँडै/तुरुन्तै", "Soon/Immediately"],
+  [114, "경험/체험", "अनुभव", "Experience"],
+  [114, "계획/예정", "योजना", "Plan/Schedule"],
+  [114, "관심/흥미", "चासो", "Interest"],
+  [114, "늘/항상/언제나", "सधैं", "Always"],
+  [114, "외양간/우사", "गाइगोठ", "Cowshed"],
+  [114, "떠들다/시끄럽다", "होहल्ला गर्नु/हुनु", "To be noisy"],
+  [114, "도로/길", "बाटो", "Road"],
+  [114, "부족하다/모자라다", "अपुग हुनु", "Lack"],
+  [114, "미인/미녀", "सुन्दरी", "Beauty"],
+  [114, "돼지우리/돈사", "वंगुर फर्म", "Sty"],
+  [114, "깎다/자르다/베다/썰다", "काट्नु", "To cut"],
+  [114, "운반하다/나르다/옮기다", "सार्नु", "Carry/Move"],
+  [114, "구별하다/분류하다", "छुट्याउनु", "Distinguish"],
+  [114, "추석/한가위/팔월대보름", "कोरियन दशैं", "Thanks giving day"],
+  [114, "선선하다/시원하다", "शितल हुनु", "Cool"],
+  [114, "부치다/보내다", "पठाउनु", "To send"],
+  [114, "분실물/유실물", "हराएको सामान", "Lost property"],
+  [114, "생선/물고기", "माछा", "Fish"],
+  [114, "환승하다/갈아타다", "परिवर्तन गरेर चढ्नु", "To transfer (Transportation)"],
+  [114, "환송하다/송별하다", "विदाइ गर्नु", "To farewell"],
+  [114, "분실하다/잃어버리다/잃다", "हराउनु/गुमाउनु", "To lose"],
+  [114, "문의하다/물어보다", "सोधपुछ गर्नु", "To inquiry"],
+  [115, "닫히다/문을 닫다", "ढोकावन्द गरिनु/हुनु", "Closed/Sealed the door"],
+  [115, "정류장/정류소", "बस विसौनी", "Bus station"],
+  [115, "규칙/규정/수칙", "नियम", "Rule"],
+  [115, "주변/주위", "वरिपरि", "Around"],
+  [115, "어렵다/힘들다/곤란하다", "अप्ठ्यारो/गाह्रो हुनु", "To be difficult/hard"],
+  [115, "연령/나이", "उमेर", "Age"],
+  [115, "다/모두/모든/전부", "सबै", "All"],
+  [115, "진짜/정말", "साँच्चीकै", "Really"],
+  [115, "높임말/존댓말", "शिष्ट भाषा", "Polite language"],
+  [115, "멈추다/중단하다", "रोक्नु", "To stop"],
+  [115, "출발하다/떠나다", "प्रस्थान गर्नु", "To depart"],
+  [115, "평일/주중", "हप्ताका मध्य दिनहरु", "Weekday"],
+  [115, "싸다/포장하다", "प्याकिङ गर्नु", "To pack"],
+  [115, "바꾸다/교환하다", "सामान साट्नु", "To exchange"],
+  [115, "돈/현금", "पैसा/नगद", "Money/Cash"],
+  [115, "저렴하다/싸다", "सुलभ/सस्तो हुनु", "To be cheap"],
+  [115, "이미/벌써", "पहिले नै", "Already"],
+  [115, "먼저/우선", "सुरुमा/सर्वप्रथम", "At first"],
+  [115, "배웅하다/바래다주다", "पुऱ्याउन जानु (मान्छे)", "See off"],
+  [115, "변경하다/바꾸다", "परिवर्तन गर्नु", "To change"],
+  [115, "지각하다/늦다", "ढिला हुनु", "To be late"],
+  [115, "결근하다/결석하다", "गयल हुनु", "To be absent"],
+  [115, "고르다/선택하다/선별하다/뽑다", "रोज्नु/छनौट गर्नु", "To select"],
+  [115, "지위/직급", "पद", "Post"],
+  [115, "업무/일/근무/작업/직무", "काम", "Task/Work/Duty"],
+  [115, "사다/구입하다/구매하다", "किन्नु/खरिद गर्नु", "To buy/Purchase"],
+  [116, "의류/옷", "लत्ता कपडा", "Clothing"],
+  [116, "의류점/의류 매장/옷 가게", "कपडा पसल", "Clothing store"],
+  [116, "세상/세계", "संसार", "World"],
+  [116, "쉽다/편하다", "सजिलो/सहज हुनु", "To be easy"],
+  [116, "인기하다/유명하다", "प्रख्यात हुनु", "To be famous"],
+  [116, "연장 근무/잔업", "थपकाम", "Overtime"],
+  [116, "근무지/작업장", "कार्यक्षेत्र", "Workplace"],
+  [116, "절약하다/아끼다", "बचत गर्नु", "To save"],
+  [116, "실업/실직", "बेरोजगारी", "Unemployment"],
+  [116, "이내/안", "भित्र", "Within"],
+  [116, "착용하다/입다", "पहिरनु", "To wear"],
+  [116, "실수하다/잘못하다", "गल्ती गर्नु", "Make a mistake"],
+  [116, "상태/상황/사건", "अवस्था", "Condition/Situation"],
+  [116, "주일/주", "हप्ता", "Week"],
+  [116, "치우다/비우다/옮기다", "हटाउनु", "Clean up/Move"],
+  [116, "이해하다/파악하다", "बुझ्नु", "To understand/Seize"],
+  [116, "잊어버리다/잊다", "बिर्सनु", "To forget"],
+  [116, "쓰다/사용하다/이용하다", "प्रयोग गर्नु", "To use"],
+  [116, "쓸다/청소하다", "बढार्नु/सफा गर्नु", "To sweep"],
+  [116, "시키다/주문하다", "अर्डर गर्नु", "To order"],
+  [116, "가족/가구/세대/식구", "परिवार", "Family"],
+  [116, "치수/사이즈", "साइज", "Size"],
+  [116, "사람/인간", "मानव", "Human"],
+  [116, "찬물/냉수/시원한 물", "चिसो पानी", "Cold water"],
+  [116, "만약/만일", "यदि", "If"],
+  [116, "사진기/카메라", "क्यामेरा", "Camera"],
+  [117, "밉다/싫다", "घृणा गर्नु", "To hate"],
+  [117, "마음껏/실컷", "मन लागे जति", "As you like"],
+  [117, "결정하다/마음을 먹다", "तय गर्नु", "To decide"],
+  [117, "자주/자꾸", "बारम्बार", "Repeatedly"],
+  [117, "별로/그다지", "खासै", "Not really/very"],
+  [117, "똑같이/마찬가지", "उस्तै", "Same"],
+  [117, "사라지다/없어지다", "लोप हुनु/हराउनु", "Disappear/Run out"],
+  [117, "책방/서점/문구점", "पुस्तक पसल/स्टेशनरी", "Book store/Stationary"],
+  [117, "분명히/완전히", "स्पष्ट संग/पूरा रूपले", "Clearly/Completely"],
+  [117, "실력/능력", "क्षमता", "Ability"],
+  [117, "참가/참석", "सहभागिता", "Attend"],
+  [117, "고치다/보수하다", "मर्मत/सुधार गर्नु", "To repair"],
+  [117, "응답/대답/답변", "उत्तर", "Answer"],
+  [117, "월봉/월급", "मासिक तलव", "Monthly salary"],
+  [117, "약속을 미루다/연기하다", "बाचा सार्नु", "To postpone a promise"],
+  [117, "안다/포옹하다", "अंकमाल गर्नु", "To hug"],
+  [117, "밝다/환하다", "उज्यालो हुनु", "To be bright"],
+  [117, "개발/발전", "विकाश", "Development"],
+  [117, "취업/취직", "रोजगार", "Employment"],
+  [117, "특징/특성", "विशेषता", "Characteristic"],
+  [117, "행동/동작", "व्यवहार/कार्य", "Activity/Action"],
+  [117, "허락/승낙", "अनुमति/स्वीकृति", "Allow/Consent"],
+  [117, "환대하다/대하다", "प्रस्तुत हुनु", "To treat/face"],
+  [117, "낮추다/줄이다", "घटाउनु", "To reduce"],
+  [117, "늘다/증가하다", "बढ्नु", "To increase"],
+  [117, "대여하다/빌려주다", "सापटी दिनु", "To lend"],
+  [118, "마련하다/준비하다", "तयारी गर्नु", "To prepare"],
+  [118, "뵙다/만나다", "भेट्नु", "To meet"],
+  [118, "수집하다/모으다", "जम्मा गर्नु", "To collect"],
+  [118, "해소하다/풀다", "समाधान गर्नु", "To solve"],
+  [118, "동일하다/같다", "उस्तै हुनु", "To be same"],
+  [118, "개다/접다", "पट्याउनु", "To fold"],
+  [118, "드디어/마침내", "अन्त्यमा", "Finally"],
+  [118, "끌다/당기다", "तान्नु", "To pull"],
+  [118, "느끼다/깨닫다", "महसुस गर्नु", "To feel"],
+  [118, "발생하다/생기다/일어나다", "देखापर्नु/आइलाग्नु", "To occur"],
+  [118, "까다/벗기다", "बोका निकाल्नु", "To hatch"],
+  [118, "지키다/보호하다", "सुरक्षा गर्नु", "To protect"],
+  [118, "포함하다/함유하다", "समावेश गर्नु", "To include"],
+  [118, "맡다/담당하다", "जिम्मा लगाउनु", "To entrust"],
+  [118, "팔리다/매진되다", "बेचिनु", "Sold out"],
+  [118, "확인하다/검토하다", "निश्चित गर्नु", "To confirm"],
+  [118, "새로운/현대적", "नयाँ/आधुनिक", "New/Modern"],
+  [118, "넓다/크다", "ठुलो हुनु", "To be huge"],
+  [118, "부딪히다/충돌되다", "ठोक्किनु", "To get hit/Collide"],
+  [118, "전도/넘어짐", "लड्नु", "To fall down"],
+  [118, "거두다/수확하다", "बाली उठाउनु", "To harvest"],
+  [118, "바라다/원하다", "चाहनु", "To wish"],
+  [118, "쭉/똑바로", "सिधै", "Straight"],
+  [118, "뜻/의미", "अर्थ", "Meaning"],
+  [118, "예방/방지", "रोकथाम", "Prevention"],
+  [118, "떨어짐/추락", "खस्नु", "To drop"],
+  [119, "같다/비슷하다", "उस्तै हुनु", "To be same"],
+  [119, "결혼/혼인", "विवाह", "Marriage"],
+  [119, "만들다/제작하다", "बनाउनु", "To make/manufacture"],
+  [119, "깜빡하다/잊어버리다", "बिर्सनु", "To forget"],
+  [119, "씻다/닦다/감다", "पखाल्नु", "To wash"],
+  [119, "받다/타다/수령하다", "पाउनु", "To get"],
+  [119, "벌다/얻다", "कमाउनु/हासिल गर्नु", "To earn"],
+  [119, "슬프다/우울하다", "निराश हुनु", "To be sad"],
+  [119, "배우다/학습하다", "सिक्नु/अभ्यास गर्नु", "To learn"],
+  [119, "말하다/대화하다", "कुरा गर्नु", "To talk"],
+  [119, "나누다/구분하다/가르다", "बाड्नु", "To divide"],
+  [119, "반갑다/즐겁다/기쁘다", "खुसी हुनु", "To be happy"],
+  [119, "한가하다/한가롭다", "फुर्सदिलो हुनु", "To be free"],
+  [119, "똑똑하다/영리하다", "चलाख हुनु", "To be clever"],
+  [119, "활발하다/명랑하다", "सक्रिय हुनु", "To be active"],
+  [119, "얌전하다/참하다", "शान्त स्वभावको हुनु", "To be quiet"],
+  [119, "달라지다/변화하다", "परिवर्तन हुनु", "To be change"],
+  [119, "불편하다/편찮다", "असहज हुनु", "To be uncomfortable"],
+  [119, "어지럽다/복잡하다", "लठारिए/जटिल हुनु", "To be dizzy/complex"],
+  [119, "아쉽다/아깝다/섭섭하다", "दुख लाग्नु", "To feel disappointed"],
+  [119, "제외하다/빼다", "हटाउनु/निकाल्नु", "To except"],
+  [119, "이어지다/연결되다", "जोडिनु", "To connect"],
+  [119, "보다/관람하다", "हेर्नु/दृश्य अवलोकन गर्नु", "To watch"],
+  [119, "조용하다/한적하다", "शान्त/सुनसान हुनु", "To be quiet"],
+  [119, "추측하다/예측하다", "अनुमान गर्नु", "To guess"],
+  [119, "속상하다/괴롭다", "निराश/दुखी हुनु", "To be upset"],
+  [120, "돈을 찾다/출금하다", "पैसा निकाल्नु", "Withdrawal"],
+  [120, "가격이 오르다/인상되다", "मूल्य वृद्धि हुनु", "To rise the price"],
+  [120, "적재하다/싣다", "सामान लोड गर्नु", "To load"],
+  [120, "막히다/차단되다/정지하다", "बाटो जाम/वन्द हुनु", "To be blocked"],
+  [120, "익숙하다/친하다", "घनिष्ठ हुनु", "To be familiar with"],
+  [120, "관계/관련", "सम्वन्ध", "Relation"],
+  [120, "전혀/통", "अलिकति पनि", "Not at all"],
+  [120, "애를 먹다/고생하다", "दुख पाउनु", "To suffer"],
+  [120, "꼭/반드시", "अनिवार्य", "Compulsory"],
+  [120, "뚜렷하다/분명하다", "स्पष्ट गर्नु", "To be distinct"],
+  [120, "어깨가 무겁다/부담이 되다", "बोझ हुनु", "To be burdened"],
+  [120, "신체/몸", "शरिर", "Body"],
+  [120, "바깥/밖", "बाहिर", "Outside"],
+  [120, "몸무게/체중", "शारीरिक तौल", "Weight"],
+  [120, "옛날/예전", "धेरै पहिले", "A long ago"],
+  [120, "집/주거", "घर", "House"],
+  [120, "저금/저축", "बचत", "Saving"],
+  [120, "주방/부엌", "भान्सा", "Kitchen"],
+  [120, "퇴직/퇴임", "अवकाश", "Retirement"],
+  [120, "평소/평상시", "साधारणतया", "Usually"],
+  [120, "정하다/결정하다", "निर्णय गर्नु", "To decide"],
+  [120, "꾸미다/단정하다", "सिगार्नु", "To decorate"],
+  [120, "대부분/대개", "अधिकांश", "Mostly"],
+  [120, "잡다/집다", "समाउनु", "To catch"],
+  [120, "키우다/기르다", "हुर्काउनु", "To raise"],
+  [120, "무료/공짜", "निशुल्क", "Free"],
+];
+
+/* CS1 pp.121-126 — विपरीतार्थी शब्दार्थ. The book prints the pair joined by a
+   dash; the dash is kept so the row reads as the page reads. */
+const BK_ANT = [
+  [121, "곧 - 천천히", "चाँडै-विस्तारै", "Soon - Slowly"],
+  [121, "가난 - 부자", "गरिब-धनी", "Poor - rich"],
+  [121, "웃다 - 울다", "हाँस्न-रुनु", "To laugh - cry"],
+  [121, "앉다 - 일어서다", "बस्नु-उठ्नु", "To sit down - stand up"],
+  [121, "크다 - 작다", "ठुलो-सानो हुनु", "To be big - small"],
+  [121, "적다 - 많다", "थोरै-धेरै", "To be little - many"],
+  [121, "길다 - 짧다", "लामो-छोटो हुनु", "To be long - short"],
+  [121, "직접 - 간접", "प्रत्यक्ष-अप्रत्यक्ष", "Direct - Indirect"],
+  [121, "승낙 - 거절", "स्वीकार-अस्वीकार", "Acceptance - refuse"],
+  [121, "계약 - 해약/해지", "सम्झौता-वदर", "Contract - cancellation"],
+  [121, "규칙적 - 불규칙적", "नियमित-अनियमित", "Regular-Irregular"],
+  [121, "미혼 - 기혼", "अविवाहित-विवाहित", "Single-married"],
+  [121, "절약 - 낭비", "बचत-खर्च", "Saving-waste"],
+  [121, "다수 - 소수", "वहुसंख्यक-अल्पसंख्यक", "Many-Few"],
+  [121, "장점 - 단점", "राम्रो पक्ष-नराम्रो पक्ष", "Good point/Bad point"],
+  [121, "가능 - 불가능", "सम्भव-असम्भव", "Possible-impossible"],
+  [121, "증가 - 감소", "वृद्धि-गिरावट", "Increase-decrease"],
+  [121, "속 - 겉", "भित्र-बाहिर", "Inside-outside"],
+  [121, "고속 - 저속", "उच्चगति-न्यून गति", "high speed-Low speed"],
+  [121, "긍정적 - 부정적", "सकारात्मक-नकारात्मक", "Positive-negative"],
+  [121, "내부 - 외부", "भित्रपट्टि-बाहिरपट्टि", "Inside- Outside"],
+  [121, "대형 - 소형", "ठुलो-सानो", "Large- Small"],
+  [121, "가입 - 탈퇴", "दर्ता-रद्द", "Join-secession"],
+  [121, "공짜 - 유료", "निःशुल्क-भुक्तानी गरिएको", "Free-paid"],
+  [122, "기쁨 - 슬픔", "खुशी-दुख", "Pleasure-sadness"],
+  [122, "남성 - 여성", "पुरुष-महिला", "Male-female"],
+  [122, "능력 - 무능력", "सक्षम-असक्षम", "Ability-incompetence"],
+  [122, "단기 - 장기", "अल्पकालिन-दीर्घकालिन", "short-term-long-term"],
+  [122, "더위 - 추위", "गर्मि-जाडो", "Heat-cold"],
+  [122, "마중 - 배웅", "लिन जानु-छोड्न जानु", "Receive person-sendoff"],
+  [122, "첫차 - 막차", "पहिलो गाडी-अन्तिम गाडी", "first car - last car"],
+  [122, "행복 - 불행", "खुसी-बेखुसी", "Happiness-Unhappiness"],
+  [122, "이익 - 손해", "फाइदा-घाटा", "Profit- loss"],
+  [122, "시내 - 시외", "शहरभित्र-बाहिर", "Inside the town -out of town"],
+  [122, "온라인 - 오프라인", "अनलाइन-अफलाइन", "Online-offline"],
+  [122, "만족 - 불만족", "सन्तुष्टि-असन्तुष्टि", "Satisfied-dissatisfaction"],
+  [122, "안 - 바깥", "भित्र-बाहिर", "Inside- Outside"],
+  [122, "낙관 - 비관", "आशावादी-निराशावादी", "Optimistic-Pessimistic"],
+  [122, "성공 - 실패", "सफलता-असफलता", "Success-failure"],
+  [122, "수입 - 수출", "आयात-निर्यात", "Income-Export"],
+  [122, "취업 - 실업", "रोजगार-वेरोजगार", "Employment-unemployment"],
+  [122, "연초 - 연말", "वर्षको शुरुवात-अन्त्य", "first of the year-Year-end"],
+  [122, "무료 - 유료", "निशुल्क-भुक्तान गरिएको", "Free-paid"],
+  [122, "만남 - 이별", "मिलन-विछोड", "Meeting-farewell"],
+  [122, "습득하다 - 분실하다", "हासिल गर्नु-गुमाउनु", "Get-lost"],
+  [122, "출생 - 사망", "जन्म-मृत्यु", "Birth-Death"],
+  [122, "성실 - 불성실", "इमान्दार-बेइमान", "Sincerity-insincerity"],
+  [122, "수입 - 지출", "आय-व्यय", "Income-expenditure"],
+  [122, "실내 - 야외", "कोठा भित्र-बाहिर", "Inside-outdoor"],
+  [122, "영상 - 영하", "शून्यभन्दा माथि-तल", "above zero-below zero"],
+  [123, "웃음 - 울음", "हासो-रोदन", "Laugh-Cry"],
+  [123, "음주 - 금주", "पिउनु-नपिउनु", "Drinking-giving up drinking"],
+  [123, "이상 - 이하", "भन्दा माथि-तल", "More than-Below"],
+  [123, "인상 - 인하", "वृद्धि-गिरावट", "Raise-Reduction"],
+  [123, "입사 - 퇴사", "समावेश-अवकाश", "Join - leave a company"],
+  [123, "다음날 - 전날", "अर्कोदिन-भन्दा पहिलो दिन", "Next day-before the day"],
+  [123, "찬물 - 더운물", "चिसो पानी-तातो पानी", "Cold water-Hot water"],
+  [123, "최고 - 최저", "उत्तम-न्यूनतम", "Best-lowest"],
+  [123, "최초 - 최종/마지막", "पहिलो-अन्तिम", "First-final / last"],
+  [123, "편한 - 불편", "सहज-असहज", "Convenient-Inconvenience"],
+  [123, "합격 - 불합격", "सफल-असफल", "Pass-fail"],
+  [123, "선배 - 후배", "सिनियर-जुनियर", "Senior-Junior"],
+  [123, "이전 - 이후", "अगाडि-पछाडि", "Previous- after"],
+  [123, "일등 - 꼴등", "प्रथम-अन्तिम", "First in class- Last in class"],
+  [123, "자동 - 수동", "स्वचालित-म्यानुअल", "Automatic-manual"],
+  [123, "젊은 - 노인", "जवान-वृद्ध", "Young people- old people"],
+  [123, "찬성 - 반대", "पक्ष-विपक्ष", "Agree-Opposition"],
+  [123, "최대 - 최소", "उच्चतम-न्यूनतम", "Maximum-at least"],
+  [123, "출석 - 결석", "हाजिर-गयल", "Attendance-absent"],
+  [123, "평등 - 불평등", "समानता-असमानता", "Equality-inequality"],
+  [123, "현실 - 이상", "वस्तविक-अनौठो", "Reality-abnormality"],
+  [123, "결혼 - 이혼", "विवाह-सम्वन्धविच्छेद", "Marriage-divorce"],
+  [123, "입금 - 출금", "पैसा राख्नु-निकाल्नु", "Deposit-withdraw"],
+  [123, "적극적 - 소극적", "सक्रिय-निष्क्रिय", "Active- passive"],
+  [123, "초 - 말", "सुरुवात-अन्त्य", "Starting- Ending"],
+  [123, "최대한 - 최소한", "अधिकतम-कमसेकम", "Most-at least"],
+  [124, "입원 - 퇴원", "अस्पताल भर्ना-डिस्चार्ज", "Hospitalization-Discharge"],
+  [124, "도착 - 미착", "पुग्नु-नपुग्नु", "Arrive - not reaching"],
+  [124, "일출 - 일몰", "सूर्योदय-सूर्यास्त", "Sunrise-Sunset"],
+  [124, "자다 - 깨다", "निदाउनु-जाग्नु", "Sleep-wake up"],
+  [124, "넓다 - 좁다", "फराकिलो-साँघुरो", "Wide - narrow"],
+  [124, "늘다 - 줄다", "बढ्नु-घट्नु", "Increase-decrease"],
+  [124, "데우다 - 식히다", "तताउनु-चिस्याउनु", "Warm up-Cool"],
+  [124, "밀다 - 당기다", "धकेल्नु-तान्नु", "Push-pull"],
+  [124, "생기다 - 없어지다", "देखिनु-हराउनु", "Appear-Disappear"],
+  [124, "올리다 - 내리다", "उठाउनु-झार्नु", "Put up-pull down"],
+  [124, "살이 찌다 - 빠지다", "पेट बढ्नु-घट्नु", "Gain weight-Lose weight"],
+  [124, "켜다 - 끄다", "बत्ती बाल्नु-निभाउनु", "Turn on-turn off"],
+  [124, "빌리다 - 갚다", "सापटि लिनु-फिर्ता गर्नु", "Borrow- pay back"],
+  [124, "켜지다 - 꺼지다", "बल्नु-निभ्नु", "Turned on - turned off"],
+  [124, "녹다 - 얼다", "जम्नु-पग्लिनु", "Freeze - melt"],
+  [124, "늘어나다 - 줄어들다", "वृद्धि हुनु-घट्नु", "Increase-decrease"],
+  [124, "붙이다 - 떼다", "टाँस्नु-उक्काउनु", "Attach-cut out"],
+  [124, "버리다 - 줍다", "फ्याक्नु-टिप्नु", "Throw-pick up"],
+  [124, "어기다 - 지키다", "पालना गर्नु-पालना नगर्नु", "Violate-Follow"],
+  [124, "열리다 - 닫히다", "खोलिनु-बन्द हुनु", "Open-close"],
+  [124, "웃기다 - 울리다", "हँसाउनु-रुवाउनु", "Laughing-make cry"],
+  [124, "기쁘다 - 슬프다", "खुसि हुनु-बेखुसी हुनु", "To be happy- sad"],
+  [124, "높이다 - 낮추다", "बढाउनु-घटाउनु", "Heighten-lower"],
+  [124, "놓치다 - 잡다", "छुट्नु-समाउनु", "To missed-pick up"],
+  [124, "묶다 - 풀다", "कस्नु-फुकाउनु", "Tie-solve/loose"],
+  [124, "살리다 - 죽이다", "बचाउनु-मार्नु", "To save - kill"],
+  [125, "얼다 - 녹이다", "जमाउनु-पगाल्नु", "Freeze-melt"],
+  [125, "올려놓다 - 내려놓다", "माथि राख्नु-तल राख्नु", "Put on-Lay down"],
+  [125, "가늘다/얇다 - 굵다/두껍다", "पातलो-बाक्लो हुनु", "Thin-thick"],
+  [125, "정신적 - 육체적", "मानसिक-शारीरिक", "Mental-Physical"],
+  [125, "강하다/튼튼하다 - 약하다", "बलियो-कमजोर", "Strong-weak"],
+  [125, "이롭다 - 해롭다", "फाइदा-हानिकारक", "Beneficial - harmful"],
+  [125, "연한 - 진한", "हल्का-ज्यादा", "To be soft-deep"],
+  [125, "부지런하다 - 게으르다", "जाँगरिलो-अल्छी", "Be diligent-lazy"],
+  [125, "깊다 - 얕다", "गहिरो-उत्ताउलो हुनु", "To be deep - shallow"],
+  [125, "이르다 - 늦다", "छिटो-ढिलो हुनु", "Early-late"],
+  [125, "가까이 - 멀리", "नजिक-टाढा", "Near-far"],
+  [125, "간단한 - 자세한/복잡한", "सरल-विस्तृत/जटिल", "Simple - detail / complex"],
+  [125, "(눈을) 뜨다 - 감다", "आँखा खोल्नु-बन्द गर्नु", "Open- close the eyes"],
+  [125, "안심하다 - 걱정하다", "निश्चिन्त-चिन्तित हुनु", "Be relieved-Worry"],
+  [125, "계속하다 - 그만하다/그만두다", "लगातार गर्नु-छाड्नु", "Continue-stop"],
+  [125, "고백하다 - 감추다", "कबुल गर्नु-लुकाउनु", "Confess- hide"],
+  [125, "고용하다 - 해고하다", "रोजगार दिनु-वर्खास्त गर्नु", "Hire-Dismiss"],
+  [125, "공통점 - 차이점", "साभा पक्ष-फरक पक्ष", "Common point-difference"],
+  [125, "관심 - 무관심", "रुची-हिनता", "Interest - indifference"],
+  [125, "구입 - 판매", "खरिद-विक्री", "Purchase-sale"],
+  [125, "젖히다 - 굽히다", "सोभ्याउनु-बङ्गाउनु", "Fling open-bend"],
+  [125, "이해 - 오해", "समभ-असमभ", "Understand - misunderstand"],
+  [125, "허가 - 금지", "अनुमति-निषेध", "Allow - prohibition"],
+  [125, "기억나다 - 잊어버리다", "सम्झनु-विसर्नु", "Remember-forget"],
+  [125, "깨끗하다 - 지저분하다", "सफा-फोहोर हुनु", "Clean-dirty"],
+  [125, "꽂다 - 뽑다", "घुसाउनु-निकाल्नु", "Plug in-pull out"],
+  [126, "잇다/연결하다 - 끊다", "जोड्नु-चुडाउनु", "Connect - Cut out"],
+  [126, "나서다 - 물러서다", "अगाडी आउनु-पछाडी जानु", "Come forward-go backward"],
+  [126, "나타나다 - 사라지다", "देखा पर्नु-लोप हुनु", "appear -Disappear"],
+  [126, "날씬하다 - 뚱뚱하다", "पातलो-मोटो हुनु", "Slim-Fat"],
+  [126, "느긋하다 - 급하다", "आनन्दित-हतारिलो", "Relax-hurry"],
+  [126, "줄이다 - 늘리다", "घटाइनु-बढाइनु", "Reduce-increase"],
+  [126, "동의하다 - 반대하다", "सहमत-असहमत हुनु", "Agree-Oppose"],
+  [126, "밝다 - 어둡다/깜깜하다", "उज्यालो-अध्यारो हुनु", "Bright-dark"],
+  [126, "조용하다 - 시끄럽다", "शान्त-होहल्ला हुनु", "Silent-noisy"],
+  [126, "똑똑하다 - 어리석다", "चलाख-मुर्ख हुनु", "Clever-stupid"],
+  [126, "맑다 - 흐리다", "मौसम सफा-खराब हुनु", "Clear-cloudy"],
+  [126, "대량 - 소량", "धेरै मात्रा-थोरै मात्रा", "Large - small quantity"],
+  [126, "대출하다 - 반납하다", "लिनु-तिर्नु", "To lend-return"],
+  [126, "입다 - 벗다", "पहिरनु-खोल्नु", "put on- put up"],
+  [126, "한가하다 - 바쁘다", "फ्रि हुनु-व्यस्त हुनु", "Free-busy"],
+  [126, "부드럽다 - 거칠다", "मुलायम-खस्रो हुनु", "Soft-Rough"],
+  [126, "부족하다 - 풍부하다/충분하다", "प्रशस्त हुनु-अपुग हुनु", "Lack-Suffice"],
+  [126, "합격하다 - 떨어지다", "पास हुनु-फेल हुनु", "Pass- Fail"],
+  [126, "돌려주다 - 빌리다", "सापटि लिनु-फिर्ता दिनु", "Give back-Borrow"],
+  [126, "익숙하다 - 서투르다", "बानी पर्नु-कमजोर हुनु", "Familiar - Awkward"],
+  [126, "소중히 - 함부로", "जतनगरी-मनपरी", "Carefully- Carelessly"],
+  [126, "수출하다 - 수입하다", "आयात-निर्यात", "Import- Export"],
+  [126, "숨기다 - 표현하다", "लुकाउनु-प्रस्तुत गर्नु", "Hide- Express"],
+  [126, "일어서다 - 쓰러지다", "उभिनु-लड्नु", "Get up- Lay down"],
+  [126, "자연스럽다 - 어색하다", "स्वभाविक-अस्वभाविक", "Natural - be awkward"],
+  [126, "켜다 - 잠그다", "अन गर्नु-बन्द गर्नु", "Turn on- Turn off"],
+];
+
 /* Final consonant -> Devanagari coda. Cluster finals collapse to the sound
    that is actually pronounced, which is what the book's own romanisation
    does too (닭 is "dak", not "dalg"). */
@@ -9058,6 +9419,7 @@ function bkDictHit(r) {
 }
 
 function bkDictSetLet(l) {
+  BK_DICT_MODE = "word";
   BK_DICT_LET = (BK_DICT_LET === l ? "" : l);
   BK_DICT_CAP = 60;
   const chips = document.querySelectorAll(".bk-dchip");
@@ -9081,19 +9443,57 @@ function bkDictClear() {
   bkDictPaint();
 }
 
+/* Three tables share this screen: the dictionary, its synonym half and its
+   antonym half. Same row shape (page, korean, nepali, english), same search,
+   same list — only the source array and the chips change. */
+let BK_DICT_MODE = "word";
+
+function bkDictRows() {
+  if (BK_DICT_MODE === "syn") return BK_SYN;
+  if (BK_DICT_MODE === "ant") return BK_ANT;
+  return BK_DICT;
+}
+
+/* The pair rows print two or more words per line ("곧/바로", "곧 - 천천히").
+   Speaking the whole line reads the separator aloud, so the tap speaks the
+   first word only. Dictionary headwords stay whole — 건강 보험 is one word. */
+function bkSpeak(r) {
+  if (BK_DICT_MODE === "word") return r[1];
+  return r[1].split(/\s+-\s+|\//)[0].replace(/[()]/g, "").trim();
+}
+
+/* The row shows the reading of every word it prints, not just the first one —
+   a half-read pair would look like the second word has no pronunciation. */
+function bkDev(s) {
+  if (BK_DICT_MODE === "word") return bkWord(s);
+  return s.split(/(\s+-\s+|\/)/).map(function (piece, i) {
+    return i % 2 ? piece : bkWord(piece);
+  }).join("");
+}
+
+function bkDictSetMode(m) {
+  BK_DICT_MODE = m;
+  BK_DICT_Q = "";
+  BK_DICT_LET = "";
+  BK_DICT_CAP = 60;
+  renderApp();
+}
+
 function bkDictPaint() {
   const box = document.getElementById("bkDictList");
   if (!box) return;
-  const hits = BK_DICT.filter(bkDictHit);
+  const data = bkDictRows();
+  const hits = data.filter(bkDictHit);
   const shown = hits.slice(0, BK_DICT_CAP);
 
   const count = document.getElementById("bkDictCount");
-  if (count) count.textContent = hits.length + " / " + BK_DICT.length;
+  if (count) count.textContent = hits.length + " / " + data.length;
 
   const rows = shown.map(function (r) {
-    return '<button type="button" class="bk-drow" onclick="say(\'' + r[1].replace(/'/g, "\\'") + '\', this)">' +
+    const sp = bkSpeak(r).replace(/'/g, "\\'");
+    return '<button type="button" class="bk-drow" onclick="say(\'' + sp + '\', this)">' +
       '<span class="bk-d-ko ko" lang="ko">' + r[1] + '</span>' +
-      '<span class="bk-d-dev">' + bkWord(r[1]) + '</span>' +
+      '<span class="bk-d-dev">' + bkDev(r[1]) + '</span>' +
       '<span class="bk-d-pg">p' + r[0] + '</span>' +
       '<span class="bk-d-ne">' + r[2] + ' <i>' + r[3] + '</i></span>' +
       '</button>';
@@ -9125,13 +9525,39 @@ function bkDict() {
       l + '<i>' + n + '</i></button>';
   }).join("");
 
-  return `
-    <h2 class="bk-h">${LANG === "ne" ? "कोरियन–नेपाली शब्दकोश" : "Korean–Nepali dictionary"}
-      <span class="bk-src">CS1 p189–233</span></h2>
+  const modes = [
+    ["word", LANG === "ne" ? "शब्दकोश" : "Dictionary", BK_DICT.length],
+    ["syn", LANG === "ne" ? "समानार्थी" : "Synonyms", BK_SYN.length],
+    ["ant", LANG === "ne" ? "विपरीत" : "Antonyms", BK_ANT.length]
+  ].map(function (m) {
+    return '<button type="button" class="bk-dmode' + (BK_DICT_MODE === m[0] ? " on" : "") + '" ' +
+      'onclick="bkDictSetMode(\'' + m[0] + '\')">' + m[1] + '<i>' + m[2] + '</i></button>';
+  }).join("");
 
-    <p class="bk-note">${LANG === "ne"
+  const HEAD = {
+    word: [LANG === "ne" ? "कोरियन–नेपाली शब्दकोश" : "Korean–Nepali dictionary", "CS1 p189–233"],
+    syn: [LANG === "ne" ? "समानार्थी शब्द" : "Synonyms", "CS1 p114–120"],
+    ant: [LANG === "ne" ? "विपरीतार्थी शब्द" : "Antonyms", "CS1 p121–126"]
+  }[BK_DICT_MODE];
+
+  const NOTE = {
+    word: LANG === "ne"
       ? "पुस्तकको आधा भाग व्याकरण होइन — यो शब्दकोश हो। " + BK_DICT.length + " शब्द हातले टाइप गरिएका छन्, छापिएको पृष्ठ नम्बरसहित। जुन अक्षरबाट शब्द सुरु हुन्छ त्यसमा थिच्नुहोस्, वा तल खोज्नुहोस्।"
-      : "Half of the 239-page scan is not grammar — it is a dictionary. " + BK_DICT.length + " entries typed by hand, each tagged with its printed page. Tap an initial, or search below."}</p>
+      : "Half of the 239-page scan is not grammar — it is a dictionary. " + BK_DICT.length + " entries typed by hand, each tagged with its printed page. Tap an initial, or search below.",
+    syn: LANG === "ne"
+      ? "एउटै अर्थ दिने दुई वा दुईभन्दा बढी शब्द। " + BK_SYN.length + " पङ्क्ति, पृष्ठ ११४–१२० बाट। जहाँ पुस्तकले एउटै शब्द दुईचोटि छापेको छ (p114 को 깎다) त्यो एकचोटि मात्र राखिएको छ।"
+      : "Two or more words that mean the same thing. " + BK_SYN.length + " rows from pp. 114–120. Where the book prints the same headword twice in one row (깎다 on p114) it is shown once.",
+    ant: LANG === "ne"
+      ? "उल्टो अर्थ दिने शब्दहरूको जोडी। " + BK_ANT.length + " जोडी, पृष्ठ १२१–१२६ बाट। जोडी जस्ताको तस्तै छापिएको छ; थिच्दा पहिलो शब्द मात्र बोलिन्छ।"
+      : "Pairs of words that mean the opposite. " + BK_ANT.length + " pairs from pp. 121–126. The pairs are printed as the book sets them; the tap speaks only the first word."
+  }[BK_DICT_MODE];
+
+  return `
+    <h2 class="bk-h">${HEAD[0]} <span class="bk-src">${HEAD[1]}</span></h2>
+
+    <div class="bk-dmodes">${modes}</div>
+
+    <p class="bk-note">${NOTE}</p>
 
     <div class="bk-dsearch">
       <input id="bkDictQ" type="search" inputmode="search" autocomplete="off"
@@ -9140,13 +9566,13 @@ function bkDict() {
       <button type="button" class="bk-dclear" onclick="bkDictClear()" aria-label="${LANG === "ne" ? "खाली गर्नुहोस्" : "Clear"}">✕</button>
     </div>
 
-    <div class="bk-dchips">${chips}</div>
+    ${BK_DICT_MODE === "word" ? '<div class="bk-dchips">' + chips + '</div>' : ""}
 
     <p class="bk-dmeta">
       <span id="bkDictCount"></span>
-      <span class="bk-dgone">${LANG === "ne"
-        ? "ㄹ खण्ड स्क्यानमै छैन"
-        : "The ㄹ section is not in the scan"}</span>
+      <span class="bk-dgone">${BK_DICT_MODE === "word"
+        ? (LANG === "ne" ? "ㄹ खण्ड स्क्यानमै छैन" : "The ㄹ section is not in the scan")
+        : (LANG === "ne" ? "थिचेर उच्चारण सुन्नुहोस्" : "Tap a row to hear it")}</span>
     </p>
 
     <div id="bkDictList"></div>
@@ -18642,7 +19068,7 @@ SW_TEMPLATE = r'''/* नेपालीमा हाङ्गुल — service 
  *   audio/ images/ icons/ fonts -> stale-while-revalidate
  *   /api/tts        -> never intercepted (per-request audio, app falls back to Web Speech)
  */
-const VERSION = "v33";
+const VERSION = "v34";
 const CACHE = "nepalihangul-" + VERSION;
 
 const QUIZ_IMAGES = %%IMAGES%%;
