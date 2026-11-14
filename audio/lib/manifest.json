@@ -1,6 +1,6 @@
 {
 "source": "bunpo",
-"count": 2221,
+"count": 3108,
 "slug": "hex codepoints joined by '-'",
 "clips": [
 {
@@ -179,6 +179,16 @@
 "duration": 0.303
 },
 {
+"text": "가게",
+"file": "ac00-ac8c.mp3",
+"duration": 0.56
+},
+{
+"text": "가격",
+"file": "ac00-aca9.mp3",
+"duration": 0.494
+},
+{
 "text": "가고 싶어해요",
 "file": "ac00-ace0-20-c2f6-c5b4-d574-c694.mp3",
 "duration": 1.033
@@ -189,9 +199,24 @@
 "duration": 1.357
 },
 {
+"text": "가공",
+"file": "ac00-acf5.mp3",
+"duration": 0.55
+},
+{
+"text": "가구",
+"file": "ac00-ad6c.mp3",
+"duration": 0.562
+},
+{
 "text": "가까워요",
 "file": "ac00-ae4c-c6cc-c694.mp3",
 "duration": 0.83
+},
+{
+"text": "가까이",
+"file": "ac00-ae4c-c774.mp3",
+"duration": 0.702
 },
 {
 "text": "가깝다",
@@ -199,14 +224,39 @@
 "duration": 0.801
 },
 {
+"text": "가난한",
+"file": "ac00-b09c-d55c.mp3",
+"duration": 0.75
+},
+{
 "text": "가다",
 "file": "ac00-b2e4.mp3",
 "duration": 0.508
 },
 {
+"text": "가래",
+"file": "ac00-b798.mp3",
+"duration": 0.541
+},
+{
+"text": "가렵다",
+"file": "ac00-b835-b2e4.mp3",
+"duration": 0.745
+},
+{
+"text": "가루",
+"file": "ac00-b8e8.mp3",
+"duration": 0.538
+},
+{
 "text": "가르다",
 "file": "ac00-b974-b2e4.mp3",
 "duration": 0.622
+},
+{
+"text": "가르치다",
+"file": "ac00-b974-ce58-b2e4.mp3",
+"duration": 0.783
 },
 {
 "text": "가방",
@@ -217,6 +267,11 @@
 "text": "가방이 있어요.",
 "file": "ac00-bc29-c774-20-c788-c5b4-c694-2e.mp3",
 "duration": 1.127
+},
+{
+"text": "가벼운",
+"file": "ac00-bcbc-c6b4.mp3",
+"duration": 0.702
 },
 {
 "text": "가수",
@@ -234,9 +289,34 @@
 "duration": 0.482
 },
 {
+"text": "가위",
+"file": "ac00-c704.mp3",
+"duration": 0.591
+},
+{
 "text": "가을",
 "file": "ac00-c744.mp3",
 "duration": 0.528
+},
+{
+"text": "가입하다",
+"file": "ac00-c785-d558-b2e4.mp3",
+"duration": 0.79
+},
+{
+"text": "가져가다",
+"file": "ac00-c838-ac00-b2e4.mp3",
+"duration": 0.784
+},
+{
+"text": "가져오다",
+"file": "ac00-c838-c624-b2e4.mp3",
+"duration": 0.772
+},
+{
+"text": "가족",
+"file": "ac00-c871.mp3",
+"duration": 0.49
 },
 {
 "text": "가지 않습니다",
@@ -269,6 +349,16 @@
 "duration": 0.461
 },
 {
+"text": "간장",
+"file": "ac04-c7a5.mp3",
+"duration": 0.705
+},
+{
+"text": "간호사",
+"file": "ac04-d638-c0ac.mp3",
+"duration": 0.719
+},
+{
 "text": "갇",
 "file": "ac07.mp3",
 "duration": 0.282
@@ -297,6 +387,11 @@
 "text": "갈라요",
 "file": "ac08-b77c-c694.mp3",
 "duration": 0.737
+},
+{
+"text": "갈비",
+"file": "ac08-be44.mp3",
+"duration": 0.681
 },
 {
 "text": "갈아타다",
@@ -329,6 +424,16 @@
 "duration": 0.934
 },
 {
+"text": "감옥",
+"file": "ac10-c625.mp3",
+"duration": 0.487
+},
+{
+"text": "감전",
+"file": "ac10-c804.mp3",
+"duration": 0.689
+},
+{
 "text": "갑",
 "file": "ac11.mp3",
 "duration": 0.309
@@ -342,6 +447,11 @@
 "text": "갑니다",
 "file": "ac11-b2c8-b2e4.mp3",
 "duration": 0.666
+},
+{
+"text": "갑자기",
+"file": "ac11-c790-ae30.mp3",
+"duration": 0.796
 },
 {
 "text": "값",
@@ -369,6 +479,11 @@
 "duration": 0.429
 },
 {
+"text": "강아지",
+"file": "ac15-c544-c9c0.mp3",
+"duration": 0.747
+},
+{
 "text": "같이",
 "file": "ac19-c774.mp3",
 "duration": 0.699
@@ -382,6 +497,16 @@
 "text": "개",
 "file": "ac1c.mp3",
 "duration": 0.372
+},
+{
+"text": "개구리",
+"file": "ac1c-ad6c-b9ac.mp3",
+"duration": 0.693
+},
+{
+"text": "개인",
+"file": "ac1c-c778.mp3",
+"duration": 0.557
 },
 {
 "text": "갸",
@@ -439,6 +564,26 @@
 "duration": 0.603
 },
 {
+"text": "거리",
+"file": "ac70-b9ac.mp3",
+"duration": 0.539
+},
+{
+"text": "거스름 돈",
+"file": "ac70-c2a4-b984-20-b3c8.mp3",
+"duration": 0.95
+},
+{
+"text": "거울",
+"file": "ac70-c6b8.mp3",
+"duration": 0.544
+},
+{
+"text": "거짓말하다",
+"file": "ac70-c9d3-b9d0-d558-b2e4.mp3",
+"duration": 0.933
+},
+{
 "text": "걱",
 "file": "ac71.mp3",
 "duration": 0.289
@@ -447,6 +592,21 @@
 "text": "건",
 "file": "ac74.mp3",
 "duration": 0.428
+},
+{
+"text": "건강 보험",
+"file": "ac74-ac15-20-bcf4-d5d8.mp3",
+"duration": 0.912
+},
+{
+"text": "건너편",
+"file": "ac74-b108-d3b8.mp3",
+"duration": 0.812
+},
+{
+"text": "건물",
+"file": "ac74-bb3c.mp3",
+"duration": 0.611
 },
 {
 "text": "걷",
@@ -499,6 +659,16 @@
 "duration": 0.4
 },
 {
+"text": "게시판",
+"file": "ac8c-c2dc-d310.mp3",
+"duration": 0.787
+},
+{
+"text": "게으른",
+"file": "ac8c-c73c-b978.mp3",
+"duration": 0.706
+},
+{
 "text": "겨",
 "file": "aca8.mp3",
 "duration": 0.404
@@ -529,6 +699,21 @@
 "duration": 0.432
 },
 {
+"text": "결과",
+"file": "acb0-acfc.mp3",
+"duration": 0.624
+},
+{
+"text": "결정",
+"file": "acb0-c815.mp3",
+"duration": 0.69
+},
+{
+"text": "결핵",
+"file": "acb0-d575.mp3",
+"duration": 0.494
+},
+{
 "text": "겸",
 "file": "acb8.mp3",
 "duration": 0.405
@@ -544,14 +729,29 @@
 "duration": 0.402
 },
 {
+"text": "경제적인",
+"file": "acbd-c81c-c801-c778.mp3",
+"duration": 0.95
+},
+{
 "text": "경찰",
 "file": "acbd-cc30.mp3",
 "duration": 0.715
 },
 {
+"text": "경험",
+"file": "acbd-d5d8.mp3",
+"duration": 0.578
+},
+{
 "text": "계",
 "file": "acc4.mp3",
 "duration": 0.401
+},
+{
+"text": "계곡",
+"file": "acc4-ace1.mp3",
+"duration": 0.478
 },
 {
 "text": "계단",
@@ -564,6 +764,11 @@
 "duration": 0.573
 },
 {
+"text": "계발",
+"file": "acc4-bc1c.mp3",
+"duration": 0.543
+},
+{
 "text": "계산서 주세요.",
 "file": "acc4-c0b0-c11c-20-c8fc-c138-c694-2e.mp3",
 "duration": 1.118
@@ -574,9 +779,29 @@
 "duration": 1.073
 },
 {
+"text": "계속",
+"file": "acc4-c18d.mp3",
+"duration": 0.528
+},
+{
+"text": "계절",
+"file": "acc4-c808.mp3",
+"duration": 0.561
+},
+{
+"text": "계획",
+"file": "acc4-d68d.mp3",
+"duration": 0.478
+},
+{
 "text": "고",
 "file": "ace0.mp3",
 "duration": 0.409
+},
+{
+"text": "고객",
+"file": "ace0-ac1d.mp3",
+"duration": 0.516
 },
 {
 "text": "고기",
@@ -604,9 +829,49 @@
 "duration": 0.94
 },
 {
+"text": "고모",
+"file": "ace0-baa8.mp3",
+"duration": 0.512
+},
+{
+"text": "고사",
+"file": "ace0-c0ac.mp3",
+"duration": 0.583
+},
+{
+"text": "고성방가",
+"file": "ace0-c131-bc29-ac00.mp3",
+"duration": 0.933
+},
+{
+"text": "고속도로",
+"file": "ace0-c18d-b3c4-b85c.mp3",
+"duration": 0.836
+},
+{
+"text": "고양이",
+"file": "ace0-c591-c774.mp3",
+"duration": 0.724
+},
+{
 "text": "고와요",
 "file": "ace0-c640-c694.mp3",
 "duration": 0.747
+},
+{
+"text": "고용허가제",
+"file": "ace0-c6a9-d5c8-ac00-c81c.mp3",
+"duration": 0.971
+},
+{
+"text": "고추",
+"file": "ace0-cd94.mp3",
+"duration": 0.665
+},
+{
+"text": "고추가루",
+"file": "ace0-cd94-ac00-b8e8.mp3",
+"duration": 0.84
 },
 {
 "text": "고파요",
@@ -622,6 +887,11 @@
 "text": "곡",
 "file": "ace1.mp3",
 "duration": 0.298
+},
+{
+"text": "곡물",
+"file": "ace1-bb3c.mp3",
+"duration": 0.601
 },
 {
 "text": "곤",
@@ -664,6 +934,11 @@
 "duration": 0.404
 },
 {
+"text": "공기",
+"file": "acf5-ae30.mp3",
+"duration": 0.657
+},
+{
 "text": "공부",
 "file": "acf5-bd80.mp3",
 "duration": 0.61
@@ -687,6 +962,11 @@
 "text": "공장",
 "file": "acf5-c7a5.mp3",
 "duration": 0.653
+},
+{
+"text": "공중",
+"file": "acf5-c911.mp3",
+"duration": 0.645
 },
 {
 "text": "공책",
@@ -719,6 +999,11 @@
 "duration": 1.139
 },
 {
+"text": "과목",
+"file": "acfc-baa9.mp3",
+"duration": 0.494
+},
+{
 "text": "과일",
 "file": "acfc-c77c.mp3",
 "duration": 0.543
@@ -727,6 +1012,26 @@
 "text": "과일 닌자",
 "file": "acfc-c77c-20-b2cc-c790.mp3",
 "duration": 0.975
+},
+{
+"text": "과정",
+"file": "acfc-c815.mp3",
+"duration": 0.594
+},
+{
+"text": "과학",
+"file": "acfc-d559.mp3",
+"duration": 0.488
+},
+{
+"text": "관심",
+"file": "ad00-c2ec.mp3",
+"duration": 0.717
+},
+{
+"text": "광고",
+"file": "ad11-ace0.mp3",
+"duration": 0.613
 },
 {
 "text": "괘",
@@ -769,6 +1074,16 @@
 "duration": 4.942
 },
 {
+"text": "교통",
+"file": "ad50-d1b5.mp3",
+"duration": 0.605
+},
+{
+"text": "교통 카드",
+"file": "ad50-d1b5-20-ce74-b4dc.mp3",
+"duration": 0.903
+},
+{
 "text": "굑",
 "file": "ad51.mp3",
 "duration": 0.321
@@ -809,6 +1124,11 @@
 "duration": 0.376
 },
 {
+"text": "구덩",
+"file": "ad6c-b369.mp3",
+"duration": 0.564
+},
+{
 "text": "구두",
 "file": "ad6c-b450.mp3",
 "duration": 0.554
@@ -817,6 +1137,11 @@
 "text": "구름",
 "file": "ad6c-b984.mp3",
 "duration": 0.564
+},
+{
+"text": "구멍",
+"file": "ad6c-ba4d.mp3",
+"duration": 0.557
 },
 {
 "text": "국",
@@ -832,6 +1157,11 @@
 "text": "국수",
 "file": "ad6d-c218.mp3",
 "duration": 0.688
+},
+{
+"text": "국제",
+"file": "ad6d-c81c.mp3",
+"duration": 0.655
 },
 {
 "text": "군",
@@ -882,6 +1212,11 @@
 "text": "귀",
 "file": "adc0.mp3",
 "duration": 0.403
+},
+{
+"text": "귀국하다",
+"file": "adc0-ad6d-d558-b2e4.mp3",
+"duration": 0.796
 },
 {
 "text": "규",
@@ -939,9 +1274,24 @@
 "duration": 0.516
 },
 {
+"text": "그냥",
+"file": "adf8-b0e5.mp3",
+"duration": 0.603
+},
+{
+"text": "그람",
+"file": "adf8-b78c.mp3",
+"duration": 0.562
+},
+{
 "text": "그래요",
 "file": "adf8-b798-c694.mp3",
 "duration": 0.659
+},
+{
+"text": "그러나 / 그런데",
+"file": "adf8-b7ec-b098-20-2f-20-adf8-b7f0-b370.mp3",
+"duration": 1.344
 },
 {
 "text": "그러면 같이 갑시다",
@@ -959,9 +1309,19 @@
 "duration": 0.446
 },
 {
+"text": "그리고",
+"file": "adf8-b9ac-ace0.mp3",
+"duration": 0.641
+},
+{
 "text": "그어요",
 "file": "adf8-c5b4-c694.mp3",
 "duration": 0.661
+},
+{
+"text": "그저께",
+"file": "adf8-c800-aed8.mp3",
+"duration": 0.749
 },
 {
 "text": "극",
@@ -972,6 +1332,26 @@
 "text": "근",
 "file": "adfc.mp3",
 "duration": 0.438
+},
+{
+"text": "근로 복지당",
+"file": "adfc-b85c-20-bcf5-c9c0-b2f9.mp3",
+"duration": 1.053
+},
+{
+"text": "근로자",
+"file": "adfc-b85c-c790.mp3",
+"duration": 0.698
+},
+{
+"text": "근무",
+"file": "adfc-bb34.mp3",
+"duration": 0.568
+},
+{
+"text": "근처",
+"file": "adfc-cc98.mp3",
+"duration": 0.66
 },
 {
 "text": "귿",
@@ -989,14 +1369,39 @@
 "duration": 0.429
 },
 {
+"text": "금년",
+"file": "ae08-b144.mp3",
+"duration": 0.63
+},
+{
+"text": "금방",
+"file": "ae08-bc29.mp3",
+"duration": 0.615
+},
+{
 "text": "금요일",
 "file": "ae08-c694-c77c.mp3",
 "duration": 0.651
 },
 {
+"text": "금지",
+"file": "ae08-c9c0.mp3",
+"duration": 0.665
+},
+{
+"text": "금지표지",
+"file": "ae08-c9c0-d45c-c9c0.mp3",
+"duration": 0.985
+},
+{
 "text": "급",
 "file": "ae09.mp3",
 "duration": 0.28
+},
+{
+"text": "급하다",
+"file": "ae09-d558-b2e4.mp3",
+"duration": 0.676
 },
 {
 "text": "긋다",
@@ -1024,6 +1429,21 @@
 "duration": 0.525
 },
 {
+"text": "기도",
+"file": "ae30-b3c4.mp3",
+"duration": 0.529
+},
+{
+"text": "기름",
+"file": "ae30-b984.mp3",
+"duration": 0.526
+},
+{
+"text": "기본급",
+"file": "ae30-bcf8-ae09.mp3",
+"duration": 0.737
+},
+{
 "text": "기뻐요",
 "file": "ae30-bed0-c694.mp3",
 "duration": 0.738
@@ -1034,6 +1454,31 @@
 "duration": 0.683
 },
 {
+"text": "기쁨",
+"file": "ae30-c068.mp3",
+"duration": 0.652
+},
+{
+"text": "기숙사",
+"file": "ae30-c219-c0ac.mp3",
+"duration": 0.805
+},
+{
+"text": "기술",
+"file": "ae30-c220.mp3",
+"duration": 0.593
+},
+{
+"text": "기억",
+"file": "ae30-c5b5.mp3",
+"duration": 0.416
+},
+{
+"text": "기온",
+"file": "ae30-c628.mp3",
+"duration": 0.53
+},
+{
 "text": "기자",
 "file": "ae30-c790.mp3",
 "duration": 0.511
@@ -1042,6 +1487,11 @@
 "text": "기차",
 "file": "ae30-cc28.mp3",
 "duration": 0.581
+},
+{
+"text": "기침",
+"file": "ae30-ce68.mp3",
+"duration": 0.677
 },
 {
 "text": "긱",
@@ -1079,6 +1529,11 @@
 "duration": 0.673
 },
 {
+"text": "길이",
+"file": "ae38-c774.mp3",
+"duration": 0.542
+},
+{
 "text": "김",
 "file": "ae40.mp3",
 "duration": 0.434
@@ -1104,6 +1559,11 @@
 "duration": 0.277
 },
 {
+"text": "깃발",
+"file": "ae43-bc1c.mp3",
+"duration": 0.625
+},
+{
 "text": "깅",
 "file": "ae45.mp3",
 "duration": 0.412
@@ -1112,6 +1572,11 @@
 "text": "까",
 "file": "ae4c.mp3",
 "duration": 0.342
+},
+{
+"text": "까마귀",
+"file": "ae4c-b9c8-adc0.mp3",
+"duration": 0.694
 },
 {
 "text": "까맣다",
@@ -1124,9 +1589,39 @@
 "duration": 0.672
 },
 {
+"text": "까팡이",
+"file": "ae4c-d321-c774.mp3",
+"duration": 0.745
+},
+{
+"text": "깎다",
+"file": "ae4e-b2e4.mp3",
+"duration": 0.587
+},
+{
+"text": "깜빡",
+"file": "ae5c-be61.mp3",
+"duration": 0.611
+},
+{
+"text": "깡패",
+"file": "ae61-d328.mp3",
+"duration": 0.677
+},
+{
 "text": "깨",
 "file": "ae68.mp3",
 "duration": 0.382
+},
+{
+"text": "깨끗한",
+"file": "ae68-b057-d55c.mp3",
+"duration": 0.8
+},
+{
+"text": "깨다",
+"file": "ae68-b2e4.mp3",
+"duration": 0.513
 },
 {
 "text": "깨닫다",
@@ -1137,6 +1632,16 @@
 "text": "깨달아요",
 "file": "ae68-b2ec-c544-c694.mp3",
 "duration": 0.797
+},
+{
+"text": "깨우다",
+"file": "ae68-c6b0-b2e4.mp3",
+"duration": 0.64
+},
+{
+"text": "깨지다",
+"file": "ae68-c9c0-b2e4.mp3",
+"duration": 0.644
 },
 {
 "text": "꺄",
@@ -1154,9 +1659,19 @@
 "duration": 0.381
 },
 {
+"text": "꺼림하다",
+"file": "aebc-b9bc-d558-b2e4.mp3",
+"duration": 0.768
+},
+{
 "text": "꺼요",
 "file": "aebc-c694.mp3",
 "duration": 0.551
+},
+{
+"text": "꺾다",
+"file": "aebe-b2e4.mp3",
+"duration": 0.605
 },
 {
 "text": "께",
@@ -1167,6 +1682,11 @@
 "text": "껴",
 "file": "aef4.mp3",
 "duration": 0.414
+},
+{
+"text": "껴안다",
+"file": "aef4-c548-b2e4.mp3",
+"duration": 0.666
 },
 {
 "text": "꼐",
@@ -1182,6 +1702,36 @@
 "text": "꼬리",
 "file": "af2c-b9ac.mp3",
 "duration": 0.546
+},
+{
+"text": "꼬마",
+"file": "af2c-b9c8.mp3",
+"duration": 0.476
+},
+{
+"text": "꼭",
+"file": "af2d.mp3",
+"duration": 0.298
+},
+{
+"text": "꼭대기",
+"file": "af2d-b300-ae30.mp3",
+"duration": 0.786
+},
+{
+"text": "꽂다",
+"file": "af42-b2e4.mp3",
+"duration": 0.599
+},
+{
+"text": "꽃",
+"file": "af43.mp3",
+"duration": 0.3
+},
+{
+"text": "꽃집",
+"file": "af43-c9d1.mp3",
+"duration": 0.577
 },
 {
 "text": "꽈",
@@ -1207,6 +1757,21 @@
 "text": "꾸",
 "file": "afb8.mp3",
 "duration": 0.38
+},
+{
+"text": "꾸짖다",
+"file": "afb8-c9d6-b2e4.mp3",
+"duration": 0.719
+},
+{
+"text": "꿀",
+"file": "afc0.mp3",
+"duration": 0.421
+},
+{
+"text": "꿈",
+"file": "afc8.mp3",
+"duration": 0.4
 },
 {
 "text": "꿔",
@@ -1239,6 +1804,21 @@
 "duration": 0.476
 },
 {
+"text": "끈",
+"file": "b048.mp3",
+"duration": 0.44
+},
+{
+"text": "끓다",
+"file": "b053-b2e4.mp3",
+"duration": 0.598
+},
+{
+"text": "끓이",
+"file": "b053-c774.mp3",
+"duration": 0.527
+},
+{
 "text": "끠",
 "file": "b060.mp3",
 "duration": 0.387
@@ -1249,9 +1829,39 @@
 "duration": 0.399
 },
 {
+"text": "끼다",
+"file": "b07c-b2e4.mp3",
+"duration": 0.489
+},
+{
+"text": "끼이다",
+"file": "b07c-c774-b2e4.mp3",
+"duration": 0.619
+},
+{
+"text": "끼하다",
+"file": "b07c-d558-b2e4.mp3",
+"duration": 0.611
+},
+{
 "text": "나",
 "file": "b098.mp3",
 "duration": 0.398
+},
+{
+"text": "나가다",
+"file": "b098-ac00-b2e4.mp3",
+"duration": 0.658
+},
+{
+"text": "나누다",
+"file": "b098-b204-b2e4.mp3",
+"duration": 0.651
+},
+{
+"text": "나다",
+"file": "b098-b2e4.mp3",
+"duration": 0.534
 },
 {
 "text": "나라",
@@ -1269,6 +1879,11 @@
 "duration": 0.545
 },
 {
+"text": "나물",
+"file": "b098-bb3c.mp3",
+"duration": 0.581
+},
+{
 "text": "나비",
 "file": "b098-be44.mp3",
 "duration": 0.621
@@ -1284,14 +1899,39 @@
 "duration": 0.689
 },
 {
+"text": "나쁜",
+"file": "b098-c05c.mp3",
+"duration": 0.689
+},
+{
 "text": "나아요",
 "file": "b098-c544-c694.mp3",
 "duration": 0.71
 },
 {
+"text": "나이",
+"file": "b098-c774.mp3",
+"duration": 0.572
+},
+{
+"text": "나중에",
+"file": "b098-c911-c5d0.mp3",
+"duration": 0.674
+},
+{
+"text": "나타나다",
+"file": "b098-d0c0-b098-b2e4.mp3",
+"duration": 0.795
+},
+{
 "text": "낙",
 "file": "b099.mp3",
 "duration": 0.325
+},
+{
+"text": "낚시",
+"file": "b09a-c2dc.mp3",
+"duration": 0.764
 },
 {
 "text": "난",
@@ -1314,9 +1954,19 @@
 "duration": 0.451
 },
 {
+"text": "날다",
+"file": "b0a0-b2e4.mp3",
+"duration": 0.581
+},
+{
 "text": "날라요",
 "file": "b0a0-b77c-c694.mp3",
 "duration": 0.743
+},
+{
+"text": "날마다",
+"file": "b0a0-b9c8-b2e4.mp3",
+"duration": 0.694
 },
 {
 "text": "날씨",
@@ -1344,9 +1994,29 @@
 "duration": 1.265
 },
 {
+"text": "날짜",
+"file": "b0a0-c9dc.mp3",
+"duration": 0.665
+},
+{
 "text": "남",
 "file": "b0a8.mp3",
 "duration": 0.47
+},
+{
+"text": "남기다",
+"file": "b0a8-ae30-b2e4.mp3",
+"duration": 0.707
+},
+{
+"text": "남동생",
+"file": "b0a8-b3d9-c0dd.mp3",
+"duration": 0.849
+},
+{
+"text": "남성",
+"file": "b0a8-c131.mp3",
+"duration": 0.65
 },
 {
 "text": "남자",
@@ -1359,9 +2029,24 @@
 "duration": 0.977
 },
 {
+"text": "남쪽",
+"file": "b0a8-cabd.mp3",
+"duration": 0.627
+},
+{
+"text": "남편",
+"file": "b0a8-d3b8.mp3",
+"duration": 0.696
+},
+{
 "text": "납",
 "file": "b0a9.mp3",
 "duration": 0.349
+},
+{
+"text": "낫",
+"file": "b0ab.mp3",
+"duration": 0.355
 },
 {
 "text": "낫다",
@@ -1409,9 +2094,34 @@
 "duration": 0.436
 },
 {
+"text": "내과",
+"file": "b0b4-acfc.mp3",
+"duration": 0.633
+},
+{
+"text": "내년",
+"file": "b0b4-b144.mp3",
+"duration": 0.623
+},
+{
+"text": "내다",
+"file": "b0b4-b2e4.mp3",
+"duration": 0.53
+},
+{
 "text": "내리다",
 "file": "b0b4-b9ac-b2e4.mp3",
 "duration": 0.647
+},
+{
+"text": "내복",
+"file": "b0b4-bcf5.mp3",
+"duration": 0.502
+},
+{
+"text": "내용",
+"file": "b0b4-c6a9.mp3",
+"duration": 0.594
 },
 {
 "text": "내일",
@@ -1442,6 +2152,31 @@
 "text": "내일은 무엇을 하십니까?",
 "file": "b0b4-c77c-c740-20-bb34-c5c7-c744-20-d558-c2ed-b2c8-ae4c-3f.mp3",
 "duration": 1.57
+},
+{
+"text": "냄비",
+"file": "b0c4-be44.mp3",
+"duration": 0.711
+},
+{
+"text": "냄새",
+"file": "b0c4-c0c8.mp3",
+"duration": 0.712
+},
+{
+"text": "냉면",
+"file": "b0c9-ba74.mp3",
+"duration": 0.676
+},
+{
+"text": "냉장고",
+"file": "b0c9-c7a5-ace0.mp3",
+"duration": 0.853
+},
+{
+"text": "냉커피",
+"file": "b0c9-cee4-d53c.mp3",
+"duration": 0.906
 },
 {
 "text": "냐",
@@ -1494,6 +2229,11 @@
 "duration": 0.436
 },
 {
+"text": "너무",
+"file": "b108-bb34.mp3",
+"duration": 0.597
+},
+{
 "text": "넉",
 "file": "b109.mp3",
 "duration": 0.36
@@ -1514,9 +2254,19 @@
 "duration": 0.431
 },
 {
+"text": "넓은",
+"file": "b113-c740.mp3",
+"duration": 0.661
+},
+{
 "text": "넘",
 "file": "b118.mp3",
 "duration": 0.459
+},
+{
+"text": "넘어지다",
+"file": "b118-c5b4-c9c0-b2e4.mp3",
+"duration": 0.78
 },
 {
 "text": "넙",
@@ -1599,6 +2349,11 @@
 "duration": 1.306
 },
 {
+"text": "넥타이",
+"file": "b125-d0c0-c774.mp3",
+"duration": 0.759
+},
+{
 "text": "넷",
 "file": "b137.mp3",
 "duration": 0.388
@@ -1654,6 +2409,16 @@
 "duration": 0.423
 },
 {
+"text": "노동",
+"file": "b178-b3d9.mp3",
+"duration": 0.579
+},
+{
+"text": "노란",
+"file": "b178-b780.mp3",
+"duration": 0.594
+},
+{
 "text": "노랗다",
 "file": "b178-b797-b2e4.mp3",
 "duration": 0.736
@@ -1667,6 +2432,26 @@
 "text": "노래요",
 "file": "b178-b798-c694.mp3",
 "duration": 0.696
+},
+{
+"text": "노력",
+"file": "b178-b825.mp3",
+"duration": 0.531
+},
+{
+"text": "노선",
+"file": "b178-c120.mp3",
+"duration": 0.609
+},
+{
+"text": "노약자석",
+"file": "b178-c57d-c790-c11d.mp3",
+"duration": 0.842
+},
+{
+"text": "노크하다",
+"file": "b178-d06c-d558-b2e4.mp3",
+"duration": 0.779
 },
 {
 "text": "노트를 새로 샀어요.",
@@ -1717,6 +2502,41 @@
 "text": "농",
 "file": "b18d.mp3",
 "duration": 0.419
+},
+{
+"text": "농구",
+"file": "b18d-ad6c.mp3",
+"duration": 0.616
+},
+{
+"text": "농담",
+"file": "b18d-b2f4.mp3",
+"duration": 0.687
+},
+{
+"text": "농부",
+"file": "b18d-bd80.mp3",
+"duration": 0.632
+},
+{
+"text": "농사",
+"file": "b18d-c0ac.mp3",
+"duration": 0.654
+},
+{
+"text": "농약",
+"file": "b18d-c57d.mp3",
+"duration": 0.542
+},
+{
+"text": "높다",
+"file": "b192-b2e4.mp3",
+"duration": 0.613
+},
+{
+"text": "놓다",
+"file": "b193-b2e4.mp3",
+"duration": 0.574
 },
 {
 "text": "놔",
@@ -1777,6 +2597,21 @@
 "text": "누",
 "file": "b204.mp3",
 "duration": 0.423
+},
+{
+"text": "누구",
+"file": "b204-ad6c.mp3",
+"duration": 0.587
+},
+{
+"text": "누구든지",
+"file": "b204-ad6c-b4e0-c9c0.mp3",
+"duration": 0.917
+},
+{
+"text": "누나",
+"file": "b204-b098.mp3",
+"duration": 0.488
 },
 {
 "text": "누르다",
@@ -1919,6 +2754,16 @@
 "duration": 0.466
 },
 {
+"text": "능력",
+"file": "b2a5-b825.mp3",
+"duration": 0.579
+},
+{
+"text": "늦다",
+"file": "b2a6-b2e4.mp3",
+"duration": 0.613
+},
+{
 "text": "늬",
 "file": "b2ac.mp3",
 "duration": 0.481
@@ -1974,6 +2819,11 @@
 "duration": 0.6
 },
 {
+"text": "다른",
+"file": "b2e4-b978.mp3",
+"duration": 0.577
+},
+{
 "text": "다리",
 "file": "b2e4-b9ac.mp3",
 "duration": 0.541
@@ -1994,9 +2844,24 @@
 "duration": 0.638
 },
 {
+"text": "다양",
+"file": "b2e4-c591.mp3",
+"duration": 0.581
+},
+{
+"text": "다음",
+"file": "b2e4-c74c.mp3",
+"duration": 0.542
+},
+{
 "text": "다음에 올게요.",
 "file": "b2e4-c74c-c5d0-20-c62c-ac8c-c694-2e.mp3",
 "duration": 1.093
+},
+{
+"text": "다치다",
+"file": "b2e4-ce58-b2e4.mp3",
+"duration": 0.663
 },
 {
 "text": "닥",
@@ -2004,9 +2869,39 @@
 "duration": 0.301
 },
 {
+"text": "닦다",
+"file": "b2e6-b2e4.mp3",
+"duration": 0.618
+},
+{
 "text": "단",
 "file": "b2e8.mp3",
 "duration": 0.449
+},
+{
+"text": "단순",
+"file": "b2e8-c21c.mp3",
+"duration": 0.679
+},
+{
+"text": "단어",
+"file": "b2e8-c5b4.mp3",
+"duration": 0.504
+},
+{
+"text": "단점",
+"file": "b2e8-c810.mp3",
+"duration": 0.695
+},
+{
+"text": "단체",
+"file": "b2e8-ccb4.mp3",
+"duration": 0.688
+},
+{
+"text": "단추",
+"file": "b2e8-cd94.mp3",
+"duration": 0.713
 },
 {
 "text": "닫",
@@ -2049,6 +2944,21 @@
 "duration": 0.726
 },
 {
+"text": "달러",
+"file": "b2ec-b7ec.mp3",
+"duration": 0.539
+},
+{
+"text": "달력",
+"file": "b2ec-b825.mp3",
+"duration": 0.514
+},
+{
+"text": "달리기",
+"file": "b2ec-b9ac-ae30.mp3",
+"duration": 0.752
+},
+{
 "text": "달아요",
 "file": "b2ec-c544-c694.mp3",
 "duration": 0.695
@@ -2064,6 +2974,11 @@
 "duration": 0.457
 },
 {
+"text": "담다",
+"file": "b2f4-b2e4.mp3",
+"duration": 0.656
+},
+{
 "text": "담배",
 "file": "b2f4-bc30.mp3",
 "duration": 0.609
@@ -2074,14 +2989,84 @@
 "duration": 0.324
 },
 {
+"text": "답하다",
+"file": "b2f5-d558-b2e4.mp3",
+"duration": 0.682
+},
+{
 "text": "당",
 "file": "b2f9.mp3",
 "duration": 0.447
 },
 {
+"text": "당근",
+"file": "b2f9-adfc.mp3",
+"duration": 0.663
+},
+{
+"text": "당신",
+"file": "b2f9-c2e0.mp3",
+"duration": 0.744
+},
+{
 "text": "대",
 "file": "b300.mp3",
 "duration": 0.403
+},
+{
+"text": "대나무",
+"file": "b300-b098-bb34.mp3",
+"duration": 0.643
+},
+{
+"text": "대답",
+"file": "b300-b2f5.mp3",
+"duration": 0.484
+},
+{
+"text": "대리",
+"file": "b300-b9ac.mp3",
+"duration": 0.538
+},
+{
+"text": "대부분",
+"file": "b300-bd80-bd84.mp3",
+"duration": 0.727
+},
+{
+"text": "대사",
+"file": "b300-c0ac.mp3",
+"duration": 0.557
+},
+{
+"text": "대사관",
+"file": "b300-c0ac-ad00.mp3",
+"duration": 0.775
+},
+{
+"text": "대신",
+"file": "b300-c2e0.mp3",
+"duration": 0.65
+},
+{
+"text": "대통령",
+"file": "b300-d1b5-b839.mp3",
+"duration": 0.797
+},
+{
+"text": "대해",
+"file": "b300-d574.mp3",
+"duration": 0.509
+},
+{
+"text": "대화",
+"file": "b300-d654.mp3",
+"duration": 0.511
+},
+{
+"text": "댁",
+"file": "b301.mp3",
+"duration": 0.306
 },
 {
 "text": "댜",
@@ -2134,6 +3119,16 @@
 "duration": 0.391
 },
 {
+"text": "더러운",
+"file": "b354-b7ec-c6b4.mp3",
+"duration": 0.717
+},
+{
+"text": "더운",
+"file": "b354-c6b4.mp3",
+"duration": 0.574
+},
+{
 "text": "더워요",
 "file": "b354-c6cc-c694.mp3",
 "duration": 0.741
@@ -2142,6 +3137,11 @@
 "text": "덕",
 "file": "b355.mp3",
 "duration": 0.31
+},
+{
+"text": "덕담",
+"file": "b355-b2f4.mp3",
+"duration": 0.693
 },
 {
 "text": "던",
@@ -2179,9 +3179,24 @@
 "duration": 0.435
 },
 {
+"text": "덮개",
+"file": "b36e-ac1c.mp3",
+"duration": 0.677
+},
+{
+"text": "덮다",
+"file": "b36e-b2e4.mp3",
+"duration": 0.639
+},
+{
 "text": "데",
 "file": "b370.mp3",
 "duration": 0.417
+},
+{
+"text": "데우다",
+"file": "b370-c6b0-b2e4.mp3",
+"duration": 0.646
 },
 {
 "text": "뎌",
@@ -2234,9 +3249,34 @@
 "duration": 0.366
 },
 {
+"text": "도구",
+"file": "b3c4-ad6c.mp3",
+"duration": 0.55
+},
+{
+"text": "도둑",
+"file": "b3c4-b451.mp3",
+"duration": 0.502
+},
+{
+"text": "도로",
+"file": "b3c4-b85c.mp3",
+"duration": 0.513
+},
+{
 "text": "도서관",
 "file": "b3c4-c11c-ad00.mp3",
 "duration": 0.755
+},
+{
+"text": "도시",
+"file": "b3c4-c2dc.mp3",
+"duration": 0.618
+},
+{
+"text": "도와",
+"file": "b3c4-c640.mp3",
+"duration": 0.5
 },
 {
 "text": "도와 주십시오",
@@ -2249,9 +3289,29 @@
 "duration": 0.678
 },
 {
+"text": "도우미",
+"file": "b3c4-c6b0-bbf8.mp3",
+"duration": 0.696
+},
+{
+"text": "도착하다",
+"file": "b3c4-cc29-d558-b2e4.mp3",
+"duration": 0.816
+},
+{
 "text": "독",
 "file": "b3c5.mp3",
 "duration": 0.282
+},
+{
+"text": "독서",
+"file": "b3c5-c11c.mp3",
+"duration": 0.66
+},
+{
+"text": "독성",
+"file": "b3c5-c131.mp3",
+"duration": 0.639
 },
 {
 "text": "돈",
@@ -2274,6 +3334,16 @@
 "duration": 0.431
 },
 {
+"text": "돌리다",
+"file": "b3cc-b9ac-b2e4.mp3",
+"duration": 0.674
+},
+{
+"text": "돌잔치",
+"file": "b3cc-c794-ce58.mp3",
+"duration": 0.959
+},
+{
 "text": "돔",
 "file": "b3d4.mp3",
 "duration": 0.422
@@ -2294,6 +3364,11 @@
 "duration": 0.415
 },
 {
+"text": "동물관",
+"file": "b3d9-bb3c-ad00.mp3",
+"duration": 0.789
+},
+{
 "text": "동생",
 "file": "b3d9-c0dd.mp3",
 "duration": 0.669
@@ -2302,6 +3377,16 @@
 "text": "동생이에요",
 "file": "b3d9-c0dd-c774-c5d0-c694.mp3",
 "duration": 0.969
+},
+{
+"text": "동전",
+"file": "b3d9-c804.mp3",
+"duration": 0.667
+},
+{
+"text": "동쪽",
+"file": "b3d9-cabd.mp3",
+"duration": 0.605
 },
 {
 "text": "돠",
@@ -2314,9 +3399,19 @@
 "duration": 0.407
 },
 {
+"text": "돼지",
+"file": "b3fc-c9c0.mp3",
+"duration": 0.635
+},
+{
 "text": "되",
 "file": "b418.mp3",
 "duration": 0.414
+},
+{
+"text": "되다",
+"file": "b418-b2e4.mp3",
+"duration": 0.505
 },
 {
 "text": "됴",
@@ -2394,6 +3489,26 @@
 "duration": 0.621
 },
 {
+"text": "두껍다",
+"file": "b450-aecd-b2e4.mp3",
+"duration": 0.784
+},
+{
+"text": "두다",
+"file": "b450-b2e4.mp3",
+"duration": 0.488
+},
+{
+"text": "두부",
+"file": "b450-bd80.mp3",
+"duration": 0.534
+},
+{
+"text": "두통",
+"file": "b450-d1b5.mp3",
+"duration": 0.598
+},
+{
 "text": "둑",
 "file": "b451.mp3",
 "duration": 0.291
@@ -2444,6 +3559,11 @@
 "duration": 0.434
 },
 {
+"text": "뒤에",
+"file": "b4a4-c5d0.mp3",
+"duration": 0.529
+},
+{
 "text": "듀",
 "file": "b4c0.mp3",
 "duration": 0.433
@@ -2489,9 +3609,29 @@
 "duration": 0.397
 },
 {
+"text": "드디어",
+"file": "b4dc-b514-c5b4.mp3",
+"duration": 0.603
+},
+{
+"text": "드라마",
+"file": "b4dc-b77c-b9c8.mp3",
+"duration": 0.61
+},
+{
+"text": "드리다",
+"file": "b4dc-b9ac-b2e4.mp3",
+"duration": 0.6
+},
+{
 "text": "드시고 가세요?",
 "file": "b4dc-c2dc-ace0-20-ac00-c138-c694-3f.mp3",
 "duration": 0.969
+},
+{
+"text": "드시다",
+"file": "b4dc-c2dc-b2e4.mp3",
+"duration": 0.623
 },
 {
 "text": "드십시오",
@@ -2514,6 +3654,11 @@
 "duration": 0.305
 },
 {
+"text": "듣기",
+"file": "b4e3-ae30.mp3",
+"duration": 0.625
+},
+{
 "text": "듣다",
 "file": "b4e3-b2e4.mp3",
 "duration": 0.572
@@ -2522,6 +3667,11 @@
 "text": "들",
 "file": "b4e4.mp3",
 "duration": 0.465
+},
+{
+"text": "들어가다",
+"file": "b4e4-c5b4-ac00-b2e4.mp3",
+"duration": 0.723
 },
 {
 "text": "들어요",
@@ -2542,6 +3692,16 @@
 "text": "등",
 "file": "b4f1.mp3",
 "duration": 0.417
+},
+{
+"text": "등록",
+"file": "b4f1-b85d.mp3",
+"duration": 0.517
+},
+{
+"text": "등산",
+"file": "b4f1-c0b0.mp3",
+"duration": 0.681
 },
 {
 "text": "듸",
@@ -2594,9 +3754,34 @@
 "duration": 0.355
 },
 {
+"text": "따다",
+"file": "b530-b2e4.mp3",
+"duration": 0.498
+},
+{
+"text": "따뜻한",
+"file": "b530-b73b-d55c.mp3",
+"duration": 0.768
+},
+{
 "text": "따뜻한 커피 주세요.",
 "file": "b530-b73b-d55c-20-cee4-d53c-20-c8fc-c138-c694-2e.mp3",
 "duration": 1.456
+},
+{
+"text": "따라가다",
+"file": "b530-b77c-ac00-b2e4.mp3",
+"duration": 0.743
+},
+{
+"text": "따라서",
+"file": "b530-b77c-c11c.mp3",
+"duration": 0.659
+},
+{
+"text": "따라오다",
+"file": "b530-b77c-c624-b2e4.mp3",
+"duration": 0.746
 },
 {
 "text": "따라요",
@@ -2604,9 +3789,29 @@
 "duration": 0.664
 },
 {
+"text": "따로",
+"file": "b530-b85c.mp3",
+"duration": 0.493
+},
+{
 "text": "따르다",
 "file": "b530-b974-b2e4.mp3",
 "duration": 0.606
+},
+{
+"text": "딱하다",
+"file": "b531-d558-b2e4.mp3",
+"duration": 0.683
+},
+{
+"text": "딴",
+"file": "b534.mp3",
+"duration": 0.445
+},
+{
+"text": "딸",
+"file": "b538.mp3",
+"duration": 0.417
 },
 {
 "text": "딸기",
@@ -2614,9 +3819,34 @@
 "duration": 0.664
 },
 {
+"text": "땀",
+"file": "b540.mp3",
+"duration": 0.444
+},
+{
+"text": "땅",
+"file": "b545.mp3",
+"duration": 0.413
+},
+{
+"text": "땅콩",
+"file": "b545-cf69.mp3",
+"duration": 0.677
+},
+{
 "text": "때",
 "file": "b54c.mp3",
 "duration": 0.392
+},
+{
+"text": "때리다",
+"file": "b54c-b9ac-b2e4.mp3",
+"duration": 0.614
+},
+{
+"text": "때문에",
+"file": "b54c-bb38-c5d0.mp3",
+"duration": 0.663
 },
 {
 "text": "땨",
@@ -2634,14 +3864,34 @@
 "duration": 0.348
 },
 {
+"text": "떠들다",
+"file": "b5a0-b4e4-b2e4.mp3",
+"duration": 0.661
+},
+{
 "text": "떠요",
 "file": "b5a0-c694.mp3",
 "duration": 0.553
 },
 {
+"text": "떨다",
+"file": "b5a8-b2e4.mp3",
+"duration": 0.552
+},
+{
+"text": "떨어지다",
+"file": "b5a8-c5b4-c9c0-b2e4.mp3",
+"duration": 0.75
+},
+{
 "text": "떼",
 "file": "b5bc.mp3",
 "duration": 0.404
+},
+{
+"text": "떼다",
+"file": "b5bc-b2e4.mp3",
+"duration": 0.511
 },
 {
 "text": "뗘",
@@ -2662,6 +3912,16 @@
 "text": "또 만나요",
 "file": "b610-20-b9cc-b098-c694.mp3",
 "duration": 0.827
+},
+{
+"text": "똑똑한",
+"file": "b611-b611-d55c.mp3",
+"duration": 0.807
+},
+{
+"text": "똑바로",
+"file": "b611-bc14-b85c.mp3",
+"duration": 0.687
 },
 {
 "text": "똬",
@@ -2689,6 +3949,16 @@
 "duration": 0.376
 },
 {
+"text": "뚝뚝한",
+"file": "b69d-b69d-d55c.mp3",
+"duration": 0.807
+},
+{
+"text": "뚱뚱한",
+"file": "b6b1-b6b1-d55c.mp3",
+"duration": 0.726
+},
+{
 "text": "뚸",
 "file": "b6b8.mp3",
 "duration": 0.41
@@ -2704,6 +3974,11 @@
 "duration": 0.415
 },
 {
+"text": "뛰다",
+"file": "b6f0-b2e4.mp3",
+"duration": 0.501
+},
+{
 "text": "뜌",
 "file": "b70c.mp3",
 "duration": 0.41
@@ -2712,6 +3987,11 @@
 "text": "뜨",
 "file": "b728.mp3",
 "duration": 0.364
+},
+{
+"text": "뜨거운",
+"file": "b728-ac70-c6b4.mp3",
+"duration": 0.687
 },
 {
 "text": "뜨다",
@@ -3194,6 +4474,21 @@
 "duration": 0.408
 },
 {
+"text": "마감",
+"file": "b9c8-ac10.mp3",
+"duration": 0.615
+},
+{
+"text": "마늘",
+"file": "b9c8-b298.mp3",
+"duration": 0.617
+},
+{
+"text": "마다",
+"file": "b9c8-b2e4.mp3",
+"duration": 0.529
+},
+{
 "text": "마르다",
 "file": "b9c8-b974-b2e4.mp3",
 "duration": 0.643
@@ -3212,6 +4507,11 @@
 "text": "마셨습니다",
 "file": "b9c8-c168-c2b5-b2c8-b2e4.mp3",
 "duration": 0.951
+},
+{
+"text": "마스크",
+"file": "b9c8-c2a4-d06c.mp3",
+"duration": 0.756
 },
 {
 "text": "마시고 있습니다",
@@ -3244,9 +4544,19 @@
 "duration": 0.811
 },
 {
+"text": "마음",
+"file": "b9c8-c74c.mp3",
+"duration": 0.567
+},
+{
 "text": "막",
 "file": "b9c9.mp3",
 "duration": 0.322
+},
+{
+"text": "막내",
+"file": "b9c9-b0b4.mp3",
+"duration": 0.62
 },
 {
 "text": "만",
@@ -3294,6 +4604,11 @@
 "duration": 0.795
 },
 {
+"text": "만약",
+"file": "b9cc-c57d.mp3",
+"duration": 0.51
+},
+{
 "text": "많다",
 "file": "b9ce-b2e4.mp3",
 "duration": 0.633
@@ -3302,6 +4617,11 @@
 "text": "많아요",
 "file": "b9ce-c544-c694.mp3",
 "duration": 0.71
+},
+{
+"text": "많은",
+"file": "b9ce-c740.mp3",
+"duration": 0.606
 },
 {
 "text": "많이",
@@ -3344,6 +4664,11 @@
 "duration": 0.34
 },
 {
+"text": "맛",
+"file": "b9db.mp3",
+"duration": 0.346
+},
+{
 "text": "맛있겠다",
 "file": "b9db-c788-aca0-b2e4.mp3",
 "duration": 0.884
@@ -3352,6 +4677,16 @@
 "text": "망",
 "file": "b9dd.mp3",
 "duration": 0.455
+},
+{
+"text": "망치",
+"file": "b9dd-ce58.mp3",
+"duration": 0.798
+},
+{
+"text": "맞다",
+"file": "b9de-b2e4.mp3",
+"duration": 0.603
 },
 {
 "text": "맞잡다",
@@ -3369,14 +4704,54 @@
 "duration": 0.445
 },
 {
+"text": "매년",
+"file": "b9e4-b144.mp3",
+"duration": 0.614
+},
+{
+"text": "매다",
+"file": "b9e4-b2e4.mp3",
+"duration": 0.533
+},
+{
+"text": "매달",
+"file": "b9e4-b2ec.mp3",
+"duration": 0.581
+},
+{
+"text": "매운",
+"file": "b9e4-c6b4.mp3",
+"duration": 0.567
+},
+{
+"text": "매운탕",
+"file": "b9e4-c6b4-d0d5.mp3",
+"duration": 0.819
+},
+{
 "text": "매워요",
 "file": "b9e4-c6cc-c694.mp3",
 "duration": 0.727
 },
 {
+"text": "매일",
+"file": "b9e4-c77c.mp3",
+"duration": 0.555
+},
+{
 "text": "매장에서 먹을게요.",
 "file": "b9e4-c7a5-c5d0-c11c-20-ba39-c744-ac8c-c694-2e.mp3",
 "duration": 1.437
+},
+{
+"text": "매주",
+"file": "b9e4-c8fc.mp3",
+"duration": 0.591
+},
+{
+"text": "매진",
+"file": "b9e4-c9c4.mp3",
+"duration": 0.666
 },
 {
 "text": "맥주 두 병",
@@ -3437,6 +4812,11 @@
 "text": "머",
 "file": "ba38.mp3",
 "duration": 0.413
+},
+{
+"text": "머리",
+"file": "ba38-b9ac.mp3",
+"duration": 0.579
 },
 {
 "text": "먹",
@@ -3504,6 +4884,16 @@
 "duration": 0.459
 },
 {
+"text": "먼저",
+"file": "ba3c-c800.mp3",
+"duration": 0.632
+},
+{
+"text": "먼지",
+"file": "ba3c-c9c0.mp3",
+"duration": 0.725
+},
+{
 "text": "먿",
 "file": "ba3f.mp3",
 "duration": 0.372
@@ -3517,6 +4907,11 @@
 "text": "멀다",
 "file": "ba40-b2e4.mp3",
 "duration": 0.588
+},
+{
+"text": "멀리",
+"file": "ba40-b9ac.mp3",
+"duration": 0.623
 },
 {
 "text": "멀어요",
@@ -3544,9 +4939,19 @@
 "duration": 0.449
 },
 {
+"text": "메뉴",
+"file": "ba54-b274.mp3",
+"duration": 0.605
+},
+{
 "text": "메뉴 좀 보여 주세요.",
 "file": "ba54-b274-20-c880-20-bcf4-c5ec-20-c8fc-c138-c694-2e.mp3",
 "duration": 1.366
+},
+{
+"text": "메모",
+"file": "ba54-baa8.mp3",
+"duration": 0.542
 },
 {
 "text": "며",
@@ -3567,6 +4972,21 @@
 "text": "면",
 "file": "ba74.mp3",
 "duration": 0.45
+},
+{
+"text": "면도",
+"file": "ba74-b3c4.mp3",
+"duration": 0.66
+},
+{
+"text": "면적",
+"file": "ba74-c801.mp3",
+"duration": 0.621
+},
+{
+"text": "면접",
+"file": "ba74-c811.mp3",
+"duration": 0.614
 },
 {
 "text": "멷",
@@ -3594,6 +5014,21 @@
 "duration": 0.462
 },
 {
+"text": "명성",
+"file": "ba85-c131.mp3",
+"duration": 0.695
+},
+{
+"text": "명절",
+"file": "ba85-c808.mp3",
+"duration": 0.693
+},
+{
+"text": "몇",
+"file": "ba87.mp3",
+"duration": 0.333
+},
+{
 "text": "몇 학년이에요?",
 "file": "ba87-20-d559-b144-c774-c5d0-c694-3f.mp3",
 "duration": 1.025
@@ -3607,6 +5042,26 @@
 "text": "모",
 "file": "baa8.mp3",
 "duration": 0.417
+},
+{
+"text": "모기",
+"file": "baa8-ae30.mp3",
+"duration": 0.61
+},
+{
+"text": "모기장",
+"file": "baa8-ae30-c7a5.mp3",
+"duration": 0.737
+},
+{
+"text": "모두",
+"file": "baa8-b450.mp3",
+"duration": 0.573
+},
+{
+"text": "모레",
+"file": "baa8-b808.mp3",
+"duration": 0.566
 },
 {
 "text": "모르겠어요",
@@ -3629,6 +5084,11 @@
 "duration": 0.675
 },
 {
+"text": "모양",
+"file": "baa8-c591.mp3",
+"duration": 0.586
+},
+{
 "text": "모으다",
 "file": "baa8-c73c-b2e4.mp3",
 "duration": 0.674
@@ -3642,6 +5102,11 @@
 "text": "목",
 "file": "baa9.mp3",
 "duration": 0.312
+},
+{
+"text": "목도리",
+"file": "baa9-b3c4-b9ac.mp3",
+"duration": 0.75
 },
 {
 "text": "목포에는 왜 오셨어요?",
@@ -3682,6 +5147,11 @@
 "text": "몹",
 "file": "bab9.mp3",
 "duration": 0.332
+},
+{
+"text": "못",
+"file": "babb.mp3",
+"duration": 0.325
 },
 {
 "text": "몽",
@@ -3749,9 +5219,49 @@
 "duration": 0.43
 },
 {
+"text": "무거운",
+"file": "bb34-ac70-c6b4.mp3",
+"duration": 0.703
+},
+{
+"text": "무게",
+"file": "bb34-ac8c.mp3",
+"duration": 0.579
+},
+{
+"text": "무기",
+"file": "bb34-ae30.mp3",
+"duration": 0.583
+},
+{
+"text": "무단",
+"file": "bb34-b2e8.mp3",
+"duration": 0.598
+},
+{
+"text": "무덤",
+"file": "bb34-b364.mp3",
+"duration": 0.581
+},
+{
+"text": "무료",
+"file": "bb34-b8cc.mp3",
+"duration": 0.549
+},
+{
+"text": "무슨",
+"file": "bb34-c2a8.mp3",
+"duration": 0.618
+},
+{
 "text": "무슨 음료가 맛있어요?",
 "file": "bb34-c2a8-20-c74c-b8cc-ac00-20-b9db-c788-c5b4-c694-3f.mp3",
 "duration": 1.52
+},
+{
+"text": "무엇",
+"file": "bb34-c5c7.mp3",
+"duration": 0.455
 },
 {
 "text": "무엇을 먹습니까?",
@@ -3774,14 +5284,44 @@
 "duration": 0.917
 },
 {
+"text": "무음",
+"file": "bb34-c74c.mp3",
+"duration": 0.598
+},
+{
+"text": "무지개",
+"file": "bb34-c9c0-ac1c.mp3",
+"duration": 0.708
+},
+{
 "text": "묵",
 "file": "bb35.mp3",
 "duration": 0.345
 },
 {
+"text": "묶다",
+"file": "bb36-b2e4.mp3",
+"duration": 0.637
+},
+{
 "text": "문",
 "file": "bb38.mp3",
 "duration": 0.466
+},
+{
+"text": "문의",
+"file": "bb38-c758.mp3",
+"duration": 0.562
+},
+{
+"text": "문제",
+"file": "bb38-c81c.mp3",
+"duration": 0.641
+},
+{
+"text": "문화",
+"file": "bb38-d654.mp3",
+"duration": 0.541
 },
 {
 "text": "묻",
@@ -3824,6 +5364,16 @@
 "duration": 1.361
 },
 {
+"text": "물건",
+"file": "bb3c-ac74.mp3",
+"duration": 0.623
+},
+{
+"text": "물다",
+"file": "bb3c-b2e4.mp3",
+"duration": 0.575
+},
+{
 "text": "물어요",
 "file": "bb3c-c5b4-c694.mp3",
 "duration": 0.684
@@ -3832,6 +5382,11 @@
 "text": "물이 있어요",
 "file": "bb3c-c774-20-c788-c5b4-c694.mp3",
 "duration": 0.989
+},
+{
+"text": "물컵",
+"file": "bb3c-cef5.mp3",
+"duration": 0.594
 },
 {
 "text": "뭄",
@@ -3974,6 +5529,16 @@
 "duration": 0.505
 },
 {
+"text": "미래",
+"file": "bbf8-b798.mp3",
+"duration": 0.562
+},
+{
+"text": "미리",
+"file": "bbf8-b9ac.mp3",
+"duration": 0.572
+},
+{
 "text": "미안합니다",
 "file": "bbf8-c548-d569-b2c8-b2e4.mp3",
 "duration": 0.875
@@ -3992,6 +5557,11 @@
 "text": "민",
 "file": "bbfc.mp3",
 "duration": 0.487
+},
+{
+"text": "민요",
+"file": "bbfc-c694.mp3",
+"duration": 0.651
 },
 {
 "text": "믿",
@@ -4039,14 +5609,34 @@
 "duration": 0.464
 },
 {
+"text": "밑",
+"file": "bc11.mp3",
+"duration": 0.345
+},
+{
 "text": "바",
 "file": "bc14.mp3",
 "duration": 0.363
 },
 {
+"text": "바꾸다",
+"file": "bc14-afb8-b2e4.mp3",
+"duration": 0.679
+},
+{
+"text": "바나나",
+"file": "bc14-b098-b098.mp3",
+"duration": 0.625
+},
+{
 "text": "바다",
 "file": "bc14-b2e4.mp3",
 "duration": 0.512
+},
+{
+"text": "바닥",
+"file": "bc14-b2e5.mp3",
+"duration": 0.486
 },
 {
 "text": "바람",
@@ -4057,6 +5647,11 @@
 "text": "바르다",
 "file": "bc14-b974-b2e4.mp3",
 "duration": 0.636
+},
+{
+"text": "바보",
+"file": "bc14-bcf4.mp3",
+"duration": 0.564
 },
 {
 "text": "바빠요",
@@ -4079,6 +5674,11 @@
 "duration": 0.295
 },
 {
+"text": "박수",
+"file": "bc15-c218.mp3",
+"duration": 0.686
+},
+{
 "text": "밖",
 "file": "bc16.mp3",
 "duration": 0.306
@@ -4092,6 +5692,36 @@
 "text": "반갑다",
 "file": "bc18-ac11-b2e4.mp3",
 "duration": 0.802
+},
+{
+"text": "반대",
+"file": "bc18-b300.mp3",
+"duration": 0.651
+},
+{
+"text": "반드시",
+"file": "bc18-b4dc-c2dc.mp3",
+"duration": 0.806
+},
+{
+"text": "반말",
+"file": "bc18-b9d0.mp3",
+"duration": 0.602
+},
+{
+"text": "반장",
+"file": "bc18-c7a5.mp3",
+"duration": 0.678
+},
+{
+"text": "반지",
+"file": "bc18-c9c0.mp3",
+"duration": 0.713
+},
+{
+"text": "반찬",
+"file": "bc18-cc2c.mp3",
+"duration": 0.732
 },
 {
 "text": "받",
@@ -4109,6 +5739,11 @@
 "duration": 0.682
 },
 {
+"text": "받침",
+"file": "bc1b-ce68.mp3",
+"duration": 0.693
+},
+{
 "text": "발",
 "file": "bc1c.mp3",
 "duration": 0.429
@@ -4117,6 +5752,16 @@
 "text": "발라요",
 "file": "bc1c-b77c-c694.mp3",
 "duration": 0.728
+},
+{
+"text": "발전",
+"file": "bc1c-c804.mp3",
+"duration": 0.703
+},
+{
+"text": "밝은",
+"file": "bc1d-c740.mp3",
+"duration": 0.638
 },
 {
 "text": "밤",
@@ -4149,9 +5794,39 @@
 "duration": 0.434
 },
 {
+"text": "방법",
+"file": "bc29-bc95.mp3",
+"duration": 0.54
+},
+{
+"text": "방학",
+"file": "bc29-d559.mp3",
+"duration": 0.472
+},
+{
+"text": "방해",
+"file": "bc29-d574.mp3",
+"duration": 0.567
+},
+{
+"text": "방향",
+"file": "bc29-d5a5.mp3",
+"duration": 0.604
+},
+{
 "text": "배",
 "file": "bc30.mp3",
 "duration": 0.394
+},
+{
+"text": "배고프다",
+"file": "bc30-ace0-d504-b2e4.mp3",
+"duration": 0.78
+},
+{
+"text": "배달",
+"file": "bc30-b2ec.mp3",
+"duration": 0.564
 },
 {
 "text": "배달 안 돼요?",
@@ -4164,9 +5839,19 @@
 "duration": 1.327
 },
 {
+"text": "배우",
+"file": "bc30-c6b0.mp3",
+"duration": 0.499
+},
+{
 "text": "배웠습니다",
 "file": "bc30-c6e0-c2b5-b2c8-b2e4.mp3",
 "duration": 0.903
+},
+{
+"text": "배추",
+"file": "bc30-cd94.mp3",
+"duration": 0.625
 },
 {
 "text": "백",
@@ -4177,6 +5862,11 @@
 "text": "백화점",
 "file": "bc31-d654-c810.mp3",
 "duration": 0.766
+},
+{
+"text": "뱀",
+"file": "bc40.mp3",
+"duration": 0.443
 },
 {
 "text": "뱌",
@@ -4229,6 +5919,11 @@
 "duration": 0.374
 },
 {
+"text": "버섯",
+"file": "bc84-c12f.mp3",
+"duration": 0.508
+},
+{
 "text": "버스",
 "file": "bc84-c2a4.mp3",
 "duration": 0.62
@@ -4249,6 +5944,11 @@
 "duration": 0.415
 },
 {
+"text": "번호",
+"file": "bc88-d638.mp3",
+"duration": 0.522
+},
+{
 "text": "벋",
 "file": "bc8b.mp3",
 "duration": 0.327
@@ -4259,9 +5959,19 @@
 "duration": 0.426
 },
 {
+"text": "벌금",
+"file": "bc8c-ae08.mp3",
+"duration": 0.645
+},
+{
 "text": "벌다",
 "file": "bc8c-b2e4.mp3",
 "duration": 0.569
+},
+{
+"text": "벌레",
+"file": "bc8c-b808.mp3",
+"duration": 0.592
 },
 {
 "text": "벌어요",
@@ -4274,9 +5984,19 @@
 "duration": 0.442
 },
 {
+"text": "범죄",
+"file": "bc94-c8c4.mp3",
+"duration": 0.653
+},
+{
 "text": "법",
 "file": "bc95.mp3",
 "duration": 0.297
+},
+{
+"text": "법원",
+"file": "bc95-c6d0.mp3",
+"duration": 0.581
 },
 {
 "text": "벗다",
@@ -4294,9 +6014,19 @@
 "duration": 0.43
 },
 {
+"text": "벙어리",
+"file": "bc99-c5b4-b9ac.mp3",
+"duration": 0.676
+},
+{
 "text": "베",
 "file": "bca0.mp3",
 "duration": 0.388
+},
+{
+"text": "베개",
+"file": "bca0-ac1c.mp3",
+"duration": 0.556
 },
 {
 "text": "베트남",
@@ -4314,9 +6044,19 @@
 "duration": 0.309
 },
 {
+"text": "벽돌",
+"file": "bcbd-b3cc.mp3",
+"duration": 0.664
+},
+{
 "text": "변",
 "file": "bcc0.mp3",
 "duration": 0.431
+},
+{
+"text": "변경",
+"file": "bcc0-acbd.mp3",
+"duration": 0.646
 },
 {
 "text": "볃",
@@ -4327,6 +6067,11 @@
 "text": "별",
 "file": "bcc4.mp3",
 "duration": 0.42
+},
+{
+"text": "별명",
+"file": "bcc4-ba85.mp3",
+"duration": 0.625
 },
 {
 "text": "볌",
@@ -4342,6 +6087,11 @@
 "text": "병",
 "file": "bcd1.mp3",
 "duration": 0.41
+},
+{
+"text": "병아리",
+"file": "bcd1-c544-b9ac.mp3",
+"duration": 0.692
 },
 {
 "text": "병원",
@@ -4369,9 +6119,44 @@
 "duration": 0.364
 },
 {
+"text": "보고서",
+"file": "bcf4-ace0-c11c.mp3",
+"duration": 0.708
+},
+{
+"text": "보내다",
+"file": "bcf4-b0b4-b2e4.mp3",
+"duration": 0.641
+},
+{
 "text": "보다",
 "file": "bcf4-b2e4.mp3",
 "duration": 0.505
+},
+{
+"text": "보더",
+"file": "bcf4-b354.mp3",
+"duration": 0.535
+},
+{
+"text": "보름날",
+"file": "bcf4-b984-b0a0.mp3",
+"duration": 0.675
+},
+{
+"text": "보상",
+"file": "bcf4-c0c1.mp3",
+"duration": 0.608
+},
+{
+"text": "보온병",
+"file": "bcf4-c628-bcd1.mp3",
+"duration": 0.788
+},
+{
+"text": "보이다",
+"file": "bcf4-c774-b2e4.mp3",
+"duration": 0.643
 },
 {
 "text": "보지 않겠습니다",
@@ -4379,14 +6164,39 @@
 "duration": 1.18
 },
 {
+"text": "보통",
+"file": "bcf4-d1b5.mp3",
+"duration": 0.597
+},
+{
+"text": "보험",
+"file": "bcf4-d5d8.mp3",
+"duration": 0.5
+},
+{
+"text": "보호하다",
+"file": "bcf4-d638-d558-b2e4.mp3",
+"duration": 0.77
+},
+{
 "text": "복",
 "file": "bcf5.mp3",
 "duration": 0.267
 },
 {
+"text": "복사",
+"file": "bcf5-c0ac.mp3",
+"duration": 0.635
+},
+{
 "text": "복잡하다",
 "file": "bcf5-c7a1-d558-b2e4.mp3",
 "duration": 0.83
+},
+{
+"text": "볶다",
+"file": "bcf6-b2e4.mp3",
+"duration": 0.606
 },
 {
 "text": "본",
@@ -4422,6 +6232,16 @@
 "text": "봉",
 "file": "bd09.mp3",
 "duration": 0.408
+},
+{
+"text": "봉사",
+"file": "bd09-c0ac.mp3",
+"duration": 0.622
+},
+{
+"text": "봉투",
+"file": "bd09-d22c.mp3",
+"duration": 0.668
 },
 {
 "text": "봐",
@@ -4484,14 +6304,49 @@
 "duration": 0.349
 },
 {
+"text": "부드러운",
+"file": "bd80-b4dc-b7ec-c6b4.mp3",
+"duration": 0.765
+},
+{
 "text": "부르다",
 "file": "bd80-b974-b2e4.mp3",
 "duration": 0.613
 },
 {
+"text": "부모",
+"file": "bd80-baa8.mp3",
+"duration": 0.511
+},
+{
 "text": "부어요",
 "file": "bd80-c5b4-c694.mp3",
 "duration": 0.661
+},
+{
+"text": "부인",
+"file": "bd80-c778.mp3",
+"duration": 0.547
+},
+{
+"text": "부자",
+"file": "bd80-c790.mp3",
+"duration": 0.511
+},
+{
+"text": "부정",
+"file": "bd80-c815.mp3",
+"duration": 0.561
+},
+{
+"text": "부족",
+"file": "bd80-c871.mp3",
+"duration": 0.474
+},
+{
+"text": "부탁",
+"file": "bd80-d0c1.mp3",
+"duration": 0.523
 },
 {
 "text": "북",
@@ -4504,6 +6359,16 @@
 "duration": 0.413
 },
 {
+"text": "분뇨",
+"file": "bd84-b1e8.mp3",
+"duration": 0.645
+},
+{
+"text": "분필",
+"file": "bd84-d544.mp3",
+"duration": 0.716
+},
+{
 "text": "붇",
 "file": "bd87.mp3",
 "duration": 0.286
@@ -4514,14 +6379,39 @@
 "duration": 0.417
 },
 {
+"text": "불가능",
+"file": "bd88-ac00-b2a5.mp3",
+"duration": 0.717
+},
+{
 "text": "불고기 피자 두 개 주세요.",
 "file": "bd88-ace0-ae30-20-d53c-c790-20-b450-20-ac1c-20-c8fc-c138-c694-2e.mp3",
 "duration": 1.816
 },
 {
+"text": "불교",
+"file": "bd88-ad50.mp3",
+"duration": 0.628
+},
+{
+"text": "불량",
+"file": "bd88-b7c9.mp3",
+"duration": 0.593
+},
+{
 "text": "불러요",
 "file": "bd88-b7ec-c694.mp3",
 "duration": 0.702
+},
+{
+"text": "불법",
+"file": "bd88-bc95.mp3",
+"duration": 0.587
+},
+{
+"text": "불타다",
+"file": "bd88-d0c0-b2e4.mp3",
+"duration": 0.706
 },
 {
 "text": "붐",
@@ -4542,6 +6432,11 @@
 "text": "붕",
 "file": "bd95.mp3",
 "duration": 0.393
+},
+{
+"text": "붙이다",
+"file": "bd99-c774-b2e4.mp3",
+"duration": 0.657
 },
 {
 "text": "붜",
@@ -4649,14 +6544,44 @@
 "duration": 0.391
 },
 {
+"text": "비교",
+"file": "be44-ad50.mp3",
+"duration": 0.537
+},
+{
 "text": "비누와 수건을 주세요",
 "file": "be44-b204-c640-20-c218-ac74-c744-20-c8fc-c138-c694.mp3",
 "duration": 1.5
 },
 {
+"text": "비밀",
+"file": "be44-bc00.mp3",
+"duration": 0.566
+},
+{
+"text": "비빔밥",
+"file": "be44-be54-bc25.mp3",
+"duration": 0.757
+},
+{
+"text": "비싼",
+"file": "be44-c2fc.mp3",
+"duration": 0.674
+},
+{
+"text": "비용",
+"file": "be44-c6a9.mp3",
+"duration": 0.54
+},
+{
 "text": "비행기",
 "file": "be44-d589-ae30.mp3",
 "duration": 0.765
+},
+{
+"text": "비행사고",
+"file": "be44-d589-c0ac-ace0.mp3",
+"duration": 0.887
 },
 {
 "text": "빅",
@@ -4689,6 +6614,11 @@
 "duration": 0.28
 },
 {
+"text": "빗",
+"file": "be57.mp3",
+"duration": 0.282
+},
+{
 "text": "빗다",
 "file": "be57-b2e4.mp3",
 "duration": 0.584
@@ -4699,9 +6629,19 @@
 "duration": 0.715
 },
 {
+"text": "빗자루",
+"file": "be57-c790-b8e8.mp3",
+"duration": 0.707
+},
+{
 "text": "빙",
 "file": "be59.mp3",
 "duration": 0.422
+},
+{
+"text": "빛",
+"file": "be5b.mp3",
+"duration": 0.28
 },
 {
 "text": "빠",
@@ -4712,6 +6652,11 @@
 "text": "빠르다",
 "file": "be60-b974-b2e4.mp3",
 "duration": 0.605
+},
+{
+"text": "빨간",
+"file": "be68-ac04.mp3",
+"duration": 0.636
 },
 {
 "text": "빨갛다",
@@ -4734,6 +6679,16 @@
 "duration": 0.72
 },
 {
+"text": "빨래하다",
+"file": "be68-b798-d558-b2e4.mp3",
+"duration": 0.768
+},
+{
+"text": "빨리",
+"file": "be68-b9ac.mp3",
+"duration": 0.593
+},
+{
 "text": "빨리 해라",
 "file": "be68-b9ac-20-d574-b77c.mp3",
 "duration": 0.769
@@ -4749,14 +6704,29 @@
 "duration": 0.434
 },
 {
+"text": "빵집",
+"file": "be75-c9d1.mp3",
+"duration": 0.667
+},
+{
 "text": "빼",
 "file": "be7c.mp3",
 "duration": 0.378
 },
 {
+"text": "빼다",
+"file": "be7c-b2e4.mp3",
+"duration": 0.503
+},
+{
 "text": "뺘",
 "file": "be98.mp3",
 "duration": 0.389
+},
+{
+"text": "뺨",
+"file": "bea8.mp3",
+"duration": 0.441
 },
 {
 "text": "뺴",
@@ -4789,6 +6759,16 @@
 "duration": 0.406
 },
 {
+"text": "뽑다",
+"file": "bf51-b2e4.mp3",
+"duration": 0.615
+},
+{
+"text": "뽕",
+"file": "bf55.mp3",
+"duration": 0.408
+},
+{
 "text": "뽜",
 "file": "bf5c.mp3",
 "duration": 0.381
@@ -4812,6 +6792,16 @@
 "text": "뿌",
 "file": "bfcc.mp3",
 "duration": 0.379
+},
+{
+"text": "뿌리",
+"file": "bfcc-b9ac.mp3",
+"duration": 0.543
+},
+{
+"text": "뿌리다",
+"file": "bfcc-b9ac-b2e4.mp3",
+"duration": 0.619
 },
 {
 "text": "뿨",
@@ -4854,6 +6844,16 @@
 "duration": 0.414
 },
 {
+"text": "사거리",
+"file": "c0ac-ac70-b9ac.mp3",
+"duration": 0.72
+},
+{
+"text": "사고",
+"file": "c0ac-ace0.mp3",
+"duration": 0.596
+},
+{
 "text": "사고 있습니다",
 "file": "c0ac-ace0-20-c788-c2b5-b2c8-b2e4.mp3",
 "duration": 1.036
@@ -4879,9 +6879,24 @@
 "duration": 0.984
 },
 {
+"text": "사다",
+"file": "c0ac-b2e4.mp3",
+"duration": 0.537
+},
+{
 "text": "사람",
 "file": "c0ac-b78c.mp3",
 "duration": 0.616
+},
+{
+"text": "사랑",
+"file": "c0ac-b791.mp3",
+"duration": 0.601
+},
+{
+"text": "사무실",
+"file": "c0ac-bb34-c2e4.mp3",
+"duration": 0.818
 },
 {
 "text": "사무실에 가서 여기도 오세요",
@@ -4889,9 +6904,44 @@
 "duration": 1.99
 },
 {
+"text": "사무원",
+"file": "c0ac-bb34-c6d0.mp3",
+"duration": 0.699
+},
+{
+"text": "사용",
+"file": "c0ac-c6a9.mp3",
+"duration": 0.606
+},
+{
+"text": "사원",
+"file": "c0ac-c6d0.mp3",
+"duration": 0.618
+},
+{
+"text": "사위",
+"file": "c0ac-c704.mp3",
+"duration": 0.605
+},
+{
+"text": "사위하다",
+"file": "c0ac-c704-d558-b2e4.mp3",
+"duration": 0.785
+},
+{
 "text": "사이",
 "file": "c0ac-c774.mp3",
 "duration": 0.61
+},
+{
+"text": "사이즈",
+"file": "c0ac-c774-c988.mp3",
+"duration": 0.777
+},
+{
+"text": "사장",
+"file": "c0ac-c7a5.mp3",
+"duration": 0.609
 },
 {
 "text": "사지 않았어",
@@ -4917,6 +6967,11 @@
 "text": "산",
 "file": "c0b0.mp3",
 "duration": 0.497
+},
+{
+"text": "산업",
+"file": "c0b0-c5c5.mp3",
+"duration": 0.496
 },
 {
 "text": "삳",
@@ -4954,6 +7009,11 @@
 "duration": 0.478
 },
 {
+"text": "삼겹살",
+"file": "c0bc-acb9-c0b4.mp3",
+"duration": 0.9
+},
+{
 "text": "삼다",
 "file": "c0bc-b2e4.mp3",
 "duration": 0.688
@@ -4962,6 +7022,11 @@
 "text": "삼십 분",
 "file": "c0bc-c2ed-20-bd84.mp3",
 "duration": 0.803
+},
+{
+"text": "삼촌",
+"file": "c0bc-cd0c.mp3",
+"duration": 0.751
 },
 {
 "text": "삽",
@@ -4984,6 +7049,11 @@
 "duration": 0.482
 },
 {
+"text": "상담",
+"file": "c0c1-b2f4.mp3",
+"duration": 0.729
+},
+{
 "text": "상자",
 "file": "c0c1-c790.mp3",
 "duration": 0.683
@@ -4994,9 +7064,24 @@
 "duration": 0.462
 },
 {
+"text": "새로",
+"file": "c0c8-b85c.mp3",
+"duration": 0.563
+},
+{
+"text": "새벽",
+"file": "c0c8-bcbd.mp3",
+"duration": 0.553
+},
+{
 "text": "새해 복 많이 받으십시오",
 "file": "c0c8-d574-20-bcf5-20-b9ce-c774-20-bc1b-c73c-c2ed-c2dc-c624.mp3",
 "duration": 1.653
+},
+{
+"text": "색",
+"file": "c0c9.mp3",
+"duration": 0.356
 },
 {
 "text": "샌드위치 하나하고 콜라 하나 주세요.",
@@ -5004,9 +7089,24 @@
 "duration": 2.437
 },
 {
+"text": "생각하다",
+"file": "c0dd-ac01-d558-b2e4.mp3",
+"duration": 0.85
+},
+{
+"text": "생명",
+"file": "c0dd-ba85.mp3",
+"duration": 0.687
+},
+{
 "text": "생선",
 "file": "c0dd-c120.mp3",
 "duration": 0.713
+},
+{
+"text": "생일",
+"file": "c0dd-c77c.mp3",
+"duration": 0.62
 },
 {
 "text": "생일 축하해요.",
@@ -5064,6 +7164,11 @@
 "duration": 0.445
 },
 {
+"text": "서다",
+"file": "c11c-b2e4.mp3",
+"duration": 0.555
+},
+{
 "text": "서두르다",
 "file": "c11c-b450-b974-b2e4.mp3",
 "duration": 0.778
@@ -5072,6 +7177,21 @@
 "text": "서둘러요",
 "file": "c11c-b458-b7ec-c694.mp3",
 "duration": 0.849
+},
+{
+"text": "서류",
+"file": "c11c-b958.mp3",
+"duration": 0.608
+},
+{
+"text": "서리",
+"file": "c11c-b9ac.mp3",
+"duration": 0.599
+},
+{
+"text": "서비스",
+"file": "c11c-be44-c2a4.mp3",
+"duration": 0.819
 },
 {
 "text": "서울",
@@ -5084,14 +7204,44 @@
 "duration": 0.633
 },
 {
+"text": "서쪽",
+"file": "c11c-cabd.mp3",
+"duration": 0.578
+},
+{
 "text": "석",
 "file": "c11d.mp3",
 "duration": 0.348
 },
 {
+"text": "석류",
+"file": "c11d-b958.mp3",
+"duration": 0.68
+},
+{
+"text": "섞다",
+"file": "c11e-b2e4.mp3",
+"duration": 0.664
+},
+{
 "text": "선",
 "file": "c120.mp3",
 "duration": 0.495
+},
+{
+"text": "선물",
+"file": "c120-bb3c.mp3",
+"duration": 0.66
+},
+{
+"text": "선배",
+"file": "c120-bc30.mp3",
+"duration": 0.618
+},
+{
+"text": "선생",
+"file": "c120-c0dd.mp3",
+"duration": 0.709
 },
 {
 "text": "선생님",
@@ -5104,6 +7254,16 @@
 "duration": 1.894
 },
 {
+"text": "선수",
+"file": "c120-c218.mp3",
+"duration": 0.705
+},
+{
+"text": "선택",
+"file": "c120-d0dd.mp3",
+"duration": 0.669
+},
+{
 "text": "섣",
 "file": "c123.mp3",
 "duration": 0.363
@@ -5112,6 +7272,11 @@
 "text": "설",
 "file": "c124.mp3",
 "duration": 0.489
+},
+{
+"text": "설사",
+"file": "c124-c0ac.mp3",
+"duration": 0.719
 },
 {
 "text": "섬",
@@ -5127,6 +7292,16 @@
 "text": "성",
 "file": "c131.mp3",
 "duration": 0.466
+},
+{
+"text": "성격",
+"file": "c131-aca9.mp3",
+"duration": 0.611
+},
+{
+"text": "성명",
+"file": "c131-ba85.mp3",
+"duration": 0.685
 },
 {
 "text": "세",
@@ -5157,6 +7332,16 @@
 "text": "세 시 이십 분",
 "file": "c138-20-c2dc-20-c774-c2ed-20-bd84.mp3",
 "duration": 1.082
+},
+{
+"text": "세뱃돈",
+"file": "c138-bc43-b3c8.mp3",
+"duration": 0.823
+},
+{
+"text": "세제",
+"file": "c138-c81c.mp3",
+"duration": 0.625
 },
 {
 "text": "세종대왕",
@@ -5224,14 +7409,64 @@
 "duration": 0.438
 },
 {
+"text": "소개",
+"file": "c18c-ac1c.mp3",
+"duration": 0.587
+},
+{
+"text": "소금",
+"file": "c18c-ae08.mp3",
+"duration": 0.612
+},
+{
+"text": "소리",
+"file": "c18c-b9ac.mp3",
+"duration": 0.594
+},
+{
+"text": "소방차",
+"file": "c18c-bc29-cc28.mp3",
+"duration": 0.843
+},
+{
+"text": "소식",
+"file": "c18c-c2dd.mp3",
+"duration": 0.572
+},
+{
 "text": "속",
 "file": "c18d.mp3",
 "duration": 0.342
 },
 {
+"text": "속도",
+"file": "c18d-b3c4.mp3",
+"duration": 0.665
+},
+{
+"text": "속이다",
+"file": "c18d-c774-b2e4.mp3",
+"duration": 0.667
+},
+{
 "text": "손",
 "file": "c190.mp3",
 "duration": 0.49
+},
+{
+"text": "손가락",
+"file": "c190-ac00-b77d.mp3",
+"duration": 0.727
+},
+{
+"text": "손님",
+"file": "c190-b2d8.mp3",
+"duration": 0.685
+},
+{
+"text": "손해",
+"file": "c190-d574.mp3",
+"duration": 0.608
 },
 {
 "text": "솓",
@@ -5264,6 +7499,11 @@
 "duration": 0.625
 },
 {
+"text": "솥",
+"file": "c1a5.mp3",
+"duration": 0.327
+},
+{
 "text": "솨",
 "file": "c1a8.mp3",
 "duration": 0.45
@@ -5282,6 +7522,11 @@
 "text": "쇼",
 "file": "c1fc.mp3",
 "duration": 0.473
+},
+{
+"text": "쇼핑",
+"file": "c1fc-d551.mp3",
+"duration": 0.73
 },
 {
 "text": "쇽",
@@ -5324,9 +7569,29 @@
 "duration": 0.433
 },
 {
+"text": "수건",
+"file": "c218-ac74.mp3",
+"duration": 0.588
+},
+{
+"text": "수리",
+"file": "c218-b9ac.mp3",
+"duration": 0.581
+},
+{
 "text": "수박",
 "file": "c218-bc15.mp3",
 "duration": 0.512
+},
+{
+"text": "수세미",
+"file": "c218-c138-bbf8.mp3",
+"duration": 0.752
+},
+{
+"text": "수수료",
+"file": "c218-c218-b8cc.mp3",
+"duration": 0.723
 },
 {
 "text": "수업 노트 나중에 빌려줄 수 있어요?",
@@ -5339,9 +7604,29 @@
 "duration": 1.452
 },
 {
+"text": "수영하다",
+"file": "c218-c601-d558-b2e4.mp3",
+"duration": 0.788
+},
+{
 "text": "숙",
 "file": "c219.mp3",
 "duration": 0.336
+},
+{
+"text": "숙담",
+"file": "c219-b2f4.mp3",
+"duration": 0.708
+},
+{
+"text": "숙모",
+"file": "c219-baa8.mp3",
+"duration": 0.614
+},
+{
+"text": "숙박비",
+"file": "c219-bc15-be44.mp3",
+"duration": 0.894
 },
 {
 "text": "순",
@@ -5349,9 +7634,19 @@
 "duration": 0.474
 },
 {
+"text": "순수한",
+"file": "c21c-c218-d55c.mp3",
+"duration": 0.78
+},
+{
 "text": "숟",
 "file": "c21f.mp3",
 "duration": 0.335
+},
+{
+"text": "숟가락",
+"file": "c21f-ac00-b77d.mp3",
+"duration": 0.677
 },
 {
 "text": "술",
@@ -5359,9 +7654,19 @@
 "duration": 0.469
 },
 {
+"text": "술고래",
+"file": "c220-ace0-b798.mp3",
+"duration": 0.754
+},
+{
 "text": "숨",
 "file": "c228.mp3",
 "duration": 0.459
+},
+{
+"text": "숨기다",
+"file": "c228-ae30-b2e4.mp3",
+"duration": 0.734
 },
 {
 "text": "숩",
@@ -5369,9 +7674,19 @@
 "duration": 0.329
 },
 {
+"text": "숫자",
+"file": "c22b-c790.mp3",
+"duration": 0.633
+},
+{
 "text": "숭",
 "file": "c22d.mp3",
 "duration": 0.472
+},
+{
+"text": "숲",
+"file": "c232.mp3",
+"duration": 0.321
 },
 {
 "text": "숴",
@@ -5464,6 +7779,16 @@
 "duration": 0.589
 },
 {
+"text": "스케이트",
+"file": "c2a4-cf00-c774-d2b8.mp3",
+"duration": 0.896
+},
+{
+"text": "스키",
+"file": "c2a4-d0a4.mp3",
+"duration": 0.67
+},
+{
 "text": "슥",
 "file": "c2a5.mp3",
 "duration": 0.315
@@ -5494,6 +7819,16 @@
 "duration": 0.731
 },
 {
+"text": "슬픈",
+"file": "c2ac-d508.mp3",
+"duration": 0.731
+},
+{
+"text": "슬픔",
+"file": "c2ac-d514.mp3",
+"duration": 0.748
+},
+{
 "text": "슴",
 "file": "c2b4.mp3",
 "duration": 0.47
@@ -5504,9 +7839,24 @@
 "duration": 0.308
 },
 {
+"text": "습관",
+"file": "c2b5-ad00.mp3",
+"duration": 0.708
+},
+{
 "text": "승",
 "file": "c2b9.mp3",
 "duration": 0.46
+},
+{
+"text": "승용차",
+"file": "c2b9-c6a9-cc28.mp3",
+"duration": 0.873
+},
+{
+"text": "승합차",
+"file": "c2b9-d569-cc28.mp3",
+"duration": 0.793
 },
 {
 "text": "싀",
@@ -5529,6 +7879,31 @@
 "duration": 0.568
 },
 {
+"text": "시금치",
+"file": "c2dc-ae08-ce58.mp3",
+"duration": 0.935
+},
+{
+"text": "시대",
+"file": "c2dc-b300.mp3",
+"duration": 0.546
+},
+{
+"text": "시민",
+"file": "c2dc-bbfc.mp3",
+"duration": 0.619
+},
+{
+"text": "시민권",
+"file": "c2dc-bbfc-ad8c.mp3",
+"duration": 0.849
+},
+{
+"text": "시원",
+"file": "c2dc-c6d0.mp3",
+"duration": 0.584
+},
+{
 "text": "시원한 음료 주문하기",
 "file": "c2dc-c6d0-d55c-20-c74c-b8cc-20-c8fc-bb38-d558-ae30.mp3",
 "duration": 1.636
@@ -5544,6 +7919,16 @@
 "duration": 0.583
 },
 {
+"text": "시인",
+"file": "c2dc-c778.mp3",
+"duration": 0.605
+},
+{
+"text": "시작하다",
+"file": "c2dc-c791-d558-b2e4.mp3",
+"duration": 0.834
+},
+{
 "text": "시작하세요",
 "file": "c2dc-c791-d558-c138-c694.mp3",
 "duration": 0.947
@@ -5552,6 +7937,16 @@
 "text": "시장",
 "file": "c2dc-c7a5.mp3",
 "duration": 0.619
+},
+{
+"text": "시키다",
+"file": "c2dc-d0a4-b2e4.mp3",
+"duration": 0.698
+},
+{
+"text": "시험",
+"file": "c2dc-d5d8.mp3",
+"duration": 0.571
 },
 {
 "text": "식",
@@ -5564,9 +7959,24 @@
 "duration": 0.682
 },
 {
+"text": "식빵",
+"file": "c2dd-be75.mp3",
+"duration": 0.704
+},
+{
+"text": "식사",
+"file": "c2dd-c0ac.mp3",
+"duration": 0.669
+},
+{
 "text": "신",
 "file": "c2e0.mp3",
 "duration": 0.517
+},
+{
+"text": "신고하다",
+"file": "c2e0-ace0-d558-b2e4.mp3",
+"duration": 0.815
 },
 {
 "text": "신다",
@@ -5577,6 +7987,41 @@
 "text": "신라",
 "file": "c2e0-b77c.mp3",
 "duration": 0.564
+},
+{
+"text": "신랑",
+"file": "c2e0-b791.mp3",
+"duration": 0.635
+},
+{
+"text": "신발",
+"file": "c2e0-bc1c.mp3",
+"duration": 0.621
+},
+{
+"text": "신부",
+"file": "c2e0-bd80.mp3",
+"duration": 0.658
+},
+{
+"text": "신용카드",
+"file": "c2e0-c6a9-ce74-b4dc.mp3",
+"duration": 0.929
+},
+{
+"text": "신자",
+"file": "c2e0-c790.mp3",
+"duration": 0.651
+},
+{
+"text": "신청",
+"file": "c2e0-ccad.mp3",
+"duration": 0.736
+},
+{
+"text": "신호등",
+"file": "c2e0-d638-b4f1.mp3",
+"duration": 0.718
 },
 {
 "text": "싣",
@@ -5594,6 +8039,11 @@
 "duration": 0.5
 },
 {
+"text": "실내",
+"file": "c2e4-b0b4.mp3",
+"duration": 0.594
+},
+{
 "text": "실례합니다",
 "file": "c2e4-b840-d569-b2c8-b2e4.mp3",
 "duration": 0.912
@@ -5604,14 +8054,39 @@
 "duration": 2.648
 },
 {
+"text": "실수",
+"file": "c2e4-c218.mp3",
+"duration": 0.745
+},
+{
 "text": "실어요",
 "file": "c2e4-c5b4-c694.mp3",
 "duration": 0.718
 },
 {
+"text": "실패한",
+"file": "c2e4-d328-d55c.mp3",
+"duration": 0.774
+},
+{
+"text": "싫어하다",
+"file": "c2eb-c5b4-d558-b2e4.mp3",
+"duration": 0.765
+},
+{
 "text": "심",
 "file": "c2ec.mp3",
 "duration": 0.498
+},
+{
+"text": "심장",
+"file": "c2ec-c7a5.mp3",
+"duration": 0.701
+},
+{
+"text": "심한",
+"file": "c2ec-d55c.mp3",
+"duration": 0.613
 },
 {
 "text": "십",
@@ -5639,6 +8114,36 @@
 "duration": 0.582
 },
 {
+"text": "싸우다",
+"file": "c2f8-c6b0-b2e4.mp3",
+"duration": 0.681
+},
+{
+"text": "싸움",
+"file": "c2f8-c6c0.mp3",
+"duration": 0.606
+},
+{
+"text": "싸인",
+"file": "c2f8-c778.mp3",
+"duration": 0.655
+},
+{
+"text": "쌀",
+"file": "c300.mp3",
+"duration": 0.509
+},
+{
+"text": "쌍방",
+"file": "c30d-bc29.mp3",
+"duration": 0.72
+},
+{
+"text": "쌓다",
+"file": "c313-b2e4.mp3",
+"duration": 0.624
+},
+{
 "text": "쌔",
 "file": "c314.mp3",
 "duration": 0.499
@@ -5662,6 +8167,11 @@
 "text": "써요",
 "file": "c368-c694.mp3",
 "duration": 0.644
+},
+{
+"text": "썰다",
+"file": "c370-b2e4.mp3",
+"duration": 0.639
 },
 {
 "text": "쎄",
@@ -5739,6 +8249,21 @@
 "duration": 0.534
 },
 {
+"text": "쓰레기",
+"file": "c4f0-b808-ae30.mp3",
+"duration": 0.759
+},
+{
+"text": "쓰리다",
+"file": "c4f0-b9ac-b2e4.mp3",
+"duration": 0.665
+},
+{
+"text": "쓴",
+"file": "c4f4.mp3",
+"duration": 0.534
+},
+{
 "text": "쓸다",
 "file": "c4f8-b2e4.mp3",
 "duration": 0.604
@@ -5757,6 +8282,11 @@
 "text": "씨",
 "file": "c528.mp3",
 "duration": 0.524
+},
+{
+"text": "씹다",
+"file": "c539-b2e4.mp3",
+"duration": 0.669
 },
 {
 "text": "씻다",
@@ -5779,9 +8309,19 @@
 "duration": 1.438
 },
 {
+"text": "아가씨",
+"file": "c544-ac00-c528.mp3",
+"duration": 0.811
+},
+{
 "text": "아기",
 "file": "c544-ae30.mp3",
 "duration": 0.583
+},
+{
+"text": "아니다",
+"file": "c544-b2c8-b2e4.mp3",
+"duration": 0.605
 },
 {
 "text": "아니요",
@@ -5824,9 +8364,19 @@
 "duration": 0.496
 },
 {
+"text": "아들",
+"file": "c544-b4e4.mp3",
+"duration": 0.564
+},
+{
 "text": "아래",
 "file": "c544-b798.mp3",
 "duration": 0.505
+},
+{
+"text": "아름다운",
+"file": "c544-b984-b2e4-c6b4.mp3",
+"duration": 0.841
 },
 {
 "text": "아름다워요",
@@ -5837,6 +8387,11 @@
 "text": "아름답다",
 "file": "c544-b984-b2f5-b2e4.mp3",
 "duration": 0.891
+},
+{
+"text": "아무데도",
+"file": "c544-bb34-b370-b3c4.mp3",
+"duration": 0.768
 },
 {
 "text": "아버지",
@@ -5864,6 +8419,11 @@
 "duration": 1.395
 },
 {
+"text": "아직",
+"file": "c544-c9c1.mp3",
+"duration": 0.484
+},
+{
 "text": "아침",
 "file": "c544-ce68.mp3",
 "duration": 0.642
@@ -5889,6 +8449,11 @@
 "duration": 0.699
 },
 {
+"text": "아파트",
+"file": "c544-d30c-d2b8.mp3",
+"duration": 0.756
+},
+{
 "text": "아프다",
 "file": "c544-d504-b2e4.mp3",
 "duration": 0.643
@@ -5902,6 +8467,11 @@
 "text": "악",
 "file": "c545.mp3",
 "duration": 0.265
+},
+{
+"text": "악어",
+"file": "c545-c5b4.mp3",
+"duration": 0.534
 },
 {
 "text": "안",
@@ -5947,6 +8517,11 @@
 "text": "안 하겠습니다",
 "file": "c548-20-d558-aca0-c2b5-b2c8-b2e4.mp3",
 "duration": 1.019
+},
+{
+"text": "안개",
+"file": "c548-ac1c.mp3",
+"duration": 0.614
 },
 {
 "text": "안경",
@@ -6014,9 +8589,19 @@
 "duration": 0.581
 },
 {
+"text": "안전",
+"file": "c548-c804.mp3",
+"duration": 0.658
+},
+{
 "text": "안전모",
 "file": "c548-c804-baa8.mp3",
 "duration": 0.752
+},
+{
+"text": "안주",
+"file": "c548-c8fc.mp3",
+"duration": 0.637
 },
 {
 "text": "앉다",
@@ -6074,9 +8659,19 @@
 "duration": 0.301
 },
 {
+"text": "앞에",
+"file": "c55e-c5d0.mp3",
+"duration": 0.602
+},
+{
 "text": "애",
 "file": "c560.mp3",
 "duration": 0.4
+},
+{
+"text": "애국심",
+"file": "c560-ad6d-c2ec.mp3",
+"duration": 0.846
 },
 {
 "text": "애써요",
@@ -6092,6 +8687,16 @@
 "text": "야",
 "file": "c57c.mp3",
 "duration": 0.393
+},
+{
+"text": "야단",
+"file": "c57c-b2e8.mp3",
+"duration": 0.611
+},
+{
+"text": "야윈",
+"file": "c57c-c708.mp3",
+"duration": 0.606
 },
 {
 "text": "약",
@@ -6119,6 +8724,11 @@
 "duration": 0.441
 },
 {
+"text": "얇은",
+"file": "c587-c740.mp3",
+"duration": 0.669
+},
+{
 "text": "얌",
 "file": "c58c.mp3",
 "duration": 0.476
@@ -6134,9 +8744,29 @@
 "duration": 0.449
 },
 {
+"text": "양념",
+"file": "c591-b150.mp3",
+"duration": 0.688
+},
+{
+"text": "양다리",
+"file": "c591-b2e4-b9ac.mp3",
+"duration": 0.77
+},
+{
+"text": "양말",
+"file": "c591-b9d0.mp3",
+"duration": 0.643
+},
+{
 "text": "양말 한 켤레",
 "file": "c591-b9d0-20-d55c-20-cf24-b808.mp3",
 "duration": 1.133
+},
+{
+"text": "양파",
+"file": "c591-d30c.mp3",
+"duration": 0.669
 },
 {
 "text": "얘",
@@ -6147,6 +8777,16 @@
 "text": "어",
 "file": "c5b4.mp3",
 "duration": 0.389
+},
+{
+"text": "어깨",
+"file": "c5b4-ae68.mp3",
+"duration": 0.595
+},
+{
+"text": "어느",
+"file": "c5b4-b290.mp3",
+"duration": 0.56
 },
 {
 "text": "어느 나라에서 왔어요?",
@@ -6184,6 +8824,16 @@
 "duration": 0.708
 },
 {
+"text": "어떤",
+"file": "c5b4-b5a4.mp3",
+"duration": 0.608
+},
+{
+"text": "어떻게",
+"file": "c5b4-b5bb-ac8c.mp3",
+"duration": 0.768
+},
+{
 "text": "어떻게 오셨습니까?",
 "file": "c5b4-b5bb-ac8c-20-c624-c168-c2b5-b2c8-ae4c-3f.mp3",
 "duration": 1.336
@@ -6199,6 +8849,11 @@
 "duration": 0.724
 },
 {
+"text": "어려운",
+"file": "c5b4-b824-c6b4.mp3",
+"duration": 0.698
+},
+{
 "text": "어려워요",
 "file": "c5b4-b824-c6cc-c694.mp3",
 "duration": 0.794
@@ -6209,9 +8864,19 @@
 "duration": 0.735
 },
 {
+"text": "어린이",
+"file": "c5b4-b9b0-c774.mp3",
+"duration": 0.685
+},
+{
 "text": "어머니",
 "file": "c5b4-ba38-b2c8.mp3",
 "duration": 0.689
+},
+{
+"text": "어제",
+"file": "c5b4-c81c.mp3",
+"duration": 0.585
 },
 {
 "text": "어제는 비가 왔어요. 그래서 집에서 쉬었어요",
@@ -6224,6 +8889,11 @@
 "duration": 3.751
 },
 {
+"text": "어휘",
+"file": "c5b4-d718.mp3",
+"duration": 0.577
+},
+{
 "text": "억",
 "file": "c5b5.mp3",
 "duration": 0.289
@@ -6232,6 +8902,16 @@
 "text": "언",
 "file": "c5b8.mp3",
 "duration": 0.438
+},
+{
+"text": "언니",
+"file": "c5b8-b2c8.mp3",
+"duration": 0.602
+},
+{
+"text": "언제",
+"file": "c5b8-c81c.mp3",
+"duration": 0.636
 },
 {
 "text": "얻",
@@ -6254,9 +8934,19 @@
 "duration": 0.443
 },
 {
+"text": "얼굴",
+"file": "c5bc-ad74.mp3",
+"duration": 0.612
+},
+{
 "text": "얼굴이 안 좋아 보여요. 괜찮아요?",
 "file": "c5bc-ad74-c774-20-c548-20-c88b-c544-20-bcf4-c5ec-c694-2e-20-ad1c-cc2e-c544-c694-3f.mp3",
 "duration": 2.423
+},
+{
+"text": "얼마",
+"file": "c5bc-b9c8.mp3",
+"duration": 0.543
 },
 {
 "text": "얼마예요?",
@@ -6279,6 +8969,11 @@
 "duration": 0.285
 },
 {
+"text": "없다",
+"file": "c5c6-b2e4.mp3",
+"duration": 0.574
+},
+{
 "text": "없어요",
 "file": "c5c6-c5b4-c694.mp3",
 "duration": 0.748
@@ -6289,6 +8984,11 @@
 "duration": 0.417
 },
 {
+"text": "엉덩이",
+"file": "c5c9-b369-c774.mp3",
+"duration": 0.76
+},
+{
 "text": "에",
 "file": "c5d0.mp3",
 "duration": 0.389
@@ -6297,6 +8997,11 @@
 "text": "여",
 "file": "c5ec.mp3",
 "duration": 0.406
+},
+{
+"text": "여권",
+"file": "c5ec-ad8c.mp3",
+"duration": 0.639
 },
 {
 "text": "여기",
@@ -6344,9 +9049,24 @@
 "duration": 0.573
 },
 {
+"text": "여동생",
+"file": "c5ec-b3d9-c0dd.mp3",
+"duration": 0.819
+},
+{
 "text": "여동생이랑 밖으로 갑니다",
 "file": "c5ec-b3d9-c0dd-c774-b791-20-bc16-c73c-b85c-20-ac11-b2c8-b2e4.mp3",
 "duration": 1.841
+},
+{
+"text": "여드름",
+"file": "c5ec-b4dc-b984.mp3",
+"duration": 0.661
+},
+{
+"text": "여러가지",
+"file": "c5ec-b7ec-ac00-c9c0.mp3",
+"duration": 0.869
 },
 {
 "text": "여름",
@@ -6369,6 +9089,11 @@
 "duration": 0.932
 },
 {
+"text": "여행",
+"file": "c5ec-d589.mp3",
+"duration": 0.588
+},
+{
 "text": "여행하러 왔어요.",
 "file": "c5ec-d589-d558-b7ec-20-c654-c5b4-c694-2e.mp3",
 "duration": 1.237
@@ -6377,6 +9102,11 @@
 "text": "역",
 "file": "c5ed.mp3",
 "duration": 0.338
+},
+{
+"text": "역사",
+"file": "c5ed-c0ac.mp3",
+"duration": 0.662
 },
 {
 "text": "역이 가깝습니다.",
@@ -6394,14 +9124,54 @@
 "duration": 0.454
 },
 {
+"text": "연고",
+"file": "c5f0-ace0.mp3",
+"duration": 0.636
+},
+{
+"text": "연극",
+"file": "c5f0-adf9.mp3",
+"duration": 0.592
+},
+{
+"text": "연기",
+"file": "c5f0-ae30.mp3",
+"duration": 0.713
+},
+{
 "text": "연락",
 "file": "c5f0-b77d.mp3",
 "duration": 0.535
 },
 {
+"text": "연습",
+"file": "c5f0-c2b5.mp3",
+"duration": 0.569
+},
+{
+"text": "연인",
+"file": "c5f0-c778.mp3",
+"duration": 0.607
+},
+{
+"text": "연장",
+"file": "c5f0-c7a5.mp3",
+"duration": 0.697
+},
+{
+"text": "연차",
+"file": "c5f0-cc28.mp3",
+"duration": 0.673
+},
+{
 "text": "연필",
 "file": "c5f0-d544.mp3",
 "duration": 0.759
+},
+{
+"text": "연휴",
+"file": "c5f0-d734.mp3",
+"duration": 0.597
 },
 {
 "text": "엳",
@@ -6414,9 +9184,24 @@
 "duration": 0.442
 },
 {
+"text": "열다",
+"file": "c5f4-b2e4.mp3",
+"duration": 0.658
+},
+{
 "text": "열두시",
 "file": "c5f4-b450-c2dc.mp3",
 "duration": 0.902
+},
+{
+"text": "열리다",
+"file": "c5f4-b9ac-b2e4.mp3",
+"duration": 0.678
+},
+{
+"text": "열린",
+"file": "c5f4-b9b0.mp3",
+"duration": 0.643
 },
 {
 "text": "열쇠",
@@ -6464,6 +9249,11 @@
 "duration": 0.43
 },
 {
+"text": "예방",
+"file": "c608-bc29.mp3",
+"duration": 0.602
+},
+{
 "text": "예뻐요",
 "file": "c608-bed0-c694.mp3",
 "duration": 0.751
@@ -6477,6 +9267,11 @@
 "text": "예요",
 "file": "c608-c694.mp3",
 "duration": 0.597
+},
+{
+"text": "예의",
+"file": "c608-c758.mp3",
+"duration": 0.589
 },
 {
 "text": "오",
@@ -6539,6 +9334,11 @@
 "duration": 2.37
 },
 {
+"text": "오다",
+"file": "c624-b2e4.mp3",
+"duration": 0.507
+},
+{
 "text": "오래간만입니다",
 "file": "c624-b798-ac04-b9cc-c785-b2c8-b2e4.mp3",
 "duration": 1.147
@@ -6547,6 +9347,11 @@
 "text": "오르다",
 "file": "c624-b974-b2e4.mp3",
 "duration": 0.644
+},
+{
+"text": "오른",
+"file": "c624-b978.mp3",
+"duration": 0.576
 },
 {
 "text": "오른쪽",
@@ -6559,14 +9364,29 @@
 "duration": 0.548
 },
 {
+"text": "오빠",
+"file": "c624-be60.mp3",
+"duration": 0.578
+},
+{
 "text": "오십시오",
 "file": "c624-c2ed-c2dc-c624.mp3",
 "duration": 0.789
 },
 {
+"text": "오염",
+"file": "c624-c5fc.mp3",
+"duration": 0.561
+},
+{
 "text": "오이",
 "file": "c624-c774.mp3",
 "duration": 0.565
+},
+{
+"text": "오줌",
+"file": "c624-c90c.mp3",
+"duration": 0.606
 },
 {
 "text": "오천 원",
@@ -6589,6 +9409,11 @@
 "duration": 0.424
 },
 {
+"text": "온수",
+"file": "c628-c218.mp3",
+"duration": 0.659
+},
+{
 "text": "옫",
 "file": "c62b.mp3",
 "duration": 0.298
@@ -6604,9 +9429,19 @@
 "duration": 0.872
 },
 {
+"text": "올라가다",
+"file": "c62c-b77c-ac00-b2e4.mp3",
+"duration": 0.786
+},
+{
 "text": "올라요",
 "file": "c62c-b77c-c694.mp3",
 "duration": 0.714
+},
+{
+"text": "올해",
+"file": "c62c-d574.mp3",
+"duration": 0.522
 },
 {
 "text": "옴",
@@ -6634,6 +9469,11 @@
 "duration": 0.75
 },
 {
+"text": "옷장",
+"file": "c637-c7a5.mp3",
+"duration": 0.628
+},
+{
 "text": "옹",
 "file": "c639.mp3",
 "duration": 0.391
@@ -6649,9 +9489,19 @@
 "duration": 0.807
 },
 {
+"text": "왕",
+"file": "c655.mp3",
+"duration": 0.443
+},
+{
 "text": "왜",
 "file": "c65c.mp3",
 "duration": 0.44
+},
+{
+"text": "왜냐하면",
+"file": "c65c-b0d0-d558-ba74.mp3",
+"duration": 0.832
 },
 {
 "text": "왜냐하면 어제 잘 못 잤어요",
@@ -6664,6 +9514,21 @@
 "duration": 0.437
 },
 {
+"text": "외국",
+"file": "c678-ad6d.mp3",
+"duration": 0.514
+},
+{
+"text": "외국인",
+"file": "c678-ad6d-c778.mp3",
+"duration": 0.784
+},
+{
+"text": "외출",
+"file": "c678-cd9c.mp3",
+"duration": 0.656
+},
+{
 "text": "왼쪽",
 "file": "c67c-cabd.mp3",
 "duration": 0.613
@@ -6674,9 +9539,29 @@
 "duration": 0.422
 },
 {
+"text": "요구",
+"file": "c694-ad6c.mp3",
+"duration": 0.581
+},
+{
+"text": "요금",
+"file": "c694-ae08.mp3",
+"duration": 0.607
+},
+{
+"text": "요령",
+"file": "c694-b839.mp3",
+"duration": 0.596
+},
+{
 "text": "요리사",
 "file": "c694-b9ac-c0ac.mp3",
 "duration": 0.705
+},
+{
+"text": "요리하다",
+"file": "c694-b9ac-d558-b2e4.mp3",
+"duration": 0.75
 },
 {
 "text": "욕",
@@ -6714,6 +9599,11 @@
 "duration": 0.449
 },
 {
+"text": "용감",
+"file": "c6a9-ac10.mp3",
+"duration": 0.663
+},
+{
 "text": "우",
 "file": "c6b0.mp3",
 "duration": 0.378
@@ -6749,6 +9639,11 @@
 "duration": 0.648
 },
 {
+"text": "우표",
+"file": "c6b0-d45c.mp3",
+"duration": 0.585
+},
+{
 "text": "욱",
 "file": "c6b1.mp3",
 "duration": 0.271
@@ -6764,6 +9659,11 @@
 "duration": 0.789
 },
 {
+"text": "운전기사",
+"file": "c6b4-c804-ae30-c0ac.mp3",
+"duration": 0.915
+},
+{
 "text": "욷",
 "file": "c6b7.mp3",
 "duration": 0.301
@@ -6772,6 +9672,11 @@
 "text": "울",
 "file": "c6b8.mp3",
 "duration": 0.43
+},
+{
+"text": "울다",
+"file": "c6b8-b2e4.mp3",
+"duration": 0.556
 },
 {
 "text": "움",
@@ -6814,6 +9719,11 @@
 "duration": 0.558
 },
 {
+"text": "월말",
+"file": "c6d4-b9d0.mp3",
+"duration": 0.622
+},
+{
 "text": "월요일",
 "file": "c6d4-c694-c77c.mp3",
 "duration": 0.678
@@ -6834,9 +9744,34 @@
 "duration": 0.449
 },
 {
+"text": "위에",
+"file": "c704-c5d0.mp3",
+"duration": 0.552
+},
+{
+"text": "위험",
+"file": "c704-d5d8.mp3",
+"duration": 0.551
+},
+{
+"text": "위험한",
+"file": "c704-d5d8-d55c.mp3",
+"duration": 0.698
+},
+{
 "text": "유",
 "file": "c720.mp3",
 "duration": 0.435
+},
+{
+"text": "유리",
+"file": "c720-b9ac.mp3",
+"duration": 0.547
+},
+{
+"text": "유명한",
+"file": "c720-ba85-d55c.mp3",
+"duration": 0.721
 },
 {
 "text": "유월",
@@ -6929,6 +9864,11 @@
 "duration": 1.324
 },
 {
+"text": "음식",
+"file": "c74c-c2dd.mp3",
+"duration": 0.568
+},
+{
 "text": "음악",
 "file": "c74c-c545.mp3",
 "duration": 0.436
@@ -6944,9 +9884,19 @@
 "duration": 0.439
 },
 {
+"text": "응급차",
+"file": "c751-ae09-cc28.mp3",
+"duration": 0.807
+},
+{
 "text": "의",
 "file": "c758.mp3",
 "duration": 0.443
+},
+{
+"text": "의미",
+"file": "c758-bbf8.mp3",
+"duration": 0.59
 },
 {
 "text": "의사",
@@ -6999,9 +9949,24 @@
 "duration": 1.35
 },
 {
+"text": "이기다",
+"file": "c774-ae30-b2e4.mp3",
+"duration": 0.625
+},
+{
+"text": "이다",
+"file": "c774-b2e4.mp3",
+"duration": 0.482
+},
+{
 "text": "이래요",
 "file": "c774-b798-c694.mp3",
 "duration": 0.662
+},
+{
+"text": "이렇게",
+"file": "c774-b807-ac8c.mp3",
+"duration": 0.709
 },
 {
 "text": "이렇다",
@@ -7019,6 +9984,16 @@
 "duration": 0.521
 },
 {
+"text": "이마",
+"file": "c774-b9c8.mp3",
+"duration": 0.498
+},
+{
+"text": "이불",
+"file": "c774-bd88.mp3",
+"duration": 0.553
+},
+{
 "text": "이십 분",
 "file": "c774-c2ed-20-bd84.mp3",
 "duration": 0.707
@@ -7034,6 +10009,21 @@
 "duration": 0.671
 },
 {
+"text": "이유",
+"file": "c774-c720.mp3",
+"duration": 0.538
+},
+{
+"text": "이자",
+"file": "c774-c790.mp3",
+"duration": 0.52
+},
+{
+"text": "이제",
+"file": "c774-c81c.mp3",
+"duration": 0.575
+},
+{
 "text": "익",
 "file": "c775.mp3",
 "duration": 0.28
@@ -7042,6 +10032,31 @@
 "text": "인",
 "file": "c778.mp3",
 "duration": 0.46
+},
+{
+"text": "인구",
+"file": "c778-ad6c.mp3",
+"duration": 0.604
+},
+{
+"text": "인기",
+"file": "c778-ae30.mp3",
+"duration": 0.681
+},
+{
+"text": "인사",
+"file": "c778-c0ac.mp3",
+"duration": 0.613
+},
+{
+"text": "인생",
+"file": "c778-c0dd.mp3",
+"duration": 0.688
+},
+{
+"text": "인종",
+"file": "c778-c885.mp3",
+"duration": 0.619
 },
 {
 "text": "읻",
@@ -7087,6 +10102,21 @@
 "text": "일본 사람이에요. 학생이 아니에요. 회사원이에요. 전화번호는 010-1214-7406 이에요.",
 "file": "c77c-bcf8-20-c0ac-b78c-c774-c5d0-c694-2e-20-d559-c0dd-c774-20-c544-b2c8-c5d0-c694-2e-20-d68c-c0ac-c6d0-c774-c5d0-c694-2e-20-c804-d654-bc88-d638-b294-20-30-31-30-2d-31-32-31-34-2d-37-34-30-36-20-c774-c5d0-c694-2e.mp3",
 "duration": 7.657
+},
+{
+"text": "일상",
+"file": "c77c-c0c1.mp3",
+"duration": 0.695
+},
+{
+"text": "일생",
+"file": "c77c-c0dd.mp3",
+"duration": 0.688
+},
+{
+"text": "일시적인",
+"file": "c77c-c2dc-c801-c778.mp3",
+"duration": 0.934
 },
 {
 "text": "일어나다",
@@ -7169,9 +10199,24 @@
 "duration": 1.015
 },
 {
+"text": "잃어버리다",
+"file": "c783-c5b4-bc84-b9ac-b2e4.mp3",
+"duration": 0.834
+},
+{
 "text": "임",
 "file": "c784.mp3",
 "duration": 0.442
+},
+{
+"text": "임금",
+"file": "c784-ae08.mp3",
+"duration": 0.629
+},
+{
+"text": "임시",
+"file": "c784-c2dc.mp3",
+"duration": 0.687
 },
 {
 "text": "입",
@@ -7182,6 +10227,11 @@
 "text": "입니다",
 "file": "c785-b2c8-b2e4.mp3",
 "duration": 0.647
+},
+{
+"text": "입다",
+"file": "c785-b2e4.mp3",
+"duration": 0.574
 },
 {
 "text": "입학",
@@ -7204,6 +10254,11 @@
 "duration": 0.42
 },
 {
+"text": "잎",
+"file": "c78e.mp3",
+"duration": 0.296
+},
+{
 "text": "자",
 "file": "c790.mp3",
 "duration": 0.408
@@ -7219,14 +10274,34 @@
 "duration": 0.527
 },
 {
+"text": "자동 인출기",
+"file": "c790-b3d9-20-c778-cd9c-ae30.mp3",
+"duration": 1.192
+},
+{
 "text": "자르다",
 "file": "c790-b974-b2e4.mp3",
 "duration": 0.655
 },
 {
+"text": "자손",
+"file": "c790-c190.mp3",
+"duration": 0.634
+},
+{
+"text": "자신감",
+"file": "c790-c2e0-ac10.mp3",
+"duration": 0.812
+},
+{
 "text": "자아요",
 "file": "c790-c544-c694.mp3",
 "duration": 0.741
+},
+{
+"text": "자유",
+"file": "c790-c720.mp3",
+"duration": 0.598
 },
 {
 "text": "자전거",
@@ -7244,6 +10319,11 @@
 "duration": 0.68
 },
 {
+"text": "작다",
+"file": "c791-b2e4.mp3",
+"duration": 0.633
+},
+{
 "text": "작업",
 "file": "c791-c5c5.mp3",
 "duration": 0.5
@@ -7252,6 +10332,11 @@
 "text": "잔",
 "file": "c794.mp3",
 "duration": 0.477
+},
+{
+"text": "잔업",
+"file": "c794-c5c5.mp3",
+"duration": 0.494
 },
 {
 "text": "잗",
@@ -7267,6 +10352,11 @@
 "text": "잘 먹겠습니다.",
 "file": "c798-20-ba39-aca0-c2b5-b2c8-b2e4-2e.mp3",
 "duration": 1.132
+},
+{
+"text": "잘 모르는",
+"file": "c798-20-baa8-b974-b294.mp3",
+"duration": 0.926
 },
 {
 "text": "잘 지내셨습니까?",
@@ -7287,6 +10377,11 @@
 "text": "잠",
 "file": "c7a0.mp3",
 "duration": 0.493
+},
+{
+"text": "잠들다",
+"file": "c7a0-b4e4-b2e4.mp3",
+"duration": 0.742
 },
 {
 "text": "잡",
@@ -7324,6 +10419,11 @@
 "duration": 0.735
 },
 {
+"text": "잡초",
+"file": "c7a1-cd08.mp3",
+"duration": 0.689
+},
+{
 "text": "잣다",
 "file": "c7a3-b2e4.mp3",
 "duration": 0.635
@@ -7334,9 +10434,49 @@
 "duration": 0.464
 },
 {
+"text": "장갑",
+"file": "c7a5-ac11.mp3",
+"duration": 0.585
+},
+{
+"text": "장난감",
+"file": "c7a5-b09c-ac10.mp3",
+"duration": 0.872
+},
+{
+"text": "장마철",
+"file": "c7a5-b9c8-cca0.mp3",
+"duration": 0.839
+},
+{
+"text": "장미",
+"file": "c7a5-bbf8.mp3",
+"duration": 0.673
+},
+{
+"text": "장소",
+"file": "c7a5-c18c.mp3",
+"duration": 0.682
+},
+{
+"text": "장티부스",
+"file": "c7a5-d2f0-bd80-c2a4.mp3",
+"duration": 0.973
+},
+{
 "text": "재",
 "file": "c7ac.mp3",
 "duration": 0.44
+},
+{
+"text": "재미있는",
+"file": "c7ac-bbf8-c788-b294.mp3",
+"duration": 0.821
+},
+{
+"text": "재배",
+"file": "c7ac-bc30.mp3",
+"duration": 0.566
 },
 {
 "text": "쟈",
@@ -7529,14 +10669,54 @@
 "duration": 0.701
 },
 {
+"text": "저온",
+"file": "c800-c628.mp3",
+"duration": 0.591
+},
+{
+"text": "저울",
+"file": "c800-c6b8.mp3",
+"duration": 0.596
+},
+{
 "text": "적",
 "file": "c801.mp3",
 "duration": 0.327
 },
 {
+"text": "적다",
+"file": "c801-b2e4.mp3",
+"duration": 0.616
+},
+{
+"text": "적용",
+"file": "c801-c6a9.mp3",
+"duration": 0.62
+},
+{
 "text": "전",
 "file": "c804.mp3",
 "duration": 0.479
+},
+{
+"text": "전기",
+"file": "c804-ae30.mp3",
+"duration": 0.69
+},
+{
+"text": "전쟁",
+"file": "c804-c7c1.mp3",
+"duration": 0.701
+},
+{
+"text": "전통",
+"file": "c804-d1b5.mp3",
+"duration": 0.685
+},
+{
+"text": "전화",
+"file": "c804-d654.mp3",
+"duration": 0.561
 },
 {
 "text": "전화를 걸까요?",
@@ -7569,9 +10749,19 @@
 "duration": 0.455
 },
 {
+"text": "절차",
+"file": "c808-cc28.mp3",
+"duration": 0.678
+},
+{
 "text": "점",
 "file": "c810.mp3",
 "duration": 0.469
+},
+{
+"text": "점수",
+"file": "c810-c218.mp3",
+"duration": 0.698
 },
 {
 "text": "점심",
@@ -7589,6 +10779,11 @@
 "duration": 0.343
 },
 {
+"text": "젓가락",
+"file": "c813-ac00-b77d.mp3",
+"duration": 0.679
+},
+{
 "text": "젓다",
 "file": "c813-b2e4.mp3",
 "duration": 0.629
@@ -7599,9 +10794,54 @@
 "duration": 0.445
 },
 {
+"text": "정거장",
+"file": "c815-ac70-c7a5.mp3",
+"duration": 0.778
+},
+{
 "text": "정류장",
 "file": "c815-b958-c7a5.mp3",
 "duration": 0.775
+},
+{
+"text": "정리하다",
+"file": "c815-b9ac-d558-b2e4.mp3",
+"duration": 0.812
+},
+{
+"text": "정말",
+"file": "c815-b9d0.mp3",
+"duration": 0.626
+},
+{
+"text": "정보",
+"file": "c815-bcf4.mp3",
+"duration": 0.62
+},
+{
+"text": "정부",
+"file": "c815-bd80.mp3",
+"duration": 0.65
+},
+{
+"text": "정원",
+"file": "c815-c6d0.mp3",
+"duration": 0.603
+},
+{
+"text": "정장",
+"file": "c815-c7a5.mp3",
+"duration": 0.703
+},
+{
+"text": "정책",
+"file": "c815-cc45.mp3",
+"duration": 0.667
+},
+{
+"text": "정한",
+"file": "c815-d55c.mp3",
+"duration": 0.583
 },
 {
 "text": "제",
@@ -7642,6 +10882,16 @@
 "text": "제가방은여기예요",
 "file": "c81c-ac00-bc29-c740-c5ec-ae30-c608-c694.mp3",
 "duration": 1.291
+},
+{
+"text": "제발",
+"file": "c81c-bc1c.mp3",
+"duration": 0.574
+},
+{
+"text": "제자",
+"file": "c81c-c790.mp3",
+"duration": 0.558
 },
 {
 "text": "져",
@@ -7694,6 +10944,41 @@
 "duration": 0.425
 },
 {
+"text": "조국",
+"file": "c870-ad6d.mp3",
+"duration": 0.494
+},
+{
+"text": "조금",
+"file": "c870-ae08.mp3",
+"duration": 0.598
+},
+{
+"text": "조사",
+"file": "c870-c0ac.mp3",
+"duration": 0.574
+},
+{
+"text": "조상",
+"file": "c870-c0c1.mp3",
+"duration": 0.612
+},
+{
+"text": "조심",
+"file": "c870-c2ec.mp3",
+"duration": 0.659
+},
+{
+"text": "조치",
+"file": "c870-ce58.mp3",
+"duration": 0.675
+},
+{
+"text": "조카",
+"file": "c870-ce74.mp3",
+"duration": 0.568
+},
+{
 "text": "족",
 "file": "c871.mp3",
 "duration": 0.314
@@ -7739,6 +11024,26 @@
 "duration": 0.432
 },
 {
+"text": "종교",
+"file": "c885-ad50.mp3",
+"duration": 0.653
+},
+{
+"text": "종류",
+"file": "c885-b958.mp3",
+"duration": 0.637
+},
+{
+"text": "종이",
+"file": "c885-c774.mp3",
+"duration": 0.577
+},
+{
+"text": "종족",
+"file": "c885-c871.mp3",
+"duration": 0.593
+},
+{
 "text": "좋다",
 "file": "c88b-b2e4.mp3",
 "duration": 0.593
@@ -7747,6 +11052,16 @@
 "text": "좋아요",
 "file": "c88b-c544-c694.mp3",
 "duration": 0.696
+},
+{
+"text": "좋아하다",
+"file": "c88b-c544-d558-b2e4.mp3",
+"duration": 0.765
+},
+{
+"text": "좋은",
+"file": "c88b-c740.mp3",
+"duration": 0.626
 },
 {
 "text": "좋지",
@@ -7824,6 +11139,16 @@
 "duration": 1.632
 },
 {
+"text": "주다",
+"file": "c8fc-b2e4.mp3",
+"duration": 0.516
+},
+{
+"text": "주로",
+"file": "c8fc-b85c.mp3",
+"duration": 0.527
+},
+{
 "text": "주말",
 "file": "c8fc-b9d0.mp3",
 "duration": 0.536
@@ -7837,6 +11162,16 @@
 "text": "주문하시겠어요?",
 "file": "c8fc-bb38-d558-c2dc-aca0-c5b4-c694-3f.mp3",
 "duration": 1.179
+},
+{
+"text": "주변",
+"file": "c8fc-bcc0.mp3",
+"duration": 0.589
+},
+{
+"text": "주소",
+"file": "c8fc-c18c.mp3",
+"duration": 0.592
 },
 {
 "text": "주소 알려 주세요.",
@@ -7864,9 +11199,19 @@
 "duration": 0.301
 },
 {
+"text": "죽다",
+"file": "c8fd-b2e4.mp3",
+"duration": 0.618
+},
+{
 "text": "준",
 "file": "c900.mp3",
 "duration": 0.46
+},
+{
+"text": "준비하다",
+"file": "c900-be44-d558-b2e4.mp3",
+"duration": 0.786
 },
 {
 "text": "줃",
@@ -7912,6 +11257,11 @@
 "text": "중국",
 "file": "c911-ad6d.mp3",
 "duration": 0.568
+},
+{
+"text": "중요",
+"file": "c911-c694.mp3",
+"duration": 0.559
 },
 {
 "text": "줘",
@@ -7994,6 +11344,11 @@
 "duration": 0.464
 },
 {
+"text": "즐거운",
+"file": "c990-ac70-c6b4.mp3",
+"duration": 0.744
+},
+{
 "text": "즘",
 "file": "c998.mp3",
 "duration": 0.442
@@ -8044,14 +11399,54 @@
 "duration": 1.391
 },
 {
+"text": "지나다",
+"file": "c9c0-b098-b2e4.mp3",
+"duration": 0.662
+},
+{
+"text": "지난달",
+"file": "c9c0-b09c-b2ec.mp3",
+"duration": 0.745
+},
+{
 "text": "지도",
 "file": "c9c0-b3c4.mp3",
 "duration": 0.548
 },
 {
+"text": "지도자",
+"file": "c9c0-b3c4-c790.mp3",
+"duration": 0.696
+},
+{
+"text": "지시",
+"file": "c9c0-c2dc.mp3",
+"duration": 0.652
+},
+{
 "text": "지어요",
 "file": "c9c0-c5b4-c694.mp3",
 "duration": 0.676
+},
+{
+"text": "지역",
+"file": "c9c0-c5ed.mp3",
+"duration": 0.48
+},
+{
+"text": "지위",
+"file": "c9c0-c704.mp3",
+"duration": 0.582
+},
+{
+"text": "지저분",
+"file": "c9c0-c800-bd84.mp3",
+"duration": 0.759
+},
+{
+"text": "지퍼",
+"file": "c9c0-d37c.mp3",
+"duration": 0.63
 },
 {
 "text": "지하철",
@@ -8074,9 +11469,29 @@
 "duration": 0.308
 },
 {
+"text": "직위",
+"file": "c9c1-c704.mp3",
+"duration": 0.584
+},
+{
+"text": "직접",
+"file": "c9c1-c811.mp3",
+"duration": 0.6
+},
+{
 "text": "진",
 "file": "c9c4.mp3",
 "duration": 0.473
+},
+{
+"text": "진료",
+"file": "c9c4-b8cc.mp3",
+"duration": 0.598
+},
+{
+"text": "진실",
+"file": "c9c4-c2e4.mp3",
+"duration": 0.73
 },
 {
 "text": "짇",
@@ -8087,6 +11502,11 @@
 "text": "질",
 "file": "c9c8.mp3",
 "duration": 0.468
+},
+{
+"text": "질병",
+"file": "c9c8-bcd1.mp3",
+"duration": 0.655
 },
 {
 "text": "짐",
@@ -8109,6 +11529,11 @@
 "duration": 2.068
 },
 {
+"text": "집주인",
+"file": "c9d1-c8fc-c778.mp3",
+"duration": 0.769
+},
+{
 "text": "짓다",
 "file": "c9d3-b2e4.mp3",
 "duration": 0.602
@@ -8129,9 +11554,39 @@
 "duration": 0.524
 },
 {
+"text": "짜장면",
+"file": "c9dc-c7a5-ba74.mp3",
+"duration": 0.818
+},
+{
+"text": "짜증",
+"file": "c9dc-c99d.mp3",
+"duration": 0.615
+},
+{
+"text": "짝",
+"file": "c9dd.mp3",
+"duration": 0.333
+},
+{
+"text": "짠",
+"file": "c9e0.mp3",
+"duration": 0.492
+},
+{
+"text": "짧은",
+"file": "c9e7-c740.mp3",
+"duration": 0.657
+},
+{
 "text": "째",
 "file": "c9f8.mp3",
 "duration": 0.43
+},
+{
+"text": "째다",
+"file": "c9f8-b2e4.mp3",
+"duration": 0.539
 },
 {
 "text": "쨔",
@@ -8169,6 +11624,16 @@
 "duration": 0.415
 },
 {
+"text": "쪽",
+"file": "cabd.mp3",
+"duration": 0.326
+},
+{
+"text": "쫓다",
+"file": "cad3-b2e4.mp3",
+"duration": 0.62
+},
+{
 "text": "쫘",
 "file": "cad8.mp3",
 "duration": 0.415
@@ -8192,6 +11657,11 @@
 "text": "쭈",
 "file": "cb48.mp3",
 "duration": 0.409
+},
+{
+"text": "쭉",
+"file": "cb49.mp3",
+"duration": 0.318
 },
 {
 "text": "쭤",
@@ -8219,6 +11689,11 @@
 "duration": 0.415
 },
 {
+"text": "쯤",
+"file": "cbe4.mp3",
+"duration": 0.454
+},
+{
 "text": "쯰",
 "file": "cbf0.mp3",
 "duration": 0.445
@@ -8229,6 +11704,31 @@
 "duration": 0.432
 },
 {
+"text": "찌개",
+"file": "cc0c-ac1c.mp3",
+"duration": 0.58
+},
+{
+"text": "찌다",
+"file": "cc0c-b2e4.mp3",
+"duration": 0.528
+},
+{
+"text": "찍다",
+"file": "cc0d-b2e4.mp3",
+"duration": 0.626
+},
+{
+"text": "찜뽕",
+"file": "cc1c-bf55.mp3",
+"duration": 0.698
+},
+{
+"text": "찢다",
+"file": "cc22-b2e4.mp3",
+"duration": 0.622
+},
+{
 "text": "차",
 "file": "cc28.mp3",
 "duration": 0.396
@@ -8237,6 +11737,16 @@
 "text": "차 한 대",
 "file": "cc28-20-d55c-20-b300.mp3",
 "duration": 0.771
+},
+{
+"text": "차동차",
+"file": "cc28-b3d9-cc28.mp3",
+"duration": 0.834
+},
+{
+"text": "차이",
+"file": "cc28-c774.mp3",
+"duration": 0.583
 },
 {
 "text": "착",
@@ -8269,6 +11779,16 @@
 "duration": 0.625
 },
 {
+"text": "참다",
+"file": "cc38-b2e4.mp3",
+"duration": 0.659
+},
+{
+"text": "참석하다",
+"file": "cc38-c11d-d558-b2e4.mp3",
+"duration": 0.865
+},
+{
 "text": "찹",
 "file": "cc39.mp3",
 "duration": 0.322
@@ -8279,9 +11799,34 @@
 "duration": 0.481
 },
 {
+"text": "창고",
+"file": "cc3d-ace0.mp3",
+"duration": 0.65
+},
+{
+"text": "창문",
+"file": "cc3d-bb38.mp3",
+"duration": 0.67
+},
+{
+"text": "창피하다",
+"file": "cc3d-d53c-d558-b2e4.mp3",
+"duration": 0.824
+},
+{
+"text": "찾다",
+"file": "cc3e-b2e4.mp3",
+"duration": 0.61
+},
+{
 "text": "채",
 "file": "cc44.mp3",
 "duration": 0.422
+},
+{
+"text": "채소",
+"file": "cc44-c18c.mp3",
+"duration": 0.6
 },
 {
 "text": "책",
@@ -8292,6 +11837,11 @@
 "text": "책 한 권",
 "file": "cc45-20-d55c-20-ad8c.mp3",
 "duration": 0.861
+},
+{
+"text": "책방",
+"file": "cc45-bc29.mp3",
+"duration": 0.667
 },
 {
 "text": "책상",
@@ -8307,6 +11857,16 @@
 "text": "책이 있어요.",
 "file": "cc45-c774-20-c788-c5b4-c694-2e.mp3",
 "duration": 1.014
+},
+{
+"text": "책임감",
+"file": "cc45-c784-ac10.mp3",
+"duration": 0.796
+},
+{
+"text": "책장",
+"file": "cc45-c7a5.mp3",
+"duration": 0.684
 },
 {
 "text": "챠",
@@ -8359,6 +11919,26 @@
 "duration": 0.415
 },
 {
+"text": "처럼",
+"file": "cc98-b7fc.mp3",
+"duration": 0.586
+},
+{
+"text": "처방전",
+"file": "cc98-bc29-c804.mp3",
+"duration": 0.811
+},
+{
+"text": "처벌",
+"file": "cc98-bc8c.mp3",
+"duration": 0.592
+},
+{
+"text": "처음",
+"file": "cc98-c74c.mp3",
+"duration": 0.584
+},
+{
 "text": "척",
 "file": "cc99.mp3",
 "duration": 0.324
@@ -8372,6 +11952,11 @@
 "text": "천만에요",
 "file": "cc9c-b9cc-c5d0-c694.mp3",
 "duration": 0.851
+},
+{
+"text": "천천히",
+"file": "cc9c-cc9c-d788.mp3",
+"duration": 0.784
 },
 {
 "text": "첟",
@@ -8394,14 +11979,34 @@
 "duration": 0.334
 },
 {
+"text": "첫",
+"file": "ccab.mp3",
+"duration": 0.334
+},
+{
 "text": "청",
 "file": "ccad.mp3",
 "duration": 0.466
 },
 {
+"text": "청소하다",
+"file": "ccad-c18c-d558-b2e4.mp3",
+"duration": 0.82
+},
+{
 "text": "체",
 "file": "ccb4.mp3",
 "duration": 0.443
+},
+{
+"text": "체조",
+"file": "ccb4-c870.mp3",
+"duration": 0.574
+},
+{
+"text": "체크카드",
+"file": "ccb4-d06c-ce74-b4dc.mp3",
+"duration": 0.858
 },
 {
 "text": "쳐",
@@ -8454,6 +12059,11 @@
 "duration": 0.427
 },
 {
+"text": "초대",
+"file": "cd08-b300.mp3",
+"duration": 0.545
+},
+{
 "text": "촉",
 "file": "cd09.mp3",
 "duration": 0.306
@@ -8489,6 +12099,11 @@
 "duration": 0.437
 },
 {
+"text": "총각",
+"file": "cd1d-ac01.mp3",
+"duration": 0.579
+},
+{
 "text": "촤",
 "file": "cd24.mp3",
 "duration": 0.428
@@ -8502,6 +12117,21 @@
 "text": "최",
 "file": "cd5c.mp3",
 "duration": 0.457
+},
+{
+"text": "최근",
+"file": "cd5c-adfc.mp3",
+"duration": 0.633
+},
+{
+"text": "최소",
+"file": "cd5c-c18c.mp3",
+"duration": 0.628
+},
+{
+"text": "최저",
+"file": "cd5c-c800.mp3",
+"duration": 0.596
 },
 {
 "text": "쵸",
@@ -8549,6 +12179,21 @@
 "duration": 0.421
 },
 {
+"text": "추가",
+"file": "cd94-ac00.mp3",
+"duration": 0.516
+},
+{
+"text": "추석",
+"file": "cd94-c11d.mp3",
+"duration": 0.513
+},
+{
+"text": "추운",
+"file": "cd94-c6b4.mp3",
+"duration": 0.576
+},
+{
 "text": "추워요",
 "file": "cd94-c6cc-c694.mp3",
 "duration": 0.739
@@ -8557,6 +12202,16 @@
 "text": "축",
 "file": "cd95.mp3",
 "duration": 0.313
+},
+{
+"text": "축구",
+"file": "cd95-ad6c.mp3",
+"duration": 0.651
+},
+{
+"text": "축제",
+"file": "cd95-c81c.mp3",
+"duration": 0.67
 },
 {
 "text": "축하",
@@ -8584,6 +12239,36 @@
 "duration": 0.466
 },
 {
+"text": "출구",
+"file": "cd9c-ad6c.mp3",
+"duration": 0.646
+},
+{
+"text": "출근하다",
+"file": "cd9c-adfc-d558-b2e4.mp3",
+"duration": 0.805
+},
+{
+"text": "출발",
+"file": "cd9c-bc1c.mp3",
+"duration": 0.608
+},
+{
+"text": "출생",
+"file": "cd9c-c0dd.mp3",
+"duration": 0.705
+},
+{
+"text": "출입국",
+"file": "cd9c-c785-ad6d.mp3",
+"duration": 0.722
+},
+{
+"text": "출입문",
+"file": "cd9c-c785-bb38.mp3",
+"duration": 0.742
+},
+{
 "text": "춤",
 "file": "cda4.mp3",
 "duration": 0.461
@@ -8609,6 +12294,11 @@
 "duration": 0.437
 },
 {
+"text": "충전",
+"file": "cda9-c804.mp3",
+"duration": 0.684
+},
+{
 "text": "춰",
 "file": "cdb0.mp3",
 "duration": 0.446
@@ -8622,6 +12312,16 @@
 "text": "취",
 "file": "cde8.mp3",
 "duration": 0.469
+},
+{
+"text": "취미",
+"file": "cde8-bbf8.mp3",
+"duration": 0.584
+},
+{
+"text": "취사도구",
+"file": "cde8-c0ac-b3c4-ad6c.mp3",
+"duration": 0.886
 },
 {
 "text": "츄",
@@ -8714,9 +12414,39 @@
 "duration": 0.454
 },
 {
+"text": "치과",
+"file": "ce58-acfc.mp3",
+"duration": 0.65
+},
+{
+"text": "치료",
+"file": "ce58-b8cc.mp3",
+"duration": 0.544
+},
+{
 "text": "치마",
 "file": "ce58-b9c8.mp3",
 "duration": 0.526
+},
+{
+"text": "치수",
+"file": "ce58-c218.mp3",
+"duration": 0.641
+},
+{
+"text": "치약",
+"file": "ce58-c57d.mp3",
+"duration": 0.5
+},
+{
+"text": "치우다",
+"file": "ce58-c6b0-b2e4.mp3",
+"duration": 0.668
+},
+{
+"text": "치킨",
+"file": "ce58-d0a8.mp3",
+"duration": 0.664
 },
 {
 "text": "칙",
@@ -8739,6 +12469,21 @@
 "duration": 0.871
 },
 {
+"text": "친절",
+"file": "ce5c-c808.mp3",
+"duration": 0.683
+},
+{
+"text": "친척",
+"file": "ce5c-cc99.mp3",
+"duration": 0.639
+},
+{
+"text": "친해지다",
+"file": "ce5c-d574-c9c0-b2e4.mp3",
+"duration": 0.791
+},
+{
 "text": "칟",
 "file": "ce5f.mp3",
 "duration": 0.315
@@ -8759,6 +12504,11 @@
 "duration": 0.474
 },
 {
+"text": "침대",
+"file": "ce68-b300.mp3",
+"duration": 0.633
+},
+{
 "text": "칩",
 "file": "ce69.mp3",
 "duration": 0.309
@@ -8774,6 +12524,11 @@
 "duration": 0.378
 },
 {
+"text": "카드",
+"file": "ce74-b4dc.mp3",
+"duration": 0.538
+},
+{
 "text": "카드로 계산해도 돼요?",
 "file": "ce74-b4dc-b85c-20-acc4-c0b0-d574-b3c4-20-b3fc-c694-3f.mp3",
 "duration": 1.349
@@ -8782,6 +12537,11 @@
 "text": "카드로 할게요.",
 "file": "ce74-b4dc-b85c-20-d560-ac8c-c694-2e.mp3",
 "duration": 1.031
+},
+{
+"text": "카메라",
+"file": "ce74-ba54-b77c.mp3",
+"duration": 0.613
 },
 {
 "text": "카페",
@@ -8819,6 +12579,11 @@
 "duration": 0.446
 },
 {
+"text": "캄캄하다",
+"file": "ce84-ce84-d558-b2e4.mp3",
+"duration": 0.838
+},
+{
 "text": "캅",
 "file": "ce85.mp3",
 "duration": 0.293
@@ -8832,6 +12597,11 @@
 "text": "캐",
 "file": "ce90.mp3",
 "duration": 0.398
+},
+{
+"text": "캐다",
+"file": "ce90-b2e4.mp3",
+"duration": 0.514
 },
 {
 "text": "캬",
@@ -8934,6 +12704,11 @@
 "duration": 0.441
 },
 {
+"text": "컬레",
+"file": "ceec-b808.mp3",
+"duration": 0.571
+},
+{
 "text": "컴",
 "file": "cef4.mp3",
 "duration": 0.428
@@ -9019,6 +12794,31 @@
 "duration": 0.41
 },
 {
+"text": "코골다",
+"file": "cf54-ace8-b2e4.mp3",
+"duration": 0.761
+},
+{
+"text": "코끼리",
+"file": "cf54-b07c-b9ac.mp3",
+"duration": 0.723
+},
+{
+"text": "코란",
+"file": "cf54-b780.mp3",
+"duration": 0.585
+},
+{
+"text": "코뿔소",
+"file": "cf54-bfd4-c18c.mp3",
+"duration": 0.87
+},
+{
+"text": "코트",
+"file": "cf54-d2b8.mp3",
+"duration": 0.606
+},
+{
 "text": "콕",
 "file": "cf55.mp3",
 "duration": 0.288
@@ -9039,6 +12839,11 @@
 "duration": 0.444
 },
 {
+"text": "콜라",
+"file": "cf5c-b77c.mp3",
+"duration": 0.555
+},
+{
 "text": "콜라 안 마셔요.",
 "file": "cf5c-b77c-20-c548-20-b9c8-c154-c694-2e.mp3",
 "duration": 1.147
@@ -9057,6 +12862,11 @@
 "text": "콥",
 "file": "cf65.mp3",
 "duration": 0.299
+},
+{
+"text": "콧물",
+"file": "cf67-bb3c.mp3",
+"duration": 0.612
 },
 {
 "text": "콩",
@@ -9224,6 +13034,11 @@
 "duration": 0.487
 },
 {
+"text": "크리스마스",
+"file": "d06c-b9ac-c2a4-b9c8-c2a4.mp3",
+"duration": 1.011
+},
+{
 "text": "큭",
 "file": "d06d.mp3",
 "duration": 0.268
@@ -9232,6 +13047,11 @@
 "text": "큰",
 "file": "d070.mp3",
 "duration": 0.436
+},
+{
+"text": "큰일",
+"file": "d070-c77c.mp3",
+"duration": 0.578
 },
 {
 "text": "큳",
@@ -9269,6 +13089,16 @@
 "duration": 0.425
 },
 {
+"text": "키보드",
+"file": "d0a4-bcf4-b4dc.mp3",
+"duration": 0.683
+},
+{
+"text": "키우다",
+"file": "d0a4-c6b0-b2e4.mp3",
+"duration": 0.64
+},
+{
 "text": "킥",
 "file": "d0a5.mp3",
 "duration": 0.281
@@ -9287,6 +13117,11 @@
 "text": "킬",
 "file": "d0ac.mp3",
 "duration": 0.447
+},
+{
+"text": "킬로그램",
+"file": "d0ac-b85c-adf8-b7a8.mp3",
+"duration": 0.817
 },
 {
 "text": "킴",
@@ -9314,14 +13149,49 @@
 "duration": 0.501
 },
 {
+"text": "타살",
+"file": "d0c0-c0b4.mp3",
+"duration": 0.622
+},
+{
+"text": "타조",
+"file": "d0c0-c870.mp3",
+"duration": 0.569
+},
+{
 "text": "탁",
 "file": "d0c1.mp3",
 "duration": 0.321
 },
 {
+"text": "탁구",
+"file": "d0c1-ad6c.mp3",
+"duration": 0.622
+},
+{
+"text": "탁월",
+"file": "d0c1-c6d4.mp3",
+"duration": 0.578
+},
+{
+"text": "탁자",
+"file": "d0c1-c790.mp3",
+"duration": 0.618
+},
+{
 "text": "탄",
 "file": "d0c4.mp3",
 "duration": 0.478
+},
+{
+"text": "탄수화물",
+"file": "d0c4-c218-d654-bb3c.mp3",
+"duration": 0.85
+},
+{
+"text": "탄하다",
+"file": "d0c4-d558-b2e4.mp3",
+"duration": 0.64
 },
 {
 "text": "탇",
@@ -9352,6 +13222,31 @@
 "text": "태",
 "file": "d0dc.mp3",
 "duration": 0.413
+},
+{
+"text": "태양",
+"file": "d0dc-c591.mp3",
+"duration": 0.543
+},
+{
+"text": "태어나다",
+"file": "d0dc-c5b4-b098-b2e4.mp3",
+"duration": 0.752
+},
+{
+"text": "태주",
+"file": "d0dc-c8fc.mp3",
+"duration": 0.587
+},
+{
+"text": "태풍",
+"file": "d0dc-d48d.mp3",
+"duration": 0.642
+},
+{
+"text": "택배",
+"file": "d0dd-bc30.mp3",
+"duration": 0.65
 },
 {
 "text": "택시",
@@ -9479,6 +13374,11 @@
 "duration": 0.396
 },
 {
+"text": "텔레비전",
+"file": "d154-b808-be44-c804.mp3",
+"duration": 0.86
+},
+{
 "text": "텨",
 "file": "d168.mp3",
 "duration": 0.44
@@ -9529,6 +13429,21 @@
 "duration": 0.412
 },
 {
+"text": "토끼",
+"file": "d1a0-b07c.mp3",
+"duration": 0.667
+},
+{
+"text": "토란잎",
+"file": "d1a0-b780-c78e.mp3",
+"duration": 0.669
+},
+{
+"text": "토론",
+"file": "d1a0-b860.mp3",
+"duration": 0.553
+},
+{
 "text": "토마토",
 "file": "d1a0-b9c8-d1a0.mp3",
 "duration": 0.738
@@ -9567,6 +13482,21 @@
 "text": "통",
 "file": "d1b5.mp3",
 "duration": 0.421
+},
+{
+"text": "통역",
+"file": "d1b5-c5ed.mp3",
+"duration": 0.512
+},
+{
+"text": "통장",
+"file": "d1b5-c7a5.mp3",
+"duration": 0.667
+},
+{
+"text": "통통하다",
+"file": "d1b5-d1b5-d558-b2e4.mp3",
+"duration": 0.81
 },
 {
 "text": "톼",
@@ -9627,6 +13557,11 @@
 "text": "투",
 "file": "d22c.mp3",
 "duration": 0.408
+},
+{
+"text": "투구",
+"file": "d22c-ad6c.mp3",
+"duration": 0.545
 },
 {
 "text": "툭",
@@ -9729,9 +13664,34 @@
 "duration": 0.429
 },
 {
+"text": "트림",
+"file": "d2b8-b9bc.mp3",
+"duration": 0.554
+},
+{
 "text": "특",
 "file": "d2b9.mp3",
 "duration": 0.293
+},
+{
+"text": "특가",
+"file": "d2b9-ac00.mp3",
+"duration": 0.584
+},
+{
+"text": "특별한",
+"file": "d2b9-bcc4-d55c.mp3",
+"duration": 0.72
+},
+{
+"text": "특징",
+"file": "d2b9-c9d5.mp3",
+"duration": 0.641
+},
+{
+"text": "특히",
+"file": "d2b9-d788.mp3",
+"duration": 0.637
 },
 {
 "text": "튼",
@@ -9814,6 +13774,11 @@
 "duration": 0.363
 },
 {
+"text": "파다",
+"file": "d30c-b2e4.mp3",
+"duration": 0.505
+},
+{
 "text": "파랗다",
 "file": "d30c-b797-b2e4.mp3",
 "duration": 0.711
@@ -9824,6 +13789,21 @@
 "duration": 0.679
 },
 {
+"text": "파리",
+"file": "d30c-b9ac.mp3",
+"duration": 0.564
+},
+{
+"text": "파손하다",
+"file": "d30c-c190-d558-b2e4.mp3",
+"duration": 0.777
+},
+{
+"text": "파이프",
+"file": "d30c-c774-d504.mp3",
+"duration": 0.744
+},
+{
 "text": "팍",
 "file": "d30d.mp3",
 "duration": 0.279
@@ -9832,6 +13812,11 @@
 "text": "판",
 "file": "d310.mp3",
 "duration": 0.451
+},
+{
+"text": "판매",
+"file": "d310-b9e4.mp3",
+"duration": 0.573
 },
 {
 "text": "팓",
@@ -9994,6 +13979,16 @@
 "duration": 0.409
 },
 {
+"text": "페인트",
+"file": "d398-c778-d2b8.mp3",
+"duration": 0.814
+},
+{
+"text": "펜",
+"file": "d39c.mp3",
+"duration": 0.472
+},
+{
 "text": "펴",
 "file": "d3b4.mp3",
 "duration": 0.433
@@ -10009,9 +14004,29 @@
 "duration": 0.423
 },
 {
+"text": "편의점",
+"file": "d3b8-c758-c810.mp3",
+"duration": 0.704
+},
+{
 "text": "편의점은 저기 왼쪽에 있어요.",
 "file": "d3b8-c758-c810-c740-20-c800-ae30-20-c67c-cabd-c5d0-20-c788-c5b4-c694-2e.mp3",
 "duration": 2.081
+},
+{
+"text": "편지",
+"file": "d3b8-c9c0.mp3",
+"duration": 0.714
+},
+{
+"text": "편찮다",
+"file": "d3b8-cc2e-b2e4.mp3",
+"duration": 0.855
+},
+{
+"text": "편하다",
+"file": "d3b8-d558-b2e4.mp3",
+"duration": 0.64
 },
 {
 "text": "펻",
@@ -10039,9 +14054,34 @@
 "duration": 0.416
 },
 {
+"text": "평생",
+"file": "d3c9-c0dd.mp3",
+"duration": 0.707
+},
+{
+"text": "평일",
+"file": "d3c9-c77c.mp3",
+"duration": 0.561
+},
+{
 "text": "폐",
 "file": "d3d0.mp3",
 "duration": 0.392
+},
+{
+"text": "폐기물",
+"file": "d3d0-ae30-bb3c.mp3",
+"duration": 0.694
+},
+{
+"text": "폐수",
+"file": "d3d0-c218.mp3",
+"duration": 0.603
+},
+{
+"text": "폐업",
+"file": "d3d0-c5c5.mp3",
+"duration": 0.434
 },
 {
 "text": "포",
@@ -10049,14 +14089,49 @@
 "duration": 0.398
 },
 {
+"text": "포기",
+"file": "d3ec-ae30.mp3",
+"duration": 0.562
+},
+{
+"text": "포대",
+"file": "d3ec-b300.mp3",
+"duration": 0.536
+},
+{
 "text": "포도",
 "file": "d3ec-b3c4.mp3",
 "duration": 0.524
 },
 {
+"text": "포옹",
+"file": "d3ec-c639.mp3",
+"duration": 0.524
+},
+{
+"text": "포장",
+"file": "d3ec-c7a5.mp3",
+"duration": 0.564
+},
+{
 "text": "폭",
 "file": "d3ed.mp3",
 "duration": 0.283
+},
+{
+"text": "폭발",
+"file": "d3ed-bc1c.mp3",
+"duration": 0.625
+},
+{
+"text": "폭포",
+"file": "d3ed-d3ec.mp3",
+"duration": 0.624
+},
+{
+"text": "폭행",
+"file": "d3ed-d589.mp3",
+"duration": 0.626
 },
 {
 "text": "폰",
@@ -10107,6 +14182,16 @@
 "text": "표",
 "file": "d45c.mp3",
 "duration": 0.405
+},
+{
+"text": "표범",
+"file": "d45c-bc94.mp3",
+"duration": 0.57
+},
+{
+"text": "표지판",
+"file": "d45c-c9c0-d310.mp3",
+"duration": 0.771
 },
 {
 "text": "푝",
@@ -10199,6 +14284,11 @@
 "duration": 1.22
 },
 {
+"text": "풍습",
+"file": "d48d-c2b5.mp3",
+"duration": 0.569
+},
+{
 "text": "풔",
 "file": "d494.mp3",
 "duration": 0.422
@@ -10259,6 +14349,11 @@
 "duration": 0.378
 },
 {
+"text": "프레스",
+"file": "d504-b808-c2a4.mp3",
+"duration": 0.701
+},
+{
 "text": "픅",
 "file": "d505.mp3",
 "duration": 0.259
@@ -10304,6 +14399,21 @@
 "duration": 0.412
 },
 {
+"text": "피곤",
+"file": "d53c-ace4.mp3",
+"duration": 0.57
+},
+{
+"text": "피나다",
+"file": "d53c-b098-b2e4.mp3",
+"duration": 0.642
+},
+{
+"text": "피부",
+"file": "d53c-bd80.mp3",
+"duration": 0.521
+},
+{
 "text": "피자 배달 부탁드려요.",
 "file": "d53c-c790-20-bc30-b2ec-20-bd80-d0c1-b4dc-b824-c694-2e.mp3",
 "duration": 1.613
@@ -10324,6 +14434,11 @@
 "duration": 1.327
 },
 {
+"text": "피해자",
+"file": "d53c-d574-c790.mp3",
+"duration": 0.651
+},
+{
 "text": "픽",
 "file": "d53d.mp3",
 "duration": 0.29
@@ -10342,6 +14457,11 @@
 "text": "필",
 "file": "d544.mp3",
 "duration": 0.433
+},
+{
+"text": "필요하다",
+"file": "d544-c694-d558-b2e4.mp3",
+"duration": 0.718
 },
 {
 "text": "필통",
@@ -10409,9 +14529,29 @@
 "duration": 1.052
 },
 {
+"text": "하다",
+"file": "d558-b2e4.mp3",
+"duration": 0.483
+},
+{
+"text": "하루",
+"file": "d558-b8e8.mp3",
+"duration": 0.526
+},
+{
+"text": "하수도",
+"file": "d558-c218-b3c4.mp3",
+"duration": 0.684
+},
+{
 "text": "하애요",
 "file": "d558-c560-c694.mp3",
 "duration": 0.705
+},
+{
+"text": "하얀",
+"file": "d558-c580.mp3",
+"duration": 0.623
 },
 {
 "text": "하얗다",
@@ -10437,6 +14577,11 @@
 "text": "학교에 다녀요.",
 "file": "d559-ad50-c5d0-20-b2e4-b140-c694-2e.mp3",
 "duration": 1.087
+},
+{
+"text": "학기",
+"file": "d559-ae30.mp3",
+"duration": 0.674
 },
 {
 "text": "학생",
@@ -10539,6 +14684,11 @@
 "duration": 1.857
 },
 {
+"text": "한국인",
+"file": "d55c-ad6d-c778.mp3",
+"duration": 0.81
+},
+{
 "text": "한글",
 "file": "d55c-ae00.mp3",
 "duration": 0.698
@@ -10549,6 +14699,11 @@
 "duration": 1.121
 },
 {
+"text": "한끼",
+"file": "d55c-b07c.mp3",
+"duration": 0.727
+},
+{
 "text": "한복",
 "file": "d55c-bcf5.mp3",
 "duration": 0.545
@@ -10557,6 +14712,16 @@
 "text": "한복이에요",
 "file": "d55c-bcf5-c774-c5d0-c694.mp3",
 "duration": 0.962
+},
+{
+"text": "한식",
+"file": "d55c-c2dd.mp3",
+"duration": 0.608
+},
+{
+"text": "한턱내다",
+"file": "d55c-d131-b0b4-b2e4.mp3",
+"duration": 0.854
 },
 {
 "text": "핟",
@@ -10574,6 +14739,11 @@
 "duration": 0.856
 },
 {
+"text": "할머니",
+"file": "d560-ba38-b2c8.mp3",
+"duration": 0.723
+},
+{
 "text": "할아버지",
 "file": "d560-c544-bc84-c9c0.mp3",
 "duration": 0.842
@@ -10589,9 +14759,19 @@
 "duration": 0.432
 },
 {
+"text": "함께",
+"file": "d568-aed8.mp3",
+"duration": 0.675
+},
+{
 "text": "합",
 "file": "d569.mp3",
 "duration": 0.304
+},
+{
+"text": "합격",
+"file": "d569-aca9.mp3",
+"duration": 0.541
 },
 {
 "text": "합니다",
@@ -10599,14 +14779,54 @@
 "duration": 0.626
 },
 {
+"text": "합법",
+"file": "d569-bc95.mp3",
+"duration": 0.575
+},
+{
 "text": "항",
 "file": "d56d.mp3",
 "duration": 0.427
 },
 {
+"text": "항구",
+"file": "d56d-ad6c.mp3",
+"duration": 0.628
+},
+{
+"text": "항상",
+"file": "d56d-c0c1.mp3",
+"duration": 0.662
+},
+{
 "text": "해",
 "file": "d574.mp3",
 "duration": 0.351
+},
+{
+"text": "해결",
+"file": "d574-acb0.mp3",
+"duration": 0.556
+},
+{
+"text": "해고",
+"file": "d574-ace0.mp3",
+"duration": 0.536
+},
+{
+"text": "해마다",
+"file": "d574-b9c8-b2e4.mp3",
+"duration": 0.631
+},
+{
+"text": "해방",
+"file": "d574-bc29.mp3",
+"duration": 0.561
+},
+{
+"text": "해외",
+"file": "d574-c678.mp3",
+"duration": 0.514
 },
 {
 "text": "핸드폰",
@@ -10619,9 +14839,24 @@
 "duration": 0.699
 },
 {
+"text": "햅쌀",
+"file": "d585-c300.mp3",
+"duration": 0.656
+},
+{
+"text": "햇",
+"file": "d587.mp3",
+"duration": 0.265
+},
+{
 "text": "했습니다",
 "file": "d588-c2b5-b2c8-b2e4.mp3",
 "duration": 0.744
+},
+{
+"text": "행사",
+"file": "d589-c0ac.mp3",
+"duration": 0.604
 },
 {
 "text": "햐",
@@ -10674,6 +14909,16 @@
 "duration": 0.397
 },
 {
+"text": "허가",
+"file": "d5c8-ac00.mp3",
+"duration": 0.522
+},
+{
+"text": "허리",
+"file": "d5c8-b9ac.mp3",
+"duration": 0.543
+},
+{
 "text": "헉",
 "file": "d5c9.mp3",
 "duration": 0.283
@@ -10704,6 +14949,11 @@
 "duration": 0.277
 },
 {
+"text": "헛곡식",
+"file": "d5db-ace1-c2dd.mp3",
+"duration": 0.808
+},
+{
 "text": "헝",
 "file": "d5dd.mp3",
 "duration": 0.414
@@ -10712,6 +14962,11 @@
 "text": "헤",
 "file": "d5e4.mp3",
 "duration": 0.349
+},
+{
+"text": "헤아리다",
+"file": "d5e4-c544-b9ac-b2e4.mp3",
+"duration": 0.719
 },
 {
 "text": "혀",
@@ -10744,6 +14999,11 @@
 "duration": 1.446
 },
 {
+"text": "현재",
+"file": "d604-c7ac.mp3",
+"duration": 0.589
+},
+{
 "text": "혇",
 "file": "d607.mp3",
 "duration": 0.329
@@ -10752,6 +15012,11 @@
 "text": "혈",
 "file": "d608.mp3",
 "duration": 0.41
+},
+{
+"text": "혈압",
+"file": "d608-c555.mp3",
+"duration": 0.471
 },
 {
 "text": "혐",
@@ -10764,9 +15029,19 @@
 "duration": 0.31
 },
 {
+"text": "협박",
+"file": "d611-bc15.mp3",
+"duration": 0.595
+},
+{
 "text": "형",
 "file": "d615.mp3",
 "duration": 0.391
+},
+{
+"text": "형제",
+"file": "d615-c81c.mp3",
+"duration": 0.648
 },
 {
 "text": "혜",
@@ -10779,9 +15054,34 @@
 "duration": 0.374
 },
 {
+"text": "호랑이",
+"file": "d638-b791-c774.mp3",
+"duration": 0.694
+},
+{
+"text": "호박",
+"file": "d638-bc15.mp3",
+"duration": 0.444
+},
+{
+"text": "호선",
+"file": "d638-c120.mp3",
+"duration": 0.573
+},
+{
+"text": "호수",
+"file": "d638-c218.mp3",
+"duration": 0.572
+},
+{
 "text": "호텔 정문 앞에서 타면 돼요.",
 "file": "d638-d154-20-c815-bb38-20-c55e-c5d0-c11c-20-d0c0-ba74-20-b3fc-c694-2e.mp3",
 "duration": 1.971
+},
+{
+"text": "호흡",
+"file": "d638-d761.mp3",
+"duration": 0.428
 },
 {
 "text": "혹",
@@ -10792,6 +15092,11 @@
 "text": "혼",
 "file": "d63c.mp3",
 "duration": 0.384
+},
+{
+"text": "혼자",
+"file": "d63c-c790.mp3",
+"duration": 0.549
 },
 {
 "text": "혿",
@@ -10824,6 +15129,26 @@
 "duration": 0.399
 },
 {
+"text": "화기금지",
+"file": "d654-ae30-ae08-c9c0.mp3",
+"duration": 0.954
+},
+{
+"text": "화를 내다",
+"file": "d654-b97c-20-b0b4-b2e4.mp3",
+"duration": 0.815
+},
+{
+"text": "화상",
+"file": "d654-c0c1.mp3",
+"duration": 0.597
+},
+{
+"text": "화장",
+"file": "d654-c7a5.mp3",
+"duration": 0.619
+},
+{
 "text": "화장실",
 "file": "d654-c7a5-c2e4.mp3",
 "duration": 0.858
@@ -10837,6 +15162,46 @@
 "text": "화장실이 어디예요?",
 "file": "d654-c7a5-c2e4-c774-20-c5b4-b514-c608-c694-3f.mp3",
 "duration": 1.285
+},
+{
+"text": "화장품",
+"file": "d654-c7a5-d488.mp3",
+"duration": 0.828
+},
+{
+"text": "화재",
+"file": "d654-c7ac.mp3",
+"duration": 0.575
+},
+{
+"text": "확인",
+"file": "d655-c778.mp3",
+"duration": 0.583
+},
+{
+"text": "환경",
+"file": "d658-acbd.mp3",
+"duration": 0.642
+},
+{
+"text": "환자",
+"file": "d658-c790.mp3",
+"duration": 0.612
+},
+{
+"text": "환전",
+"file": "d658-c804.mp3",
+"duration": 0.693
+},
+{
+"text": "환풍기",
+"file": "d658-d48d-ae30.mp3",
+"duration": 0.873
+},
+{
+"text": "활동",
+"file": "d65c-b3d9.mp3",
+"duration": 0.64
 },
 {
 "text": "홰",
@@ -10867,6 +15232,26 @@
 "text": "회사원",
 "file": "d68c-c0ac-c6d0.mp3",
 "duration": 0.688
+},
+{
+"text": "회식",
+"file": "d68c-c2dd.mp3",
+"duration": 0.519
+},
+{
+"text": "회의",
+"file": "d68c-c758.mp3",
+"duration": 0.521
+},
+{
+"text": "회전",
+"file": "d68c-c804.mp3",
+"duration": 0.572
+},
+{
+"text": "횡단금지",
+"file": "d6a1-b2e8-ae08-c9c0.mp3",
+"duration": 1.032
 },
 {
 "text": "효",
@@ -10914,6 +15299,11 @@
 "duration": 0.35
 },
 {
+"text": "후추",
+"file": "d6c4-cd94.mp3",
+"duration": 0.616
+},
+{
 "text": "훅",
 "file": "d6c5.mp3",
 "duration": 0.234
@@ -10922,6 +15312,11 @@
 "text": "훈",
 "file": "d6c8.mp3",
 "duration": 0.387
+},
+{
+"text": "훈련",
+"file": "d6c8-b828.mp3",
+"duration": 0.573
 },
 {
 "text": "훋",
@@ -10937,6 +15332,11 @@
 "text": "훔",
 "file": "d6d4.mp3",
 "duration": 0.368
+},
+{
+"text": "훔치다",
+"file": "d6d4-ce58-b2e4.mp3",
+"duration": 0.683
 },
 {
 "text": "훕",
@@ -10964,14 +15364,34 @@
 "duration": 0.391
 },
 {
+"text": "휘발유",
+"file": "d718-bc1c-c720.mp3",
+"duration": 0.695
+},
+{
 "text": "휴",
 "file": "d734.mp3",
 "duration": 0.385
 },
 {
+"text": "휴가",
+"file": "d734-ac00.mp3",
+"duration": 0.512
+},
+{
+"text": "휴게실",
+"file": "d734-ac8c-c2e4.mp3",
+"duration": 0.814
+},
+{
 "text": "휴대폰",
 "file": "d734-b300-d3f0.mp3",
 "duration": 0.72
+},
+{
+"text": "휴일",
+"file": "d734-c77c.mp3",
+"duration": 0.542
 },
 {
 "text": "휵",
@@ -11049,6 +15469,11 @@
 "duration": 0.663
 },
 {
+"text": "흙",
+"file": "d759.mp3",
+"duration": 0.226
+},
+{
 "text": "흠",
 "file": "d760.mp3",
 "duration": 0.376
@@ -11067,6 +15492,11 @@
 "text": "희",
 "file": "d76c.mp3",
 "duration": 0.388
+},
+{
+"text": "희망",
+"file": "d76c-b9dd.mp3",
+"duration": 0.529
 },
 {
 "text": "히",
@@ -11097,6 +15527,11 @@
 "text": "힘",
 "file": "d798.mp3",
 "duration": 0.412
+},
+{
+"text": "힘들다",
+"file": "d798-b4e4-b2e4.mp3",
+"duration": 0.693
 },
 {
 "text": "힙",

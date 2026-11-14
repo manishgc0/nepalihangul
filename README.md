@@ -357,7 +357,8 @@ are synthesised once and shipped as static files:
 | runtime harvest of everything the UI actually says (`/tmp/opencode/spoken.json`) | 430 |
 | `scrape_source()` — quiz answers, lesson `audio:` / `audioPrompt:` fields, sample lists, literal `say('…')` calls | — |
 | mission `npcKo:` NPC lines and `goalKo:` goal phrases | 32 |
-| **after dedupe and normalisation** | **2221 clips, 8.75 MB** |
+| the CS1 dictionary headwords (pp. 189–233), harvested by the same whole-array scrape | 887 |
+| **after dedupe and normalisation** | **3108 clips, 12.4 MB** |
 
 Every file is 24 kHz mono 48 kbps MP3, silence-trimmed, peak-normalised to
 −3 dBFS peak in **both** directions, with 30 ms of leading pad so the clip does
@@ -459,7 +460,7 @@ python3 gen_audio.py --source edge   # offline fallback voice
 It is the gate that catches the failure this library exists to prevent: a word
 renders fine but has no clip, so `say()` falls to `/api/tts` (absent on a static
 server), then to `speechSynthesis` (no Korean voice on most Linux installs), and
-the screen is simply silent. 2,221 strings, 8.75 MB.
+the screen is simply silent. 3,108 strings, 12.4 MB.
 
 `scrape_source()` collects the target set from the app source by shape. It reads
 each array literal and keeps **every** Korean field in it, not just the first,
@@ -544,13 +545,13 @@ it up on the next build.
 ## Books — the Nepali-medium reference shelf (`books` screen)
 
 Three printed Nepali-language Korean textbooks, transcribed by hand into a
-five-tab reference: **वर्णमाला**, **उच्चारण नियम**, **गणना**, **अभिवादन**,
-**व्याकरण**.
+six-tab reference: **वर्णमाला**, **उच्चारण नियम**, **गणना**, **अभिवादन**,
+**व्याकरण**, **शब्दकोश**.
 
 | tag | file | pages | what it gave |
 | --- | --- | --- | --- |
 | `BKL` | Basic Korean Language Book | 83 | letter tables, greetings |
-| `CS1` | CamScanner 07-28-2026 | 239 | pronunciation rules, the whole grammar half (pp. 46–80) |
+| `CS1` | CamScanner 07-28-2026 | 239 | pronunciation rules, the whole grammar half (pp. 46–80), the alphabetical dictionary (pp. 189–233) |
 | `CS2` | CamScanner 03-02-2025 | 245 | counters |
 
 All three are image-only scans — no text layer, and `pdftotext` returns nothing
@@ -615,6 +616,48 @@ the tense consonants and compound vowels. A composer whose result is silent is
 worse than no composer. The `["한글", "…"]` scrape pattern deliberately does not
 require a closing bracket, so the three-field rows here (hangul, Devanagari,
 meaning) are harvested too.
+
+### शब्दकोश — the alphabetical dictionary
+
+Half of the 239-page scan is not a grammar course. Printed pages 189–233 are a
+Korean → Nepali → English dictionary ordered by initial consonant, and for a
+Nepali speaker it is the single most useful block in the book. **1,121 entries**
+are typed by hand into `BK_DICT` as `[printed_page, korean, nepali, english]`.
+
+Two limits are stated on screen rather than papered over:
+
+- **The ㄹ section is missing from the scan.** The book jumps ㄷ → ㅁ, so the ㄹ
+  chip renders dashed and disabled instead of being filled with guessed words.
+- **The scan stops at ㅉ** (printed p233). There is no page after 233 in the file,
+  so there is no tail to type.
+
+The book prints a romanisation column. It is deliberately not reproduced —
+`bkWord()` derives Devanagari from the same 19 × 21 grid the alphabet tab uses,
+which serves a Nepali reader better than `gagi` does:
+
+```
+갈비 → गाल्बि      건강 보험 → गन्गाङ् बोहम्
+닭   → दाक्        없다      → अप्स्दा
+휴대폰 → ह्युदेफोन्
+```
+
+`bkWord()` decomposes each syllable into `CI` / `VI` / `FI`, reads the body with
+`bkRead()`, then hangs the coda off the end from `BOOK_FIN`. Cluster finals
+collapse to the sound actually pronounced, the same way the book's own
+romanisation does — 닭 is `dak`, not `dalg`.
+
+`bkInit()` exists because a Hangul syllable never starts with a jamo:
+`r[1].charAt(0)` returns `갈`, not `ㄱ`, so the initial has to be pulled out of
+the code point (`Math.floor((code - 0xAC00) / 588)`). Chips, counts and the
+filter all read through it.
+
+The list renders 60 rows at a time (`BK_DICT_CAP`, +80 per "more" tap) — 1,121
+rows in one shot is a scroll nobody finishes. Search matches Korean, Nepali,
+English **and** the derived Devanagari, so a learner who can only spell the word
+in Devanagari can still find it. Rows are deduped on `(korean, nepali)`; where
+the book genuinely repeats a headword with a different meaning (`배` = stomach /
+boat / pear) both rows survive.
+
 
 ## Offline / PWA
 

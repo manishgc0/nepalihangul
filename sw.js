@@ -5,7 +5,7 @@
  *   audio/ images/ icons/ fonts -> stale-while-revalidate
  *   /api/tts        -> never intercepted (per-request audio, app falls back to Web Speech)
  */
-const VERSION = "v32";
+const VERSION = "v33";
 const CACHE = "nepalihangul-" + VERSION;
 
 const QUIZ_IMAGES = ["images/quiz/bag.webp", "images/quiz/bank.webp", "images/quiz/blackboard.webp", "images/quiz/box.webp", "images/quiz/bus.webp", "images/quiz/cafe.webp", "images/quiz/chair.webp", "images/quiz/cinema.webp", "images/quiz/classroom.webp", "images/quiz/clock.webp", "images/quiz/computer.webp", "images/quiz/desk.webp", "images/quiz/factory.webp", "images/quiz/hat.webp", "images/quiz/helmet.webp", "images/quiz/hospital.webp", "images/quiz/machine.webp", "images/quiz/medicine.webp", "images/quiz/money.webp", "images/quiz/pencil.webp", "images/quiz/phone.webp", "images/quiz/photo.webp", "images/quiz/restaurant.webp", "images/quiz/rice.webp", "images/quiz/truck.webp", "images/quiz/water.webp"];
