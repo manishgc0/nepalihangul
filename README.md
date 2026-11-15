@@ -462,7 +462,7 @@ python3 gen_audio.py --source edge   # offline fallback voice
 It is the gate that catches the failure this library exists to prevent: a word
 renders fine but has no clip, so `say()` falls to `/api/tts` (absent on a static
 server), then to `speechSynthesis` (no Korean voice on most Linux installs), and
-the screen is simply silent. 4,508 strings, 20.3 MB.
+the screen is simply silent. 4,705 strings, 22.1 MB.
 
 `scrape_source()` collects the target set from the app source by shape. It reads
 each array literal and keeps **every** Korean field in it, not just the first,
@@ -547,13 +547,13 @@ it up on the next build.
 ## Books — the Nepali-medium reference shelf (`books` screen)
 
 Three printed Nepali-language Korean textbooks, transcribed by hand into a
-six-tab reference: **वर्णमाला**, **उच्चारण नियम**, **गणना**, **अभिवादन**,
-**व्याकरण**, **शब्दकोश**.
+seven-tab reference: **वर्णमाला**, **उच्चारण नियम**, **गणना**, **अभिवादन**,
+**व्याकरण**, **शब्दकोश**, **सङ्केत**.
 
 | tag | file | pages | what it gave |
 | --- | --- | --- | --- |
 | `BKL` | Basic Korean Language Book | 83 | letter tables, greetings |
-| `CS1` | CamScanner 07-28-2026 | 239 | pronunciation rules, the whole grammar half (pp. 46–80), the synonym and antonym tables (pp. 114–127), the thematic word lists (pp. 128–161), the alphabetical dictionary (pp. 189–233) |
+| `CS1` | CamScanner 07-28-2026 | 239 | pronunciation rules, the whole grammar half (pp. 46–80), the synonym and antonym tables (pp. 114–127), the thematic word lists (pp. 128–161), the sign boards and picture pages (pp. 162–178), the alphabetical dictionary (pp. 189–233) |
 | `CS2` | CamScanner 03-02-2025 | 245 | counters |
 
 All three are image-only scans — no text layer, and `pdftotext` returns nothing
@@ -581,6 +581,15 @@ modern Korean has merged them.
 **Provenance is per-section** (`BKL p3 · CS2 p4`, `CS1 p11`, `CS2 p46`), and the
 screen says plainly that 567 scanned pages are not all typed up yet. A reference
 you cannot check is a rumour.
+
+The ledger, kept honest. "Touched" means some of the page is on screen; it is not
+the same as "transcribed", and the gaps are real:
+
+| book | scanned pages | touched | what is still missing |
+| --- | --- | --- | --- |
+| `BKL` | 83 | 2–8, greetings | the whole conversation half, pp. 9–83 |
+| `CS1` | 239 | 11 · 46–79 (sample) · 114–178 · 189–233 | pp. 1–10, 12–45, 80–113, 179–188, and the ㄹ section, which is absent from the scan |
+| `CS2` | 245 | 46 | pp. 1–45, 47–245 |
 
 ### व्याकरण — the grammar half
 
@@ -712,6 +721,61 @@ the book genuinely repeats a headword with a different meaning (`배` = stomach 
 boat / pear) both rows survive.
 
 
+### सङ्केत — the sign boards and the picture pages
+
+The last block of the grammar book is not vocabulary. Printed pages 162–178 are
+**174 sign boards** — the fire-safety and construction-site notices a worker in
+Korea has to read on the first morning — followed by **39 picture labels** of
+machines and rooms. Every board is a whole sentence, so these get **cards, not
+rows**: `BK_SIGN` is 213 cards, `[printed_page, group, korean_sign,
+korean_sentence, nepali]`, split by `BK_SIGN_SEC` into `sign` (174, pp. 162–175)
+and `pic` (39, pp. 176–178).
+
+`korean_sentence` is `""` on the picture pages, which carry a label and nothing
+else. Where the board's own text is all there is, the card prints it once; where
+the sentence differs from the board (`위험! 낙하물주의` above `위에서 물건이
+떨어질 수 있음`), both are shown and the tap speaks the sentence.
+
+**Devanagari is deliberately omitted from these cards**, and the tab says so.
+This is the one place the grid derivation breaks down: it reads a single word
+cleanly (작업등 → जाक्अप्द्ङ् is ugly but legible), but run across a sentence it
+concatenates into strings nobody can parse:
+
+```
+출입금지            → छुल्ईप्ग्म्जि
+위에서 돌이 떨어질 수 있으니 천천히 → वइएस दोल्ई टल्अजिल् सु ईत्उनि छन्छन्हि
+```
+
+The cause is the ㅡ medial `्`: every closed syllable ends in a virama, so a
+sentence becomes one unbroken conjunct chain. The dictionary tab keeps the
+reading for the words themselves; the sign tab points there and stops.
+
+Seven labels on pp. 176–177 cannot be read at all — the book printed its Korean
+and Nepali columns on top of each other until neither is legible. Those render
+as **"पुस्तकमा यो लेबल पढ्न सकिएन"** rather than as a guess. A blank field in
+`BK_SIGN` always means this, never "forgot to type it".
+
+The rest of the printing faults are corrected on the card **and** listed in a
+collapsible card at the foot of the tab (`bkSignFixes()`, 7 grouped lines),
+because several of them invert the instruction:
+
+- p163 — the 출입금지 board carries the 금연 card's smoking sentence.
+- p172 — `ढोकामा आड लाग्नुहोस्` has lost its negative; as printed the sign says
+  the opposite of what it means, so `नलाग्नुहोस्` is used.
+- p170 — `보행금 구역` → `보행금지 구역`, `과계자외출입금지` → `관계자외출입금지`.
+- p173 — `सायातिर` → `दाहिनेतिर`; p174 — `안전머` → `안전벨트`; p168 —
+  `भ्याइमा` → `भर्याङमा`.
+
+Cards are one column at 390 px, two at 560, three at 900 (`BK_SIGN_CAP` 48 per
+paint, +48 per "more" tap). The group chips use `.bk-wchip` — the letter chip's
+16 px turns a four-word heading into a block.
+
+Seven tabs on a 390 px strip wrap 3 + 3 + 1, and a lone tab that grows fills the
+row and reads like a heading. So `.bk-tabs .view-tab` is `flex:0 0 calc(33.333%
+- 6px)` — fixed width, never grows — and only becomes `flex:1 1 0` above 560 px
+where all seven fit on one row.
+
+
 ## Offline / PWA
 
 `sw.js` is generated by `build_bilingual.py` (edit the template there, not the
@@ -723,7 +787,8 @@ if ("serviceWorker" in navigator && location.protocol !== "file:") {
 }
 ```
 
-Cache name `nepalihangul-v3`. The precache list is the app shell — `index.html`,
+Cache name `nepalihangul-` + `VERSION` (`nepalihangul-v36` today), so every
+build that changes the shell invalidates the old cache on activate. The precache list is the app shell — `index.html`,
 the manifest, all six icons and the four SFX files — plus every
 `images/quiz/*.webp`, read from the directory at build time, so adding an image
 and rebuilding is enough. That is 40 entries, about 1.8 MB.
