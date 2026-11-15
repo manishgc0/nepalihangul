@@ -5681,9 +5681,10 @@ html.dark .pdisp-note-name {
   max-width:62ch;
 }
 .bk-tabs{margin-bottom:18px;flex-wrap:wrap}
-/* six tabs at 390 px: five fit and the sixth wraps to a full-width bar, which
-   reads like a heading. An even 3 × 2 keeps every tab the same weight. */
-.bk-tabs .view-tab{flex:1 1 calc(33.333% - 8px);min-width:0}
+/* seven tabs at 390 px: a lone tab that grows fills the row and reads like a
+   heading, so each tab is a fixed third and never grows. 3 + 3 + 1. */
+.bk-tabs .view-tab{flex:0 0 calc(33.333% - 6px);min-width:0}
+@media (min-width:560px){ .bk-tabs .view-tab{flex:1 1 0} }
 .bk-h{
   display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;
   margin:22px 0 10px;font-size:var(--fs-title);color:var(--ink);font-weight:800;
@@ -5761,6 +5762,39 @@ html.dark .pdisp-note-name {
 }
 /* the corrections card — the book has real errors and they are listed, not
    silently fixed and not silently copied */
+/* the sign boards: each card is a whole sentence, so it gets a plaque rather
+   than a one-line row. One column at 390, two at 560, three at 900. */
+.bk-sgrid{display:grid;grid-template-columns:1fr;gap:9px;margin:0 0 4px}
+@media (min-width:560px){ .bk-sgrid{grid-template-columns:1fr 1fr} }
+@media (min-width:900px){ .bk-sgrid{grid-template-columns:1fr 1fr 1fr} }
+.bk-scard{
+  display:block;width:100%;text-align:left;padding:12px 13px 13px;
+  font-family:inherit;background:var(--paper);border:1px solid var(--line);
+  border-left:3px solid var(--rose-soft);border-radius:var(--r-2);
+  cursor:pointer;transition:border-color .12s ease,transform .12s ease;
+}
+.bk-scard:hover{border-left-color:var(--rose-ink)}
+.bk-scard:active{transform:scale(.995)}
+.bk-s-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+.bk-s-sign{
+  display:block;font-size:16px;font-weight:700;color:var(--ink);line-height:1.35;
+  letter-spacing:.01em;
+}
+.bk-s-pg{
+  flex:none;font-size:9px;font-weight:700;color:var(--ink-3);
+  font-variant-numeric:tabular-nums;padding-top:3px;
+}
+.bk-s-ko{
+  display:block;font-size:var(--fs-small);color:var(--ink-2);line-height:1.5;
+  margin-top:7px;
+}
+.bk-s-ne{
+  display:block;font-size:var(--fs-small);color:var(--ink);line-height:1.6;
+  margin-top:5px;padding-top:6px;border-top:1px dashed var(--line);
+}
+.bk-s-nil{
+  color:var(--ink-3);font-style:italic;border-top-style:dotted;
+}
 .bk-fix{
   margin:16px 0 0;padding:0 14px;border:1px solid var(--line);
   border-radius:var(--r-2);background:var(--cream-2);
@@ -5788,6 +5822,10 @@ html.dark .pdisp-note-name {
   color:var(--ink-3);background:var(--cream-2);
   border-style:dashed;cursor:not-allowed;opacity:.55;
 }
+/* the sign-board groups are phrases, not single jamo — the letter chip's 16 px
+   turns a four-word heading into a block */
+.bk-wchip{font-size:var(--fs-small);padding:9px 12px 8px}
+.bk-wchip i{display:inline;margin:0 0 0 5px;font-size:10px;font-weight:700}
 
 .bk-dmeta{
   display:flex;justify-content:space-between;align-items:baseline;gap:10px;
@@ -10284,6 +10322,233 @@ const BK_USE = [
   [161, "맛없는", "नमिठो", "Tasteless", "", "taste"],
 ];
 
+/* CS1 pp.162-178 — [key, Nepali heading, Korean heading, first page, last page]. */
+const BK_SIGN_SEC = [
+  ["sign", "सङ्केत बोर्डहरु", "표지판", 162, 175],
+  ["pic", "उपयोगी चित्रहरु", "유용한 그림", 176, 178],
+];
+
+/* CS1 pp.162-178 — the sign boards and picture pages, typed from the page
+   images. Row shape: [printed_page, group, korean_sign, korean_sentence,
+   nepali]. ko_sentence is "" on the picture pages, which carry a label and
+   nothing else. A blank nepali is a label the book printed on top of itself
+   in the scan — marked on screen, never guessed. */
+const BK_SIGN = [
+  [162, "sign", "출입금지", "여기에서 일하는 사람 아니면 들어갈 수 없습니다.", "यहाँ काम गर्ने मान्छे होइन भने भित्र पस्न पाइँदैन ।"],
+  [162, "sign", "위에서 돌이 떨어질 수 있으니 천천히", "위에서 돌이 떨어질 수 있으니 천천히 운전", "दुइटा ढुङ्गा खस्ने खतरा भएकोले बिस्तारै चलाउनुहोस् ।"],
+  [162, "sign", "공사를 하는 곳 안전 제일", "공사를 하는 곳 안전 제일", "निर्माणाधीन क्षेत्र सुरक्षा पहिले"],
+  [162, "sign", "용접 작업중", "용접 작업 지역이니까 화기엄금", "वेल्डिङ क्षेत्र भएकोले आगो लाग्न सक्ने सामान निषेध"],
+  [162, "sign", "주차금지", "이곳에 차를 세우면 안 됩니다.", "पार्किङ निषेध"],
+  [162, "sign", "매월 4일은 안전점검의 날", "매달 4일 안전점검을 합니다.", "प्रत्येक महिनाको ४ गते सुरक्षा जाँच गरिन्छ ।"],
+  [162, "sign", "교통차단", "교통차단", "यातायात बन्द"],
+  [162, "sign", "공사중 주차금지", "공사를 하고 있으니까 차를 세우지 마십시오.", "निर्माण कार्य भइरहेकोले पार्किङ निषेध"],
+  [162, "sign", "전기공사 작업중", "전기공사를 하고 있으니까 오른쪽으로 돌아가시오.", "विद्युतीय काम भइरहेकोले दायातिरबाट फर्कनुहोस् ।"],
+  [162, "sign", "출입금지", "출입금지", "प्रवेश निषेध"],
+  [162, "sign", "절대감속 30 천천히", "시속 30km로 천천히 운전", "३० को गतिमा बिस्तारै"],
+  [162, "sign", "위험! 낙하물주의", "위에서 물건이 떨어질 수 있음", "माथिबाट सामान खस्ने खतरा"],
+  [163, "sign", "위험! 접근금지", "여기에 가까이 가지 마십시오.", "नजिक जान निषेध"],
+  [163, "sign", "정비절차", "기계가 잘 작동할 수 있게 항상 관리해야 합니다.", "मेसिनलाई सधैं राम्रो काम गर्ने गरी व्यवस्थापन गर्नुपर्छ ।"],
+  [163, "sign", "금연", "담배를 피우면 안 됩니다.", "धुम्रपान निषेध"],
+  [163, "sign", "파손주의", "깨지는 물건이 있으니까 조심하십시오.", "फुटेको सामान भएकोले होसियार"],
+  [163, "sign", "공사중 우회하세요", "공사를 하고 있으니까 우회를 이용하세요.", "निर्माण कार्य भइरहेकोले घुमाउरो बाटो प्रयोग गर्नुहोस् ।"],
+  [163, "sign", "기계작동전 점검확인", "기계를 사용하기 전에 문제가 있는지 점검하십시오.", "मेशिन प्रयोग गर्नुपूर्व समस्या छ कि चेक गर्नुहोस् ।"],
+  [163, "sign", "출입금지", "여기에서 담배를 피우지 마십시오.", "धुम्रपान निषेध"],
+  [163, "sign", "과적금지", "차에 짐을 너무 많이 실으면 안 됩니다.", "ओभरलोड निषेध"],
+  [163, "sign", "위험! 출입금지", "위험하니까 들어가지 마십시오.", "खतरा भएकोले भित्र जान निषेध"],
+  [163, "sign", "허리부상방지", "허리 부상 방지", "ढाडमा असर पर्नेगरी काम नगर्नुहोस् ।"],
+  [163, "sign", "산불예방", "산불이 나지 않도록 조심하십시오.", "आगलागीबाट जङ्गल बचाऔं ।"],
+  [163, "sign", "고온주의", "고온주의", "उच्च तापक्रम होसियार"],
+  [164, "sign", "취사금지", "음식을 만들 수 없습니다.", "खाना पकाउन निषेध"],
+  [164, "sign", "머리조심", "머리조심", "टाउको ठोक्किन सक्छ, होसियार"],
+  [164, "sign", "머리조심", "머리조심", "टाउको ठोक्किन सक्छ, होसियार"],
+  [164, "sign", "감전주의", "감전주의", "करेन्टदेखि होसियार"],
+  [164, "sign", "전기조심 위험", "전기조심 위험", "विद्युतिय खतरा होसियार"],
+  [164, "sign", "승강기 탑승금지", "승강기 탑승금지", "लिफ्ट चढ्न निषेध"],
+  [164, "sign", "화물하역시주의", "화물하역시주의", "सामान लोड अनलोड गर्दा होसियार"],
+  [164, "sign", "정리정돈", "정리정돈", "कामका औजारहरु मिलाएर राखौं ।"],
+  [164, "sign", "위험 산소부족", "위험 산소부족", "अक्सिजनको अभाव हुने खतरा"],
+  [164, "sign", "위험지역 웅덩이 조심", "위험지역 웅덩이 조심", "खाडलमा पर्न सकिने खतरा क्षेत्र"],
+  [164, "sign", "추락주의", "추락주의", "खस्न सक्ने खतरा, होसियार"],
+  [164, "sign", "작업반경내 접근금지", "작업반경내 접근금지", "काम भइरहेको ठाउँ नजिक जान निषेध"],
+  [165, "sign", "유독가스 확인", "유독가스 확인", "विषालु ग्यास छ कि निश्चित"],
+  [165, "sign", "안전벨트 사용", "안전벨트 사용", "सुरक्षा बेल्ट प्रयोग"],
+  [165, "sign", "안전모 착용", "안전모 착용", "सुरक्षा हेलमेट प्रयोग"],
+  [165, "sign", "항상 깨끗이", "항상 깨끗이", "सधैं सफा राखौं ।"],
+  [165, "sign", "밸브점검", "밸브점검", "भल्भको जाँच"],
+  [165, "sign", "기계프레스 작업시 손조심", "기계프레스 작업시 손조심", "मेशिनमा हातको होसियार"],
+  [165, "sign", "안전고리 확인", "안전고리 확인", "सुरक्षा जडान चेक"],
+  [165, "sign", "방진마스크 착용지역", "방진마스크 착용지역", "धुलोबाट बच्न मास्क लगाऔं ।"],
+  [165, "sign", "낙하물 위험!", "낙하물 위험!", "सामान खसेर लाग्ने खतरा"],
+  [165, "sign", "마스크 착용", "마스크 착용", "मास्कको प्रयोग गर्नुहोस्"],
+  [165, "sign", "젖은 손으로 작동금지", "젖은 손으로 작동금지", "चिसो हातले काम गर्न निषेध"],
+  [165, "sign", "고공작업시 안전대 사용", "고공작업시 안전대 사용", "अग्लो ठाउँमा काम गर्दा सुरक्षा बेल्टको प्रयोग"],
+  [166, "sign", "동근틀 사용시 장갑착용금지", "장갑 착용 금지", "आरी प्रयोग गर्दा पन्जा लगाउन निषेध"],
+  [166, "sign", "출입금지", "출입금지", "प्रवेश निषेध"],
+  [166, "sign", "경고 방사능 지역", "경고 방사능 지역", "विकिरणीय क्षेत्र, होसियार"],
+  [166, "sign", "낙하물 조심", "낙하물 조심", "सामान खसेर टाउकोमा लाग्ने खतरा"],
+  [166, "sign", "용접작업장 인화성물질 엄금", "용접작업장 인화성물질 엄금", "वेल्डिङ क्षेत्रमा प्रज्वलनशील पदार्थ निषेध"],
+  [166, "sign", "안전통로", "안전통로", "सुरक्षित बाटो"],
+  [166, "sign", "위험 폭발물", "위험 폭발물", "विष्फोट हुने खतरा"],
+  [166, "sign", "작업 반경내 접근금지", "작업 반경내 접근금지", "काम भइरहेको क्षेत्र, नजिक जान निषेध"],
+  [166, "sign", "사다리 확인", "사다리 확인", "भर्याङ चेक"],
+  [166, "sign", "동력전달부에 손끼임 주의", "동력전달부에 손끼임 주의", "विद्युतीय आरामा हात पर्न सक्ने खतरा"],
+  [166, "sign", "회전체에 신체끼임 주의", "회전체에 신체끼임 주의", "घोटेसनको विचमा शरीर पर्ने खतरा"],
+  [166, "sign", "프레스에 손끼임 주의", "프레스에 손끼임 주의", "प्रेशमा हात थिचिने खतरा"],
+  [167, "sign", "운반기와 고정물 사이에 끼이는 경우", "운반기와 고정물 사이에 끼이는 경우", "ओसाने गाडी र स्थिर सामानको विचमा पर्ने अवस्था"],
+  [167, "sign", "면장갑 말림주의", "면장갑 말림주의", "भरिने खतरा, हातमा राम्रो मिल्ने र पुरै छाला छोप्ने पन्जाको प्रयोग"],
+  [167, "sign", "바닥 미끄럼 주의", "바닥 미끄럼 주의", "बाटक चिप्लो भएकोले भुइँको सफाई र नचिप्लने चप्पलको प्रयोग"],
+  [167, "sign", "사용한 공구는 항상 제자리에", "사용한 공구는 항상 제자리에", "प्रयोग गरेका औजारहरु सधैं निश्चित ठाउँमा"],
+  [167, "sign", "로울러에 옷말림 주의", "로울러에 옷말림 주의", "रोलरमा कपडा बेरिने खतरा"],
+  [167, "sign", "낙하물 위험", "낙하물 위험", "माथिबाट सामान खस्ने खतरा"],
+  [167, "sign", "회전하는 공구 또는 공작물 등에 말려 들어가는 경우", "회전하는 공구 또는 공작물 등에 말려 들어가는 경우", "रोटेसनमा भएका उपकरणमा बेरिएर भित्र जान सक्ने अवस्था"],
+  [167, "sign", "동력 전달부에 작업복이 말려 들어가는 경우", "동력 전달부에 작업복이 말려 들어가는 경우", "विद्युत सञ्चार भइरहेको मेसिनरी भागमा कपडा बेरिएर भित्र पर्ने अवस्था"],
+  [167, "sign", "설비내부에 들어간 상태에서 설비가 작동되는 경우", "설비내부에 들어간 상태에서 설비가 작동되는 경우", "मेसिनको भित्र गएर काम गर्दा उपकरणले राम्रो काम गर्नुपर्छ ।"],
+  [167, "sign", "방독면 착용", "방독면 착용", "ग्यास मास्क प्रयोग"],
+  [167, "sign", "지게차 조심", "지게차 조심", "फर्कलिफ्ट चलाउँदा होसियार"],
+  [167, "sign", "위험 유독물", "위험 유독물", "विषालु पदार्थको खतरा"],
+  [168, "sign", "계단에서 넘어짐 주의", "계단에서 넘어짐 주의", "भर्याङमा लड्न सक्ने खतरा"],
+  [168, "sign", "정리정돈", "정리정돈", "औजारहरुको व्यवस्थापन"],
+  [168, "sign", "올바른 작업 순서지키자", "올바른 작업 순서지키자", "तोकिएको काम क्रमैसंग गरौं ।"],
+  [168, "sign", "폐문 CLOSED", "문을 닫혔다", "ढोका बन्द"],
+  [168, "sign", "낙하물주의", "낙하물주의", "माथिबाट सामान खस्ने खतरा"],
+  [168, "sign", "휴대폰 사용금지", "휴대폰 사용금지", "मोवाइल फोन निषेध"],
+  [168, "sign", "고온위험", "고온위험", "उच्च तापक्रमको खतरा"],
+  [168, "sign", "사용금지", "사용금지", "प्रयोग निषेध"],
+  [168, "sign", "감전주의", "감전주의", "करेन्ट लाग्ने खतरा"],
+  [168, "sign", "접근금지", "접근금지", "नजिक जान निषेध"],
+  [168, "sign", "안전벨트는 생명벨트", "안전벨트는 생명벨트", "सिट बेल्ट भनेको जीवन वेल्ट हो ।"],
+  [168, "sign", "안전보호구 미착용자 작업장 출입금지", "안전보호구 미착용자 작업장 출입금지", "सुरक्षा सामाग्री प्रयोग नगर्नेलाई प्रवेश निषेध"],
+  [169, "sign", "관계자외 출입금지", "관계자외 출입금지", "सम्बन्धित मान्छे मात्र प्रवेश"],
+  [169, "sign", "감전주의", "감전주의", "करेन्टबाट होसियार"],
+  [169, "sign", "화기엄금", "화기엄금", "आगो निषेध"],
+  [169, "sign", "사고 많은 곳 속도를 줄이시오", "사고 많은 곳 속도를 줄이시오", "दुर्घटना हुने क्षेत्र गतीलाई घटाउनुहोस्"],
+  [169, "sign", "독극물경고", "독극물경고", "विषालु पदार्थ"],
+  [169, "sign", "안전모착용", "안전모착용", "सुरक्षा हेलमेट प्रयोग"],
+  [169, "sign", "매달린물체경고", "매달린물체경고", "भुन्डिएको सामान, होसियार"],
+  [169, "sign", "위험장소경고", "위험장소경고", "खतरा ठाउँ, होसियार"],
+  [169, "sign", "물기엄금", "물기엄금", "पानी चुहाउन निषेध"],
+  [169, "sign", "장갑착용금지", "장갑착용금지", "पन्जाको प्रयोग निषेध"],
+  [169, "sign", "안전 장갑을 착용", "안전 장갑을 착용", "सुरक्षित पन्जाको प्रयोग"],
+  [169, "sign", "물체이동금지", "물체이동금지", "सामान सार्न निषेध"],
+  [170, "sign", "사용금지", "사용금지", "प्रयोग गर्न निषेध"],
+  [170, "sign", "미끄럼 주의", "미끄럼 주의", "चिप्लो भुइँमा होसियार"],
+  [170, "sign", "안전화착용", "안전화착용", "सुरक्षित बुटको प्रयोग"],
+  [170, "sign", "낙하물경고", "낙하물경고", "माथिबाट ढुङ्गा खस्ने खतरा"],
+  [170, "sign", "고압전기경고", "고압전기경고", "उच्च विद्युतिय प्रवाह"],
+  [170, "sign", "폭발물 경고", "폭발물 경고", "विष्फोटन हुने खतरा"],
+  [170, "sign", "보행금지 구역", "보행금지 구역", "पैदल यात्रा निषेध"],
+  [170, "sign", "탑승금지", "탑승금지", "चढ्न निषेध"],
+  [170, "sign", "고온경고", "고온경고", "उच्च तापक्रम"],
+  [170, "sign", "관계자외출입금지", "관계자외출입금지", "सम्बन्धित मान्छे मात्र प्रवेश"],
+  [170, "sign", "휴게실", "휴게실", "आराम कक्ष"],
+  [170, "sign", "작업중 금연", "작업중 금연", "धुमपान निषेध"],
+  [170, "sign", "공사중서행", "공사중서행", "निर्माण कार्य भइरहेकोले बिस्तारै जानुहोस् !"],
+  [170, "sign", "안전모를 착용", "안전모를 착용", "सुरक्षा हेलमेटको प्रयोग"],
+  [170, "sign", "귀마개를 착용", "귀마개를 착용", "कानको ढेटी प्रयोग"],
+  [171, "sign", "안전화를 착용", "안전화를 착용", "सुरक्षित बुटको प्रयोग"],
+  [171, "sign", "안전 복장을 착용", "안전 복장을 착용", "सुरक्षित ज्याकेटको प्रयोग"],
+  [171, "sign", "가스 마스크를 착용", "가스 마스크를 착용", "ग्यास मास्कको प्रयोग"],
+  [171, "sign", "보안면 착용", "보안면 착용", "वेल्डिङ मास्कको प्रयोग"],
+  [171, "sign", "마스크를 착용", "마스크를 착용", "मास्कको प्रयोग"],
+  [171, "sign", "안전대를 착용", "안전대를 착용", "सुरक्षित वेल्टको प्रयोग"],
+  [171, "sign", "보안경 착용", "보안경 착용", "सुरक्षित चस्मा प्रयोग"],
+  [171, "sign", "보안면 착용", "보안면 착용", "वेल्डिङ मास्कको प्रयोग"],
+  [171, "sign", "자전거전용", "자전거전용", "साइकल मात्र"],
+  [171, "sign", "휴대전화를 사용금지", "휴대전화를 사용금지", "मोवाइल फोन प्रयोग निषेध"],
+  [171, "sign", "플러그를 빼야 전원을 차단하십시오.", "플러그를 빼야 전원을 차단하십시오.", "प्रयोग पछि प्लगलाई बन्द गर्नुहोस्"],
+  [171, "sign", "뛰지마십시오.", "뛰지마십시오.", "नदौडनुहोस्"],
+  [171, "sign", "화물자동차금지", "화물자동차금지", "सामान बोक्ने गाडीहरु निषेध"],
+  [171, "sign", "손수레와 경운기 금지", "손수레와 경운기 금지", "हातेगाडा र ट्याक्टर निषेध"],
+  [171, "sign", "주차금지", "주차금지", "पार्किङ निषेध"],
+  [172, "sign", "문이 닫히고 있을 때는 타지 마십시오.", "문이 닫히고 있을 때는 타지 마십시오.", "ढोका बन्द हुँदै गर्दा नचढ्नुहोस्"],
+  [172, "sign", "여기에서 수영을 하지 마십시오.", "여기에서 수영을 하지 마십시오.", "पौडी खेल्न निषेध"],
+  [172, "sign", "문에 기대지 마십시오.", "문에 기대지 마십시오.", "ढोकामा आड नलाग्नुहोस्"],
+  [172, "sign", "쓰레기를 버리지 마십시오.", "쓰레기를 버리지 마십시오.", "फोहोर नफाल्नुहोस् ।"],
+  [172, "sign", "컴퓨터를 사용할 수 없습니다.", "컴퓨터를 사용할 수 없습니다.", "कम्प्युटर प्रयोग गर्न नमिल्ने ठाउँ"],
+  [172, "sign", "사진을 찍지 마십시오.", "사진을 찍지 마십시오.", "फोटो खिच्न नमिल्ने ठाउँ"],
+  [172, "sign", "음식을 가지고 들어갈 수 없음", "음식을 가지고 들어갈 수 없음", "खानासंग प्रवेश निषेध"],
+  [172, "sign", "천천히 SLOW", "천천히", "बिस्तारै जानुहोस्"],
+  [172, "sign", "수영하면 위험합니다.", "수영하면 위험합니다.", "पौडी खेल्न खतरा"],
+  [172, "sign", "보행금지", "보행금지", "पैदल यात्री निषेध"],
+  [172, "sign", "어린이보호", "어린이보호", "बच्चाको सुरक्षा गर्नुहोस्"],
+  [172, "sign", "길이 좁아지니까 조심", "길이 좁아지니까 조심", "बाटो साँघुरिएकोले होसियार"],
+  [173, "sign", "횡단보도", "횡단보도", "पैदल यात्रा गर्न मिल्ने बाटो"],
+  [173, "sign", "농구장", "농구장", "बास्केट बल खेल्ने ठाउँ"],
+  [173, "sign", "공장", "공장", "कारखाना"],
+  [173, "sign", "인터넷을 사용할 수 있는 곳", "인터넷을 사용할 수 있는 곳", "इन्टरनेट चलाउन मिल्ने ठाउँ"],
+  [173, "sign", "엘리베이터", "엘리베이터", "लिफ्ट चढ्न चाहेमा यो संकेततिर जानुहोस्"],
+  [173, "sign", "소화기", "소화기", "अग्नी नियन्त्रण यन्त्र प्रयोग"],
+  [173, "sign", "오른쪽 위로 올라가십시오.", "오른쪽 위로 올라가십시오.", "दाहिनेतिर माथि जानुहोस्"],
+  [173, "sign", "전화를 하려고 합니다.", "전화를 하려고 합니다.", "फोन गर्न चाहेमा मिल्ने ठाउँ"],
+  [173, "sign", "정보를 얻고 싶습니다. (안내소)", "정보를 얻고 싶습니다. (안내소)", "जानकारी लिन सकिने ठाउँ"],
+  [173, "sign", "불을 끌 때 사용하는 소방호스 (소화전)", "불을 끌 때 사용하는 소방호스 (소화전)", "आगो निभाउन प्रयोग गरिने पाइप (फायर प्लग)"],
+  [173, "sign", "보관소에 물건을 맡기려고 합니다. (보관소)", "보관소에 물건을 맡기려고 합니다. (보관소)", "सामान लक गर्न यो संकेत भएको ठाउँ प्रयोग गर्नुहोस् ।"],
+  [173, "sign", "잃어버린 물건(분실물)을 찾고 싶습니다.", "잃어버린 물건(분실물)을 찾고 싶습니다.", "सामान हराएमा यो संकेत भएको ठाउँमा रिपोर्ट गर्न सकिन्छ ।"],
+  [174, "sign", "영화관", "영화관", "चलचित्र हल"],
+  [174, "sign", "운동장", "운동장", "खेल मैदान"],
+  [174, "sign", "주차장", "주차장", "पार्किङ क्षेत्र"],
+  [174, "sign", "작업중 응급치료를 받는 곳", "작업중 응급치료를 받는 곳", "उपचार पाउन सकिने ठाउँ"],
+  [174, "sign", "현금 인출기에서 현금을 찾고 싶다.", "현금 인출기에서 현금을 찾고 싶다.", "एटीएम कार्ड"],
+  [174, "sign", "비상시에 피할 수 있게 만든 대피소", "비상시에 피할 수 있게 만든 대피소", "आपतकालमा सुरक्षित हुन बनाइएको ठाउँ"],
+  [174, "sign", "수영장", "수영장", "पौडी पोखरी"],
+  [174, "sign", "주유소", "주유소", "पेट्रोल पम्प"],
+  [174, "sign", "담배실", "담배실", "चुरोट पिउन मिल्ने ठाउँ"],
+  [174, "sign", "지하철", "지하철", "सबवे"],
+  [174, "sign", "공항", "공항", "विमानस्थल"],
+  [174, "sign", "안전벨트를 매십시오.", "안전벨트를 매십시오.", "सिट बेल्ट बाँध्नुहोस्"],
+  [175, "sign", "화장실", "화장실", "शौचालय"],
+  [175, "sign", "쓰레기통 반드시 사용", "쓰레기통 반드시 사용", "अनिवार्य डस्टबिनको प्रयोग"],
+  [175, "sign", "환전소", "환전소", "पैसा सटही गर्ने ठाउँ"],
+  [175, "sign", "안내소 (안내하는 곳)", "안내소 (안내하는 곳)", "जानकारी पाइने ठाउँ"],
+  [175, "sign", "약을 사려고 합니다.", "약을 사려고 합니다.", "औषधालय"],
+  [175, "sign", "물을 마실 수 있는 곳", "물을 마실 수 있는 곳", "पिउने पानी पाइने ठाउँ"],
+  [175, "sign", "들어가지 마십시오", "들어가지 마십시오", "प्रवेश निषेध"],
+  [175, "sign", "비상시에 이 전화기를 사용하십시오.", "비상시에 이 전화기를 사용하십시오.", "आपतकालमा यो फोन प्रयोग गर्नुहोस् ।"],
+  [175, "sign", "불이 났을 때 밖으로 대피해야 합니다.", "불이 났을 때 밖으로 대피해야 합니다.", "आगो लागेमा बाहिर गई सुरक्षित हुनुपर्छ ।"],
+  [175, "sign", "자동차를 고칠 수 있는 곳", "자동차를 고칠 수 있는 곳", "गाडी बिग्रिएमा बनाउने ठाउँ"],
+  [175, "sign", "손으로 만지면 안 됩니다.", "손으로 만지면 안 됩니다.", "हातले नछुनुहोस्"],
+  [175, "sign", "자전거가 다닐 수 없는 길입니다.", "자전거가 다닐 수 없는 길입니다.", "साइकल चलाउन निषेध"],
+  [176, "pic", "세탁기", "", "कपडा धुने मेशिन"],
+  [176, "pic", "공중전화", "", "सार्वजनिक फोन"],
+  [176, "pic", "냉장고", "", "फ्रिज"],
+  [176, "pic", "쓰레기통", "", "फोहोर फाल्ने भाँडा"],
+  [176, "pic", "청소기", "", "भ्याकुम क्लीनर"],
+  [176, "pic", "소화기", "", "अग्नी नियन्त्रण यन्त्र"],
+  [176, "pic", "물뿌리개", "", "हजारी"],
+  [176, "pic", "분무기", "", "स्प्रेइकल"],
+  [176, "pic", "작업등", "", ""],
+  [176, "pic", "컨트롤 판넬", "", "पावर कन्ट्रोल प्यानल"],
+  [176, "pic", "회로시험기", "", "सर्किट टेस्टर"],
+  [176, "pic", "계산기", "", "क्याल्कुलेटर"],
+  [177, "pic", "오븐", "", ""],
+  [177, "pic", "불판", "", ""],
+  [177, "pic", "에어컨", "", ""],
+  [177, "pic", "선풍기", "", "पङ्खा"],
+  [177, "pic", "에스컬레이터", "", "एस्कीलेटर"],
+  [177, "pic", "프린터", "", "प्रिन्टर"],
+  [177, "pic", "콘센트", "", "विद्युतीय आउटलेट वोर्ड"],
+  [177, "pic", "멀티플러그", "", "मल्टी प्लग"],
+  [177, "pic", "고기 전단기", "", "मासु काट्ने मेशिन"],
+  [177, "pic", "에어 컴프레샤", "", ""],
+  [177, "pic", "컨베이어", "", ""],
+  [177, "pic", "건전지", "", ""],
+  [178, "pic", "세탁소", "", "कपडा धुने ठाउँ"],
+  [178, "pic", "미용실", "", "ब्युटी पार्लर"],
+  [178, "pic", "상담실", "", "परामर्श कक्ष"],
+  [178, "pic", "다용도실", "", "विविध प्रयोजन कक्ष"],
+  [178, "pic", "자료실", "", "स्रोत / कागजात कक्ष"],
+  [178, "pic", "회의실", "", "मिटिङ कक्ष"],
+  [178, "pic", "식탁", "", "डाइनिङ टेबल"],
+  [178, "pic", "교회", "", "चर्च"],
+  [178, "pic", "경찰서", "", "पुलिस स्टेशन"],
+  [178, "pic", "창고", "", "स्टोर"],
+  [178, "pic", "주유소", "", "पेट्रोल पम्प"],
+  [178, "pic", "출입국관리사무소", "", "अध्यागमन कार्यालय"],
+  [178, "pic", "꽃집", "", "फूल पसल"],
+  [178, "pic", "과수원", "", "फलफूल बगैंचा"],
+  [178, "pic", "양계장", "", "कुखुरा फार्म"],
+];
+
 /* Final consonant -> Devanagari coda. Cluster finals collapse to the sound
    that is actually pronounced, which is what the book's own romanisation
    does too (닭 is "dak", not "dalg"). */
@@ -10586,6 +10851,155 @@ function bkDict() {
   `;
 }
 
+/* CS1 pp.162-178 — the sign boards and the picture pages. These are not
+   vocabulary rows: each card is a whole sentence printed on a board, and the
+   value is seeing the Korean, its Devanagari reading and the Nepali side by
+   side. So they get cards, not the dictionary's one-line rows. */
+let BK_SIGN_GRP = "";
+let BK_SIGN_Q = "";
+let BK_SIGN_CAP = 48;
+
+function bkSignHit(r) {
+  if (BK_SIGN_GRP && r[1] !== BK_SIGN_GRP) return false;
+  const q = BK_SIGN_Q.trim().toLowerCase();
+  if (!q) return true;
+  if (r[2].indexOf(q) >= 0) return true;
+  if (r[3].toLowerCase().indexOf(q) >= 0) return true;
+  if (r[4].indexOf(BK_SIGN_Q.trim()) >= 0) return true;
+  if (bkWord(r[2]).indexOf(BK_SIGN_Q.trim()) >= 0) return true;
+  return false;
+}
+
+function bkSignSetGrp(g) {
+  BK_SIGN_GRP = (BK_SIGN_GRP === g ? "" : g);
+  BK_SIGN_CAP = 48;
+  renderApp();
+}
+
+function bkSignSearch(v) { BK_SIGN_Q = v; BK_SIGN_CAP = 48; bkSignPaint(); }
+function bkSignMore() { BK_SIGN_CAP += 48; bkSignPaint(); }
+
+function bkSignSpeak(r) { return r[3] || r[2]; }
+
+function bkSignPaint() {
+  const box = document.getElementById("bkSignList");
+  if (!box) return;
+  const hits = BK_SIGN.filter(bkSignHit);
+  const shown = hits.slice(0, BK_SIGN_CAP);
+
+  const count = document.getElementById("bkSignCount");
+  if (count) count.textContent = hits.length + " / " + BK_SIGN.length;
+
+  const cards = shown.map(function (r) {
+    const sp = bkSignSpeak(r).replace(/'/g, "\\'");
+    const sent = (r[3] && r[3] !== r[2])
+      ? '<span class="bk-s-ko ko" lang="ko">' + r[3] + '</span>'
+      : "";
+    /* A blank Nepali column is not an empty card — it is the book printing its
+       own Korean and Nepali on top of each other until neither reads. Say so. */
+    const ne = r[4]
+      ? '<span class="bk-s-ne">' + r[4] + '</span>'
+      : '<span class="bk-s-ne bk-s-nil">' +
+        (LANG === "ne" ? "पुस्तकमा यो लेबल पढ्न सकिएन" : "This label is unreadable in the scan") +
+        '</span>';
+    return '<button type="button" class="bk-scard" onclick="say(\'' + sp + '\', this)">' +
+      '<span class="bk-s-top">' +
+        '<span class="bk-s-sign ko" lang="ko">' + r[2] + '</span>' +
+        '<span class="bk-s-pg">p' + r[0] + '</span>' +
+      '</span>' +
+      sent + ne +
+      '</button>';
+  }).join("");
+
+  box.innerHTML = shown.length
+    ? '<div class="bk-sgrid">' + cards + '</div>' +
+      (hits.length > shown.length
+        ? '<button type="button" class="bk-more" onclick="bkSignMore()">' +
+          (LANG === "ne" ? "थप " + (hits.length - shown.length) + " देखाउनु" : "Show " + (hits.length - shown.length) + " more") +
+          '</button>'
+        : "")
+    : '<p class="bk-note bk-dempty">' +
+      (LANG === "ne" ? "यो खोजीमा केही भेटिएन।" : "Nothing matched that search.") + '</p>';
+}
+
+function bkSigns() {
+  const grpCount = {};
+  BK_SIGN.forEach(function (r) { grpCount[r[1]] = (grpCount[r[1]] || 0) + 1; });
+
+  const chips = BK_SIGN_SEC.map(function (s) {
+    const on = BK_SIGN_GRP === s[0];
+    return '<button type="button" class="bk-dchip bk-wchip' + (on ? " on" : "") + '" ' +
+      'onclick="bkSignSetGrp(\'' + s[0] + '\')">' + s[1] + '<i>' + (grpCount[s[0]] || 0) + '</i></button>';
+  }).join("");
+
+  const unreadable = BK_SIGN.filter(function (r) { return !r[4]; }).length;
+
+  return `
+    <h2 class="bk-h">${LANG === "ne" ? "सङ्केत बोर्डहरु" : "Sign boards"} <span class="bk-src">CS1 p162–178</span></h2>
+
+    <p class="bk-note">${LANG === "ne"
+      ? "पुस्तकको अन्तिम खण्डमा " + (grpCount["sign"] || 0) + " वटा साइन बोर्ड र " + (grpCount["pic"] || 0) + " वटा चित्र छन्। हरेकमा बोर्डमा छापिएको कोरियन र पुस्तककै नेपाली अर्थ। थिच्नुहोस् — बोर्डमा लेखिएको वाक्य बोलिन्छ। यहाँ देवनागरी उच्चारण जानाजान छोडिएको छ: ग्रिडले एउटा शब्द राम्ररी पढ्छ, तर वाक्य पढ्दा अक्षर जोडिएर अप्ठ्यारो हुन्छ — त्यसका लागि शब्दकोश पर्दा छ।"
+      : "The last block of the book is " + (grpCount["sign"] || 0) + " sign boards and " + (grpCount["pic"] || 0) + " pictures. Each card carries the Korean as printed and the book's own Nepali. Tap one — it speaks the sentence on the board. The Devanagari reading is deliberately left off here: the grid reads a word cleanly, but across a whole sentence the letters run together — the dictionary tab is where the reading lives."}</p>
+
+    <div class="bk-dsearch">
+      <input id="bkSignQ" type="search" inputmode="search" autocomplete="off"
+        placeholder="${LANG === "ne" ? "कोरियन, नेपाली वा अंग्रेजीमा खोज्नुहोस्" : "Search Korean, Nepali or English"}"
+        oninput="bkSignSearch(this.value)" value="${BK_SIGN_Q.replace(/"/g, "&quot;")}">
+      <button type="button" class="bk-dclear" onclick="bkSignSearch('');document.getElementById('bkSignQ').value=''"
+        aria-label="${LANG === "ne" ? "खाली गर्नुहोस्" : "Clear"}">✕</button>
+    </div>
+
+    <div class="bk-dchips">${chips}</div>
+
+    <p class="bk-dmeta">
+      <span id="bkSignCount"></span>
+      <span class="bk-dgone">${LANG === "ne" ? "थिचेर सुन्नुहोस्" : "Tap to hear it"}</span>
+    </p>
+
+    <div id="bkSignList"></div>
+
+    <p class="bk-note bk-prov">${LANG === "ne"
+      ? "पृष्ठ १७६–१७७ मा पुस्तकले आफ्नै कोरियन र नेपाली कोलम एकअर्कामाथि छापेको छ, त्यसैले " + unreadable + " वटा लेबल पढ्नै सकिँदैन — ती अनुमान गरिएका छैनन्, खाली छाडिएका छन्। बाँकी सबै जस्ताको तस्तै छ।"
+      : "On pp. 176–177 the book prints its Korean and Nepali columns on top of each other, so " + unreadable + " labels cannot be read at all — those are left blank rather than guessed. Everything else is as printed."}</p>
+    ${bkSignFixes()}
+  `;
+}
+
+/* The sign block has real printing faults, and several of them invert what the
+   board says. They are corrected on the card and listed here — copying them
+   would teach the wrong instruction, and fixing them off-screen would be a
+   quiet lie about the source. */
+function bkSignFixes() {
+  const f = LANG === "ne"
+    ? [
+        "p163 — कार्डमा बोर्ड '출입금지' छ तर वाक्य धुम्रपानको छ; त्यो वाक्य p163 कै 금연 कार्डकै हो। दुवै जस्ताको तस्तै राखिएका छन्।",
+        "p163 — 'फुटेको सामान नहरु भएकोले होसियार' मा 'नहरु' अतिरिक्त शब्द हो; यहाँ हटाइएको छ। p168 — 'भ्याइमा' होइन, भर्याङमा।",
+        "p170 — '보행금 구역' होइन, 보행금지 구역; '과계자외출입금지' होइन, 관계자외출입금지। p174 — '안전머' होइन, 안전벨트।",
+        "p172 — 'ढोकामा आड लाग्नुहोस्' मा नकारात्मक 'न' छुटेको छ; बोर्डको अर्थ उल्टो हुन्थ्यो, त्यसैले नलाग्नुहोस् राखिएको छ।",
+        "p173 — 'सायातिर माथि जानुहोस्' मा 'साया' टाइपो हो; दाहिनेतिर भन्न खोजिएको हो। 'चाहेमागन' होइन, चाहेमा।",
+        "p174 — 'मनुत दा' जस्ता छपाइका अंश हटाइएका छन्; अर्थ बदलिएको छैन। p166 — '동근틀' सम्भवतः 동력톱/원형톱 हो।",
+        "p176–177 — यी दुई पृष्ठमा कोरियन र नेपाली कोलम एकअर्कामाथि छापिएका छन्; ७ वटा लेबल पढ्नै सकिँदैन र खाली छाडिएका छन्।"
+      ]
+    : [
+        "p163 — the board reads 출입금지 but the sentence under it is about smoking; that sentence belongs to the 금연 card on the same page. Both are kept as printed.",
+        "p163 — 'फुटेको सामान नहरु भएकोले होसियार' carries a stray 'नहरु'; it is dropped here. p168 — भ्याइमा should be भर्याङमा.",
+        "p170 — 보행금 구역 should be 보행금지 구역; 과계자외출입금지 should be 관계자외출입금지. p174 — 안전머 should be 안전벨트.",
+        "p172 — 'ढोकामा आड लाग्नुहोस्' is missing its negative; as printed the sign says the opposite, so नलाग्नुहोस् is used.",
+        "p173 — 'सायातिर माथि जानुहोस्' has साया for दाहिने; 'चाहेमागन' should be चाहेमा.",
+        "p174 — printing debris such as 'मनुत दा' is dropped; no meaning is changed. p166 — 동근틀 is probably 동력톱 or 원형톱.",
+        "p176–177 — on these two pages the Korean and Nepali columns are printed on top of each other; 7 labels cannot be read and are left blank."
+      ];
+
+  return `
+    <details class="bk-fix">
+      <summary>${LANG === "ne"
+        ? "पुस्तकका गल्ती र छपाइका दोष (" + f.length + ")"
+        : "Printing faults and corrections (" + f.length + ")"}</summary>
+      <ul>${f.map(function (x) { return "<li>" + x + "</li>"; }).join("")}</ul>
+    </details>
+  `;
+}
+
 /* The family table marks some terms with a star and some with a bullet, and
    says on the page that one is what a woman says and the other what a man
    says. Dropping the marks would flatten 시아버지 and 장인 into one word. */
@@ -10725,7 +11139,8 @@ function viewBooks() {
     ["counters",LANG === "ne" ? "गणना" : "Counters"],
     ["greet",   LANG === "ne" ? "अभिवादन" : "Greetings"],
     ["grammar", LANG === "ne" ? "व्याकरण" : "Grammar"],
-    ["dict",    LANG === "ne" ? "शब्दकोश" : "Dictionary"]
+    ["dict",    LANG === "ne" ? "शब्दकोश" : "Dictionary"],
+    ["signs",   LANG === "ne" ? "सङ्केत" : "Signs"]
   ];
 
   const body =
@@ -10734,13 +11149,15 @@ function viewBooks() {
     BOOK_TAB === "greet" ? bkGreetings() :
     BOOK_TAB === "grammar" ? bkGrammar() :
     BOOK_TAB === "dict" ? bkDict() :
+    BOOK_TAB === "signs" ? bkSigns() :
     bkLetters();
 
   const src = BOOK_TAB === "letters" ? "BKL p2–8" :
               BOOK_TAB === "rules" ? "CS1 p11" :
               BOOK_TAB === "counters" ? "CS2 p46" :
               BOOK_TAB === "grammar" ? "CS1 p46–79" :
-              BOOK_TAB === "dict" ? "CS1 p189–233" : "BKL p1";
+              BOOK_TAB === "dict" ? "CS1 p189–233" :
+              BOOK_TAB === "signs" ? "CS1 p162–178" : "BKL p1";
 
   return `
     ${renderLessonTabs("books")}
@@ -19908,7 +20325,7 @@ function renderApp() {
 
   if (s === "home") app.innerHTML = viewHome();
   else if (s === "sejong") app.innerHTML = viewSejong();
-  else if (s === "books") { app.innerHTML = viewBooks(); if (BOOK_TAB === "dict") bkDictPaint(); }
+  else if (s === "books") { app.innerHTML = viewBooks(); if (BOOK_TAB === "dict") bkDictPaint(); else if (BOOK_TAB === "signs") bkSignPaint(); }
   else if (s === "course" || s === "course_44") app.innerHTML = viewCourse44();
   else if (s === "vowels") app.innerHTML = viewVowels();
   else if (s === "vowels_compound") app.innerHTML = viewVowelsCompound();

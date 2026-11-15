@@ -1,6 +1,6 @@
 {
 "source": "bunpo",
-"count": 4508,
+"count": 4705,
 "slug": "hex codepoints joined by '-'",
 "clips": [
 {
@@ -384,6 +384,11 @@
 "duration": 0.633
 },
 {
+"text": "가스 마스크를 착용",
+"file": "ac00-c2a4-20-b9c8-c2a4-d06c-b97c-20-cc29-c6a9.mp3",
+"duration": 1.505
+},
+{
 "text": "가스레인지",
 "file": "ac00-c2a4-b808-c778-c9c0.mp3",
 "duration": 1.032
@@ -622,6 +627,11 @@
 "text": "감전",
 "file": "ac10-c804.mp3",
 "duration": 0.689
+},
+{
+"text": "감전주의",
+"file": "ac10-c804-c8fc-c758.mp3",
+"duration": 0.918
 },
 {
 "text": "감추다",
@@ -904,6 +914,11 @@
 "duration": 1.206
 },
 {
+"text": "건전지",
+"file": "ac74-c804-c9c0.mp3",
+"duration": 0.878
+},
+{
 "text": "걷",
 "file": "ac77.mp3",
 "duration": 0.305
@@ -1099,6 +1114,11 @@
 "duration": 0.402
 },
 {
+"text": "경고 방사능 지역",
+"file": "acbd-ace0-20-bc29-c0ac-b2a5-20-c9c0-c5ed.mp3",
+"duration": 1.404
+},
+{
 "text": "경운기",
 "file": "acbd-c6b4-ae30.mp3",
 "duration": 0.804
@@ -1149,6 +1169,11 @@
 "duration": 0.59
 },
 {
+"text": "계단에서 넘어짐 주의",
+"file": "acc4-b2e8-c5d0-c11c-20-b118-c5b4-c9d0-20-c8fc-c758.mp3",
+"duration": 1.602
+},
+{
 "text": "계란",
 "file": "acc4-b780.mp3",
 "duration": 0.573
@@ -1157,6 +1182,11 @@
 "text": "계발",
 "file": "acc4-bc1c.mp3",
 "duration": 0.543
+},
+{
+"text": "계산기",
+"file": "acc4-c0b0-ae30.mp3",
+"duration": 0.811
 },
 {
 "text": "계산서 주세요.",
@@ -1229,9 +1259,19 @@
 "duration": 0.516
 },
 {
+"text": "고공작업시 안전대 사용",
+"file": "ace0-acf5-c791-c5c5-c2dc-20-c548-c804-b300-20-c0ac-c6a9.mp3",
+"duration": 1.993
+},
+{
 "text": "고기",
 "file": "ace0-ae30.mp3",
 "duration": 0.592
+},
+{
+"text": "고기 전단기",
+"file": "ace0-ae30-20-c804-b2e8-ae30.mp3",
+"duration": 1.204
 },
 {
 "text": "고등학교",
@@ -1324,9 +1364,29 @@
 "duration": 0.836
 },
 {
+"text": "고압전기경고",
+"file": "ace0-c555-c804-ae30-acbd-ace0.mp3",
+"duration": 1.193
+},
+{
 "text": "고양이",
 "file": "ace0-c591-c774.mp3",
 "duration": 0.724
+},
+{
+"text": "고온경고",
+"file": "ace0-c628-acbd-ace0.mp3",
+"duration": 0.952
+},
+{
+"text": "고온위험",
+"file": "ace0-c628-c704-d5d8.mp3",
+"duration": 0.817
+},
+{
+"text": "고온주의",
+"file": "ace0-c628-c8fc-c758.mp3",
+"duration": 0.869
 },
 {
 "text": "고와요",
@@ -1494,9 +1554,39 @@
 "duration": 0.783
 },
 {
+"text": "공사를 하고 있으니까 우회를 이용하세요.",
+"file": "acf5-c0ac-b97c-20-d558-ace0-20-c788-c73c-b2c8-ae4c-20-c6b0-d68c-b97c-20-c774-c6a9-d558-c138-c694-2e.mp3",
+"duration": 2.726
+},
+{
+"text": "공사를 하고 있으니까 차를 세우지 마십시오.",
+"file": "acf5-c0ac-b97c-20-d558-ace0-20-c788-c73c-b2c8-ae4c-20-cc28-b97c-20-c138-c6b0-c9c0-20-b9c8-c2ed-c2dc-c624-2e.mp3",
+"duration": 2.935
+},
+{
+"text": "공사를 하는 곳 안전 제일",
+"file": "acf5-c0ac-b97c-20-d558-b294-20-acf3-20-c548-c804-20-c81c-c77c.mp3",
+"duration": 1.886
+},
+{
 "text": "공사장",
 "file": "acf5-c0ac-c7a5.mp3",
 "duration": 0.801
+},
+{
+"text": "공사중 우회하세요",
+"file": "acf5-c0ac-c911-20-c6b0-d68c-d558-c138-c694.mp3",
+"duration": 1.417
+},
+{
+"text": "공사중 주차금지",
+"file": "acf5-c0ac-c911-20-c8fc-cc28-ae08-c9c0.mp3",
+"duration": 1.488
+},
+{
+"text": "공사중서행",
+"file": "acf5-c0ac-c911-c11c-d589.mp3",
+"duration": 1.027
 },
 {
 "text": "공원",
@@ -1527,6 +1617,11 @@
 "text": "공중 전화",
 "file": "acf5-c911-20-c804-d654.mp3",
 "duration": 1.0
+},
+{
+"text": "공중전화",
+"file": "acf5-c911-c804-d654.mp3",
+"duration": 0.899
 },
 {
 "text": "공짜",
@@ -1584,6 +1679,11 @@
 "duration": 0.494
 },
 {
+"text": "과수원",
+"file": "acfc-c218-c6d0.mp3",
+"duration": 0.714
+},
+{
 "text": "과일",
 "file": "acfc-c77c.mp3",
 "duration": 0.543
@@ -1597,6 +1697,11 @@
 "text": "과장",
 "file": "acfc-c7a5.mp3",
 "duration": 0.621
+},
+{
+"text": "과적금지",
+"file": "acfc-c801-ae08-c9c0.mp3",
+"duration": 0.985
 },
 {
 "text": "과정",
@@ -1617,6 +1722,16 @@
 "text": "관계/관련",
 "file": "ad00-acc4-2f-ad00-b828.mp3",
 "duration": 1.383
+},
+{
+"text": "관계자외 출입금지",
+"file": "ad00-acc4-c790-c678-20-cd9c-c785-ae08-c9c0.mp3",
+"duration": 1.597
+},
+{
+"text": "관계자외출입금지",
+"file": "ad00-acc4-c790-c678-cd9c-c785-ae08-c9c0.mp3",
+"duration": 1.544
 },
 {
 "text": "관람하다",
@@ -1732,6 +1847,11 @@
 "text": "교통 카드",
 "file": "ad50-d1b5-20-ce74-b4dc.mp3",
 "duration": 0.903
+},
+{
+"text": "교통차단",
+"file": "ad50-d1b5-cc28-b2e8.mp3",
+"duration": 0.95
 },
 {
 "text": "교환하다",
@@ -1957,6 +2077,11 @@
 "text": "귀국하다",
 "file": "adc0-ad6d-d558-b2e4.mp3",
 "duration": 0.796
+},
+{
+"text": "귀마개를 착용",
+"file": "adc0-b9c8-ac1c-b97c-20-cc29-c6a9.mp3",
+"duration": 1.185
 },
 {
 "text": "규",
@@ -2209,6 +2334,11 @@
 "duration": 0.615
 },
 {
+"text": "금연",
+"file": "ae08-c5f0.mp3",
+"duration": 0.587
+},
+{
 "text": "금요일",
 "file": "ae08-c694-c77c.mp3",
 "duration": 0.651
@@ -2272,6 +2402,26 @@
 "text": "기계",
 "file": "ae30-acc4.mp3",
 "duration": 0.525
+},
+{
+"text": "기계가 잘 작동할 수 있게 항상 관리해야 합니다.",
+"file": "ae30-acc4-ac00-20-c798-20-c791-b3d9-d560-20-c218-20-c788-ac8c-20-d56d-c0c1-20-ad00-b9ac-d574-c57c-20-d569-b2c8-b2e4-2e.mp3",
+"duration": 3.287
+},
+{
+"text": "기계를 사용하기 전에 문제가 있는지 점검하십시오.",
+"file": "ae30-acc4-b97c-20-c0ac-c6a9-d558-ae30-20-c804-c5d0-20-bb38-c81c-ac00-20-c788-b294-c9c0-20-c810-ac80-d558-c2ed-c2dc-c624-2e.mp3",
+"duration": 3.372
+},
+{
+"text": "기계작동전 점검확인",
+"file": "ae30-acc4-c791-b3d9-c804-20-c810-ac80-d655-c778.mp3",
+"duration": 1.841
+},
+{
+"text": "기계프레스 작업시 손조심",
+"file": "ae30-acc4-d504-b808-c2a4-20-c791-c5c5-c2dc-20-c190-c870-c2ec.mp3",
+"duration": 2.09
 },
 {
 "text": "기도",
@@ -2444,6 +2594,11 @@
 "duration": 0.542
 },
 {
+"text": "길이 좁아지니까 조심",
+"file": "ae38-c774-20-c881-c544-c9c0-b2c8-ae4c-20-c870-c2ec.mp3",
+"duration": 1.707
+},
+{
 "text": "김",
 "file": "ae40.mp3",
 "duration": 0.434
@@ -2602,6 +2757,11 @@
 "text": "깨우다",
 "file": "ae68-c6b0-b2e4.mp3",
 "duration": 0.64
+},
+{
+"text": "깨지는 물건이 있으니까 조심하십시오.",
+"file": "ae68-c9c0-b294-20-bb3c-ac74-c774-20-c788-c73c-b2c8-ae4c-20-c870-c2ec-d558-c2ed-c2dc-c624-2e.mp3",
+"duration": 2.58
 },
 {
 "text": "깨지다",
@@ -2992,6 +3152,31 @@
 "text": "낙타",
 "file": "b099-d0c0.mp3",
 "duration": 0.627
+},
+{
+"text": "낙하물 위험",
+"file": "b099-d558-bb3c-20-c704-d5d8.mp3",
+"duration": 1.032
+},
+{
+"text": "낙하물 위험!",
+"file": "b099-d558-bb3c-20-c704-d5d8-21.mp3",
+"duration": 1.02
+},
+{
+"text": "낙하물 조심",
+"file": "b099-d558-bb3c-20-c870-c2ec.mp3",
+"duration": 1.185
+},
+{
+"text": "낙하물경고",
+"file": "b099-d558-bb3c-acbd-ace0.mp3",
+"duration": 1.082
+},
+{
+"text": "낙하물주의",
+"file": "b099-d558-bb3c-c8fc-c758.mp3",
+"duration": 1.005
 },
 {
 "text": "낚시",
@@ -3714,6 +3899,11 @@
 "duration": 0.616
 },
 {
+"text": "농구장",
+"file": "b18d-ad6c-c7a5.mp3",
+"duration": 0.765
+},
+{
 "text": "농담",
 "file": "b18d-b2f4.mp3",
 "duration": 0.687
@@ -4204,6 +4394,11 @@
 "duration": 0.581
 },
 {
+"text": "다용도실",
+"file": "b2e4-c6a9-b3c4-c2e4.mp3",
+"duration": 0.944
+},
+{
 "text": "다음",
 "file": "b2e4-c74c.mp3",
 "duration": 0.542
@@ -4397,6 +4592,16 @@
 "text": "담배",
 "file": "b2f4-bc30.mp3",
 "duration": 0.609
+},
+{
+"text": "담배를 피우면 안 됩니다.",
+"file": "b2f4-bc30-b97c-20-d53c-c6b0-ba74-20-c548-20-b429-b2c8-b2e4-2e.mp3",
+"duration": 1.746
+},
+{
+"text": "담배실",
+"file": "b2f4-bc30-c2e4.mp3",
+"duration": 0.821
 },
 {
 "text": "답",
@@ -4869,6 +5074,11 @@
 "duration": 0.282
 },
 {
+"text": "독극물경고",
+"file": "b3c5-adf9-bb3c-acbd-ace0.mp3",
+"duration": 1.093
+},
+{
 "text": "독서",
 "file": "b3c5-c11c.mp3",
 "duration": 0.66
@@ -4967,6 +5177,21 @@
 "text": "동",
 "file": "b3d9.mp3",
 "duration": 0.415
+},
+{
+"text": "동근틀 사용시 장갑착용금지",
+"file": "b3d9-adfc-d2c0-20-c0ac-c6a9-c2dc-20-c7a5-ac11-cc29-c6a9-ae08-c9c0.mp3",
+"duration": 2.473
+},
+{
+"text": "동력 전달부에 작업복이 말려 들어가는 경우",
+"file": "b3d9-b825-20-c804-b2ec-bd80-c5d0-20-c791-c5c5-bcf5-c774-20-b9d0-b824-20-b4e4-c5b4-ac00-b294-20-acbd-c6b0.mp3",
+"duration": 3.003
+},
+{
+"text": "동력전달부에 손끼임 주의",
+"file": "b3d9-b825-c804-b2ec-bd80-c5d0-20-c190-b07c-c784-20-c8fc-c758.mp3",
+"duration": 2.033
 },
 {
 "text": "동물과 새",
@@ -5354,6 +5579,11 @@
 "duration": 0.723
 },
 {
+"text": "들어가지 마십시오",
+"file": "b4e4-c5b4-ac00-c9c0-20-b9c8-c2ed-c2dc-c624.mp3",
+"duration": 1.271
+},
+{
 "text": "들어요",
 "file": "b4e4-c5b4-c694.mp3",
 "duration": 0.651
@@ -5739,6 +5969,11 @@
 "duration": 0.501
 },
 {
+"text": "뛰지마십시오.",
+"file": "b6f0-c9c0-b9c8-c2ed-c2dc-c624-2e.mp3",
+"duration": 1.027
+},
+{
 "text": "뜌",
 "file": "b70c.mp3",
 "duration": 0.41
@@ -5977,6 +6212,11 @@
 "text": "로",
 "file": "b85c.mp3",
 "duration": 0.405
+},
+{
+"text": "로울러에 옷말림 주의",
+"file": "b85c-c6b8-b7ec-c5d0-20-c637-b9d0-b9bc-20-c8fc-c758.mp3",
+"duration": 1.629
 },
 {
 "text": "록",
@@ -6317,6 +6557,16 @@
 "text": "마스크",
 "file": "b9c8-c2a4-d06c.mp3",
 "duration": 0.756
+},
+{
+"text": "마스크 착용",
+"file": "b9c8-c2a4-d06c-20-cc29-c6a9.mp3",
+"duration": 1.055
+},
+{
+"text": "마스크를 착용",
+"file": "b9c8-c2a4-d06c-b97c-20-cc29-c6a9.mp3",
+"duration": 1.163
 },
 {
 "text": "마시고 있습니다",
@@ -6669,6 +6919,16 @@
 "duration": 0.581
 },
 {
+"text": "매달 4일 안전점검을 합니다.",
+"file": "b9e4-b2ec-20-34-c77c-20-c548-c804-c810-ac80-c744-20-d569-b2c8-b2e4-2e.mp3",
+"duration": 2.055
+},
+{
+"text": "매달린물체경고",
+"file": "b9e4-b2ec-b9b0-bb3c-ccb4-acbd-ace0.mp3",
+"duration": 1.336
+},
+{
 "text": "매운",
 "file": "b9e4-c6b4.mp3",
 "duration": 0.567
@@ -6682,6 +6942,11 @@
 "text": "매워요",
 "file": "b9e4-c6cc-c694.mp3",
 "duration": 0.727
+},
+{
+"text": "매월 4일은 안전점검의 날",
+"file": "b9e4-c6d4-20-34-c77c-c740-20-c548-c804-c810-ac80-c758-20-b0a0.mp3",
+"duration": 2.009
 },
 {
 "text": "매일",
@@ -6799,6 +7064,11 @@
 "duration": 0.579
 },
 {
+"text": "머리조심",
+"file": "ba38-b9ac-c870-c2ec.mp3",
+"duration": 0.907
+},
+{
 "text": "머리카락",
 "file": "ba38-b9ac-ce74-b77d.mp3",
 "duration": 0.787
@@ -6914,6 +7184,11 @@
 "duration": 0.688
 },
 {
+"text": "멀티플러그",
+"file": "ba40-d2f0-d50c-b7ec-adf8.mp3",
+"duration": 1.017
+},
+{
 "text": "멈",
 "file": "ba48.mp3",
 "duration": 0.483
@@ -6987,6 +7262,11 @@
 "text": "면도",
 "file": "ba74-b3c4.mp3",
 "duration": 0.66
+},
+{
+"text": "면장갑 말림주의",
+"file": "ba74-c7a5-ac11-20-b9d0-b9bc-c8fc-c758.mp3",
+"duration": 1.443
 },
 {
 "text": "면적",
@@ -7404,9 +7684,19 @@
 "duration": 0.783
 },
 {
+"text": "문에 기대지 마십시오.",
+"file": "bb38-c5d0-20-ae30-b300-c9c0-20-b9c8-c2ed-c2dc-c624-2e.mp3",
+"duration": 1.541
+},
+{
 "text": "문을 닫다",
 "file": "bb38-c744-20-b2eb-b2e4.mp3",
 "duration": 0.938
+},
+{
+"text": "문을 닫혔다",
+"file": "bb38-c744-20-b2eb-d614-b2e4.mp3",
+"duration": 1.089
 },
 {
 "text": "문의",
@@ -7422,6 +7712,11 @@
 "text": "문의하다/물어보다",
 "file": "bb38-c758-d558-b2e4-2f-bb3c-c5b4-bcf4-b2e4.mp3",
 "duration": 1.616
+},
+{
+"text": "문이 닫히고 있을 때는 타지 마십시오.",
+"file": "bb38-c774-20-b2eb-d788-ace0-20-c788-c744-20-b54c-b294-20-d0c0-c9c0-20-b9c8-c2ed-c2dc-c624-2e.mp3",
+"duration": 2.492
 },
 {
 "text": "문제",
@@ -7484,6 +7779,11 @@
 "duration": 0.831
 },
 {
+"text": "물기엄금",
+"file": "bb3c-ae30-c5c4-ae08.mp3",
+"duration": 0.938
+},
+{
 "text": "물다",
 "file": "bb3c-b2e4.mp3",
 "duration": 0.575
@@ -7492,6 +7792,11 @@
 "text": "물러서다",
 "file": "bb3c-b7ec-c11c-b2e4.mp3",
 "duration": 0.805
+},
+{
+"text": "물뿌리개",
+"file": "bb3c-bfcc-b9ac-ac1c.mp3",
+"duration": 0.863
 },
 {
 "text": "물소",
@@ -7509,9 +7814,19 @@
 "duration": 0.684
 },
 {
+"text": "물을 마실 수 있는 곳",
+"file": "bb3c-c744-20-b9c8-c2e4-20-c218-20-c788-b294-20-acf3.mp3",
+"duration": 1.464
+},
+{
 "text": "물이 있어요",
 "file": "bb3c-c774-20-c788-c5b4-c694.mp3",
 "duration": 0.989
+},
+{
+"text": "물체이동금지",
+"file": "bb3c-ccb4-c774-b3d9-ae08-c9c0.mp3",
+"duration": 1.258
 },
 {
 "text": "물컵",
@@ -7662,6 +7977,11 @@
 "text": "미국",
 "file": "bbf8-ad6d.mp3",
 "duration": 0.505
+},
+{
+"text": "미끄럼 주의",
+"file": "bbf8-b044-b7fc-20-c8fc-c758.mp3",
+"duration": 1.033
 },
 {
 "text": "미녀",
@@ -7872,6 +8192,11 @@
 "text": "바닥",
 "file": "bc14-b2e5.mp3",
 "duration": 0.486
+},
+{
+"text": "바닥 미끄럼 주의",
+"file": "bc14-b2e5-20-bbf8-b044-b7fc-20-c8fc-c758.mp3",
+"duration": 1.35
 },
 {
 "text": "바라다",
@@ -8144,6 +8469,11 @@
 "duration": 0.434
 },
 {
+"text": "방독면 착용",
+"file": "bc29-b3c5-ba74-20-cc29-c6a9.mp3",
+"duration": 1.185
+},
+{
 "text": "방법",
 "file": "bc29-bc95.mp3",
 "duration": 0.54
@@ -8162,6 +8492,11 @@
 "text": "방지",
 "file": "bc29-c9c0.mp3",
 "duration": 0.726
+},
+{
+"text": "방진마스크 착용지역",
+"file": "bc29-c9c4-b9c8-c2a4-d06c-20-cc29-c6a9-c9c0-c5ed.mp3",
+"duration": 1.633
 },
 {
 "text": "방학",
@@ -8277,6 +8612,11 @@
 "text": "밴딩기",
 "file": "bc34-b529-ae30.mp3",
 "duration": 0.859
+},
+{
+"text": "밸브점검",
+"file": "bc38-be0c-c810-ac80.mp3",
+"duration": 0.897
 },
 {
 "text": "뱀",
@@ -8619,6 +8959,11 @@
 "duration": 0.708
 },
 {
+"text": "보관소에 물건을 맡기려고 합니다. (보관소)",
+"file": "bcf4-ad00-c18c-c5d0-20-bb3c-ac74-c744-20-b9e1-ae30-b824-ace0-20-d569-b2c8-b2e4-2e-20-28-bcf4-ad00-c18c-29.mp3",
+"duration": 3.164
+},
+{
 "text": "보내는 사람",
 "file": "bcf4-b0b4-b294-20-c0ac-b78c.mp3",
 "duration": 0.951
@@ -8659,6 +9004,16 @@
 "duration": 0.755
 },
 {
+"text": "보안경 착용",
+"file": "bcf4-c548-acbd-20-cc29-c6a9.mp3",
+"duration": 1.126
+},
+{
+"text": "보안면 착용",
+"file": "bcf4-c548-ba74-20-cc29-c6a9.mp3",
+"duration": 1.088
+},
+{
 "text": "보온병",
 "file": "bcf4-c628-bcd1.mp3",
 "duration": 0.788
@@ -8692,6 +9047,16 @@
 "text": "보통적금",
 "file": "bcf4-d1b5-c801-ae08.mp3",
 "duration": 0.985
+},
+{
+"text": "보행금지",
+"file": "bcf4-d589-ae08-c9c0.mp3",
+"duration": 0.972
+},
+{
+"text": "보행금지 구역",
+"file": "bcf4-d589-ae08-c9c0-20-ad6c-c5ed.mp3",
+"duration": 1.154
 },
 {
 "text": "보험",
@@ -9044,6 +9409,11 @@
 "duration": 1.519
 },
 {
+"text": "분무기",
+"file": "bd84-bb34-ae30.mp3",
+"duration": 0.745
+},
+{
 "text": "분실물",
 "file": "bd84-c2e4-bb3c.mp3",
 "duration": 0.776
@@ -9149,6 +9519,16 @@
 "duration": 0.531
 },
 {
+"text": "불을 끌 때 사용하는 소방호스 (소화전)",
+"file": "bd88-c744-20-b04c-20-b54c-20-c0ac-c6a9-d558-b294-20-c18c-bc29-d638-c2a4-20-28-c18c-d654-c804-29.mp3",
+"duration": 3.102
+},
+{
+"text": "불이 났을 때 밖으로 대피해야 합니다.",
+"file": "bd88-c774-20-b0ac-c744-20-b54c-20-bc16-c73c-b85c-20-b300-d53c-d574-c57c-20-d569-b2c8-b2e4-2e.mp3",
+"duration": 2.441
+},
+{
 "text": "불전",
 "file": "bd88-c804.mp3",
 "duration": 0.636
@@ -9162,6 +9542,11 @@
 "text": "불타다",
 "file": "bd88-d0c0-b2e4.mp3",
 "duration": 0.706
+},
+{
+"text": "불판",
+"file": "bd88-d310.mp3",
+"duration": 0.685
 },
 {
 "text": "불편",
@@ -9382,6 +9767,16 @@
 "text": "비빔밥",
 "file": "be44-be54-bc25.mp3",
 "duration": 0.757
+},
+{
+"text": "비상시에 이 전화기를 사용하십시오.",
+"file": "be44-c0c1-c2dc-c5d0-20-c774-20-c804-d654-ae30-b97c-20-c0ac-c6a9-d558-c2ed-c2dc-c624-2e.mp3",
+"duration": 2.41
+},
+{
+"text": "비상시에 피할 수 있게 만든 대피소",
+"file": "be44-c0c1-c2dc-c5d0-20-d53c-d560-20-c218-20-c788-ac8c-20-b9cc-b4e0-20-b300-d53c-c18c.mp3",
+"duration": 2.547
 },
 {
 "text": "비슷하다",
@@ -9734,6 +10129,11 @@
 "duration": 0.596
 },
 {
+"text": "사고 많은 곳 속도를 줄이시오",
+"file": "c0ac-ace0-20-b9ce-c740-20-acf3-20-c18d-b3c4-b97c-20-c904-c774-c2dc-c624.mp3",
+"duration": 2.102
+},
+{
 "text": "사고 있습니다",
 "file": "c0ac-ace0-20-c788-c2b5-b2c8-b2e4.mp3",
 "duration": 1.036
@@ -9772,6 +10172,11 @@
 "text": "사다리",
 "file": "c0ac-b2e4-b9ac.mp3",
 "duration": 0.725
+},
+{
+"text": "사다리 확인",
+"file": "c0ac-b2e4-b9ac-20-d655-c778.mp3",
+"duration": 1.095
 },
 {
 "text": "사라지다",
@@ -9834,9 +10239,19 @@
 "duration": 0.606
 },
 {
+"text": "사용금지",
+"file": "c0ac-c6a9-ae08-c9c0.mp3",
+"duration": 1.019
+},
+{
 "text": "사용하다",
 "file": "c0ac-c6a9-d558-b2e4.mp3",
 "duration": 0.792
+},
+{
+"text": "사용한 공구는 항상 제자리에",
+"file": "c0ac-c6a9-d55c-20-acf5-ad6c-b294-20-d56d-c0c1-20-c81c-c790-b9ac-c5d0.mp3",
+"duration": 2.157
 },
 {
 "text": "사원",
@@ -9909,6 +10324,11 @@
 "duration": 1.555
 },
 {
+"text": "사진을 찍지 마십시오.",
+"file": "c0ac-c9c4-c744-20-cc0d-c9c0-20-b9c8-c2ed-c2dc-c624-2e.mp3",
+"duration": 1.583
+},
+{
 "text": "사찰",
 "file": "c0ac-cc30.mp3",
 "duration": 0.695
@@ -9937,6 +10357,16 @@
 "text": "산부인과",
 "file": "c0b0-bd80-c778-acfc.mp3",
 "duration": 0.977
+},
+{
+"text": "산불예방",
+"file": "c0b0-bd88-c608-bc29.mp3",
+"duration": 0.92
+},
+{
+"text": "산불이 나지 않도록 조심하십시오.",
+"file": "c0b0-bd88-c774-20-b098-c9c0-20-c54a-b3c4-b85d-20-c870-c2ec-d558-c2ed-c2dc-c624-2e.mp3",
+"duration": 2.277
 },
 {
 "text": "산업",
@@ -10052,6 +10482,11 @@
 "text": "상담 센터",
 "file": "c0c1-b2f4-20-c13c-d130.mp3",
 "duration": 1.079
+},
+{
+"text": "상담실",
+"file": "c0c1-b2f4-c2e4.mp3",
+"duration": 0.954
 },
 {
 "text": "상업 은행",
@@ -10399,6 +10834,11 @@
 "duration": 0.489
 },
 {
+"text": "설비내부에 들어간 상태에서 설비가 작동되는 경우",
+"file": "c124-be44-b0b4-bd80-c5d0-20-b4e4-c5b4-ac04-20-c0c1-d0dc-c5d0-c11c-20-c124-be44-ac00-20-c791-b3d9-b418-b294-20-acbd-c6b0.mp3",
+"duration": 3.553
+},
+{
 "text": "설사",
 "file": "c124-c0ac.mp3",
 "duration": 0.719
@@ -10699,6 +11139,11 @@
 "duration": 0.603
 },
 {
+"text": "소화기",
+"file": "c18c-d654-ae30.mp3",
+"duration": 0.782
+},
+{
 "text": "소화제",
 "file": "c18c-d654-c81c.mp3",
 "duration": 0.779
@@ -10757,6 +11202,16 @@
 "text": "손수레",
 "file": "c190-c218-b808.mp3",
 "duration": 0.769
+},
+{
+"text": "손수레와 경운기 금지",
+"file": "c190-c218-b808-c640-20-acbd-c6b4-ae30-20-ae08-c9c0.mp3",
+"duration": 1.857
+},
+{
+"text": "손으로 만지면 안 됩니다.",
+"file": "c190-c73c-b85c-20-b9cc-c9c0-ba74-20-c548-20-b429-b2c8-b2e4-2e.mp3",
+"duration": 1.696
 },
 {
 "text": "손자",
@@ -10982,6 +11437,11 @@
 "text": "수영하다",
 "file": "c218-c601-d558-b2e4.mp3",
 "duration": 0.788
+},
+{
+"text": "수영하면 위험합니다.",
+"file": "c218-c601-d558-ba74-20-c704-d5d8-d569-b2c8-b2e4-2e.mp3",
+"duration": 1.536
 },
 {
 "text": "수입",
@@ -11339,6 +11799,11 @@
 "duration": 0.46
 },
 {
+"text": "승강기 탑승금지",
+"file": "c2b9-ac15-ae30-20-d0d1-c2b9-ae08-c9c0.mp3",
+"duration": 1.563
+},
+{
 "text": "승낙",
 "file": "c2b9-b099.mp3",
 "duration": 0.57
@@ -11437,6 +11902,11 @@
 "text": "시민권",
 "file": "c2dc-bbfc-ad8c.mp3",
 "duration": 0.849
+},
+{
+"text": "시속 30km로 천천히 운전",
+"file": "c2dc-c18d-20-33-30-6b-6d-b85c-20-cc9c-cc9c-d788-20-c6b4-c804.mp3",
+"duration": 2.684
 },
 {
 "text": "시아버지",
@@ -11969,9 +12439,19 @@
 "duration": 0.759
 },
 {
+"text": "쓰레기를 버리지 마십시오.",
+"file": "c4f0-b808-ae30-b97c-20-bc84-b9ac-c9c0-20-b9c8-c2ed-c2dc-c624-2e.mp3",
+"duration": 1.71
+},
+{
 "text": "쓰레기통",
 "file": "c4f0-b808-ae30-d1b5.mp3",
 "duration": 0.868
+},
+{
+"text": "쓰레기통 반드시 사용",
+"file": "c4f0-b808-ae30-d1b5-20-bc18-b4dc-c2dc-20-c0ac-c6a9.mp3",
+"duration": 1.785
 },
 {
 "text": "쓰레받기",
@@ -12309,6 +12789,11 @@
 "duration": 0.757
 },
 {
+"text": "안내소 (안내하는 곳)",
+"file": "c548-b0b4-c18c-20-28-c548-b0b4-d558-b294-20-acf3-29.mp3",
+"duration": 1.618
+},
+{
 "text": "안내원",
 "file": "c548-b0b4-c6d0.mp3",
 "duration": 0.696
@@ -12394,9 +12879,69 @@
 "duration": 0.658
 },
 {
+"text": "안전 복장을 착용",
+"file": "c548-c804-20-bcf5-c7a5-c744-20-cc29-c6a9.mp3",
+"duration": 1.446
+},
+{
+"text": "안전 장갑을 착용",
+"file": "c548-c804-20-c7a5-ac11-c744-20-cc29-c6a9.mp3",
+"duration": 1.434
+},
+{
+"text": "안전고리 확인",
+"file": "c548-c804-ace0-b9ac-20-d655-c778.mp3",
+"duration": 1.293
+},
+{
+"text": "안전대를 착용",
+"file": "c548-c804-b300-b97c-20-cc29-c6a9.mp3",
+"duration": 1.245
+},
+{
 "text": "안전모",
 "file": "c548-c804-baa8.mp3",
 "duration": 0.752
+},
+{
+"text": "안전모 착용",
+"file": "c548-c804-baa8-20-cc29-c6a9.mp3",
+"duration": 1.114
+},
+{
+"text": "안전모를 착용",
+"file": "c548-c804-baa8-b97c-20-cc29-c6a9.mp3",
+"duration": 1.221
+},
+{
+"text": "안전모착용",
+"file": "c548-c804-baa8-cc29-c6a9.mp3",
+"duration": 1.09
+},
+{
+"text": "안전벨트 사용",
+"file": "c548-c804-bca8-d2b8-20-c0ac-c6a9.mp3",
+"duration": 1.285
+},
+{
+"text": "안전벨트는 생명벨트",
+"file": "c548-c804-bca8-d2b8-b294-20-c0dd-ba85-bca8-d2b8.mp3",
+"duration": 1.816
+},
+{
+"text": "안전벨트를 매십시오.",
+"file": "c548-c804-bca8-d2b8-b97c-20-b9e4-c2ed-c2dc-c624-2e.mp3",
+"duration": 1.527
+},
+{
+"text": "안전보호구 미착용자 작업장 출입금지",
+"file": "c548-c804-bcf4-d638-ad6c-20-bbf8-cc29-c6a9-c790-20-c791-c5c5-c7a5-20-cd9c-c785-ae08-c9c0.mp3",
+"duration": 3.123
+},
+{
+"text": "안전통로",
+"file": "c548-c804-d1b5-b85c.mp3",
+"duration": 0.91
 },
 {
 "text": "안전한",
@@ -12407,6 +12952,16 @@
 "text": "안전한 - 위험한",
 "file": "c548-c804-d55c-20-2d-20-c704-d5d8-d55c.mp3",
 "duration": 1.198
+},
+{
+"text": "안전화를 착용",
+"file": "c548-c804-d654-b97c-20-cc29-c6a9.mp3",
+"duration": 1.196
+},
+{
+"text": "안전화착용",
+"file": "c548-c804-d654-cc29-c6a9.mp3",
+"duration": 1.08
 },
 {
 "text": "안주",
@@ -12577,6 +13132,11 @@
 "text": "약속을 미루다/연기하다",
 "file": "c57d-c18d-c744-20-bbf8-b8e8-b2e4-2f-c5f0-ae30-d558-b2e4.mp3",
 "duration": 2.111
+},
+{
+"text": "약을 사려고 합니다.",
+"file": "c57d-c744-20-c0ac-b824-ace0-20-d569-b2c8-b2e4-2e.mp3",
+"duration": 1.364
 },
 {
 "text": "약하다",
@@ -12839,6 +13399,11 @@
 "duration": 0.685
 },
 {
+"text": "어린이보호",
+"file": "c5b4-b9b0-c774-bcf4-d638.mp3",
+"duration": 0.864
+},
+{
 "text": "어머니",
 "file": "c5b4-ba38-b2c8.mp3",
 "duration": 0.689
@@ -13029,6 +13594,16 @@
 "duration": 0.389
 },
 {
+"text": "에스컬레이터",
+"file": "c5d0-c2a4-ceec-b808-c774-d130.mp3",
+"duration": 1.084
+},
+{
+"text": "에어 컴프레샤",
+"file": "c5d0-c5b4-20-cef4-d504-b808-c0e4.mp3",
+"duration": 1.151
+},
+{
 "text": "에어컨",
 "file": "c5d0-c5b4-cee8.mp3",
 "duration": 0.708
@@ -13037,6 +13612,11 @@
 "text": "에이즈",
 "file": "c5d0-c774-c988.mp3",
 "duration": 0.694
+},
+{
+"text": "엘리베이터",
+"file": "c5d8-b9ac-bca0-c774-d130.mp3",
+"duration": 0.955
 },
 {
 "text": "여",
@@ -13074,9 +13654,29 @@
 "duration": 1.27
 },
 {
+"text": "여기에 가까이 가지 마십시오.",
+"file": "c5ec-ae30-c5d0-20-ac00-ae4c-c774-20-ac00-c9c0-20-b9c8-c2ed-c2dc-c624-2e.mp3",
+"duration": 1.933
+},
+{
 "text": "여기에 앉지마자",
 "file": "c5ec-ae30-c5d0-20-c549-c9c0-b9c8-c790.mp3",
 "duration": 1.222
+},
+{
+"text": "여기에서 담배를 피우지 마십시오.",
+"file": "c5ec-ae30-c5d0-c11c-20-b2f4-bc30-b97c-20-d53c-c6b0-c9c0-20-b9c8-c2ed-c2dc-c624-2e.mp3",
+"duration": 2.229
+},
+{
+"text": "여기에서 수영을 하지 마십시오.",
+"file": "c5ec-ae30-c5d0-c11c-20-c218-c601-c744-20-d558-c9c0-20-b9c8-c2ed-c2dc-c624-2e.mp3",
+"duration": 2.027
+},
+{
+"text": "여기에서 일하는 사람 아니면 들어갈 수 없습니다.",
+"file": "c5ec-ae30-c5d0-c11c-20-c77c-d558-b294-20-c0ac-b78c-20-c544-b2c8-ba74-20-b4e4-c5b4-ac08-20-c218-20-c5c6-c2b5-b2c8-b2e4-2e.mp3",
+"duration": 3.069
 },
 {
 "text": "여기에서 조금 멉니까?",
@@ -13609,9 +14209,19 @@
 "duration": 0.711
 },
 {
+"text": "오른쪽 위로 올라가십시오.",
+"file": "c624-b978-cabd-20-c704-b85c-20-c62c-b77c-ac00-c2ed-c2dc-c624-2e.mp3",
+"duration": 1.74
+},
+{
 "text": "오리",
 "file": "c624-b9ac.mp3",
 "duration": 0.548
+},
+{
+"text": "오븐",
+"file": "c624-be10.mp3",
+"duration": 0.591
 },
 {
 "text": "오빠",
@@ -13742,6 +14352,11 @@
 "text": "올리다 - 내리다",
 "file": "c62c-b9ac-b2e4-20-2d-20-b0b4-b9ac-b2e4.mp3",
 "duration": 1.053
+},
+{
+"text": "올바른 작업 순서지키자",
+"file": "c62c-bc14-b978-20-c791-c5c5-20-c21c-c11c-c9c0-d0a4-c790.mp3",
+"duration": 1.738
 },
 {
 "text": "올해",
@@ -14004,6 +14619,16 @@
 "duration": 0.61
 },
 {
+"text": "용접 작업 지역이니까 화기엄금",
+"file": "c6a9-c811-20-c791-c5c5-20-c9c0-c5ed-c774-b2c8-ae4c-20-d654-ae30-c5c4-ae08.mp3",
+"duration": 2.441
+},
+{
+"text": "용접 작업중",
+"file": "c6a9-c811-20-c791-c5c5-c911.mp3",
+"duration": 1.203
+},
+{
 "text": "용접기",
 "file": "c6a9-c811-ae30.mp3",
 "duration": 0.901
@@ -14012,6 +14637,11 @@
 "text": "용접봉",
 "file": "c6a9-c811-bd09.mp3",
 "duration": 0.845
+},
+{
+"text": "용접작업장 인화성물질 엄금",
+"file": "c6a9-c811-c791-c5c5-c7a5-20-c778-d654-c131-bb3c-c9c8-20-c5c4-ae08.mp3",
+"duration": 2.437
 },
 {
 "text": "우",
@@ -14127,6 +14757,11 @@
 "text": "운동하다",
 "file": "c6b4-b3d9-d558-b2e4.mp3",
 "duration": 0.789
+},
+{
+"text": "운반기와 고정물 사이에 끼이는 경우",
+"file": "c6b4-bc18-ae30-c640-20-ace0-c815-bb3c-20-c0ac-c774-c5d0-20-b07c-c774-b294-20-acbd-c6b0.mp3",
+"duration": 2.577
 },
 {
 "text": "운반하다",
@@ -14289,6 +14924,21 @@
 "duration": 0.552
 },
 {
+"text": "위에서 돌이 떨어질 수 있으니 천천히",
+"file": "c704-c5d0-c11c-20-b3cc-c774-20-b5a8-c5b4-c9c8-20-c218-20-c788-c73c-b2c8-20-cc9c-cc9c-d788.mp3",
+"duration": 2.697
+},
+{
+"text": "위에서 돌이 떨어질 수 있으니 천천히 운전",
+"file": "c704-c5d0-c11c-20-b3cc-c774-20-b5a8-c5b4-c9c8-20-c218-20-c788-c73c-b2c8-20-cc9c-cc9c-d788-20-c6b4-c804.mp3",
+"duration": 3.086
+},
+{
+"text": "위에서 물건이 떨어질 수 있음",
+"file": "c704-c5d0-c11c-20-bb3c-ac74-c774-20-b5a8-c5b4-c9c8-20-c218-20-c788-c74c.mp3",
+"duration": 2.118
+},
+{
 "text": "위장병",
 "file": "c704-c7a5-bcd1.mp3",
 "duration": 0.854
@@ -14297,6 +14947,51 @@
 "text": "위험",
 "file": "c704-d5d8.mp3",
 "duration": 0.551
+},
+{
+"text": "위험 산소부족",
+"file": "c704-d5d8-20-c0b0-c18c-bd80-c871.mp3",
+"duration": 1.137
+},
+{
+"text": "위험 유독물",
+"file": "c704-d5d8-20-c720-b3c5-bb3c.mp3",
+"duration": 1.045
+},
+{
+"text": "위험 폭발물",
+"file": "c704-d5d8-20-d3ed-bc1c-bb3c.mp3",
+"duration": 1.096
+},
+{
+"text": "위험! 낙하물주의",
+"file": "c704-d5d8-21-20-b099-d558-bb3c-c8fc-c758.mp3",
+"duration": 1.667
+},
+{
+"text": "위험! 접근금지",
+"file": "c704-d5d8-21-20-c811-adfc-ae08-c9c0.mp3",
+"duration": 1.732
+},
+{
+"text": "위험! 출입금지",
+"file": "c704-d5d8-21-20-cd9c-c785-ae08-c9c0.mp3",
+"duration": 1.625
+},
+{
+"text": "위험장소경고",
+"file": "c704-d5d8-c7a5-c18c-acbd-ace0.mp3",
+"duration": 1.238
+},
+{
+"text": "위험지역 웅덩이 조심",
+"file": "c704-d5d8-c9c0-c5ed-20-c6c5-b369-c774-20-c870-c2ec.mp3",
+"duration": 1.728
+},
+{
+"text": "위험하니까 들어가지 마십시오.",
+"file": "c704-d5d8-d558-b2c8-ae4c-20-b4e4-c5b4-ac00-c9c0-20-b9c8-c2ed-c2dc-c624-2e.mp3",
+"duration": 2.06
 },
 {
 "text": "위험한",
@@ -14312,6 +15007,11 @@
 "text": "유도",
 "file": "c720-b3c4.mp3",
 "duration": 0.537
+},
+{
+"text": "유독가스 확인",
+"file": "c720-b3c5-ac00-c2a4-20-d655-c778.mp3",
+"duration": 1.282
 },
 {
 "text": "유료",
@@ -14342,6 +15042,11 @@
 "text": "유실물",
 "file": "c720-c2e4-bb3c.mp3",
 "duration": 0.772
+},
+{
+"text": "유용한 그림",
+"file": "c720-c6a9-d55c-20-adf8-b9bc.mp3",
+"duration": 1.012
 },
 {
 "text": "유월",
@@ -14457,6 +15162,16 @@
 "text": "음식",
 "file": "c74c-c2dd.mp3",
 "duration": 0.568
+},
+{
+"text": "음식을 가지고 들어갈 수 없음",
+"file": "c74c-c2dd-c744-20-ac00-c9c0-ace0-20-b4e4-c5b4-ac08-20-c218-20-c5c6-c74c.mp3",
+"duration": 2.108
+},
+{
+"text": "음식을 만들 수 없습니다.",
+"file": "c74c-c2dd-c744-20-b9cc-b4e4-20-c218-20-c5c6-c2b5-b2c8-b2e4-2e.mp3",
+"duration": 1.664
 },
 {
 "text": "음악",
@@ -14592,6 +15307,11 @@
 "text": "이것은 무엇입니까?",
 "file": "c774-ac83-c740-20-bb34-c5c7-c785-b2c8-ae4c-3f.mp3",
 "duration": 1.35
+},
+{
+"text": "이곳에 차를 세우면 안 됩니다.",
+"file": "c774-acf3-c5d0-20-cc28-b97c-20-c138-c6b0-ba74-20-c548-20-b429-b2c8-b2e4-2e.mp3",
+"duration": 1.973
 },
 {
 "text": "이기다",
@@ -14919,6 +15639,11 @@
 "duration": 0.619
 },
 {
+"text": "인터넷을 사용할 수 있는 곳",
+"file": "c778-d130-b137-c744-20-c0ac-c6a9-d560-20-c218-20-c788-b294-20-acf3.mp3",
+"duration": 1.843
+},
+{
 "text": "인하",
 "file": "c778-d558.mp3",
 "duration": 0.496
@@ -15129,6 +15854,11 @@
 "duration": 0.834
 },
 {
+"text": "잃어버린 물건(분실물)을 찾고 싶습니다.",
+"file": "c783-c5b4-bc84-b9b0-20-bb3c-ac74-28-bd84-c2e4-bb3c-29-c744-20-cc3e-ace0-20-c2f6-c2b5-b2c8-b2e4-2e.mp3",
+"duration": 3.287
+},
+{
 "text": "임",
 "file": "c784.mp3",
 "duration": 0.442
@@ -15304,6 +16034,16 @@
 "duration": 0.807
 },
 {
+"text": "자동차를 고칠 수 있는 곳",
+"file": "c790-b3d9-cc28-b97c-20-ace0-ce60-20-c218-20-c788-b294-20-acf3.mp3",
+"duration": 1.833
+},
+{
+"text": "자료실",
+"file": "c790-b8cc-c2e4.mp3",
+"duration": 0.818
+},
+{
 "text": "자르다",
 "file": "c790-b974-b2e4.mp3",
 "duration": 0.655
@@ -15374,6 +16114,16 @@
 "duration": 1.105
 },
 {
+"text": "자전거가 다닐 수 없는 길입니다.",
+"file": "c790-c804-ac70-ac00-20-b2e4-b2d0-20-c218-20-c5c6-b294-20-ae38-c785-b2c8-b2e4-2e.mp3",
+"duration": 2.111
+},
+{
+"text": "자전거전용",
+"file": "c790-c804-ac70-c804-c6a9.mp3",
+"duration": 1.033
+},
+{
 "text": "자주",
 "file": "c790-c8fc.mp3",
 "duration": 0.606
@@ -15409,6 +16159,21 @@
 "duration": 0.5
 },
 {
+"text": "작업 반경내 접근금지",
+"file": "c791-c5c5-20-bc18-acbd-b0b4-20-c811-adfc-ae08-c9c0.mp3",
+"duration": 1.919
+},
+{
+"text": "작업등",
+"file": "c791-c5c5-b4f1.mp3",
+"duration": 0.813
+},
+{
+"text": "작업반경내 접근금지",
+"file": "c791-c5c5-bc18-acbd-b0b4-20-c811-adfc-ae08-c9c0.mp3",
+"duration": 1.903
+},
+{
 "text": "작업장",
 "file": "c791-c5c5-c7a5.mp3",
 "duration": 0.828
@@ -15417,6 +16182,16 @@
 "text": "작업장에서 쓰는 도구",
 "file": "c791-c5c5-c7a5-c5d0-c11c-20-c4f0-b294-20-b3c4-ad6c.mp3",
 "duration": 1.68
+},
+{
+"text": "작업중 금연",
+"file": "c791-c5c5-c911-20-ae08-c5f0.mp3",
+"duration": 1.205
+},
+{
+"text": "작업중 응급치료를 받는 곳",
+"file": "c791-c5c5-c911-20-c751-ae09-ce58-b8cc-b97c-20-bc1b-b294-20-acf3.mp3",
+"duration": 2.009
 },
 {
 "text": "잔",
@@ -15562,6 +16337,16 @@
 "text": "장갑",
 "file": "c7a5-ac11.mp3",
 "duration": 0.585
+},
+{
+"text": "장갑 착용 금지",
+"file": "c7a5-ac11-20-cc29-c6a9-20-ae08-c9c0.mp3",
+"duration": 1.468
+},
+{
+"text": "장갑착용금지",
+"file": "c7a5-ac11-cc29-c6a9-ae08-c9c0.mp3",
+"duration": 1.361
 },
 {
 "text": "장관",
@@ -15954,6 +16739,21 @@
 "duration": 0.897
 },
 {
+"text": "전기공사 작업중",
+"file": "c804-ae30-acf5-c0ac-20-c791-c5c5-c911.mp3",
+"duration": 1.484
+},
+{
+"text": "전기공사를 하고 있으니까 오른쪽으로 돌아가시오.",
+"file": "c804-ae30-acf5-c0ac-b97c-20-d558-ace0-20-c788-c73c-b2c8-ae4c-20-c624-b978-cabd-c73c-b85c-20-b3cc-c544-ac00-c2dc-c624-2e.mp3",
+"duration": 3.334
+},
+{
+"text": "전기조심 위험",
+"file": "c804-ae30-c870-c2ec-20-c704-d5d8.mp3",
+"duration": 1.194
+},
+{
 "text": "전기톱",
 "file": "c804-ae30-d1b1.mp3",
 "duration": 0.747
@@ -16039,6 +16839,11 @@
 "duration": 1.095
 },
 {
+"text": "전화를 하려고 합니다.",
+"file": "c804-d654-b97c-20-d558-b824-ace0-20-d569-b2c8-b2e4-2e.mp3",
+"duration": 1.33
+},
+{
 "text": "전화번호",
 "file": "c804-d654-bc88-d638.mp3",
 "duration": 0.819
@@ -16082,6 +16887,11 @@
 "text": "절대",
 "file": "c808-b300.mp3",
 "duration": 0.705
+},
+{
+"text": "절대감속 30 천천히",
+"file": "c808-b300-ac10-c18d-20-33-30-20-cc9c-cc9c-d788.mp3",
+"duration": 1.866
 },
 {
 "text": "절약",
@@ -16144,6 +16954,11 @@
 "duration": 0.343
 },
 {
+"text": "접근금지",
+"file": "c811-adfc-ae08-c9c0.mp3",
+"duration": 1.062
+},
+{
 "text": "접다",
 "file": "c811-b2e4.mp3",
 "duration": 0.636
@@ -16194,6 +17009,11 @@
 "duration": 1.646
 },
 {
+"text": "정리정돈",
+"file": "c815-b9ac-c815-b3c8.mp3",
+"duration": 0.972
+},
+{
 "text": "정리하다",
 "file": "c815-b9ac-d558-b2e4.mp3",
 "duration": 0.812
@@ -16209,9 +17029,19 @@
 "duration": 0.62
 },
 {
+"text": "정보를 얻고 싶습니다. (안내소)",
+"file": "c815-bcf4-b97c-20-c5bb-ace0-20-c2f6-c2b5-b2c8-b2e4-2e-20-28-c548-b0b4-c18c-29.mp3",
+"duration": 2.302
+},
+{
 "text": "정부",
 "file": "c815-bd80.mp3",
 "duration": 0.65
+},
+{
+"text": "정비절차",
+"file": "c815-be44-c808-cc28.mp3",
+"duration": 1.001
 },
 {
 "text": "정신적",
@@ -16287,6 +17117,11 @@
 "text": "젖다 - 마르다",
 "file": "c816-b2e4-20-2d-20-b9c8-b974-b2e4.mp3",
 "duration": 0.986
+},
+{
+"text": "젖은 손으로 작동금지",
+"file": "c816-c740-20-c190-c73c-b85c-20-c791-b3d9-ae08-c9c0.mp3",
+"duration": 1.783
 },
 {
 "text": "젖히다",
@@ -17109,6 +17944,11 @@
 "duration": 0.765
 },
 {
+"text": "지게차 조심",
+"file": "c9c0-ac8c-cc28-20-c870-c2ec.mp3",
+"duration": 1.184
+},
+{
 "text": "지구",
 "file": "c9c0-ad6c.mp3",
 "duration": 0.566
@@ -17624,6 +18464,11 @@
 "duration": 0.834
 },
 {
+"text": "차에 짐을 너무 많이 실으면 안 됩니다.",
+"file": "cc28-c5d0-20-c9d0-c744-20-b108-bb34-20-b9ce-c774-20-c2e4-c73c-ba74-20-c548-20-b429-b2c8-b2e4-2e.mp3",
+"duration": 2.432
+},
+{
 "text": "차이",
 "file": "cc28-c774.mp3",
 "duration": 0.583
@@ -17937,6 +18782,11 @@
 "text": "천천히",
 "file": "cc9c-cc9c-d788.mp3",
 "duration": 0.784
+},
+{
+"text": "천천히 SLOW",
+"file": "cc9c-cc9c-d788-20-53-4c-4f-57.mp3",
+"duration": 1.138
 },
 {
 "text": "첟",
@@ -18269,6 +19119,11 @@
 "duration": 0.485
 },
 {
+"text": "추락주의",
+"file": "cd94-b77d-c8fc-c758.mp3",
+"duration": 0.841
+},
+{
 "text": "추석",
 "file": "cd94-c11d.mp3",
 "duration": 0.513
@@ -18419,6 +19274,11 @@
 "duration": 1.483
 },
 {
+"text": "출입금지",
+"file": "cd9c-c785-ae08-c9c0.mp3",
+"duration": 0.972
+},
+{
 "text": "출입문",
 "file": "cd9c-c785-bb38.mp3",
 "duration": 0.742
@@ -18482,6 +19342,11 @@
 "text": "취미",
 "file": "cde8-bbf8.mp3",
 "duration": 0.584
+},
+{
+"text": "취사금지",
+"file": "cde8-c0ac-ae08-c9c0.mp3",
+"duration": 1.007
 },
 {
 "text": "취사도구",
@@ -18944,6 +19809,16 @@
 "duration": 0.44
 },
 {
+"text": "컨베이어",
+"file": "cee8-bca0-c774-c5b4.mp3",
+"duration": 0.764
+},
+{
+"text": "컨트롤 판넬",
+"file": "cee8-d2b8-b864-20-d310-b12c.mp3",
+"duration": 1.067
+},
+{
 "text": "컫",
 "file": "ceeb.mp3",
 "duration": 0.325
@@ -18982,6 +19857,11 @@
 "text": "컴퓨터가 아니에요",
 "file": "cef4-d4e8-d130-ac00-20-c544-b2c8-c5d0-c694.mp3",
 "duration": 1.374
+},
+{
+"text": "컴퓨터를 사용할 수 없습니다.",
+"file": "cef4-d4e8-d130-b97c-20-c0ac-c6a9-d560-20-c218-20-c5c6-c2b5-b2c8-b2e4-2e.mp3",
+"duration": 1.875
 },
 {
 "text": "컵",
@@ -19537,6 +20417,11 @@
 "text": "탑",
 "file": "d0d1.mp3",
 "duration": 0.323
+},
+{
+"text": "탑승금지",
+"file": "d0d1-c2b9-ae08-c9c0.mp3",
+"duration": 1.021
 },
 {
 "text": "탕",
@@ -20209,6 +21094,11 @@
 "duration": 0.564
 },
 {
+"text": "파손주의",
+"file": "d30c-c190-c8fc-c758.mp3",
+"duration": 0.875
+},
+{
 "text": "파손하다",
 "file": "d30c-c190-d558-b2e4.mp3",
 "duration": 0.777
@@ -20599,6 +21489,11 @@
 "duration": 0.694
 },
 {
+"text": "폐문 CLOSED",
+"file": "d3d0-bb38-20-43-4c-4f-53-45-44.mp3",
+"duration": 1.215
+},
+{
 "text": "폐수",
 "file": "d3d0-c218.mp3",
 "duration": 0.603
@@ -20687,6 +21582,11 @@
 "text": "폭발",
 "file": "d3ed-bc1c.mp3",
 "duration": 0.625
+},
+{
+"text": "폭발물 경고",
+"file": "d3ed-bc1c-bb3c-20-acbd-ace0.mp3",
+"duration": 1.219
 },
 {
 "text": "폭포",
@@ -20934,6 +21834,16 @@
 "duration": 0.701
 },
 {
+"text": "프레스에 손끼임 주의",
+"file": "d504-b808-c2a4-c5d0-20-c190-b07c-c784-20-c8fc-c758.mp3",
+"duration": 1.581
+},
+{
+"text": "프린터",
+"file": "d504-b9b0-d130.mp3",
+"duration": 0.738
+},
+{
 "text": "픅",
 "file": "d505.mp3",
 "duration": 0.259
@@ -20957,6 +21867,11 @@
 "text": "플라이어",
 "file": "d50c-b77c-c774-c5b4.mp3",
 "duration": 0.713
+},
+{
+"text": "플러그를 빼야 전원을 차단하십시오.",
+"file": "d50c-b7ec-adf8-b97c-20-be7c-c57c-20-c804-c6d0-c744-20-cc28-b2e8-d558-c2ed-c2dc-c624-2e.mp3",
+"duration": 2.308
 },
 {
 "text": "픔",
@@ -21499,6 +22414,11 @@
 "duration": 0.662
 },
 {
+"text": "항상 깨끗이",
+"file": "d56d-c0c1-20-ae68-b057-c774.mp3",
+"duration": 1.159
+},
+{
 "text": "해",
 "file": "d574.mp3",
 "duration": 0.351
@@ -21719,6 +22639,16 @@
 "duration": 0.543
 },
 {
+"text": "허리 부상 방지",
+"file": "d5c8-b9ac-20-bd80-c0c1-20-bc29-c9c0.mp3",
+"duration": 1.329
+},
+{
+"text": "허리부상방지",
+"file": "d5c8-b9ac-bd80-c0c1-bc29-c9c0.mp3",
+"duration": 1.232
+},
+{
 "text": "헉",
 "file": "d5c9.mp3",
 "duration": 0.283
@@ -21807,6 +22737,11 @@
 "text": "현금",
 "file": "d604-ae08.mp3",
 "duration": 0.66
+},
+{
+"text": "현금 인출기에서 현금을 찾고 싶다.",
+"file": "d604-ae08-20-c778-cd9c-ae30-c5d0-c11c-20-d604-ae08-c744-20-cc3e-ace0-20-c2f6-b2e4-2e.mp3",
+"duration": 2.503
 },
 {
 "text": "현금으로 계산할게요.",
@@ -22019,14 +22954,29 @@
 "duration": 0.954
 },
 {
+"text": "화기엄금",
+"file": "d654-ae30-c5c4-ae08.mp3",
+"duration": 0.891
+},
+{
 "text": "화를 내다",
 "file": "d654-b97c-20-b0b4-b2e4.mp3",
 "duration": 0.815
 },
 {
+"text": "화물자동차금지",
+"file": "d654-bb3c-c790-b3d9-cc28-ae08-c9c0.mp3",
+"duration": 1.403
+},
+{
 "text": "화물차",
 "file": "d654-bb3c-cc28.mp3",
 "duration": 0.794
+},
+{
+"text": "화물하역시주의",
+"file": "d654-bb3c-d558-c5ed-c2dc-c8fc-c758.mp3",
+"duration": 1.177
 },
 {
 "text": "화분",
@@ -22139,6 +23089,11 @@
 "duration": 0.693
 },
 {
+"text": "환전소",
+"file": "d658-c804-c18c.mp3",
+"duration": 0.864
+},
+{
 "text": "환풍기",
 "file": "d658-d48d-ae30.mp3",
 "duration": 0.873
@@ -22184,6 +23139,11 @@
 "duration": 0.685
 },
 {
+"text": "회로시험기",
+"file": "d68c-b85c-c2dc-d5d8-ae30.mp3",
+"duration": 0.971
+},
+{
 "text": "회사",
 "file": "d68c-c0ac.mp3",
 "duration": 0.527
@@ -22219,9 +23179,24 @@
 "duration": 0.521
 },
 {
+"text": "회의실",
+"file": "d68c-c758-c2e4.mp3",
+"duration": 0.795
+},
+{
 "text": "회전",
 "file": "d68c-c804.mp3",
 "duration": 0.572
+},
+{
+"text": "회전체에 신체끼임 주의",
+"file": "d68c-c804-ccb4-c5d0-20-c2e0-ccb4-b07c-c784-20-c8fc-c758.mp3",
+"duration": 1.748
+},
+{
+"text": "회전하는 공구 또는 공작물 등에 말려 들어가는 경우",
+"file": "d68c-c804-d558-b294-20-acf5-ad6c-20-b610-b294-20-acf5-c791-bb3c-20-b4f1-c5d0-20-b9d0-b824-20-b4e4-c5b4-ac00-b294-20-acbd-c6b0.mp3",
+"duration": 3.595
 },
 {
 "text": "횡단금지",
@@ -22374,9 +23349,19 @@
 "duration": 0.814
 },
 {
+"text": "휴대전화를 사용금지",
+"file": "d734-b300-c804-d654-b97c-20-c0ac-c6a9-ae08-c9c0.mp3",
+"duration": 1.647
+},
+{
 "text": "휴대폰",
 "file": "d734-b300-d3f0.mp3",
 "duration": 0.72
+},
+{
+"text": "휴대폰 사용금지",
+"file": "d734-b300-d3f0-20-c0ac-c6a9-ae08-c9c0.mp3",
+"duration": 1.434
 },
 {
 "text": "휴일",
