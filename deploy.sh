@@ -34,7 +34,8 @@ python3 build_bilingual.py
 
 step "2/5  syntax gates"
 python3 - <<'PY'
-import re
+import os, re
+os.makedirs("/tmp/opencode", exist_ok=True)
 html = open("index.html", encoding="utf-8").read()
 bodies = re.findall(r"<script>(.*?)</script>", html, re.S)
 open("/tmp/opencode/_deploy_app.js", "w", encoding="utf-8").write("\n".join(bodies))

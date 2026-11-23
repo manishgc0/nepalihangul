@@ -123,69 +123,18 @@ pattern is available from the first screen.
 | **Hearts** | 5 hearts, one lost per wrong review answer, one restored per completed lesson, plus one every 12 minutes. Review is blocked at 0 hearts. |
 | **Combo** | Consecutive correct answers multiply review XP (×1 → ×2 at a 20-answer run in 25% steps). Best combo is recorded. |
 | **Quests** | Three rotating daily missions drawn from a seven-item pool seeded by the date; progress bars and automatic XP on completion. |
-| **Achievements** | 17 stamps (first lesson, 3/7-day streak, levels, combos, 10/50 cards, perfect quiz, 30 words met, 10 course days, first/4/all-8 scenes, runner 10/25). |
+| **Achievements** | 17 stamps (first lesson, 3/7-day streak, levels, combos, 10/50 cards, perfect quiz, 30/50 words met, 10/20 course days, first/4/all-8 scenes, stroke writing). |
 | **SRS deck** | Every word met enters a 6-box system (0/1/2/4/8/16 days). Correct answers promote; misses demote and return tomorrow. Picture words show the image, text-only words show the Hangul. |
 | **Review deck** | 10 cards per session, pulled from due + unseen vocabulary, with feedback, XP, hearts, and a session summary. |
-| **Hangul Runner** | A separate 3-lane canvas game — not a flashcard flow. See below. |
 | **Scene Missions** | Bunpo's task-based lesson format, eight scenes in Nepali. See below. |
 | **SFX** | Bunpo's own correct / wrong / complete / streak samples. See below. |
 
 Hooks: course day completion (`toggleDayComplete`), lesson completion
 (`awardBunpoCompletion`), quiz answers (`checkQuizAnswer`), vocabulary taps
-(listen quest), the review deck (`scheduleWord`) and the runner
-(`runnerFinish`).
+(listen quest), and the review deck (`scheduleWord`).
 
 `Escape` closes the lesson or review modal. All motion respects
 `prefers-reduced-motion`.
-
-## Hangul Runner (`runner` screen)
-
-A three-lane endless runner built on a 2D canvas — deliberately a *different*
-kind of game from the SRS deck. Reachable from the home card, the game hub card
-and the game tab (`runner` maps to the `game` nav item).
-
-- **Loop** — a 60-second run. One row of two syllable tiles drops at a time,
-  one correct and one decoy; the romanized prompt (`ga`, `nyeo`, `chi`…) sits in
-  the top bar.
-- **Audio** — every spawn speaks the syllable (`say(item.ch)`), so the ear gets
-  the sound at the same moment the eye gets the glyph. The prompt's 🔊 button
-  replays the current target on demand. Speech is clipped by the next row on
-  purpose — `say()` pauses the previous clip — so the row's syllable lands just
-  before you commit to a lane.
-- **Mute** — the 🔔/🔕 pill in the score row flips `RUN.muted` and persists to
-  `localStorage["hangul_runner_muted"]`, so a muted runner stays muted across
-  reloads. Separate from the global `hangul_sfx_off`, because constant speech is
-  louder than the rest of the app. Muting cancels the in-flight clip and the
-  WebAudio blips with it.
-- **Decision** — steer into the lane holding the matching glyph. The judgment
-  line is the dashed rule across the player capsule. Correct = score + combo +
-  speed (+ramp px/s per hit, capped at the preset's max). Wrong glyph = one of
-  three hearts and a screen shake. Dodging into the empty lane breaks the combo.
-- **Pace** — three presets, chosen before a run or switched live mid-run:
-
-  | key | pill | scroll speed | per hit | per miss | row gap |
-  | --- | --- | --- | --- | --- | --- |
-  | `slow` | 0.7x | 125 → 360 px/s | +5 | −22 | 0.46 s |
-  | `normal` | 1.0x | 190 → 540 px/s | +8 | −34 | 0.35 s |
-  | `fast` | 1.4x | 265 → 780 px/s | +12 | −46 | 0.27 s |
-
-  Set it from the 🏃 pill in the score row (cycles slow → normal → fast) or from
-  the three-button chooser on the ready card. Persisted in
-  `localStorage["hangul_runner_speed"]`. Switching mid-run retunes the live `RUN`
-  object — it snaps `speed` to the new preset's floor and tightens `gap` — rather
-  than re-rendering, because `renderApp()` would tear down the canvas and the run
-  with it. Slow is genuinely one-handed on a phone.
-- **Input** — `←`/`→`, `A`/`D`, click/tap the left or right half of the field,
-  horizontal swipe, or the two on-screen arrow pads.
-- **Item pool** — 14 basic consonants × 10 basic vowels (140 syllables) with
-  spelling-based Revised Romanization; decoys always share the vowel or the
-  consonant so the choice is a real discriminator (야 vs 요, 크 vs 카).
-- **Rewards** — XP `6 + score*3 + combo*1.5` (cap 140), `runnerBest`,
-  `runnerRuns`, `runnerCorrect` in `hangul_game_v1`, plus the `runner_10` /
-  `runner_25` achievements and the combo/correct daily quests.
-- **Rendering** — DPR-aware canvas, theme colours read from the CSS custom
-  properties so it follows light/dark, top fog so rows dissolve into the HUD
-  instead of hard-clipping, ambient glyph field for speed feel, WebAudio blips.
 
 ## Scene Missions (`mission` screen)
 
@@ -231,23 +180,14 @@ re-queues the step at the end of the lesson and shows the correct line.
 
 Every sound in the app is a sample lifted from the Bunpo APK
 (`com.bunpoapp.apk`, `res/raw/`), re-encoded to mono 44.1 kHz ~80 kbps MP3 so
-they load fast over the static server. There are no synthesized tones left —
-the runner used to carry five WebAudio oscillator blips and those are gone.
+they load fast over the static server.
 
 | File | Bunpo source | Used for |
 | --- | --- | --- |
 | `audio/sfx/correct.mp3` | `correct.m4a` | correct quiz answer, correct review card, correct lesson/mission step, sound-on confirmation |
 | `audio/sfx/wrong.mp3` | `wrong.m4a` | wrong quiz answer, wrong review card |
-| `audio/sfx/complete.mp3` | `complete.m4a` | lesson/mission completion, end of a runner |
+| `audio/sfx/complete.mp3` | `complete.m4a` | lesson/mission completion |
 | `audio/sfx/streak.mp3` | `streak.mp3` | streak milestone (fires once a day at streak ≥ 2) |
-| `audio/sfx/correct_soft.mp3` | `sound_correct_soft.mp3` | runner: correct lane |
-| `audio/sfx/wrong_soft.mp3` | `sound_wrong_soft.mp3` | runner: wrong lane |
-| `audio/sfx/tick.mp3` | `intercom_sent.mp3` | runner: lane change |
-| `audio/sfx/start.mp3` | `intercom_received.mp3` | runner: run begins |
-
-The runner gets the soft variants because its events fire every ~1 s and the full
-`correct.m4a` jingle would step on itself; `intercom_sent.mp3` is a 0.24 s click,
-which is exactly the right length for a lane switch.
 
 Three Bunpo assets are deliberately unused: `intercom_failed.mp3`,
 `intercom_operator.mp3`, and `ring.mp3` (a 6.3 s ringtone). None of them map to
@@ -259,12 +199,6 @@ the cached `Audio` element so overlapping plays don't cut each other off, and a
 120 ms per-name throttle stops double-fire from rapid taps. Muting is a single
 key: `localStorage["hangul_sfx_off"]` (`"1"` = muted), toggled by the 🔔/🔕
 button on the game hub and the missions screen.
-
-The runner has its own switch on top of that — `RUN.muted`, the 🔔 pill in the
-score row, persisted in `localStorage["hangul_runner_muted"]`. Every runner
-sound (lane tick, run start, soft correct/wrong, completion) is guarded by it,
-so muting the runner does not mute the rest of the app and vice versa. The
-per-row syllable speech respects it too.
 
 ## Letter pronunciation audio
 
